@@ -1,6 +1,6 @@
 {
-    "name": "colby-college/some-site",
-    "description": "Configuration project for the some-site.colby.edu site",
+    "name": "colby-college/colby.edu",
+    "description": "Configuration project for the colby.edu site",
     "type": "project",
     "require": {
         "johnpbloch/wordpress-core-installer": "^2.0",
@@ -16,16 +16,15 @@
         "wpackagist-plugin/duplicate-post": "^4.3",
         "wpackagist-plugin/wordpress-seo": "^17.8",
         "wpackagist-plugin/cloudflare": "^4.5.1",
-        "devgeniem/wp-redis-object-cache-dropin": "^1.6",
-        "wpackagist-plugin/cache-control": "^2.2.3",
-        "colbycommunications/colby-base-theme": "dev-master",
         "wpackagist-plugin/public-post-preview": "^2.9.1",
         "wp-graphql/wp-graphql": "^1.6.10",
         "wp-graphql/wp-graphiql": "^1.0",
         "pristas-peter/wp-graphql-gutenberg": "^0.3.4",
         "wpackagist-plugin/wp-saml-auth": "^1.1.0",
         "wpackagist-plugin/siteimprove": "1.2.1",
-        "wpackagist-plugin/query-monitor": "^3.7.1"
+        "wpackagist-plugin/query-monitor": "^3.7.1",
+        "wp-cli/wp-cli-bundle": "^2.4",
+        "psy/psysh": "^0.10.4"
     },
     "authors": [
         {
@@ -34,10 +33,6 @@
         }
     ],
     "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/ColbyCommunications/colby-base-theme"
-        },
         {
             "type": "git",
             "url": "https://github.com/ColbyCommunications/colby-groups"

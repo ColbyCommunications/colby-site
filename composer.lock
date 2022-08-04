@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f79be63f73f16a28ef0e95f965f0a71f",
+    "content-hash": "bb6af9a2792567d45b6b2822c5973c9d",
     "packages": [
         {
             "name": "colbycommunications/colby-college-theme",
@@ -43,7 +43,7 @@
                 "type": "zip",
                 "url": "https://satis.colby.edu/dist/colbycommunications/colby-ticket/colbycommunications-colby-ticket-48a50e77d781470f2ba01426f64dec1ce6e1d53b-zip-2804bc.zip",
                 "reference": "48a50e77d781470f2ba01426f64dec1ce6e1d53b",
-                "shasum": "530ec1450b47a07402403a30e9740e54dbb825e8"
+                "shasum": "a547d0b4b4821c4da8f4b4c113d64e329e99f492"
             },
             "type": "wordpress-plugin",
             "authors": [
@@ -58,6 +58,34 @@
                 "wordpress"
             ],
             "time": "2022-07-12T13:03:47+00:00"
+        },
+        {
+            "name": "colbycommunications/presspermit-pro",
+            "version": "3.7.10",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:ColbyCommunications/presspermit-pro.git",
+                "reference": "ace91cfe7de10d99f8e54e3ae774522a1ac9ff6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://satis.colby.edu/dist/colbycommunications/presspermit-pro/colbycommunications-presspermit-pro-ace91cfe7de10d99f8e54e3ae774522a1ac9ff6d-zip-2103a7.zip",
+                "reference": "ace91cfe7de10d99f8e54e3ae774522a1ac9ff6d",
+                "shasum": "75e926d8bbbb8c9fb03f565a3ce54d76c46f3d4c"
+            },
+            "type": "wordpress-plugin",
+            "authors": [
+                {
+                    "name": "Brandon Waltz",
+                    "email": "brandon.waltz@colby.edu"
+                }
+            ],
+            "description": "Premium Publish Press Permissions plugin",
+            "homepage": "https://github.com/colbycommunications/presspermit-pro",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2022-08-04T19:02:42+00:00"
         },
         {
             "name": "composer/ca-bundle",

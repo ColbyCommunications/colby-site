@@ -22,7 +22,8 @@
 		"colbycommunications/colby-ticket": "^1.0.0",
 		"wpackagist-plugin/wp-search-with-algolia": "^2.1.0",
 		"vlucas/phpdotenv": "^5.4",
-		"wpackagist-plugin/press-permit-core": "^3.7.10"
+		"wpackagist-plugin/press-permit-core": "^3.7.10",
+		"wpackagist-plugin/user-switching": "^1.7.0"
 	},
 	"authors": [
 		{

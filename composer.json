@@ -1,5 +1,5 @@
 {
-	"name": "colbycommunications/colby.edu",
+	"name": "colbycommunications/colby-site",
 	"description": "Configuration project for the colby.edu site",
 	"type": "project",
 	"require": {

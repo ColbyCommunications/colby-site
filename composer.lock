@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e8ef95126b759282545263fd4ba6dc6",
+    "content-hash": "cfe1f77a591671bee7e8235692cc1113",
     "packages": [
         {
             "name": "colbycommunications/colby-college-theme",
@@ -5273,6 +5273,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/header-footer/"
+        },
+        {
+            "name": "wpackagist-plugin/press-permit-core",
+            "version": "3.7.10",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/press-permit-core/",
+                "reference": "tags/3.7.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/press-permit-core.3.7.10.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/press-permit-core/"
         },
         {
             "name": "wpackagist-plugin/public-post-preview",

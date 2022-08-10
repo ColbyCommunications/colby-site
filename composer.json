@@ -24,7 +24,8 @@
 		"vlucas/phpdotenv": "^5.4",
 		"wpackagist-plugin/press-permit-core": "^3.7.10",
 		"wpackagist-plugin/user-switching": "^1.7.0",
-		"colbycommunications/presspermit-pro": "^3.7.10"
+		"colbycommunications/presspermit-pro": "^3.7.10",
+		"wpackagist-plugin/disable-comments": "^2.4.1"
 	},
 	"authors": [
 		{

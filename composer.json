@@ -27,7 +27,8 @@
 		"colbycommunications/presspermit-pro": "^3.7.10",
 		"wpackagist-plugin/disable-comments": "^2.4.1",
 		"wpackagist-plugin/advanced-gutenberg": "2.14.1",
-		"wpackagist-plugin/term-management-tools": "2.0.1"
+		"wpackagist-plugin/term-management-tools": "2.0.1",
+		"colbycommunications/capabilities-pro": "2.5.0"
 	},
 	"authors": [
 		{

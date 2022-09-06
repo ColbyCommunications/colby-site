@@ -42,6 +42,8 @@ runtime:
 dependencies:
   php:
     composer/composer: "^2"
+  nodejs:
+    n: "*"
 
 # The hooks that will be performed when the package is deployed.
 hooks:

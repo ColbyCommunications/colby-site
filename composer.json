@@ -28,7 +28,8 @@
 		"wpackagist-plugin/disable-comments": "^2.4.1",
 		"wpackagist-plugin/advanced-gutenberg": "2.14.1",
 		"wpackagist-plugin/term-management-tools": "2.0.1",
-		"colbycommunications/capabilities-pro": "2.5.0"
+		"colbycommunications/capabilities-pro": "2.5.0",
+		"wpackagist-plugin/wordpress-importer": "0.7"
 	},
 	"authors": [
 		{

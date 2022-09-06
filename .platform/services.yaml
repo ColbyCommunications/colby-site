@@ -5,4 +5,4 @@
 
 mysqldb:
     type: mysql:10.2
-    disk: 2048
+    disk: 2000

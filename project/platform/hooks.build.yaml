@@ -22,15 +22,32 @@ curl -sS https://platform.sh/cli/installer | php
 ###          NODE           ###
 ###############################
 unset NPM_CONFIG_PREFIX
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | dash
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$PLATFORM_APP_DIR/.nvm"
+
+# Link cache with app
+if [ ! -d "$PLATFORM_CACHE_DIR/.nvm" ]; then
+    mkdir -p $PLATFORM_CACHE_DIR/.nvm
+fi
+ln -s $PLATFORM_CACHE_DIR/.nvm $NVM_DIR
+
+# Check for Node.js version and install if not present
+if [ ! -d "$PLATFORM_CACHE_DIR/.nvm/versions/node/$NODE_VERSION" ]; then
+
+    # Get nvm install script if correct version not present
+    export NVM_INSTALL_FILE="${PLATFORM_CACHE_DIR}/nvm_${NVM_VERSION}_install.sh"
+    if [ ! -f "$NVM_INSTALL_FILE" ]; then
+        wget -nc -O "$NVM_INSTALL_FILE" "https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSION/install.sh"
+    fi
+
+    # Install, automatically using NODE_VERSION
+    bash $NVM_INSTALL_FILE
+fi
+
+# Activate nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm current
-nvm install 16.13.1
 
-
-unset NPM_CONFIG_PREFIX
-nvm use 16.13.1
+# Use the specified version
+nvm use "$NODE_VERSION"
 
 # run npm install in all colby dependencies
 ./scripts/dependencies-run-install-build.sh

@@ -19,6 +19,88 @@ Field mappings:
 - Summary - post-meta-fields.summary
 - Image - everything can be found in media_details, not sure what you need exactly
 
+### Directory Data
+
+Example Workday Data:
+
+```json
+{
+	"Report_Entry": [
+		{
+			"CF_Adjusted_Work_Email":"joe.blow@colby.edu",
+			"supervisoryOrganization":"President's Office - JM (Jane Doe)",
+			"CF_Superior_Org_Level_09_ID":null,
+			"CF_Superior_Org_Level_05_ID":null,
+			"Superior_Organization_Level_07_Away":null,
+			"Superior_Organization_Level_10_Away":null,
+			"suffix":null,
+			"organizationsManaged":null,
+			"primaryWorkEmail":"joe.blow@colby.edu",
+			"CF_Executive_Level_Assigned_Organization":"EX120 Vice President and Chief Financial Officer",
+			"Superior_Organization_Level_08_Away":null,
+			"businessTitle":"Professor; Dean of the College, Emeritus; College Historian",
+			"Academic_Units":"Colby College",
+			"CF_Superior_Org_Level_01_ID":"S0000002",
+			"superiorOrgID":"S0000002",
+			"preferredSuffix":null,
+			"Superior_Organization_Level_01_Away":"President's Office (David Greene)",
+			"CF_Superior_Org_Level_06_ID":null,
+			"workAddressCity":"Waterville",
+			"workSpaceSuperiorLocation":null,
+			"workAddress1":"4000 Mayflower Hill Drive",
+			"referenceID":"xxxxxxxxx",
+			"Superior_Organization_Level_05_Away":null,
+			"Superior_Organization_Level_02_Away":"Colby College (David Greene)",
+			"firstName":"Joe",
+			"Job_Family_Group":"Administration",
+			"CF_Superior_Org_Level_02_ID":"xxxxxxx",
+			"salutation":null,
+			"Cost_Center_ID":"xxxxxxxxxx",
+			"lastName":"Blow",
+			"workSpaceLocation":null,
+			"primaryWorkPhone":null,
+			"jobFamilyGroup":"Administration",
+			"workerPhotos":null,
+			"CF_Superior_Org_Level_03_ID":null,
+			"orgDisplayID":"President's Office - JM (Jane Doe)",
+			"CF_Superior_Org_Level_07_ID":null,
+			"employeeID":"xxxxxxxxxxxx",
+			"Superior_Organization_Level_04_Away":null,
+			"Cost_Center_Name":"College Historian",
+			"CF_Superior_Org_Level_10_ID":null,
+			"CF_Has_Sabbatical_Leave_Type":"0",
+			"CF_Superior_Org_Level_04_ID":null,
+			"Superior_Organization_Level_03_Away":null,
+			"CF_Superior_Org_Level_08_ID":null,
+			"supervisoryOrgHierarchy":"Colby College (David Greene) > President's Office (David Greene) > President's Office - JM (Jane Doe)",
+			"superiorOrg":"President's Office (David Greene)",
+			"jobProfileName":"College Historian",
+			"employeeType":"Temporary",
+			"workAddressState":"Maine",
+			"preferredFirstName":"Joe",
+			"workdayID":"xxxxxxxxxxxx",
+			"workAddressCountry":"United States of America",
+			"middleName":"H.",
+			"location":"Colby College",
+			"workAddressPostalCode":"04901",
+			"Superior_Organization_Level_06_Away":null,
+			"primaryWorkSpace":null,
+			"Superior_Organization_Level_09_Away":null
+		},
+		...
+	]
+}
+
+```
+
+CX Profile JSON Endpoint: https://cxweb.colby.edu/webservices/profilejson/brandon.waltz/web
+
+We can probably use the CX data to get all the data we need as the fields: homephone, country, address1, address2, firstname, lastname, state, cellphone, zip, building, room, suffixname, dept, city, middlename, nickname or (preferred name), phone are synced with Workday every hour. The CX data has the bios.
+
+We'll still need to get titles from the Workday data as those are not synced with CX, so CX will be inaccurate.
+
+We'll probably need some cron job that pulls the WD data and rebuilds the directory every day to keep it up to date when new people come or people leave. But most of the fields, beside title, can come from CX.
+
 ***
 
 ## How to Use This Repo as a Template

@@ -101,6 +101,8 @@ We'll still need to get titles from the Workday data as those are not synced wit
 
 We'll probably need some cron job that pulls the WD data and rebuilds the directory every day to keep it up to date when new people come or people leave. But most of the fields, beside title, can come from CX.
 
+I don't believe any API has pronouns. This will most likely need to come from WP.
+
 ***
 
 ## How to Use This Repo as a Template

@@ -1,6 +1,25 @@
-# WordPress template for Platform.sh
+# Colby.edu Platform Site
 
-This project provides a starter kit for Colby College WordPress projects (forked from University of Missouri) hosted on Platform.sh. It is built using Composer, via the popular <a href="https://github.com/johnpbloch/wordpress">johnpbloch/wordpress</a> script.
+## API Endpoints
+
+### All courses for an academic year
+https://cxweb.colby.edu/webservices/coursesjson/2223/
+
+### All courses for a department
+https://cxweb.colby.edu/webservices/subjectcoursesjson/2223/HI/ (history code used)
+
+### 5 Curated News Stories
+https://feature-wp-api-r2smz6y-4nvswumupeimi.us-4.platformsh.site/wp-json/wp/v2/posts?per_page=5&tags=561&_embed=1 (we'll release this to news.colby.edu when approved)
+
+Field mappings:
+
+- Headline - title.rendered
+- Primary Category - post-meta-fields.primary_category
+- URL - link
+- Summary - post-meta-fields.summary
+- Image - everything can be found in media_details, not sure what you need exactly
+
+***
 
 ## How to Use This Repo as a Template
 

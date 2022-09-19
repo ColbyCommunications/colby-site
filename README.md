@@ -11,6 +11,10 @@ https://cxweb.colby.edu/webservices/subjectcoursesjson/2223/HI/ (history code us
 ### 5 Curated News Stories
 https://feature-wp-api-r2smz6y-4nvswumupeimi.us-4.platformsh.site/wp-json/wp/v2/posts?per_page=5&tags=561&_embed=1 (we'll release this to news.colby.edu when approved)
 
+### Majors and Minors (not final)
+
+https://www.colby.edu/communications/feeds/majors_minors.json
+
 Field mappings:
 
 - Headline - title.rendered

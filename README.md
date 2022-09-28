@@ -3,14 +3,14 @@
 ## API Endpoints
 
 ### All courses for an academic year
-https://author.colby.edu/courses/
+https://www.colby.edu/endpoints/v1/courses/
 
 ### All courses for a department
-https://author.colby.edu/subjectcourses/AR (Art used)
+https://www.colby.edu/endpoints/v1/subjectcourses/AR (Art used)
 
 ### Majors and Minors (not final)
 
-https://author.colby.edu/majorsminors/
+https://www.colby.edu/endpoints/v1/majorsminors
 
 ### 5 Curated News Stories
 https://feature-wp-api-r2smz6y-4nvswumupeimi.us-4.platformsh.site/wp-json/wp/v2/posts?per_page=5&tags=561&_embed=1 (we'll release this to news.colby.edu when approved)

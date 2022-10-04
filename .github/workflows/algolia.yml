@@ -1,6 +1,8 @@
 name: Algolia Aggregation
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *"
 env:
   ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
   ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}

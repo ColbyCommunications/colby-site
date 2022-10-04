@@ -5,7 +5,7 @@ env:
   ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
   ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
 jobs:
-  scrape_youtube:
+  aggregate_algolia:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code

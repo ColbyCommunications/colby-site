@@ -70,8 +70,9 @@ async function main() {
 		}
 
 		for (let i = 0; i < hits.length; i++) {
+			let result = {};
 			if (indicies[k].indexName === "Identity Site") {
-				let result = {
+				result = {
 					post_title: hits[i].title,
 					content: hits[i].excerpt,
 					permalink: "https://identity.colby.edu" + hits[i].uri,
@@ -79,7 +80,7 @@ async function main() {
 					objectID: indicies[k].indexName + "-" + i,
 				};
 			} else if (indicies[k].indexName === "prod_news_videos") {
-				let result = {
+				result = {
 					post_title: hits[i].title,
 					content: hits[i].description,
 					permalink: "https://www.youtube.com/watch?v=" + hits[i].videoId,
@@ -87,7 +88,7 @@ async function main() {
 					objectID: indicies[k].indexName + "-" + i,
 				};
 			} else {
-				let result = {
+				result = {
 					..._omit(hits[i], ["objectID"]),
 					originIndexLabel: indicies[k].label,
 					objectID: indicies[k].indexName + "-" + i,

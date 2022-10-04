@@ -88,11 +88,13 @@ async function main() {
 					objectID: indicies[k].indexName + "-" + i,
 				};
 			} else {
-				result = {
-					..._omit(hits[i], ["objectID"]),
-					originIndexLabel: indicies[k].label,
-					objectID: indicies[k].indexName + "-" + i,
-				};
+				if (hits[i].post_title !== "_healthcheck") {
+					result = {
+						..._omit(hits[i], ["objectID"]),
+						originIndexLabel: indicies[k].label,
+						objectID: indicies[k].indexName + "-" + i,
+					};
+				}
 			}
 
 			finishedResults.push(result);

@@ -2,6 +2,10 @@
 
 ## API Endpoints
 
+### Algolia Index
+
+prod_colbyedu_aggregated
+
 ### All courses for an academic year
 https://www.colby.edu/endpoints/v1/courses/
 

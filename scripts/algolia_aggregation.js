@@ -101,7 +101,9 @@ async function main() {
 		}
 	}
 
-	await aggregatedIndex.saveObjects(finishedResults).wait();
+	await aggregatedIndex
+		.saveObjects(finishedResults, { autoGenerateObjectIDIfNotExist: true })
+		.wait();
 }
 
 main().catch(console.error);

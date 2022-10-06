@@ -1,0 +1,104 @@
+add_action('gform_after_submission', 'update_directory_profile', 10, 2);
+function update_directory_profile($entry, $form)
+{
+/*
+1 - bio
+2- image
+5 - dept
+6 - phone #
+7 - location
+8.1 - Remove image
+9 - CV
+10 - employee ID
+11 - pronouns
+12 - pref name
+
+ */
+ $employee_id      = intval($entry[10]);
+ $preferred_name   = $entry[12];
+ $pronouns         = $entry[11];
+ $phone_number     = $entry[6];
+ $location         = $entry[7];
+ $department       = $entry[5];
+ $image            = $entry[2];
+ $remove_image     = $entry['8.1'];
+ $curriculum_vitae = $entry[9];
+ $bio              = $entry[1];
+
+ // get person post by employee ID
+ $args = array(
+  'post_type'  => 'person',
+  'meta_query' => array(
+   array(
+    'key'     => 'employee_id',
+    'value'   => $employee_id,
+    'compare' => '=',
+   ),
+  ),
+ );
+
+ $person_post     = get_posts($args);
+ $person_metadata = get_post_meta($person_post[0]->ID);
+
+ $preferred_name_changed   = false;
+ $pronouns_changed         = false;
+ $phone_number_changed     = false;
+ $location_changed         = false;
+ $department_changed       = false;
+ $curriculum_vitae_changed = false;
+ $bio_changed              = false;
+
+ if ($preferred_name) {
+  $preferred_name_changed = true;
+ }
+
+ if ($pronouns) {
+  $pronouns_changed = true;
+ }
+
+ if ($phone_number) {
+  $phone_number_changed = true;
+ }
+
+ if ($location) {
+  $location_changed = true;
+ }
+
+ if ($department) {
+  $department_changed = true;
+ }
+
+ if ($curriculum_vitae) {
+  $curriculum_vitae_changed = true;
+ }
+
+ if ($bio) {
+  $bio_changed = true;
+ }
+
+ //update post
+ $metaValues = array(
+  'first_name'               => $preferred_name_changed ? $preferred_name : $person_metadata['first_name'][0],
+  'pronouns'                 => $pronouns_changed ? $pronouns : $person_metadata['pronouns'][0],
+  'phone'                    => $phone_number_changed ? $phone_number : $person_metadata['phone'][0],
+  'building'                 => $location_changed ? $location : $person_metadata['building'][0],
+  'department'               => $department_changed ? $department : $person_metadata['department'][0],
+  'cv'                       => $curriculum_vitae_changed ? $curriculum_vitae : $person_metadata['cv'][0],
+  'bio'                      => $bio_changed ? $bio : $person_metadata['bio'][0],
+
+  // save override fields
+  'preferred_name_changed'   => $preferred_name_changed,
+  'pronouns_changed'         => $pronouns_changed,
+  'phone_number_changed'     => $phone_number_changed,
+  'location_changed'         => $location_changed,
+  'department_changed'       => $department_changed,
+  'curriculum_vitae_changed' => $curriculum_vitae_changed,
+  'bio_changed'              => $bio_changed,
+ );
+ wp_update_post(array(
+  'ID'         => $person_post[0]->ID,
+  'post_title' => $preferred_name_changed ? $preferred_name . " " . $person_metadata['last_name'][0] : $person_metadata['first_name'][0] . " " . $person_metadata['last_name'][0],
+  'meta_input' => $metaValues,
+ ));
+
+}

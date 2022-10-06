@@ -24,6 +24,8 @@
 #Ignore mac stuff
 *.DS_Store
 
+node_modules
+
 # Ignore .env files as they are personal
 /*.env
 !example.lando.env

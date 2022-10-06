@@ -2,14 +2,25 @@
 
 ## API Endpoints
 
+### Algolia Index
+
+prod_colbyedu_aggregated
+
 ### All courses for an academic year
-https://cxweb.colby.edu/webservices/coursesjson/2223/
+https://www.colby.edu/endpoints/v1/courses/
 
 ### All courses for a department
-https://cxweb.colby.edu/webservices/subjectcoursesjson/2223/HI/ (history code used)
+https://www.colby.edu/endpoints/v1/subjectcourses/AR (Art used)
+
+### Majors and Minors (not final)
+
+https://www.colby.edu/endpoints/v1/majorsminors
 
 ### 5 Curated News Stories
-https://feature-wp-api-r2smz6y-4nvswumupeimi.us-4.platformsh.site/wp-json/wp/v2/posts?per_page=5&tags=561&_embed=1 (we'll release this to news.colby.edu when approved)
+https://news.colby.edu/wp-json/wp/v2/posts?per_page=5&tags=561&_embed=1
+
+### 5 Curated News People Stories
+https://news.colby.edu/wp-json/wp/v2/posts?per_page=5&tags=569&_embed=1
 
 Field mappings:
 

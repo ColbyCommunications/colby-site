@@ -1,3 +1,7 @@
+
+add_theme_support('post-thumbnails');
+add_post_type_support('person', 'thumbnail');
+
 function updateStaffDirectory()
 {
  $directory_data = json_decode(file_get_contents("../extra.json"), true)['Report_Entry'];
@@ -26,22 +30,36 @@ function deletePeople($directory_data)
     $WDEmployeeID = intval($WDPerson['employeeID']);
     if ($employee_id === $WDEmployeeID) {
      $match = true;
+     break;
     }
    }
    // If record is missing from WD, delete the record in the DB
    if ($match != true) {
+    wp_delete_attachment($post->ID, true);
     wp_delete_post($post->ID, true);
    }
   }
  }
 }
 
+// use phpseclib3\Crypt\RSA;
+use phpseclib3\Net\SFTP;
+
+require_once ABSPATH . 'wp-admin/includes/media.php';
+require_once ABSPATH . 'wp-admin/includes/file.php';
+require_once ABSPATH . 'wp-admin/includes/image.php';
+
 function getNewPeople($directory_data)
 {
+//  $key  = PLATFORM_VARIABLES['sftp_pw'];
+ $sftp = new SFTP('colby0.colby.edu');
+ $sftp->login(PLATFORM_VARIABLES['sftp_username'], PLATFORM_VARIABLES['sftp_pw']);
+
  // Loop through the WD array
  foreach ($directory_data as $WDPerson) {
   // Assign variables to desired WD fields
   $WDEmployeeID    = intval($WDPerson['employeeID']);
+  $WDIDString      = ($WDPerson['employeeID']);
   $WDPrefFirstName = $WDPerson['preferredFirstName'];
   $WDLastName      = $WDPerson['lastName'];
   if (!$WDPerson['primaryWorkEmail']) {
@@ -108,7 +126,6 @@ function getNewPeople($directory_data)
   $CXExpertise      = "";
   $CXExpertiseArray = [];
   if ($CXPerson['expertise1']) {
-   //  die(var_dump($CXPerson['expertise1']));
    for ($i = 1; $i <= 20; $i++) {
     if (($CXPerson['expertise' . strval($i)])) {
      $CXAOEValue = $CXPerson['expertise' . strval($i)];
@@ -156,6 +173,7 @@ function getNewPeople($directory_data)
   $post = array(
    'post_title'   => $WDPrefFirstName . " " . $WDLastName,
    'post_content' => "",
+
    'post_type'    => 'person',
    'post_status'  => 'publish',
    'meta_input'   => array(
@@ -178,10 +196,30 @@ function getNewPeople($directory_data)
   $ID              = $DBMatchingPost[0]->ID;
   $person_metadata = get_post_meta($ID);
 
-  if (count($DBMatchingPost) === 0) {
-   wp_insert_post($post);
-  } else {
+  $photosWithDates = array_filter($sftp->nlist('/web/staticweb/college/WorkdayPhotosTest'), function ($item) {
+   return strpos($item, '.jpg') !== false;
+  });
 
+  $matchingPhoto = false;
+
+  if (count($DBMatchingPost) === 0) {
+   set_time_limit(0);
+   $ID = wp_insert_post($post);
+
+   foreach ($photosWithDates as $photo) {
+    if (strpos($photo, $WDIDString) !== false) {
+     $matchingPhoto = $photo;
+     break;
+    }
+   }
+   if ($matchingPhoto) {
+    $imageURL = 'https://colby.edu/college/WorkdayPhotosTest/' . $matchingPhoto;
+    $desc     = $WDPrefFirstName . ' ' . $WDLastName;
+    $image    = media_sideload_image($imageURL, $ID, $desc, 'id');
+    set_post_thumbnail($ID, $image);
+   }
+
+  } else {
    // Update title metadata with latest title from WD
    update_post_meta($ID, 'title', $WDTitle);
 
@@ -212,6 +250,28 @@ function getNewPeople($directory_data)
 
    if (empty($person_metadata['bio_changed'][0])) {
     update_post_meta($ID, 'bio', $CXBio);
+   }
+
+   if (empty($person_metadata['image_changed'][0])) {
+    foreach ($photosWithDates as $photo) {
+     if (strpos($photo, $WDIDString) !== false) {
+      $matchingPhoto = $photo;
+      break;
+     }
+    }
+    if ($matchingPhoto) {
+     $img_parts    = explode("_", $matchingPhoto);
+     $date         = substr($img_parts[1], 0, 8);
+     $imageURL     = 'https://colby.edu/college/WorkdayPhotosTest/' . $matchingPhoto;
+     $desc         = $WDPrefFirstName . ' ' . $WDLastName;
+     $DBImageName  = get_the_post_thumbnail($ID);
+     $DB_img_parts = explode("_", $DBImageName);
+     $DB_date      = substr($DB_img_parts[1], 0, 8);
+     if ($date !== $DB_date) {
+      $image = media_sideload_image($imageURL, $ID, $desc, 'id');
+      set_post_thumbnail($ID, $image);
+     }
+    }
    }
   }
  }
@@ -267,6 +327,8 @@ function update_directory_profile($entry, $form)
  $department_changed       = false;
  $curriculum_vitae_changed = false;
  $bio_changed              = false;
+ $image_changed            = false;
+ $remove_image_changed     = false;
 
  if ($preferred_name) {
   $preferred_name_changed = true;
@@ -296,6 +358,15 @@ function update_directory_profile($entry, $form)
   $bio_changed = true;
  }
 
+ if ($image) {
+  $image_changed = true;
+ }
+
+ if ($remove_image) {
+  $remove_image_changed = true;
+
+ }
+
  //update post
  $metaValues = array(
   'first_name'               => $preferred_name_changed ? $preferred_name : $person_metadata['first_name'][0],
@@ -314,12 +385,20 @@ function update_directory_profile($entry, $form)
   'department_changed'       => $department_changed,
   'curriculum_vitae_changed' => $curriculum_vitae_changed,
   'bio_changed'              => $bio_changed,
+  'image_changed'            => $image_changed,
+  'remove_image_changed'     => $remove_image_changed,
  );
  wp_update_post(array(
   'ID'         => $person_post[0]->ID,
   'post_title' => $preferred_name_changed ? $preferred_name . " " . $person_metadata['last_name'][0] : $person_metadata['first_name'][0] . " " . $person_metadata['last_name'][0],
   'meta_input' => $metaValues,
  ));
+
+ $ID    = $person_post[0]->ID;
+ $desc  = $employee_id;
+ $image = media_sideload_image($image, $ID, $desc, 'id');
+ set_post_thumbnail($ID, $image);
+
 }
 
 updateStaffDirectory();

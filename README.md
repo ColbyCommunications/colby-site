@@ -22,6 +22,12 @@ https://news.colby.edu/wp-json/wp/v2/posts?per_page=5&tags=561&_embed=1
 ### 5 Curated News People Stories
 https://news.colby.edu/wp-json/wp/v2/posts?per_page=5&tags=569&_embed=1
 
+### 5 Latest Academic News Stories
+https://news.colby.edu/wp-json/wp/v2/posts?per_page=5&categories=8,12,14,15&_embed=1
+
+### 5 Latest Faculty Accomplishment Stories
+https://dev-54ta5gq-4nvswumupeimi.us-4.platformsh.site/wp-json/wp/v2/external_post?story_type_slug=faculty-accomplishments&per_page=5&_embed=1
+
 Field mappings:
 
 - Headline - title.rendered

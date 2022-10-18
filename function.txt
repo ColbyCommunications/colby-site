@@ -109,7 +109,7 @@ function getNewPeople($directory_data)
   }
 
   // Set api endpoint url with $emailSlug
-  $url = 'https://cxweb.colby.edu/webservices/profilejson/' . $emailSlug . '/web';
+  $url = 'https://www.colby.edu/endpoints/v1/profile/' . $emailSlug;
   // Initialize a CURL session.
   $ch = curl_init();
   // Return Page contents.

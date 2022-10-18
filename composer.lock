@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21b3ad0c93a88da861c6bf0e9a6e6366",
+    "content-hash": "d5c4fe5e7ef766407e9b5299738a3555",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -6069,6 +6069,24 @@
             "homepage": "https://wordpress.org/plugins/cloudflare/"
         },
         {
+            "name": "wpackagist-plugin/convert-to-blocks",
+            "version": "1.1.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/convert-to-blocks/",
+                "reference": "tags/1.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/convert-to-blocks.1.1.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/convert-to-blocks/"
+        },
+        {
             "name": "wpackagist-plugin/custom-post-type-ui",
             "version": "1.13.1",
             "source": {
@@ -6193,6 +6211,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/query-monitor/"
+        },
+        {
+            "name": "wpackagist-plugin/shortcodes-finder",
+            "version": "1.5.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/shortcodes-finder/",
+                "reference": "tags/1.5.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/shortcodes-finder.1.5.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/shortcodes-finder/"
         },
         {
             "name": "wpackagist-plugin/siteimprove",

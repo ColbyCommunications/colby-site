@@ -442,4 +442,9 @@ function gravity_forms_buttons()
 
 add_filter('gform_rich_text_editor_buttons', 'gravity_forms_buttons', 1, 1);
 
-updateStaffDirectory();
+add_action('directory_sync', 'updateStaffDirectory');
+
+if (! wp_next_scheduled('directory_sync')) {
+    $time = strtotime('today');
+    wp_schedule_event($time, 'daily', 'directory_sync');
+}

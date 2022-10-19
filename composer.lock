@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "707cafcbdfbecb44d3c17fe72f5b8ba2",
+    "content-hash": "23e19c2d0dbd0989c01931095383476e",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -135,12 +135,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/advanced-custom-fields-pro.git",
-                "reference": "56d522b73c680d36ae5e33b3c659d96f00408baa"
+                "reference": "b0d13e0e6780463b3f72700e77b6a854c56fab77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/advanced-custom-fields-pro/colbycommunications-advanced-custom-fields-pro-56d522b73c680d36ae5e33b3c659d96f00408baa-zip-cf6137.zip",
-                "reference": "56d522b73c680d36ae5e33b3c659d96f00408baa"
+                "url": "https://satis.colby.edu/dist/colbycommunications/advanced-custom-fields-pro/colbycommunications-advanced-custom-fields-pro-b0d13e0e6780463b3f72700e77b6a854c56fab77-zip-37333d.zip",
+                "reference": "b0d13e0e6780463b3f72700e77b6a854c56fab77"
             },
             "type": "wordpress-plugin",
             "authors": [
@@ -154,7 +154,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2022-10-19T14:56:34+00:00"
+            "time": "2022-10-19T16:09:28+00:00"
         },
         {
             "name": "colbycommunications/capabilities-pro",
@@ -200,6 +200,31 @@
                 }
             ],
             "time": "2022-09-06T15:56:30+00:00"
+        },
+        {
+            "name": "colbycommunications/colby-college-theme",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ColbyCommunications/colby-college-theme",
+                "reference": "320a8dcb10fcf882692dda450502718ab696ffd2"
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "default-branch": true,
+            "type": "wordpress-theme",
+            "authors": [
+                {
+                    "name": "Brandon Waltz",
+                    "email": "brandon.waltz@colby.edu"
+                }
+            ],
+            "description": "Colby College redesign theme",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2022-10-19T15:48:00+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",
@@ -6246,7 +6271,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "colbycommunications/colby-college-theme": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

@@ -31,11 +31,13 @@
 		"colbycommunications/capabilities-pro": "2.5.0",
 		"wpackagist-plugin/wordpress-importer": "0.7",
 		"wpackagist-plugin/custom-post-type-ui": "1.13.1",
-		"colbycommunications/advanced-custom-fields-pro": "^5.12.3",
+		"colbycommunications/advanced-custom-fields-pro": "^6.0.3",
 		"colbycommunications/gravityforms": "^2.5.15.13",
 		"phpseclib/phpseclib": "~3.0",
 		"wpackagist-plugin/convert-to-blocks": "^1.0.2",
-		"wpackagist-plugin/shortcodes-finder": "^1.5.1"
+		"wpackagist-plugin/shortcodes-finder": "^1.5.1",
+		"wpackagist-plugin/regenerate-thumbnails": "3.1.5",
+		"wpackagist-plugin/timber-library": "^1.21.0"
 	},
 	"authors": [
 		{

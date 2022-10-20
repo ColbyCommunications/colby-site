@@ -25,7 +25,7 @@
         '^/artdept/(.*)$':
           to: '/academics/departments-and-programs/art/$1'
           regexp: true
-        '^/artdept/$':
+        '^/artdept/?$':
           to: '/academics/departments-and-programs/art/'
           regexp: true
         '^/artdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
@@ -36,7 +36,7 @@
         '^/its/(.*)$':
           to: '/people/offices-directory/information-technology-services/$1'
           regexp: true
-        '^/its/$':
+        '^/its/?$':
           to: '/people/offices-directory/information-technology-services/'
           regexp: true
         '^/its/\d{4}/\d{2}/\d{2}/(.+)/?$':

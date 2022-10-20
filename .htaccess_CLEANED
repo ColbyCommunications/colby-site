@@ -286,35 +286,8 @@ RewriteRule ^offcampus/travel-registry/?$ https://life.colby.edu/offcampus/colby
 # Allen Island
 RewriteRule ^allenisland/?$ https://islandcampus.colby.edu [NC,L]
 
-# Labs
-RewriteRule ^linde-packman?$ https://colby.edu/davisconnects/labs/linde-packman/ [NC,L]
-
-# Giving Day
-#RewriteRule ^givingday/?$ https://www.givecampus.com/p5sur2 [NC,L]
-#RewriteRule ^give/?$ https://www.givecampus.com/schools/ColbyCollege/giving-day-2020 [NC,L]
-#RewriteRule ^friendsofathletics/?$ https://www.givecampus.com/schools/ColbyCollege/giving-day-2020-friends-of-athletics [NC,L]
-#RewriteRule ^museum/support/?$ https://www.givecampus.com/oar6fq [NC,L]
-#RewriteRule ^museum/support-a/?$ https://www.givecampus.com/oar6fq [NC,L]
-
-# Giving Day Vanity
-#RewriteRule ^trueblue/?$ https://www.givecampus.com/2rwhpm [NC,L]
-#RewriteRule ^addazero/?$ https://www.givecampus.com/4er7zr [NC,L]
-#RewriteRule ^topup/?$ https://www.givecampus.com/zcjsic [NC,L]
-#RewriteRule ^familychallenge/?$ https://www.givecampus.com/spkhp9 [NC,L]
-
-#RewriteRule ^artchallenge/?$ https://www.givecampus.com/csbyzp [NC,L]
-#RewriteRule ^trueblueart/?$ https://www.givecampus.com/6jfd9u [NC,L]
-
-#RewriteRule ^trueblueathletics/?$ https://www.givecampus.com/m2oqz2 [NC,L]
-#RewriteRule ^teamchallenge/?$ https://www.givecampus.com/mbqo0d [NC,L]
-
-#RewriteRule ^impact/?$ https://www.givecampus.com/84ov8d [NC,L]
-#RewriteRule ^yourimpact/?$ https://www.givecampus.com/3s7uwc [NC,L]
-#RewriteRule ^yourcolby/?$ https://www.givecampus.com/jmais3 [NC,L]
-#RewriteRule ^text/?$ https://www.givecampus.com/f2rvt9 [NC,L]
-
 # AI Announcement
-RewriteRule ^ai/?$ http://artificial-intelligence.colby.edu [NC,L]
+RewriteRule ^ai/?$ https://davisinstituteai.colby.edu/ [NC,L]
 
 # Museum
 RewriteRule ^mymuseumtest(.*)/?$ https://dev-54ta5gq-uovnn7uooax6y.us-4.platformsh.site$1/ [R=301,L]
@@ -461,53 +434,3 @@ RewriteRule ^admission/wp-content/uploads/sites/191/2020/05/2020-2021-Verif-of-I
 RewriteRule ^admission/wp-content/uploads/sites/191/2020/02/2020-2021-Colby-Dependent-Veri-Wksht-V1-1.pdf$ https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf [r=301,NC,L]
 RewriteRule ^admission/(.+)$ https://afa.colby.edu/ [r=301,NC,L]
 RewriteRule ^admission/$ https://afa.colby.edu/ [r=301,NC,L]
-
-RewriteRule ^(/*[_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) $2 [L]
-RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !/_dept_tools/
-RewriteCond %{REQUEST_URI} !/_subsite_admin/
-RewriteCond %{REQUEST_URI} !/_dept_news/
-RewriteCond %{REQUEST_URI} !^/news_events/
-RewriteCond %{REQUEST_URI} !^/academics_cs/
-RewriteCond %{REQUEST_URI} !^/administration_cs/
-RewriteCond %{REQUEST_URI} !^/server-status
-RewriteCond %{REQUEST_URI} !^/webservices
-RewriteCond %{REQUEST_URI} !^/mod_pagespeed_statistics
-RewriteRule . /index.php [L]
-#RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) $2 [L]
-#RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ $2 [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !/_dept_tools/
-RewriteCond %{REQUEST_URI} !/_subsite_admin/
-RewriteCond %{REQUEST_URI} !/_dept_news/
-RewriteCond %{REQUEST_URI} !^/news_events/
-RewriteCond %{REQUEST_URI} !^/academics_cs/
-RewriteCond %{REQUEST_URI} !^/administration_cs/
-RewriteCond %{REQUEST_URI} !^/server-status
-RewriteCond %{REQUEST_URI} !^/webservices
-RewriteCond %{REQUEST_URI} !^/mod_pagespeed_statistics
-RewriteRule . index.php [L]
-</IfModule>
-
-RewriteRule ^(([^\/]*\/)+)_subsite_admin/lobbyAdmin.cfm(.*)$ /news_events/lobby-sheet-administration.cfm?calledfrom=%{SCRIPT_FILENAME}
-RewriteRule ^(([^\/]*\/)+)_subsite_admin/(.*)$ /tools/admin/$3?calledfrom=%{SCRIPT_FILENAME}
-RewriteRule ^(([^\/]*\/)+)_dept_tools/lobbyAdmin.cfm(.*)$ /news_events/lobby-sheet-administration.cfm?calledfrom=%{SCRIPT_FILENAME}
-RewriteRule ^(([^\/]*\/)+)_dept_tools/(.*)$ /tools/admin/$3?calledfrom=%{SCRIPT_FILENAME}
-RewriteRule ^(([^\/]*\/)+)_dept_news/announcements/(.*)$ /tools/department-announcements.cfm?date=$3&calledfrom=%{SCRIPT_FILENAME}
-RewriteRule ^(([^\/]*\/)+)_dept_news/events(.*)$ /tools/department-events.cfm?date=$3&calledfrom=%{SCRIPT_FILENAME}
-RewriteRule ^(([^\/]*\/)+)_dept_news/(.*)$ /tools/department-news.cfm?date=$3&calledfrom=%{SCRIPT_FILENAME}
-
-# SPECIAL PROGRAMS - Mask the 'programs' pages with the actual CommonSpot page names...
-RewriteRule ^administration_cs/special_programs/programs/([0-9]+)/([0-9]+)/(.*)$ /administration_cs/special_programs/view-program.cfm?year=$1&id=$2 [NC]
-
-# MUSEUM OF ART - Mask the search results pages to appear to be on Colby's server.
-RewriteRule ^academics_cs/museum/search/(.*)$ academics_cs/museum/search/index.cfm?search=$1\?%{QUERY_STRING} [NC,L]
-
-# Don't index this PDF
-<FilesMatch "^Mortgage\-Information\-4\.2019\.pdf$">
-Header set X-Robots-Tag "noindex, nofollow"
-</FilesMatch>

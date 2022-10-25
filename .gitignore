@@ -20,6 +20,8 @@
 !/web/wp-content/uploads/index.php
 /web/wp-content/upgrade/*
 !/web/wp-content/upgrade/index.php
+/web/components/*
+/web/wp-content/directory_data/*
 
 #Ignore mac stuff
 *.DS_Store

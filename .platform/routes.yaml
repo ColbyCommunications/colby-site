@@ -44,12 +44,12 @@
           regexp: true
 
         # Visitors
-        '^/visitors/(.*)$':
-          to: '/visitors/$1'
-          regexp: true
-        '^/visitors/$':
-          to: '/visitors/'
-          regexp: true
+        # '^/visitors/(.*)$':
+        #   to: '/visitors/$1'
+        #   regexp: true
+        # '^/visitors/$':
+        #   to: '/visitors/'
+        #   regexp: true
         '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/visitors/$1/'
           regexp: true

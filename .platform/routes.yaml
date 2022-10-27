@@ -133,6 +133,25 @@
         '^/cinemastudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/cinema-studies/$1/'
           regexp: true
+        # Classics
+        '^/classics/(.*)$':
+          to: '/academics/departments-and-programs/classics/$1'
+          regexp: true
+        '^/classics/?$':
+          to: '/academics/departments-and-programs/classics/'
+          regexp: true
+        '^/classics/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/classics/$1/'
+          regexp: true
+        '^/classicsdept/(.*)$':
+          to: '/academics/departments-and-programs/classics/$1'
+          regexp: true
+        '^/classicsdept/?$':
+          to: '/academics/departments-and-programs/classics/'
+          regexp: true
+        '^/classicsdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/classics/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

@@ -67,6 +67,16 @@
         '^/artdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/art/$1/'
           regexp: true
+        # Biology
+        '^/bio/(.*)$':
+          to: '/academics/departments-and-programs/biology/$1'
+          regexp: true
+        '^/bio/?$':
+          to: '/academics/departments-and-programs/biology/'
+          regexp: true
+        '^/bio/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/biology/$1/'
+          regexp: true
         # Cinema Studies
         '^/cinemastudies/(.*)$':
           to: '/academics/departments-and-programs/cinema-studies/$1'

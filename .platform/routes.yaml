@@ -20,7 +20,20 @@
         '^/wp-admin/(.*)':
           to: "/wp/wp-admin/$1"
           regexp: true
-        
+########## ACADEMIC DEPARTMENTS ##########
+        # african american studies
+        '^/africanamerican/(.*)$':
+          to: '/academics/departments-and-programs/african-american-studies/$1'
+          regexp: true
+        '^/africanamerican/?$':
+          to: '/academics/departments-and-programs/african-american-studies/'
+          regexp: true
+        '^/african-american/(.*)$':
+          to: '/academics/departments-and-programs/african-american-studies/$1'
+          regexp: true
+        '^/african-american/?$':
+          to: '/academics/departments-and-programs/african-american-studies/'
+          regexp: true
         # art
         '^/artdept/(.*)$':
           to: '/academics/departments-and-programs/art/$1'
@@ -32,6 +45,7 @@
           to: '/academics/departments-and-programs/art/$1/'
           regexp: true
 
+########## OFFICES ##########
         # ITS
         '^/its/(.*)$':
           to: '/people/offices-directory/information-technology-services/$1'
@@ -42,7 +56,7 @@
         '^/its/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/information-technology-services/$1/'
           regexp: true
-
+########## MISC. ROOT LEVEL SITES ##########
         # Visitors
         # '^/visitors/(.*)$':
         #   to: '/visitors/$1'

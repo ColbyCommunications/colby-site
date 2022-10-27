@@ -77,6 +77,7 @@
         '^/cinemastudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/cinema-studies/$1/'
           regexp: true
+########## OFFICES ##########
         # ITS
         '^/its/(.*)$':
           to: '/people/offices-directory/information-technology-services/$1'

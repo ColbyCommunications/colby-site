@@ -47,6 +47,16 @@
         '^/americanstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/american-studies/$1/'
           regexp: true
+        # anthropology
+        '^/anthro/(.*)$':
+          to: '/academics/departments-and-programs/anthropology/$1'
+          regexp: true
+        '^/anthro/?$':
+          to: '/academics/departments-and-programs/anthropology/'
+          regexp: true
+        '^/anthro/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/anthropology/$1/'
+          regexp: true
         # art
         '^/artdept/(.*)$':
           to: '/academics/departments-and-programs/art/$1'

@@ -34,6 +34,19 @@
         '^/african-american/?$':
           to: '/academics/departments-and-programs/african-american-studies/'
           regexp: true
+        '^/africanamerican/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/african-american-studies/$1/'
+          regexp: true
+        # american studies
+        '^/americanstudies/(.*)$':
+          to: '/academics/departments-and-programs/american-studies/$1'
+          regexp: true
+        '^/americanstudies/?$':
+          to: '/academics/departments-and-programs/american-studies/'
+          regexp: true
+        '^/americanstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/american-studies/$1/'
+          regexp: true
         # art
         '^/artdept/(.*)$':
           to: '/academics/departments-and-programs/art/$1'

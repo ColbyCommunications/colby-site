@@ -22,22 +22,34 @@
           regexp: true
 ########## ACADEMIC DEPARTMENTS ##########
         # african american studies
-        '^/africanamerican/(.*)$':
-          to: '/academics/departments-and-programs/african-american-studies/$1'
-          regexp: true
-        '^/africanamerican/?$':
-          to: '/academics/departments-and-programs/african-american-studies/'
-          regexp: true
         '^/african-american/(.*)$':
           to: '/academics/departments-and-programs/african-american-studies/$1'
           regexp: true
         '^/african-american/?$':
           to: '/academics/departments-and-programs/african-american-studies/'
           regexp: true
+        '^/african-american/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/african-american-studies/$1/'
+          regexp: true
+        '^/africanamerican/(.*)$':
+          to: '/academics/departments-and-programs/african-american-studies/$1'
+          regexp: true
+        '^/africanamerican/?$':
+          to: '/academics/departments-and-programs/african-american-studies/'
+          regexp: true
         '^/africanamerican/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/african-american-studies/$1/'
           regexp: true
         # american studies
+        '^/american-studies/(.*)$':
+          to: '/academics/departments-and-programs/american-studies/$1'
+          regexp: true
+        '^/american-studies/?$':
+          to: '/academics/departments-and-programs/american-studies/'
+          regexp: true
+        '^/american-studies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/american-studies/$1/'
+          regexp: true
         '^/americanstudies/(.*)$':
           to: '/academics/departments-and-programs/american-studies/$1'
           regexp: true
@@ -48,15 +60,6 @@
           to: '/academics/departments-and-programs/american-studies/$1/'
           regexp: true
         # anthropology
-        '^/anthro/(.*)$':
-          to: '/academics/departments-and-programs/anthropology/$1'
-          regexp: true
-        '^/anthro/?$':
-          to: '/academics/departments-and-programs/anthropology/'
-          regexp: true
-        '^/anthro/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academics/departments-and-programs/anthropology/$1/'
-          regexp: true
         '^/anthropology/(.*)$':
           to: '/academics/departments-and-programs/anthropology/$1'
           regexp: true
@@ -66,8 +69,17 @@
         '^/anthropology/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/anthropology/$1/'
           regexp: true
+        '^/anthro/(.*)$':
+          to: '/academics/departments-and-programs/anthropology/$1'
+          regexp: true
+        '^/anthro/?$':
+          to: '/academics/departments-and-programs/anthropology/'
+          regexp: true
+        '^/anthro/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/anthropology/$1/'
+          regexp: true
         # art
-        '^/artt/(.*)$':
+        '^/art/(.*)$':
           to: '/academics/departments-and-programs/art/$1'
           regexp: true
         '^/art/?$':
@@ -76,7 +88,7 @@
         '^/art/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/art/$1/'
           regexp: true
-        '^/art/(.*)$':
+        '^/artdept/(.*)$':
           to: '/academics/departments-and-programs/art/$1'
           regexp: true
         '^/artdept/?$':
@@ -86,15 +98,6 @@
           to: '/academics/departments-and-programs/art/$1/'
           regexp: true
         # Biology
-        '^/bio/(.*)$':
-          to: '/academics/departments-and-programs/biology/$1'
-          regexp: true
-        '^/bio/?$':
-          to: '/academics/departments-and-programs/biology/'
-          regexp: true
-        '^/bio/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academics/departments-and-programs/biology/$1/'
-          regexp: true
         '^/biology/(.*)$':
           to: '/academics/departments-and-programs/biology/$1'
           regexp: true
@@ -102,6 +105,15 @@
           to: '/academics/departments-and-programs/biology/'
           regexp: true
         '^/biology/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/biology/$1/'
+          regexp: true
+        '^/bio/(.*)$':
+          to: '/academics/departments-and-programs/biology/$1'
+          regexp: true
+        '^/bio/?$':
+          to: '/academics/departments-and-programs/biology/'
+          regexp: true
+        '^/bio/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/biology/$1/'
           regexp: true
         # Chemistry
@@ -124,6 +136,15 @@
           to: '/academics/departments-and-programs/chemistry/$1/'
           regexp: true
         # Cinema Studies
+        '^/cinema-studies/(.*)$':
+          to: '/academics/departments-and-programs/cinema-studies/$1'
+          regexp: true
+        '^/cinema-studies/?$':
+          to: '/academics/departments-and-programs/cinema-studies/'
+          regexp: true
+        '^/cinema-studies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/cinema-studies/$1/'
+          regexp: true
         '^/cinemastudies/(.*)$':
           to: '/academics/departments-and-programs/cinema-studies/$1'
           regexp: true
@@ -151,6 +172,25 @@
           regexp: true
         '^/classicsdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/classics/$1/'
+          regexp: true
+          # Computer Science
+        '^/computer-science/(.*)$':
+          to: '/academics/departments-and-programs/computer-science/$1'
+          regexp: true
+        '^/computer-science/?$':
+          to: '/academics/departments-and-programs/computer-science/'
+          regexp: true
+        '^/computer-science/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/computer-science/$1/'
+          regexp: true
+        '^/computerscience/(.*)$':
+          to: '/academics/departments-and-programs/computer-science/$1'
+          regexp: true
+        '^/computerscience/?$':
+          to: '/academics/departments-and-programs/computer-science/'
+          regexp: true
+        '^/computerscience/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/computer-science/$1/'
           regexp: true
 ########## OFFICES ##########
         # ITS

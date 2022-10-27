@@ -258,6 +258,25 @@
         '^/econ/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/economics/$1/'
           regexp: true
+        # English
+        '^/english/(.*)$':
+          to: '/academics/departments-and-programs/english/$1'
+          regexp: true
+        '^/english/?$':
+          to: '/academics/departments-and-programs/english/'
+          regexp: true
+        '^/english/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/english/$1/'
+          regexp: true
+        '^/englishdept/(.*)$':
+          to: '/academics/departments-and-programs/english/$1'
+          regexp: true
+        '^/englishdept/?$':
+          to: '/academics/departments-and-programs/english/'
+          regexp: true
+        '^/englishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/english/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

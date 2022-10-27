@@ -192,6 +192,34 @@
         '^/computerscience/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/computer-science/$1/'
           regexp: true
+        # Creative Writing
+        '^/creative-writing/(.*)$':
+          to: '/academics/departments-and-programs/creative-writing/$1'
+          regexp: true
+        '^/creative-writing/?$':
+          to: '/academics/departments-and-programs/creative-writing/'
+          regexp: true
+        '^/creative-writing/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/creative-writing/$1/'
+          regexp: true
+        '^/cwriting/(.*)$':
+          to: '/academics/departments-and-programs/creative-writing/$1'
+          regexp: true
+        '^/cwriting/?$':
+          to: '/academics/departments-and-programs/creative-writing/'
+          regexp: true
+        '^/cwriting/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/creative-writing/$1/'
+          regexp: true
+        '^/creativewriting/(.*)$':
+          to: '/academics/departments-and-programs/creative-writing/$1'
+          regexp: true
+        '^/creativewriting/?$':
+          to: '/academics/departments-and-programs/creative-writing/'
+          regexp: true
+        '^/creativewriting/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/creative-writing/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

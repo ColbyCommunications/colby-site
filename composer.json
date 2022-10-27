@@ -38,7 +38,8 @@
     "wpackagist-plugin/shortcodes-finder": "^1.5.1",
     "wpackagist-plugin/regenerate-thumbnails": "3.1.5",
     "wpackagist-plugin/timber-library": "^1.21.0",
-    "wpackagist-plugin/wp-nested-pages": "3.2.1"
+    "wpackagist-plugin/wp-nested-pages": "3.2.1",
+    "wpackagist-plugin/block-manager": "^1.2"
   },
   "authors": [
     {

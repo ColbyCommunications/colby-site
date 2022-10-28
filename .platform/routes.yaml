@@ -379,6 +379,25 @@
         '^/italian/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/french-and-italian/$1/'
           regexp: true
+        # Geology
+        '^/geology/(.*)$':
+          to: '/academics/departments-and-programs/geology/$1'
+          regexp: true
+        '^/geology/?$':
+          to: '/academics/departments-and-programs/geology/'
+          regexp: true
+        '^/geology/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/geology/$1/'
+          regexp: true
+        '^/geologydept/(.*)$':
+          to: '/academics/departments-and-programs/geology/$1'
+          regexp: true
+        '^/geologydept/?$':
+          to: '/academics/departments-and-programs/geology/'
+          regexp: true
+        '^/geologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/geology/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

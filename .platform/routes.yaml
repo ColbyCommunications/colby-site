@@ -304,6 +304,10 @@
         '^/globalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/global-studies/$1/'
           regexp: true
+        # Government
+        '^/government/?$':
+          to: '/academics/departments-and-programs/government/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

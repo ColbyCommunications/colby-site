@@ -334,6 +334,19 @@
         '^/independentmajor/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/independent-major/$1/'
           regexp: true
+        # Integrated Studies
+        '^/integrated-studies/?$':
+          to: '/academics/departments-and-programs/integrated-studies/'
+          regexp: true
+        '^/integratedstudies/(.*)$':
+          to: '/academics/departments-and-programs/integrated-studies/$1'
+          regexp: true
+        '^/integratedstudies/?$':
+          to: '/academics/departments-and-programs/integrated-studies/'
+          regexp: true
+        '^/integratedstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/integrated-studies/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

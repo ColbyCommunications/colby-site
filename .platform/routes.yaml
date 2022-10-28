@@ -21,7 +21,7 @@
           to: "/wp/wp-admin/$1"
           regexp: true
 ########## ACADEMIC DEPARTMENTS ##########
-        # african american studies
+        # African-American Studies
         '^/african-american/(.*)$':
           to: '/academics/departments-and-programs/african-american-studies/$1'
           regexp: true
@@ -40,7 +40,7 @@
         '^/africanamerican/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/african-american-studies/$1/'
           regexp: true
-        # american studies
+        # American Studies
         '^/american-studies/(.*)$':
           to: '/academics/departments-and-programs/american-studies/$1'
           regexp: true
@@ -59,7 +59,7 @@
         '^/americanstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/american-studies/$1/'
           regexp: true
-        # anthropology
+        # Anthropology
         '^/anthropology/(.*)$':
           to: '/academics/departments-and-programs/anthropology/$1'
           regexp: true
@@ -78,7 +78,7 @@
         '^/anthro/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/anthropology/$1/'
           regexp: true
-        # art
+        # Art
         '^/art/(.*)$':
           to: '/academics/departments-and-programs/art/$1'
           regexp: true
@@ -286,6 +286,25 @@
           regexp: true
         '^/englishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/english/$1/'
+          regexp: true
+        # Environmental Studies
+        '^/environmental-studies/(.*)$':
+          to: '/academics/departments-and-programs/environmental-studies/$1'
+          regexp: true
+        '^/environmental-studies/?$':
+          to: '/academics/departments-and-programs/environmental-studies/'
+          regexp: true
+        '^/environmental-studies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/environmental-studies/$1/'
+          regexp: true
+        '^/environmentalstudies/(.*)$':
+          to: '/academics/departments-and-programs/environmental-studies/$1'
+          regexp: true
+        '^/environmentalstudies/?$':
+          to: '/academics/departments-and-programs/environmental-studies/'
+          regexp: true
+        '^/environmentalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/environmental-studies/$1/'
           regexp: true
 ########## OFFICES ##########
         # ITS

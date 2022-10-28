@@ -306,6 +306,79 @@
         '^/environmentalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/environmental-studies/$1/'
           regexp: true
+        # French and Italian
+        '^/french-and-italian/(.*)$':
+          to: '/academics/departments-and-programs/french-and-italian/$1'
+          regexp: true
+        '^/french-and-italian/?$':
+          to: '/academics/departments-and-programs/french-and-italian/'
+          regexp: true
+        '^/french-and-italian/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/french-and-italian/$1/'
+          regexp: true
+        '^/frenchanditalian/(.*)$':
+          to: '/academics/departments-and-programs/french-and-italian/$1'
+          regexp: true
+        '^/frenchanditalian/?$':
+          to: '/academics/departments-and-programs/french-and-italian/'
+          regexp: true
+        '^/frenchanditalian/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/french-and-italian/$1/'
+          regexp: true
+        '^/frenchitalian/(.*)$':
+          to: '/academics/departments-and-programs/french-and-italian/$1'
+          regexp: true
+        '^/frenchitalian/?$':
+          to: '/academics/departments-and-programs/french-and-italian/'
+          regexp: true
+        '^/frenchitalian/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/french-and-italian/$1/'
+          regexp: true
+        '^/italian-and-french/(.*)$':
+          to: '/academics/departments-and-programs/french-and-italian/$1'
+          regexp: true
+        '^/italian-and-french/?$':
+          to: '/academics/departments-and-programs/french-and-italian/'
+          regexp: true
+        '^/italian-and-french/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/french-and-italian/$1/'
+          regexp: true
+        '^/italianandfrench/(.*)$':
+          to: '/academics/departments-and-programs/french-and-italian/$1'
+          regexp: true
+        '^/italianandfrench/?$':
+          to: '/academics/departments-and-programs/french-and-italian/'
+          regexp: true
+        '^/italianandfrench/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/french-and-italian/$1/'
+          regexp: true
+        '^/italianfrench/(.*)$':
+          to: '/academics/departments-and-programs/french-and-italian/$1'
+          regexp: true
+        '^/italianfrench/?$':
+          to: '/academics/departments-and-programs/french-and-italian/'
+          regexp: true
+        '^/italianfrench/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/french-and-italian/$1/'
+          regexp: true
+        '^/french/(.*)$':
+          to: '/academics/departments-and-programs/french-and-italian/$1'
+          regexp: true
+        '^/french/?$':
+          to: '/academics/departments-and-programs/french-and-italian/'
+          regexp: true
+        '^/french/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/french-and-italian/$1/'
+          regexp: true
+        '^/italian/(.*)$':
+          to: '/academics/departments-and-programs/french-and-italian/$1'
+          regexp: true
+        '^/italian/?$':
+          to: '/academics/departments-and-programs/french-and-italian/'
+          regexp: true
+        '^/italian/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/french-and-italian/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

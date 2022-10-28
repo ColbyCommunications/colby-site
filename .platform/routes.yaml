@@ -398,6 +398,79 @@
         '^/geologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/geology/$1/'
           regexp: true
+        # German and Russian
+        '^/german-and-russian/(.*)$':
+          to: '/academics/departments-and-programs/german-and-russian/$1'
+          regexp: true
+        '^/german-and-russian/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+        '^/german-and-russian/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/german-and-russian/$1/'
+          regexp: true
+        '^/germanandrussian/(.*)$':
+          to: '/academics/departments-and-programs/german-and-russian/$1'
+          regexp: true
+        '^/germanandrussian/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+        '^/germanandrussian/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/german-and-russian/$1/'
+          regexp: true
+        '^/germanrussian/(.*)$':
+          to: '/academics/departments-and-programs/german-and-russian/$1'
+          regexp: true
+        '^/germanrussian/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+        '^/germanrussian/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/german-and-russian/$1/'
+          regexp: true
+        '^/russian-and-german/(.*)$':
+          to: '/academics/departments-and-programs/german-and-russian/$1'
+          regexp: true
+        '^/russian-and-german/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+        '^/russian-and-german/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/german-and-russian/$1/'
+          regexp: true
+        '^/russianandgerman/(.*)$':
+          to: '/academics/departments-and-programs/german-and-russian/$1'
+          regexp: true
+        '^/russianandgerman/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+        '^/russianandgerman/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/german-and-russian/$1/'
+          regexp: true
+        '^/russiangerman/(.*)$':
+          to: '/academics/departments-and-programs/german-and-russian/$1'
+          regexp: true
+        '^/russiangerman/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+        '^/russiangerman/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/german-and-russian/$1/'
+          regexp: true
+        '^/german/(.*)$':
+          to: '/academics/departments-and-programs/german-and-russian/$1'
+          regexp: true
+        '^/german/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+        '^/german/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/german-and-russian/$1/'
+          regexp: true
+        '^/russian/(.*)$':
+          to: '/academics/departments-and-programs/german-and-russian/$1'
+          regexp: true
+        '^/russian/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+        '^/russian/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/departments-and-programs/german-and-russian/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

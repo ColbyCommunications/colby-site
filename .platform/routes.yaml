@@ -22,14 +22,8 @@
           regexp: true
 ########## ACADEMIC DEPARTMENTS ##########
         # African-American Studies
-        '^/african-american-studies/(.*)$':
-          to: '/academics/departments-and-programs/african-american-studies/$1'
-          regexp: true
         '^/african-american-studies/?$':
           to: '/academics/departments-and-programs/african-american-studies/'
-          regexp: true
-        '^/african-american/(.*)$':
-          to: '/academics/departments-and-programs/african-american-studies/$1'
           regexp: true
         '^/african-american/?$':
           to: '/academics/departments-and-programs/african-american-studies/'
@@ -44,9 +38,6 @@
           to: '/african-american-studies/$1/'
           regexp: true
         # American Studies
-        '^/american-studies/(.*)$':
-          to: '/academics/departments-and-programs/american-studies/$1'
-          regexp: true
         '^/american-studies/?$':
           to: '/academics/departments-and-programs/american-studies/'
           regexp: true
@@ -60,9 +51,6 @@
           to: '/american-studies/$1/'
           regexp: true
         # Anthropology
-        '^/anthropology/(.*)$':
-          to: '/academics/departments-and-programs/anthropology/$1'
-          regexp: true
         '^/anthropology/?$':
           to: '/academics/departments-and-programs/anthropology/'
           regexp: true
@@ -76,9 +64,6 @@
           to: '/anthropology/$1/'
           regexp: true
         # Art
-        '^/art/(.*)$':
-          to: '/academics/departments-and-programs/art/$1'
-          regexp: true
         '^/art/?$':
           to: '/academics/departments-and-programs/art/'
           regexp: true
@@ -92,9 +77,6 @@
           to: '/art/$1/'
           regexp: true
         # Biology
-        '^/biology/(.*)$':
-          to: '/academics/departments-and-programs/biology/$1'
-          regexp: true
         '^/biology/?$':
           to: '/academics/departments-and-programs/biology/'
           regexp: true
@@ -108,9 +90,6 @@
           to: '/biology/$1/'
           regexp: true
         # Chemistry
-        '^/chemistry/(.*)$':
-          to: '/academics/departments-and-programs/chemistry/$1'
-          regexp: true
         '^/chemistry/?$':
           to: '/academics/departments-and-programs/chemistry/'
           regexp: true
@@ -124,9 +103,6 @@
           to: '/chemistry/$1/'
           regexp: true
         # Cinema Studies
-        '^/cinema-studies/(.*)$':
-          to: '/academics/departments-and-programs/cinema-studies/$1'
-          regexp: true
         '^/cinema-studies/?$':
           to: '/academics/departments-and-programs/cinema-studies/'
           regexp: true
@@ -140,9 +116,6 @@
           to: '/cinema-studies/$1/'
           regexp: true
         # Classics
-        '^/classics/(.*)$':
-          to: '/academics/departments-and-programs/classics/$1'
-          regexp: true
         '^/classics/?$':
           to: '/academics/departments-and-programs/classics/'
           regexp: true
@@ -156,9 +129,6 @@
           to: '/classics/$1/'
           regexp: true
           # Computer Science
-        '^/computer-science/(.*)$':
-          to: '/academics/departments-and-programs/computer-science/$1'
-          regexp: true
         '^/computer-science/?$':
           to: '/academics/departments-and-programs/computer-science/'
           regexp: true
@@ -172,9 +142,6 @@
           to: '/computer-science/$1/'
           regexp: true
         # Creative Writing
-        '^/creative-writing/(.*)$':
-          to: '/academics/departments-and-programs/creative-writing/$1'
-          regexp: true
         '^/creative-writing/?$':
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
@@ -187,16 +154,10 @@
         '^/cwriting/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/creative-writing/$1/'
           regexp: true
-        '^/creativewriting/(.*)$':
-          to: '/academics/departments-and-programs/creative-writing/$1'
-          regexp: true
         '^/creativewriting/?$':
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
           # East Asian Studies
-        '^/east-asian-studies/(.*)$':
-          to: '/academics/departments-and-programs/east-asian-studies/$1'
-          regexp: true
         '^/east-asian-studies/?$':
           to: '/academics/departments-and-programs/east-asian-studies/'
           regexp: true
@@ -210,9 +171,6 @@
           to: '/east-asian-studies/$1/'
           regexp: true
           # Economics
-        '^/economics/(.*)$':
-          to: '/academics/departments-and-programs/economics/$1'
-          regexp: true
         '^/economics/?$':
           to: '/academics/departments-and-programs/economics/'
           regexp: true
@@ -226,9 +184,6 @@
           to: '/economics/$1/'
           regexp: true
         # Education
-        '^/education/(.*)$':
-          to: '/academics/departments-and-programs/education/$1'
-          regexp: true
         '^/education/?$':
           to: '/academics/departments-and-programs/education/'
           regexp: true
@@ -236,9 +191,6 @@
           to: '/education/$1/'
           regexp: true
         # English
-        '^/english/(.*)$':
-          to: '/academics/departments-and-programs/english/$1'
-          regexp: true
         '^/english/?$':
           to: '/academics/departments-and-programs/english/'
           regexp: true
@@ -252,9 +204,6 @@
           to: '/academics/departments-and-programs/english/$1/'
           regexp: true
         # Environmental Studies
-        '^/environmental-studies/(.*)$':
-          to: '/academics/departments-and-programs/environmental-studies/$1'
-          regexp: true
         '^/environmental-studies/?$':
           to: '/academics/departments-and-programs/environmental-studies/'
           regexp: true
@@ -268,14 +217,8 @@
           to: '/environmental-studies/$1/'
           regexp: true
         # French and Italian
-        '^/french-and-italian/(.*)$':
-          to: '/academics/departments-and-programs/french-and-italian/$1'
-          regexp: true
         '^/french-and-italian/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
-          regexp: true
-        '^/frenchanditalian/(.*)$':
-          to: '/academics/departments-and-programs/french-and-italian/$1'
           regexp: true
         '^/frenchanditalian/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
@@ -289,40 +232,22 @@
         '^/frenchitalian/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/french-and-italian/$1/'
           regexp: true
-        '^/italian-and-french/(.*)$':
-          to: '/academics/departments-and-programs/french-and-italian/$1'
-          regexp: true
         '^/italian-and-french/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
-          regexp: true
-        '^/italianandfrench/(.*)$':
-          to: '/academics/departments-and-programs/french-and-italian/$1'
           regexp: true
         '^/italianandfrench/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
-        '^/italianfrench/(.*)$':
-          to: '/academics/departments-and-programs/french-and-italian/$1'
-          regexp: true
         '^/italianfrench/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
-        '^/french/(.*)$':
-          to: '/academics/departments-and-programs/french-and-italian/$1'
-          regexp: true
         '^/french/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
-          regexp: true
-        '^/italian/(.*)$':
-          to: '/academics/departments-and-programs/french-and-italian/$1'
           regexp: true
         '^/italian/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
         # Geology
-        '^/geology/(.*)$':
-          to: '/academics/departments-and-programs/geology/$1'
-          regexp: true
         '^/geology/?$':
           to: '/academics/departments-and-programs/geology/'
           regexp: true
@@ -336,14 +261,8 @@
           to: '/geology/$1/'
           regexp: true
         # German and Russian
-        '^/german-and-russian/(.*)$':
-          to: '/academics/departments-and-programs/german-and-russian/$1'
-          regexp: true
         '^/german-and-russian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
-          regexp: true
-        '^/germanandrussian/(.*)$':
-          to: '/academics/departments-and-programs/german-and-russian/$1'
           regexp: true
         '^/germanandrussian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
@@ -357,32 +276,17 @@
         '^/germanrussian/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/german-and-russian/$1/'
           regexp: true
-        '^/russian-and-german/(.*)$':
-          to: '/academics/departments-and-programs/german-and-russian/$1'
-          regexp: true
         '^/russian-and-german/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
-          regexp: true
-        '^/russianandgerman/(.*)$':
-          to: '/academics/departments-and-programs/german-and-russian/$1'
           regexp: true
         '^/russianandgerman/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
-        '^/russiangerman/(.*)$':
-          to: '/academics/departments-and-programs/german-and-russian/$1'
-          regexp: true
         '^/russiangerman/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
-        '^/german/(.*)$':
-          to: '/academics/departments-and-programs/german-and-russian/$1'
-          regexp: true
         '^/german/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
-          regexp: true
-        '^/russian/(.*)$':
-          to: '/academics/departments-and-programs/german-and-russian/$1'
           regexp: true
         '^/russian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'

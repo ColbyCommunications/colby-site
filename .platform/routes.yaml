@@ -437,6 +437,7 @@
           regexp: true
         '^/physicsastronomy/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/physics-and-astronomy/$1/'
+          regexp: true
         # Psychology
         '^/psychology/?$':
           to: '/academics/departments-and-programs/psychology/'

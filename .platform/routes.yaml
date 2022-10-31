@@ -476,6 +476,7 @@
           regexp: true
         '^/stsdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/science-technology-and-society/$1/'
+          regexp: true
         # Sociology
         '^/sociology/?$':
           to: '/academics/departments-and-programs/sociology/'

@@ -489,6 +489,19 @@
         '^/sociologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/sociology/$1/'
           regexp: true
+        # Spanish
+        '^/spanish/?$':
+          to: '/academics/departments-and-programs/spanish/'
+          regexp: true
+        '^/spanisgdept/(.*)$':
+          to: '/academics/departments-and-programs/spanish/$1'
+          regexp: true
+        '^/spanishdept/?$':
+          to: '/academics/departments-and-programs/spanish/'
+          regexp: true
+        '^/spanishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/spanish/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

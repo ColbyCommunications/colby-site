@@ -450,6 +450,19 @@
         '^/psych/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/psychology/$1/'
           regexp: true
+        # Religious Studies
+        '^/religious-studies/?$':
+          to: '/academics/departments-and-programs/religious-studies/'
+          regexp: true
+        '^/religiousstudies/(.*)$':
+          to: '/academics/departments-and-programs/religious-studies/$1'
+          regexp: true
+        '^/religiousstudies/?$':
+          to: '/academics/departments-and-programs/religious-studies/'
+          regexp: true
+        '^/religiousstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/religious-studies/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

@@ -437,6 +437,18 @@
           regexp: true
         '^/physicsastronomy/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/physics-and-astronomy/$1/'
+        # Psychology
+        '^/psychology/?$':
+          to: '/academics/departments-and-programs/psychology/'
+          regexp: true
+        '^/psych/(.*)$':
+          to: '/academics/departments-and-programs/psychology/$1'
+          regexp: true
+        '^/psych/?$':
+          to: '/academics/departments-and-programs/psychology/'
+          regexp: true
+        '^/psych/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/psychology/$1/'
           regexp: true
 ########## OFFICES ##########
         # ITS

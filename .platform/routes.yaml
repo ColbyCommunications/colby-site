@@ -360,6 +360,19 @@
         '^/jewishstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/jewish-studies/$1/'
           regexp: true
+        # Latin American Studies
+        '^/latin-american-studies/?$':
+          to: '/academics/departments-and-programs/latin-american-studies/'
+          regexp: true
+        '^/latinamerican/(.*)$':
+          to: '/academics/departments-and-programs/latin-american-studies/$1'
+          regexp: true
+        '^/latinamerican/?$':
+          to: '/academics/departments-and-programs/latin-american-studies/'
+          regexp: true
+        '^/latinamericans/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/latin-american-studies/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

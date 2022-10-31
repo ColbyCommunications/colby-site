@@ -476,6 +476,18 @@
           regexp: true
         '^/stsdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/science-technology-and-society/$1/'
+        # Sociology
+        '^/sociology/?$':
+          to: '/academics/departments-and-programs/sociology/'
+          regexp: true
+        '^/sociologydept/(.*)$':
+          to: '/academics/departments-and-programs/sociology/$1'
+          regexp: true
+        '^/sociologydept/?$':
+          to: '/academics/departments-and-programs/sociology/'
+          regexp: true
+        '^/sociologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/sociology/$1/'
           regexp: true
 ########## OFFICES ##########
         # ITS

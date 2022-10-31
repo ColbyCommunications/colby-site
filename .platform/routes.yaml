@@ -347,6 +347,19 @@
         '^/integratedstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/integrated-studies/$1/'
           regexp: true
+        # Jewish Studies
+        '^/jewish-studies/?$':
+          to: '/academics/departments-and-programs/jewish-studies/'
+          regexp: true
+        '^/jewishstudies/(.*)$':
+          to: '/academics/departments-and-programs/jewish-studies/$1'
+          regexp: true
+        '^/jewishstudies/?$':
+          to: '/academics/departments-and-programs/jewish-studies/'
+          regexp: true
+        '^/jewishstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/jewish-studies/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

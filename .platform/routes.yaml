@@ -394,10 +394,23 @@
           to: '/academics/departments-and-programs/music/$1'
           regexp: true
         '^/musicdept/?$':
-          to: '/academics/departments-and-programs/musics/'
+          to: '/academics/departments-and-programs/music/'
           regexp: true
         '^/musicdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/music/$1/'
+          regexp: true
+        # Peformance, Theater, and Dance
+        '^/performance-theater-and-dance/?$':
+          to: '/academics/departments-and-programs/performance-theater-and-dance/'
+          regexp: true
+        '^/theaterdance/(.*)$':
+          to: '/academics/departments-and-programs/performance-theater-and-dance/$1'
+          regexp: true
+        '^/theaterdance/?$':
+          to: '/academics/departments-and-programs/performance-theater-and-dance/'
+          regexp: true
+        '^/theaterdance/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/performance-theater-and-dance/$1/'
           regexp: true
 ########## OFFICES ##########
         # ITS

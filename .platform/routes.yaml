@@ -502,6 +502,10 @@
         '^/spanishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/spanish/$1/'
           regexp: true
+        # Statistics
+        '^/statistics/?$':
+          to: '/academics/departments-and-programs/statistics/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

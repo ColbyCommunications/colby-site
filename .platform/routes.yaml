@@ -291,6 +291,235 @@
         '^/russian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+        # Global Studies
+        '^/global-studies/?$':
+          to: '/academics/departments-and-programs/global-studies/'
+          regexp: true
+        '^/globalstudies/(.*)$':
+          to: '/academics/departments-and-programs/global-studies/$1'
+          regexp: true
+        '^/globalstudies/?$':
+          to: '/academics/departments-and-programs/global-studies/'
+          regexp: true
+        '^/globalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/global-studies/$1/'
+          regexp: true
+        # Government
+        '^/government/?$':
+          to: '/academics/departments-and-programs/government/'
+          regexp: true
+        # History
+        '^/history/?$':
+          to: '/academics/departments-and-programs/history/'
+          regexp: true
+        '^/historydept/(.*)$':
+          to: '/academics/departments-and-programs/history/$1'
+          regexp: true
+        '^/historydept/?$':
+          to: '/academics/departments-and-programs/history/'
+          regexp: true
+        '^/historydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/history/$1/'
+          regexp: true
+        # Independent Major
+        '^/independent-major/?$':
+          to: '/academics/departments-and-programs/independent-major/'
+          regexp: true
+        '^/independentmajor/(.*)$':
+          to: '/academics/departments-and-programs/independent-major/$1'
+          regexp: true
+        '^/independentmajor/?$':
+          to: '/academics/departments-and-programs/independent-major/'
+          regexp: true
+        '^/independentmajor/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/independent-major/$1/'
+          regexp: true
+        # Integrated Studies
+        '^/integrated-studies/?$':
+          to: '/academics/departments-and-programs/integrated-studies/'
+          regexp: true
+        '^/integratedstudies/(.*)$':
+          to: '/academics/departments-and-programs/integrated-studies/$1'
+          regexp: true
+        '^/integratedstudies/?$':
+          to: '/academics/departments-and-programs/integrated-studies/'
+          regexp: true
+        '^/integratedstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/integrated-studies/$1/'
+          regexp: true
+        # Jewish Studies
+        '^/jewish-studies/?$':
+          to: '/academics/departments-and-programs/jewish-studies/'
+          regexp: true
+        '^/jewishstudies/(.*)$':
+          to: '/academics/departments-and-programs/jewish-studies/$1'
+          regexp: true
+        '^/jewishstudies/?$':
+          to: '/academics/departments-and-programs/jewish-studies/'
+          regexp: true
+        '^/jewishstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/jewish-studies/$1/'
+          regexp: true
+        # Latin American Studies
+        '^/latin-american-studies/?$':
+          to: '/academics/departments-and-programs/latin-american-studies/'
+          regexp: true
+        '^/latinamerican/(.*)$':
+          to: '/academics/departments-and-programs/latin-american-studies/$1'
+          regexp: true
+        '^/latinamerican/?$':
+          to: '/academics/departments-and-programs/latin-american-studies/'
+          regexp: true
+        '^/latinamericans/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/latin-american-studies/$1/'
+          regexp: true
+        # Mathematics
+        '^/mathematics/?$':
+          to: '/academics/departments-and-programs/mathematics/'
+          regexp: true
+        '^/math/(.*)$':
+          to: '/academics/departments-and-programs/mathematics/$1'
+          regexp: true
+        '^/math/?$':
+          to: '/academics/departments-and-programs/mathematics/'
+          regexp: true
+        '^/math/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/mathematics/$1/'
+          regexp: true
+        # Music
+        '^/music/?$':
+          to: '/academics/departments-and-programs/music/'
+          regexp: true
+        '^/musicdept/(.*)$':
+          to: '/academics/departments-and-programs/music/$1'
+          regexp: true
+        '^/musicdept/?$':
+          to: '/academics/departments-and-programs/music/'
+          regexp: true
+        '^/musicdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/music/$1/'
+          regexp: true
+        # Peformance, Theater, and Dance
+        '^/performance-theater-and-dance/?$':
+          to: '/academics/departments-and-programs/performance-theater-and-dance/'
+          regexp: true
+        '^/theaterdance/(.*)$':
+          to: '/academics/departments-and-programs/performance-theater-and-dance/$1'
+          regexp: true
+        '^/theaterdance/?$':
+          to: '/academics/departments-and-programs/performance-theater-and-dance/'
+          regexp: true
+        '^/theaterdance/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/performance-theater-and-dance/$1/'
+          regexp: true
+        # Philosophy
+        '^/philosophy/?$':
+          to: '/academics/departments-and-programs/philosophy/'
+          regexp: true
+        '^/philosophydept/(.*)$':
+          to: '/academics/departments-and-programs/philosophy/$1'
+          regexp: true
+        '^/philosophydept/?$':
+          to: '/academics/departments-and-programs/philosophy/'
+          regexp: true
+        '^/philosophydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/philosophy/$1/'
+          regexp: true
+        # Physics and Astronomy
+        '^/physics-and-astronomy/?$':
+          to: '/academics/departments-and-programs/physics-and-astronomy/'
+          regexp: true
+        '^/physicsastronomy/(.*)$':
+          to: '/academics/departments-and-programs/physics-and-astronomy/$1'
+          regexp: true
+        '^/physicsastronomy/?$':
+          to: '/academics/departments-and-programs/physics-and-astronomy/'
+          regexp: true
+        '^/physicsastronomy/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/physics-and-astronomy/$1/'
+          regexp: true
+        # Psychology
+        '^/psychology/?$':
+          to: '/academics/departments-and-programs/psychology/'
+          regexp: true
+        '^/psych/(.*)$':
+          to: '/academics/departments-and-programs/psychology/$1'
+          regexp: true
+        '^/psych/?$':
+          to: '/academics/departments-and-programs/psychology/'
+          regexp: true
+        '^/psych/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/psychology/$1/'
+          regexp: true
+        # Religious Studies
+        '^/religious-studies/?$':
+          to: '/academics/departments-and-programs/religious-studies/'
+          regexp: true
+        '^/religiousstudies/(.*)$':
+          to: '/academics/departments-and-programs/religious-studies/$1'
+          regexp: true
+        '^/religiousstudies/?$':
+          to: '/academics/departments-and-programs/religious-studies/'
+          regexp: true
+        '^/religiousstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/religious-studies/$1/'
+          regexp: true
+        # Science, Technology, and Society
+        '^/science-technology-and-society/?$':
+          to: '/academics/departments-and-programs/science-technology-and-society/'
+          regexp: true
+        '^/stsdept/(.*)$':
+          to: '/academics/departments-and-programs/science-technology-and-society/$1'
+          regexp: true
+        '^/stsdept/?$':
+          to: '/academics/departments-and-programs/science-technology-and-society/'
+          regexp: true
+        '^/stsdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/science-technology-and-society/$1/'
+          regexp: true
+        # Sociology
+        '^/sociology/?$':
+          to: '/academics/departments-and-programs/sociology/'
+          regexp: true
+        '^/sociologydept/(.*)$':
+          to: '/academics/departments-and-programs/sociology/$1'
+          regexp: true
+        '^/sociologydept/?$':
+          to: '/academics/departments-and-programs/sociology/'
+          regexp: true
+        '^/sociologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/sociology/$1/'
+          regexp: true
+        # Spanish
+        '^/spanish/?$':
+          to: '/academics/departments-and-programs/spanish/'
+          regexp: true
+        '^/spanisgdept/(.*)$':
+          to: '/academics/departments-and-programs/spanish/$1'
+          regexp: true
+        '^/spanishdept/?$':
+          to: '/academics/departments-and-programs/spanish/'
+          regexp: true
+        '^/spanishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/spanish/$1/'
+          regexp: true
+        # Statistics
+        '^/statistics/?$':
+          to: '/academics/departments-and-programs/statistics/'
+          regexp: true
+        # Women's, Gender, and Sexuality Studies
+        '^/womens-gender-and-sexuality-studies/?$':
+          to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
+          regexp: true
+        '^/wgssdept/(.*)$':
+          to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/$1'
+          regexp: true
+        '^/wgssdept/?$':
+          to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
+          regexp: true
+        '^/wgssdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/womens-gender-and-sexuality-studies/$1/'
+          regexp: true
 ########## OFFICES ##########
         # ITS
         '^/its/(.*)$':

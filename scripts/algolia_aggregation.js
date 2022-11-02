@@ -63,7 +63,6 @@ async function main() {
             await index.browseObjects({
                 query: '',
                 attributesToRetrieve: ['post_title', 'content', 'permalink'],
-                distinct: true,
                 batch: (batch) => {
                     hits = hits.concat(batch);
                 },

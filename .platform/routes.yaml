@@ -553,6 +553,19 @@
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/january-program/$1/'
           regexp: true
+        # Office of the President
+        '^/office-of-the-president/?$':
+          to: '/people/office-of-the-president/'
+          regexp: true
+        '^/president/(.*)$':
+          to: '/people/office-of-the-president/'
+          regexp: true
+        '^/president/?$':
+          to: '/people/office-of-the-president/'
+          regexp: true
+        '^/president/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/office-of-the-president/'
+          regexp: true
 
 # *ALL* www.* requests should be redirected back to primary domain
 "https://www.{all}/":

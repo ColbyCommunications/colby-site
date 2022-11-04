@@ -534,6 +534,16 @@
           to: '/writing-program/$1/'
           regexp: true
 ########## OFFICES ##########
+        # Communications
+        '^/communications/(.*)$':
+          to: '/people/offices-directory/communications/$1'
+          regexp: true
+        '^/communicationsoffice/?$':
+          to: '/people/offices-directory/communications/'
+          regexp: true
+        '^/communicationsoffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/communications/$1/'
+          regexp: true
         # Events Office
         '^/events-office/(.*)$':
           to: '/people/offices-directory/events/$1'

@@ -534,6 +534,10 @@
           to: '/writing-program/$1/'
           regexp: true
 ########## OFFICES ##########
+        # Facilities
+        '^/facilities/?$':
+          to: '/people/offices-directory/facilities/'
+          regexp: true
         # ITS
         '^/its/(.*)$':
           to: '/people/offices-directory/information-technology-services/$1'

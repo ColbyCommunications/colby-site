@@ -598,6 +598,16 @@
         '^/institutionalresearch/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/institutional-research/$1/'
           regexp: true
+        # Mail Services
+        '^/mail-services/(.*)$':
+          to: '/people/offices-directory/mail-services/$1'
+          regexp: true
+        '^/mailservices/?$':
+          to: '/people/offices-directory/mail-services/'
+          regexp: true
+        '^/mailservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/mail-services/$1/'
+          regexp: true
         # Special Programs
         '^/special-programs/(.*)$':
           to: '/people/offices-directory/special-programs/$1'

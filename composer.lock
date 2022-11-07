@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64f5ea3b41861501315c723e6eea1e0e",
+    "content-hash": "4158c363f56fcb2ad6a1d9254f4c4ea2",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -282,16 +282,16 @@
         },
         {
             "name": "colbycommunications/presspermit-pro",
-            "version": "3.7.10",
+            "version": "3.8.2-beta",
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/presspermit-pro.git",
-                "reference": "ace91cfe7de10d99f8e54e3ae774522a1ac9ff6d"
+                "reference": "125e308f0e0c9bf081c9e96417a2af9a6e5ddf86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/presspermit-pro/colbycommunications-presspermit-pro-ace91cfe7de10d99f8e54e3ae774522a1ac9ff6d-zip-2103a7.zip",
-                "reference": "ace91cfe7de10d99f8e54e3ae774522a1ac9ff6d"
+                "url": "https://satis.colby.edu/dist/colbycommunications/presspermit-pro/colbycommunications-presspermit-pro-125e308f0e0c9bf081c9e96417a2af9a6e5ddf86-zip-8b2c11.zip",
+                "reference": "125e308f0e0c9bf081c9e96417a2af9a6e5ddf86"
             },
             "type": "wordpress-plugin",
             "authors": [
@@ -305,7 +305,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2022-08-04T19:02:42+00:00"
+            "time": "2022-11-07T17:39:18+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -6308,7 +6308,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "colbycommunications/colby-college-theme": 20
+        "colbycommunications/colby-college-theme": 20,
+        "colbycommunications/presspermit-pro": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,

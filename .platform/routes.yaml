@@ -588,6 +588,16 @@
         '^/grants/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/grants-and-sponsored-programs/$1/'
           regexp: true
+        # Financial Planning
+        '^/financial-planning/(.*)$':
+          to: '/people/offices-directory/financial-planning/$1'
+          regexp: true
+        '^/financialplanning/?$':
+          to: '/people/offices-directory/financial-planning/'
+          regexp: true
+        '^/financialplanning/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/financial-planning/$1/'
+          regexp: true
         # Human Resources
         '^/human-resources/(.*)$':
           to: '/people/offices-directory/human-resources/$1'

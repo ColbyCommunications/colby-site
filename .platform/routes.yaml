@@ -608,6 +608,16 @@
         '^/mailservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/mail-services/$1/'
           regexp: true
+        # Registrar
+        '^/registrar/(.*)$':
+          to: '/people/offices-directory/registrar/$1'
+          regexp: true
+        '^/registraroffice/?$':
+          to: '/people/offices-directory/registrar/'
+          regexp: true
+        '^/registraroffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/registrar/$1/'
+          regexp: true
         # Special Programs
         '^/special-programs/(.*)$':
           to: '/people/offices-directory/special-programs/$1'

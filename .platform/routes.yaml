@@ -648,6 +648,16 @@
         '^/sfs/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/student-financial-services/$1/'
           regexp: true
+        # VPCFO
+        '^/vice-president-and-chief-financial-officer/(.*)$':
+          to: '/people/offices-directory/vice-president-and-chief-financial-officer/$1'
+          regexp: true
+        '^/vpcfo/?$':
+          to: '/people/offices-directory/vice-president-and-chief-financial-officer/'
+          regexp: true
+        '^/vpcfo/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/vice-president-and-chief-financial-officer/$1/'
+          regexp: true
 ########## MISC. ROOT LEVEL SITES ##########
         # Visitors
         # '^/visitors/(.*)$':

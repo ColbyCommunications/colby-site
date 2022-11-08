@@ -668,6 +668,10 @@
         '^/registraroffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/registrar/$1/'
           regexp: true
+        # Secretary of the College
+        '^/secretary-of-the-college/?$':
+          to: '/people/offices-directory/secretary-of-the-college/'
+          regexp: true
         # Special Programs
         '^/special-programs/(.*)$':
           to: '/people/offices-directory/special-programs/$1'

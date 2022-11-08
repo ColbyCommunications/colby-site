@@ -608,6 +608,16 @@
         '^/financialservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/financial-services/$1/'
           regexp: true
+        # General Counsel
+        '^/general-counsel/(.*)$':
+          to: '/people/offices-directory/general-counsel/$1'
+          regexp: true
+        '^/generalcounsel/?$':
+          to: '/people/offices-directory/general-counsel/'
+          regexp: true
+        '^/generalcounsel/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/general-counsel/$1/'
+          regexp: true
         # Human Resources
         '^/human-resources/(.*)$':
           to: '/people/offices-directory/human-resources/$1'

@@ -536,13 +536,23 @@
 ########## OFFICES ##########
         # AcITS
         '^/academic-information-technology-services/(.*)$':
-          to: '/people/offices-directory/academic-information-technology-servicess/$1'
+          to: '/people/offices-directory/academic-information-technology-services/$1'
           regexp: true
         '^/acits/?$':
           to: '/people/offices-directory/academic-information-technology-services/'
           regexp: true
         '^/acits/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/academic-information-technology-services/$1/'
+          regexp: true
+        # CTL
+        '^/center-for-teaching-and-learning/(.*)$':
+          to: '/people/offices-directory/center-for-teaching-and-learning/$1'
+          regexp: true
+        '^/ctl/?$':
+          to: '/people/offices-directory/center-for-teaching-and-learning/'
+          regexp: true
+        '^/ctl/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/center-for-teaching-and-learning/$1/'
           regexp: true
         # Communications
         '^/communications/(.*)$':

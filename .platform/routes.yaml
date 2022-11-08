@@ -638,6 +638,16 @@
         '^/specialprograms/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/special-programs/$1/'
           regexp: true
+        # Student Fianncial Services
+        '^/student-financial-services/(.*)$':
+          to: '/people/offices-directory/student-financial-services/$1'
+          regexp: true
+        '^/sfs/?$':
+          to: '/people/offices-directory/student-financial-services/'
+          regexp: true
+        '^/sfs/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/student-financial-services/$1/'
+          regexp: true
 ########## MISC. ROOT LEVEL SITES ##########
         # Visitors
         # '^/visitors/(.*)$':

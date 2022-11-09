@@ -771,6 +771,16 @@
           to: '/people/office-of-the-provost/'
           regexp: true
 ######### Academics
+        # CAPS Program
+        '^/colby-achievement-program-in-the-sciences/(.*)$':
+          to: '/academics/colby-achievement-program-in-the-sciences/$1'
+          regexp: true
+        '^/caps/$':
+          to: '/academics/colby-achievement-program-in-the-sciences'
+          regexp: true
+        '^/caps/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/colby-achievement-program-in-the-sciences/$1/'
+          regexp: true
         # Research
         '^/research/(.*)$':
           to: '/academics/research/$1'

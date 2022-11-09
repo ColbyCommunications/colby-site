@@ -781,12 +781,22 @@
         '^/caps/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/colby-achievement-program-in-the-sciences/$1/'
           regexp: true
+        # CUSRR
+        '^/colby-undergraduate-summer-research-retreat/(.*)$':
+          to: '/academics/colby-undergraduate-summer-research-retreat/$1'
+          regexp: true
+        '^/cusrr/$':
+          to: '/academics/colby-undergraduate-summer-research-retreat/'
+          regexp: true
+        '^/cusrr/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/colby-undergraduate-summer-research-retreat/$1/'
+          regexp: true
         # Phi Beta Kappa
         '^/phi-beta-kappa/(.*)$':
           to: '/academics/phi-beta-kappa/$1'
           regexp: true
         '^/phibetakappa/$':
-          to: '/academics/phi-beta-kappa'
+          to: '/academics/phi-beta-kappa/'
           regexp: true
         '^/phibetakappa/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/phi-beta-kappa/$1/'
@@ -796,7 +806,7 @@
           to: '/academics/research/$1'
           regexp: true
         '^/research/$':
-          to: '/academics/research'
+          to: '/academics/research/'
           regexp: true
         '^/research/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/research/$1/'

@@ -791,6 +791,10 @@
         '^/cusrr/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/colby-undergraduate-summer-research-retreat/$1/'
           regexp: true
+        # Humanities
+        '^/humanities/$':
+          to: '/academics/humanities/'
+          regexp: true
         # Phi Beta Kappa
         '^/phi-beta-kappa/(.*)$':
           to: '/academics/phi-beta-kappa/$1'

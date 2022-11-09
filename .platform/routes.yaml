@@ -744,6 +744,16 @@
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/january-program/$1/'
           regexp: true
+        # January Program
+        '^/green-colby/(.*)$':
+          to: '/green-colby/$1'
+          regexp: true
+        '^/green/$':
+          to: '/green-colby/'
+          regexp: true
+        '^/green/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/green-colby/$1/'
+          regexp: true
         # Office of the President
         '^/office-of-the-president/?$':
           to: '/people/office-of-the-president/'

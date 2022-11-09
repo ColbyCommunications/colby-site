@@ -781,6 +781,16 @@
         '^/caps/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/colby-achievement-program-in-the-sciences/$1/'
           regexp: true
+        # Phi Beta Kappa
+        '^/phi-beta-kappa/(.*)$':
+          to: '/academics/phi-beta-kappa/$1'
+          regexp: true
+        '^/phibetakappa/$':
+          to: '/academics/phi-beta-kappa'
+          regexp: true
+        '^/phibetakappa/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/phi-beta-kappa/$1/'
+          regexp: true
         # Research
         '^/research/(.*)$':
           to: '/academics/research/$1'

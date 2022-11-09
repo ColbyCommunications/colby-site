@@ -544,6 +544,16 @@
         '^/acits/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/academic-information-technology-services/$1/'
           regexp: true
+        # Advanced Research Computing
+        '^/advanced-research-computing/(.*)$':
+          to: '/people/offices-directory/advanced-research-computing/$1'
+          regexp: true
+        '^/arc/?$':
+          to: '/people/offices-directory/advanced-research-computing/'
+          regexp: true
+        '^/arc/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/advanced-research-computing/$1/'
+          regexp: true
         # CTL
         '^/center-for-teaching-and-learning/(.*)$':
           to: '/people/offices-directory/center-for-teaching-and-learning/$1'

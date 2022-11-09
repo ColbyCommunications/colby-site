@@ -534,6 +534,16 @@
           to: '/writing-program/$1/'
           regexp: true
 ########## OFFICES ##########
+        # Academic Collaborative
+        '^/academic-collaborative/(.*)$':
+          to: '/people/offices-directory/academic-collaborative/$1'
+          regexp: true
+        '^/ac/?$':
+          to: '/people/offices-directory/academic-collaborative/'
+          regexp: true
+        '^/ac/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/academic-collaborative/$1/'
+          regexp: true
         # AcITS
         '^/academic-information-technology-services/(.*)$':
           to: '/people/offices-directory/academic-information-technology-services/$1'

@@ -658,6 +658,16 @@
         '^/institutionalresearch/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/institutional-research/$1/'
           regexp: true
+        # Language Resource Center
+        '^/language-resource-center/(.*)$':
+          to: '/people/offices-directory/language-resource-center/$1'
+          regexp: true
+        '^/lrc/?$':
+          to: '/people/offices-directory/language-resource-center/'
+          regexp: true
+        '^/lrc/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/people/offices-directory/language-resource-center/$1/'
+          regexp: true
         # Mail Services
         '^/mail-services/(.*)$':
           to: '/people/offices-directory/mail-services/$1'

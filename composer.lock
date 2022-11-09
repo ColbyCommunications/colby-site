@@ -6161,15 +6161,15 @@
         },
         {
             "name": "wpackagist-plugin/timber-library",
-            "version": "1.21.0",
+            "version": "1.22.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/timber-library/",
-                "reference": "tags/1.21.0"
+                "reference": "tags/1.22.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber-library.1.21.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/timber-library.1.22.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6215,15 +6215,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "19.9",
+            "version": "19.10",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/19.9"
+                "reference": "tags/19.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.19.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.19.10.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

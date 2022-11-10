@@ -744,6 +744,13 @@
           to: '/visitors/$1/'
           regexp: true
 
+        # Academic Integrity
+        '^/academicintegrity/?$':
+          to: '/academic-integrity/'
+          regexp: true
+        '^/academicintegrity/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academic-integrity/'
+          regexp: true
         # January Program
         '^/januaryprogram/(.*)$':
           to: '/january-program/$1'

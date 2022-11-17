@@ -207,7 +207,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "6f6e02e8b5dc0c0d46356c3c2db0518a2cecb892"
+                "reference": "417b752ccfbcb9772a3192479bf38627a6da3430"
             },
             "require": {
                 "php": ">=7.1"
@@ -224,7 +224,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2022-11-17T01:19:54+00:00"
+            "time": "2022-11-17T02:38:26+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",

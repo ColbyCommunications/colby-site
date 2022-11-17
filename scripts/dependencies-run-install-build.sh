@@ -12,7 +12,7 @@ cd web/wp-content/themes/colby-college-theme
 composer install
 composer dump-autoload
 yarn
-yarn build:platform
+yarn mix:production
 cd -
 
 # npm install

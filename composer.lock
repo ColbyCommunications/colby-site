@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5272aae777b9a8f341bc1af28086b517",
+    "content-hash": "4158c363f56fcb2ad6a1d9254f4c4ea2",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -203,7 +203,7 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "dev-feature/mix",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
@@ -212,6 +212,7 @@
             "require": {
                 "php": ">=7.1"
             },
+            "default-branch": true,
             "type": "wordpress-theme",
             "authors": [
                 {

@@ -31,6 +31,7 @@ node_modules
 # Ignore .env files as they are personal
 /*.env
 !example.lando.env
+yarn-error.log
 
 # Ignore custom NPM package dir.
 /npm-packages

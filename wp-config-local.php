@@ -3,7 +3,7 @@
  * Lando-specific configuration
  */
 if ('ON' === getenv('LANDO')) {
-    $site_scheme = 'https';
+    $site_scheme  = 'https';
     $objLandoInfo = json_decode(getenv('LANDO_INFO', true));
     define('DB_NAME', $objLandoInfo->database->creds->database);
     define('DB_USER', $objLandoInfo->database->creds->user);
@@ -11,7 +11,7 @@ if ('ON' === getenv('LANDO')) {
     define('DB_HOST', $objLandoInfo->database->internal_connection->host);
     define('DB_CHARSET', 'utf8');
     define('DB_COLLATE', '');
-    define('WP_DEBUG', false);
+    define('WP_DEBUG', true);
     define('WP_DEBUG_LOG', false);
     define('WP_DEBUG_SCREEN', false);
 
@@ -21,23 +21,23 @@ if ('ON' === getenv('LANDO')) {
         'AUTH',
         'SECURE_AUTH',
         'LOGGED_IN',
-        'NONCE'
+        'NONCE',
     );
 
     foreach ($aryKeys as $strKey) {
-        $strFullKey = $strKey . '_KEY';
+        $strFullKey  = $strKey . '_KEY';
         $strFullSalt = $strKey . '_SALT';
-        define($strFullKey, $strHash.'-'.$strFullKey);
-        define($strFullSalt, $strHash.'-'.$strFullSalt);
+        define($strFullKey, $strHash . '-' . $strFullKey);
+        define($strFullSalt, $strHash . '-' . $strFullSalt);
     }
 
     if (MULTISITE) {
         //we need to know which domain has been requested later when COOKIE_DOMAIN is set.
         $strDomainRequest = 'HTTP_HOST';
         if (false !== $strPrimaryDomain = getenv('PRIMARY_DOMAIN')) {
-            $aryRoutes = $objLandoInfo->appserver_nginx->urls;
+            $aryRoutes        = $objLandoInfo->appserver_nginx->urls;
             $strLookForDomain = str_replace('.', '\.', $strPrimaryDomain);
-            
+
             $strPattern = sprintf('/^https:\/\/(%s[^\/]*)/', $strLookForDomain);
             $aryMatched = preg_grep($strPattern, $aryRoutes);
             if (1 === count($aryMatched)) {
@@ -47,7 +47,7 @@ if ('ON' === getenv('LANDO')) {
                 $site_host = $aryMatches[1];
             } else {
                 //@todo throw an error or just output the message?
-                echo '<p>I found zero or too many matches for our primary domain:</p><pre>',var_export($aryMatched, true),'</pre>';exit();
+                echo '<p>I found zero or too many matches for our primary domain:</p><pre>', var_export($aryMatched, true), '</pre>';exit();
             }
         } else {
             //@todo throw error or output this message?

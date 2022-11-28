@@ -846,12 +846,6 @@
         '^/catalogue/requirements/AA/(.*)$':
           to: '/academics/research/$1'
           regexp: true
-        '^/research/$':
-          to: '/academics/research/'
-          regexp: true
-        '^/research/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academics/research/$1/'
-          regexp: true
 
 # *ALL* www.* requests should be redirected back to primary domain
 "https://www.{all}/":

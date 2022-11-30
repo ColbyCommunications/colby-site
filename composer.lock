@@ -207,7 +207,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "c81710ddc7a23c0a279eac1b04bd179ae6168fb6"
+                "reference": "a006f4a071a07920712627688b17fd8788a1b779"
             },
             "require": {
                 "php": ">=7.1"
@@ -224,7 +224,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2022-11-30T15:27:25+00:00"
+            "time": "2022-11-30T16:49:26+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",
@@ -5873,15 +5873,15 @@
         },
         {
             "name": "wpackagist-plugin/block-manager",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/block-manager/",
-                "reference": "trunk"
+                "reference": "tags/1.2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/block-manager.zip?timestamp=1668892821"
+                "url": "https://downloads.wordpress.org/plugin/block-manager.1.2.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

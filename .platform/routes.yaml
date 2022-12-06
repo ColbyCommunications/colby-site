@@ -773,29 +773,29 @@
           regexp: true
         # Office of the President
         '^/office-of-the-president/?$':
-          to: '/people/office-of-the-president/'
+          to: '/people/offices-directory/office-of-the-president/'
           regexp: true
         '^/president/(.*)$':
-          to: '/people/office-of-the-president/'
+          to: '/people/offices-directory/office-of-the-president/'
           regexp: true
         '^/president/?$':
-          to: '/people/office-of-the-president/'
+          to: '/people/offices-directory/office-of-the-president/'
           regexp: true
         '^/president/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/office-of-the-president/'
+          to: '/people/offices-directory/office-of-the-president/'
           regexp: true
         # Office of the Provost
         '^/office-of-the-provost/?$':
-          to: '/people/office-of-the-provost/'
+          to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
         '^/provost/(.*)$':
-          to: '/people/office-of-the-provost/'
+          to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
         '^/provost/?$':
-          to: '/people/office-of-the-provost/'
+          to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
         '^/provost/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/office-of-the-provost/'
+          to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
 ######### Academics
         # CAPS Program

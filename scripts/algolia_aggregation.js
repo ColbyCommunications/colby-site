@@ -71,17 +71,26 @@ async function main() {
 
     for (let i = 0; i < hits.length; i++) {
       let result = {};
+      let cleanedTitle = null;
       if (indicies[k].indexName === "Identity Site") {
+        if (hits[i].title) {
+          cleanedTitle = hits[i].title.replace(/<\/?[^>]+(>|$)/g, "");
+        }
         result = {
-          post_title: hits[i].title.replace(/<(.|\n)*?>/g, ""),
+          post_title: hits[i].title,
+          cleaned_title: cleanedTitle,
           content: hits[i].excerpt,
           permalink: "https://identity.colby.edu" + hits[i].uri,
           originIndexLabel: indicies[k].label,
           objectID: indicies[k].indexName + "-" + i,
         };
       } else if (indicies[k].indexName === "prod_news_videos") {
+        if (hits[i].title) {
+          cleanedTitle = hits[i].title.replace(/<\/?[^>]+(>|$)/g, "");
+        }
         result = {
-          post_title: hits[i].title.replace(/<(.|\n)*?>/g, ""),
+          post_title: hits[i].title,
+          cleaned_title: cleanedTitle,
           content: hits[i].description,
           permalink: "https://www.youtube.com/watch?v=" + hits[i].videoId,
           originIndexLabel: indicies[k].label,
@@ -89,8 +98,13 @@ async function main() {
         };
       } else {
         if (hits[i].post_title !== "_healthcheck") {
+          let cleanedTitle = null;
+          if (hits[i].post_title) {
+            cleanedTitle = hits[i].post_title.replace(/<\/?[^>]+(>|$)/g, "");
+          }
           result = {
             ..._omit(hits[i], ["objectID"]),
+            cleaned_title: cleanedTitle,
             originIndexLabel: indicies[k].label,
             objectID: indicies[k].indexName + "-" + i,
           };

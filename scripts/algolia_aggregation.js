@@ -91,7 +91,6 @@ async function main() {
         if (hits[i].post_title !== "_healthcheck") {
           result = {
             ..._omit(hits[i], ["objectID"]),
-            post_title: hits[i].title.replace(/<(.|\n)*?>/g, ""),
             originIndexLabel: indicies[k].label,
             objectID: indicies[k].indexName + "-" + i,
           };

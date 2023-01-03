@@ -3,6 +3,42 @@
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
+#### REDIRECT LIST KEY ####
+# ------------------------------------
+# COLBY.EDU REDIRECTS
+# ------------------------------------
+# Default
+# Academic Departments
+# Offices
+# Misc. Root Level Sites
+# Misc. Academics Sites
+# ------------------------------------
+# OFF SITE REDIRECTS
+# ------------------------------------
+# Admissions
+# AI
+# Allen & Benner Isalnds
+# CAH
+# Commencement
+# Davis Connects
+# Goldfarb
+# Health Services
+# Jewish Life
+# Libraries
+# Life
+# Lunder Institute
+# Museum/Museum Exhibits
+# News/Magazine
+# Oak Institute
+# Off Campus
+# SGA
+# SOBLU
+# ------------------------------------
+# MISC REDIRECTS
+# ------------------------------------
+# Misc. Redirects
+
+########## DEFAULT ##########
 "https://{default}/":
     type: upstream
     upstream: "app:http"
@@ -743,7 +779,6 @@
         '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/visitors/$1/'
           regexp: true
-
         # Academic Integrity
         '^/academicintegrity/?$':
           to: '/academic-integrity/'
@@ -755,17 +790,23 @@
         '^/januaryprogram/(.*)$':
           to: '/january-program/$1'
           regexp: true
-        '^/januaryprogram/$':
+        '^/januaryprogram/?$':
           to: '/january-program/'
           regexp: true
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/january-program/$1/'
           regexp: true
-        # January Program
-        '^/green-colby/(.*)$':
+        # Green Colby
+        '^/green/(.*)$':
           to: '/green-colby/$1'
           regexp: true
-        '^/green/$':
+        '^/green/?$':
+          to: '/green-colby/'
+          regexp: true
+        '^/greencolby/(.*)$':
+          to: '/green-colby/$1'
+          regexp: true
+        '^/greencolby/?$':
           to: '/green-colby/'
           regexp: true
         '^/green/\d{4}/\d{2}/\d{2}/(.+)/?$':
@@ -797,7 +838,7 @@
         '^/provost/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
-######### Academics
+########## MISC ACADEMIC SITES ##########
         # CAPS Program
         '^/colby-achievement-program-in-the-sciences/(.*)$':
           to: '/academics/colby-achievement-program-in-the-sciences/$1'
@@ -826,7 +867,7 @@
         '^/phi-beta-kappa/(.*)$':
           to: '/academics/phi-beta-kappa/$1'
           regexp: true
-        '^/phibetakappa/$':
+        '^/phibetakappa/?$':
           to: '/academics/phi-beta-kappa/'
           regexp: true
         '^/phibetakappa/\d{4}/\d{2}/\d{2}/(.+)/?$':
@@ -846,6 +887,136 @@
         '^/catalogue/requirements/AA/(.*)$':
           to: '/academics/research/$1'
           regexp: true
+########## MISC REDIRECTS ##########
+        '^2023sendoffs/?$':
+          to: ‘https://colbyrsvp.regfox.com/2023sendoffs’
+          regexp: true
+        '^administration_cs/student-affairs/deanofstudents/multicultural/upload/Cultural-Events-Committee-Proposal-Form.pdf$':
+          to: ‘https://web.colby.edu/cec/files/2021/10/CEC-app-form-10.20.21.pdf’
+          regexp: true
+        '^admission/apply/international-faq/?$':
+          to: ‘https://www.colby.edu/admission/apply/first-year-faq/’
+          regexp: true
+        '^advancement-careers/?$':
+          to: ‘https://www.colby.edu/humanresources/employment/’
+          regexp: true
+        '^afford/?$':
+           to: ‘https://www.colby.edu/admission/afford/’
+           regexp: true
+        '^alumniawards/?$':
+          to: ‘https://www.colby.edu/colbyalumni/alumni-council/nominations-for-alumni-awards/’
+          regexp: true
+        '^apply-now/?$':
+          to: ‘https://www.colby.edu/admission/apply-now/’
+          regexp: true
+        '^brodyrsvp/?$':
+          to: ‘https://colbycollegesecretary.regfox.com/2022-brody-award/’
+          regexp: true
+        '^calendar/?$':
+          to: ‘https://events.colby.edu/’
+          regexp: true
+        '^colbytrail/?$':
+          to: ‘https://life.colby.edu/what-to-do/first-year-experience/student-guide/’
+          regexp: true
+        '^compbio/?$':
+          to: ‘https://www.colby.edu/catalogue/requirements/bi/’
+          regexp: true
+        '^culturalevents/?$':
+          to: ‘https://web.colby.edu/cec/’
+          regexp: true
+        '^downtown/?$':
+          to: ‘https://news.colby.edu/story/the-revitalization-of-downtown-waterville/’
+          regexp: true
+        '^economicimpactreport/?$':
+          to: ‘http://www.colby.edu/people/offices-directory/office-of-the-president/reports/economic-impact-report/’
+          regexp: true
+        '^eofymailer22/?$':
+          to: ‘https://www.colby.edu/give’
+          regexp: true
+        '^events/event-request/?$':
+          to: ‘https://www.colby.edu/eventsoffice/event-request/’
+          regexp: true
+        '^events(?!office)/?(.*)$':
+          to: ‘https://events.colby.edu/’
+          regexp: true
+        '^fgli/?$':
+          to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
+          regexp: true
+        '^financialaidchallenge/?$':
+          to: ‘https://www.givecampus.com/schools/ColbyCollege/the-colby-commitment-challenge-2023’
+          regexp: true
+        '^friendsofathletics/?$':
+          to: ‘https://colbyathletics.com/sports/2020/9/8/giving-form.aspx’
+          regexp: true
+        '^give/?$':
+          to: ‘https://darenorthward.colby.edu/give/’
+          regexp: true
+        '^give/reunion/?$':
+          to: ‘https://darenorthward.colby.edu/mail/’
+          regexp: true
+        '^givingtuesday/?$':
+          to: ‘https://darenorthward.colby.edu/give-form-a/’
+          regexp: true
+        '^gt/?$':
+          to: ‘https://darenorthward.colby.edu/give-form-b/’
+          regexp: true
+        '^halloranlab/?(.*)$':
+          to: ‘https://halloranlab.colby.edu/’
+          regexp: true
+        '^harold-alfond-foundation-announcement/?$':
+          to: ‘https://www.colby.edu/communications/haf’
+          regexp: true
+        '^life/2020/03/12/2019-novel-coronavirus-information-and-resources/?$':
+          to: ‘http://www.colby.edu/healthandcounseling/coronavirus/’
+          regexp: true
+        '^musigmarho/?$':
+          to: ‘https://www.colby.edu/statistics/musigmarho/’
+          regexp: true
+        '^pledgepayment/?$':
+          to: ‘https://darenorthward.colby.edu/give-pledge/’
+          regexp: true
+        '^premed/?$':
+          to: ‘https://davisconnects.colby.edu/explore-careers/pre-health/’
+          regexp: true
+        '^provost/staff/?$':
+          to: ‘/provost/about/’
+          regexp: true
+        '^rally/?$':
+          to: ‘https://volunteernetworkfundraising.blackbaud.com/volunteer/login’
+          regexp: true
+        '^securityreport/?$':
+          to: ‘https://life.colby.edu/your-safety/campus-safety/annual-security-report/’
+          regexp: true
+        '^seniorgift22/?$':
+          to: ‘https://www.givecampus.com/cph9e6’
+          regexp: true
+        '^specialcollections/(.+)/?$':
+          to: ‘https://libraries.colby.edu/specialcollections/$1/’
+          regexp: true
+        '^specialcollections/?$':
+          to: ‘https://libraries.colby.edu/specialcollections/’
+          regexp: true
+        '^specialgift/?$':
+          to: ‘https://darenorthward.colby.edu/specialgift/’
+          regexp: true
+        '^student-emergency-fund/?$':
+          to: ‘https://darenorthward.colby.edu/student-emergency-fund/’
+          regexp: true
+        '^TB22/?$':
+          to: ‘https://darenorthward.colby.edu/give/’
+          regexp: true
+        '^visitors/campus-map/?$':
+          to: ‘https://map.colby.edu/’
+          regexp: true
+        '^vpadmin/?$':
+          to: ‘https://www.colby.edu/vpcfo/’
+          regexp: true
+
+
+
+
+
+
 
 # *ALL* www.* requests should be redirected back to primary domain
 "https://www.{all}/":

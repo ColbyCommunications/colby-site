@@ -1201,9 +1201,6 @@
         '^admission/wp-content/uploads/sites/191/2019/03/2019-20-Colby-Verification-Worksheet.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
           regexp: true
-        '^admission/wp-content/uploads/sites/191/2019/12/20-21-Review-Request-Form.pdf/?$': 
-          to: ‘https://afa.colby.edu/’     
-          regexp: true
         '^admission/wp-content/uploads/sites/191/2019/10/OFFICIAL-Overnight-Host-Contract.pdf/?$': 
           to: ‘https://afa.colby.edu/’     
           regexp: true
@@ -1257,9 +1254,6 @@
           regexp: true
         '^admission/wp-content/uploads/sites/191/2020/09/2021-22-Non-Custodial-Parent-Waiver-Form.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf’     
-          regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/12/21-22-Review-Request-Form.pdf/?$': 
-          to: ‘https://afa.colby.edu/’     
           regexp: true
         '^presidential/presidential-scholars/?$': 
           to: ‘https://afa.colby.edu/academics/scholar-programs/presidential-scholars/’     

@@ -1156,9 +1156,6 @@
         '^admission/visiting-colby/?$': 
           to: ‘https://afa.colby.edu/visit/’     
           regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/04/2020-21-International-Student-Certification-of-Finances.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2020-21-International-Student-Certification-of-Finances-1.pdf’     
-          regexp: true
         '^admission/wp-content/uploads/sites/191/2019/12/20-21-Review-Request-Form.pdf/?$': 
           to: ‘https://afa.colby.edu/’     
           regexp: true
@@ -1173,9 +1170,6 @@
           regexp: true
         '^admission/wp-content/uploads/sites/191/2020/05/2020-21-Verification-Dep.-Wrksht.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
-          regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/05/2020-21-International-Student-Certification-of-Finances.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2020-21-International-Student-Certification-of-Finances-1.pdf’     
           regexp: true
         '^admission/wp-content/uploads/sites/191/2019/03/19-20-Sib-Survey.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/22-23-Sibling-Survey.pdf’     
@@ -1222,9 +1216,6 @@
         '^admission/wp-content/uploads/sites/191/2020/02/Colby-Overnight-Visit-Agreement-2020.pdf/?$': 
           to: ‘https://afa.colby.edu/’     
           regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/04/2020-21-International-Student-Certification-of-Finances.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2020-21-International-Student-Certification-of-Finances-1.pdf’     
-          regexp: true
         '^admission/wp-content/uploads/sites/191/2020/05/19-20-Final-Report-1.pdf/?$': 
           to: ‘https://afa.colby.edu/’     
           regexp: true
@@ -1239,9 +1230,6 @@
           regexp: true
         '^admission/wp-content/uploads/sites/191/2020/09/2019-Parent-Non-Tax-Filer-Statement.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2020-Parent-Non-Tax-Filer-Statement.pdf’     
-          regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/09/2019-Student-Non-Filer-Statement.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
           regexp: true
         '^admission/wp-content/uploads/sites/191/2021/05/2021-22-Verification-Dep.-Wrksht.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     

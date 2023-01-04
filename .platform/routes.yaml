@@ -16,22 +16,21 @@
 # OFF SITE REDIRECTS
 # ------------------------------------
 # Admissions
+# Alumni
+# Athletics
 # AI
 # Allen & Benner Isalnds
 # CAH
 # Commencement
 # Davis Connects
 # Goldfarb
-# Health Services
 # Jewish Life
 # Libraries
-# Life
+# Life (including SGA, Off Campus, Health Services)
 # Lunder Institute
 # Museum/Museum Exhibits
 # News/Magazine
 # Oak Institute
-# Off Campus
-# SGA
 # SOBLU
 # ------------------------------------
 # MISC REDIRECTS
@@ -57,7 +56,7 @@
           to: "/wp/wp-admin/$1"
           regexp: true
 ########## ACADEMIC DEPARTMENTS ##########
-        # African-American Studies
+  # African-American Studies
         '^/african-american-studies/?$':
           to: '/academics/departments-and-programs/african-american-studies/'
           regexp: true
@@ -73,7 +72,7 @@
         '^/africanamerican/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/african-american-studies/$1/'
           regexp: true
-        # American Studies
+  # American Studies
         '^/american-studies/?$':
           to: '/academics/departments-and-programs/american-studies/'
           regexp: true
@@ -86,7 +85,7 @@
         '^/americanstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/american-studies/$1/'
           regexp: true
-        # Anthropology
+  # Anthropology
         '^/anthropology/?$':
           to: '/academics/departments-and-programs/anthropology/'
           regexp: true
@@ -99,7 +98,7 @@
         '^/anthro/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/anthropology/$1/'
           regexp: true
-        # Art
+  # Art
         '^/art/?$':
           to: '/academics/departments-and-programs/art/'
           regexp: true
@@ -112,7 +111,7 @@
         '^/artdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/art/$1/'
           regexp: true
-        # Biology
+  # Biology
         '^/biology/?$':
           to: '/academics/departments-and-programs/biology/'
           regexp: true
@@ -125,7 +124,7 @@
         '^/bio/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/biology/$1/'
           regexp: true
-        # Chemistry
+  # Chemistry
         '^/chemistry/?$':
           to: '/academics/departments-and-programs/chemistry/'
           regexp: true
@@ -138,7 +137,7 @@
         '^/chem/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/chemistry/$1/'
           regexp: true
-        # Cinema Studies
+  # Cinema Studies
         '^/cinema-studies/?$':
           to: '/academics/departments-and-programs/cinema-studies/'
           regexp: true
@@ -151,7 +150,7 @@
         '^/cinemastudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/cinema-studies/$1/'
           regexp: true
-        # Classics
+  # Classics
         '^/classics/?$':
           to: '/academics/departments-and-programs/classics/'
           regexp: true
@@ -164,7 +163,7 @@
         '^/classicsdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/classics/$1/'
           regexp: true
-          # Computer Science
+  # Computer Science
         '^/computer-science/?$':
           to: '/academics/departments-and-programs/computer-science/'
           regexp: true
@@ -177,7 +176,7 @@
         '^/computerscience/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/computer-science/$1/'
           regexp: true
-        # Creative Writing
+  # Creative Writing
         '^/creative-writing/?$':
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
@@ -193,7 +192,7 @@
         '^/creativewriting/?$':
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
-          # East Asian Studies
+  # East Asian Studies
         '^/east-asian-studies/?$':
           to: '/academics/departments-and-programs/east-asian-studies/'
           regexp: true
@@ -206,7 +205,7 @@
         '^/eastasianstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/east-asian-studies/$1/'
           regexp: true
-          # Economics
+  # Economics
         '^/economics/?$':
           to: '/academics/departments-and-programs/economics/'
           regexp: true
@@ -219,12 +218,18 @@
         '^/econ/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/economics/$1/'
           regexp: true
-        # Education
+  # Education
         '^/education/?$':
           to: '/academics/departments-and-programs/education/'
           regexp: true
         '^/education/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/education/$1/'
+          regexp: true
+        '^educationprogram/?$':
+          to: ‘/academics/departments-and-programs/education/’
+          regexp: true
+        '^educationprogram/(?!wp-admin)(.+)/?$':
+          to: ‘/academics/departments-and-programs/education/$1/’
           regexp: true
         # English
         '^/english/?$':
@@ -239,7 +244,7 @@
         '^/englishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/departments-and-programs/english/$1/'
           regexp: true
-        # Environmental Studies
+  # Environmental Studies
         '^/environmental-studies/?$':
           to: '/academics/departments-and-programs/environmental-studies/'
           regexp: true
@@ -252,7 +257,7 @@
         '^/environmentalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/environmental-studies/$1/'
           regexp: true
-        # French and Italian
+  # French and Italian
         '^/french-and-italian/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
@@ -283,7 +288,7 @@
         '^/italian/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
-        # Geology
+  # Geology
         '^/geology/?$':
           to: '/academics/departments-and-programs/geology/'
           regexp: true
@@ -296,7 +301,7 @@
         '^/geologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/geology/$1/'
           regexp: true
-        # German and Russian
+  # German and Russian
         '^/german-and-russian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
@@ -327,7 +332,7 @@
         '^/russian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
-        # Global Studies
+  # Global Studies
         '^/global-studies/?$':
           to: '/academics/departments-and-programs/global-studies/'
           regexp: true
@@ -340,11 +345,11 @@
         '^/globalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/global-studies/$1/'
           regexp: true
-        # Government
+  # Government
         '^/government/?$':
           to: '/academics/departments-and-programs/government/'
           regexp: true
-        # History
+  # History
         '^/history/?$':
           to: '/academics/departments-and-programs/history/'
           regexp: true
@@ -357,7 +362,7 @@
         '^/historydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/history/$1/'
           regexp: true
-        # Independent Major
+  # Independent Major
         '^/independent-major/?$':
           to: '/academics/departments-and-programs/independent-major/'
           regexp: true
@@ -370,7 +375,7 @@
         '^/independentmajor/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/independent-major/$1/'
           regexp: true
-        # Integrated Studies
+  # Integrated Studies
         '^/integrated-studies/?$':
           to: '/academics/departments-and-programs/integrated-studies/'
           regexp: true
@@ -383,7 +388,7 @@
         '^/integratedstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/integrated-studies/$1/'
           regexp: true
-        # Jewish Studies
+  # Jewish Studies
         '^/jewish-studies/?$':
           to: '/academics/departments-and-programs/jewish-studies/'
           regexp: true
@@ -396,7 +401,7 @@
         '^/jewishstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/jewish-studies/$1/'
           regexp: true
-        # Latin American Studies
+  # Latin American Studies
         '^/latin-american-studies/?$':
           to: '/academics/departments-and-programs/latin-american-studies/'
           regexp: true
@@ -409,7 +414,7 @@
         '^/latinamericans/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/latin-american-studies/$1/'
           regexp: true
-        # Mathematics
+  # Mathematics
         '^/mathematics/?$':
           to: '/academics/departments-and-programs/mathematics/'
           regexp: true
@@ -422,7 +427,7 @@
         '^/math/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/mathematics/$1/'
           regexp: true
-        # Music
+  # Music
         '^/music/?$':
           to: '/academics/departments-and-programs/music/'
           regexp: true
@@ -435,7 +440,7 @@
         '^/musicdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/music/$1/'
           regexp: true
-        # Peformance, Theater, and Dance
+  # Peformance, Theater, and Dance
         '^/performance-theater-and-dance/?$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
@@ -448,7 +453,7 @@
         '^/theaterdance/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/performance-theater-and-dance/$1/'
           regexp: true
-        # Philosophy
+  # Philosophy
         '^/philosophy/?$':
           to: '/academics/departments-and-programs/philosophy/'
           regexp: true
@@ -461,7 +466,7 @@
         '^/philosophydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/philosophy/$1/'
           regexp: true
-        # Physics and Astronomy
+  # Physics and Astronomy
         '^/physics-and-astronomy/?$':
           to: '/academics/departments-and-programs/physics-and-astronomy/'
           regexp: true
@@ -474,7 +479,7 @@
         '^/physicsastronomy/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/physics-and-astronomy/$1/'
           regexp: true
-        # Psychology
+  # Psychology
         '^/psychology/?$':
           to: '/academics/departments-and-programs/psychology/'
           regexp: true
@@ -487,7 +492,7 @@
         '^/psych/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/psychology/$1/'
           regexp: true
-        # Religious Studies
+  # Religious Studies
         '^/religious-studies/?$':
           to: '/academics/departments-and-programs/religious-studies/'
           regexp: true
@@ -500,7 +505,7 @@
         '^/religiousstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/religious-studies/$1/'
           regexp: true
-        # Science, Technology, and Society
+  # Science, Technology, and Society
         '^/science-technology-and-society/?$':
           to: '/academics/departments-and-programs/science-technology-and-society/'
           regexp: true
@@ -513,7 +518,7 @@
         '^/stsdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/science-technology-and-society/$1/'
           regexp: true
-        # Sociology
+  # Sociology
         '^/sociology/?$':
           to: '/academics/departments-and-programs/sociology/'
           regexp: true
@@ -526,7 +531,7 @@
         '^/sociologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/sociology/$1/'
           regexp: true
-        # Spanish
+  # Spanish
         '^/spanish/?$':
           to: '/academics/departments-and-programs/spanish/'
           regexp: true
@@ -539,11 +544,11 @@
         '^/spanishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/spanish/$1/'
           regexp: true
-        # Statistics
+  # Statistics
         '^/statistics/?$':
           to: '/academics/departments-and-programs/statistics/'
           regexp: true
-        # Women's, Gender, and Sexuality Studies
+  # Women's, Gender, and Sexuality Studies
         '^/womens-gender-and-sexuality-studies/?$':
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
           regexp: true
@@ -556,21 +561,27 @@
         '^/wgssdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/womens-gender-and-sexuality-studies/$1/'
           regexp: true
-        # Writing Program
+        '^/wgss/?$':
+          to: ‘/academics/departments-and-programs/womens-gender-and-sexuality-studies/
+          regexp: true
+  # Writing Department
         '^/writing-program/?$':
-          to: '/academics/departments-and-programs/writing-program/'
+          to: '/academics/departments-and-programs/writing-department/'
+          regexp: true
+        '^/writingprogram/?$':
+          to: '/academics/departments-and-programs/writing-department/'
           regexp: true
         '^/writingdepartment/(.*)$':
-          to: '/academics/departments-and-programs/writing-program/$1'
+          to: '/academics/departments-and-programs/writing-department/$1'
           regexp: true
         '^/writingdepartment/?$':
-          to: '/academics/departments-and-programs/writing-program/'
+          to: '/academics/departments-and-programs/writing-department/'
           regexp: true
         '^/writingdepartment/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/writing-program/$1/'
+          to: '/writing-department/$1/'
           regexp: true
 ########## OFFICES ##########
-        # Academic Collaborative
+  # Academic Collaborative
         '^/academic-collaborative/(.*)$':
           to: '/people/offices-directory/academic-collaborative/$1'
           regexp: true
@@ -580,7 +591,7 @@
         '^/ac/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/academic-collaborative/$1/'
           regexp: true
-        # AcITS
+  # AcITS
         '^/academic-information-technology-services/(.*)$':
           to: '/people/offices-directory/academic-information-technology-services/$1'
           regexp: true
@@ -590,7 +601,7 @@
         '^/acits/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/academic-information-technology-services/$1/'
           regexp: true
-        # Advanced Research Computing
+  # Advanced Research Computing
         '^/advanced-research-computing/(.*)$':
           to: '/people/offices-directory/advanced-research-computing/$1'
           regexp: true
@@ -600,7 +611,7 @@
         '^/arc/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/advanced-research-computing/$1/'
           regexp: true
-        # CTL
+  # CTL
         '^/center-for-teaching-and-learning/(.*)$':
           to: '/people/offices-directory/center-for-teaching-and-learning/$1'
           regexp: true
@@ -610,7 +621,7 @@
         '^/ctl/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/center-for-teaching-and-learning/$1/'
           regexp: true
-        # Communications
+  # Communications
         '^/communications/(.*)$':
           to: '/people/offices-directory/communications/$1'
           regexp: true
@@ -620,7 +631,7 @@
         '^/communicationsoffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/communications/$1/'
           regexp: true
-        # Events Office
+  # Events Office
         '^/events-office/(.*)$':
           to: '/people/offices-directory/events/$1'
           regexp: true
@@ -630,11 +641,14 @@
         '^/eventsoffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/events/$1/'
           regexp: true
-        # Facilities
+        '^submit-event/?$':
+          to: ‘https://www.colby.edu/eventsoffice/event-request/’
+          regexp: true
+  # Facilities
         '^/facilities/?$':
           to: '/people/offices-directory/facilities/'
           regexp: true
-        # Grants
+  # Grants
         '^/grants-and-sponsored-programs/(.*)$':
           to: '/people/offices-directory/grants-and-sponsored-programs/$1'
           regexp: true
@@ -644,7 +658,7 @@
         '^/grants/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/grants-and-sponsored-programs/$1/'
           regexp: true
-        # Financial Planning
+  # Financial Planning
         '^/financial-planning/(.*)$':
           to: '/people/offices-directory/financial-planning/$1'
           regexp: true
@@ -654,7 +668,7 @@
         '^/financialplanning/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/financial-planning/$1/'
           regexp: true
-        # Financial Services
+  # Financial Services
         '^/financial-services/(.*)$':
           to: '/people/offices-directory/financial-services/$1'
           regexp: true
@@ -664,7 +678,7 @@
         '^/financialservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/financial-services/$1/'
           regexp: true
-        # General Counsel
+  # General Counsel
         '^/general-counsel/(.*)$':
           to: '/people/offices-directory/general-counsel/$1'
           regexp: true
@@ -674,7 +688,7 @@
         '^/generalcounsel/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/general-counsel/$1/'
           regexp: true
-        # Human Resources
+  # Human Resources
         '^/human-resources/(.*)$':
           to: '/people/offices-directory/human-resources/$1'
           regexp: true
@@ -684,7 +698,10 @@
         '^/humanresources/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/human-resources/$1/'
           regexp: true
-        # ITS
+        '^wellness/?$':
+          to: ‘/people/offices-directory/human-resources/’
+          regexp: true
+  # ITS
         '^/its/(.*)$':
           to: '/people/offices-directory/information-technology-services/$1'
           regexp: true
@@ -694,7 +711,7 @@
         '^/its/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/information-technology-services/$1/'
           regexp: true
-        # Institutional Research
+  # Institutional Research
         '^/institutional-research/(.*)$':
           to: '/people/offices-directory/institutional-research/$1'
           regexp: true
@@ -704,7 +721,7 @@
         '^/institutionalresearch/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/institutional-research/$1/'
           regexp: true
-        # Language Resource Center
+  # Language Resource Center
         '^/language-resource-center/(.*)$':
           to: '/people/offices-directory/language-resource-center/$1'
           regexp: true
@@ -714,7 +731,7 @@
         '^/lrc/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/language-resource-center/$1/'
           regexp: true
-        # Mail Services
+  # Mail Services
         '^/mail-services/(.*)$':
           to: '/people/offices-directory/mail-services/$1'
           regexp: true
@@ -724,7 +741,7 @@
         '^/mailservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/mail-services/$1/'
           regexp: true
-        # Registrar
+  # Registrar
         '^/registrar/(.*)$':
           to: '/people/offices-directory/registrar/$1'
           regexp: true
@@ -734,11 +751,11 @@
         '^/registraroffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/registrar/$1/'
           regexp: true
-        # Secretary of the College
+  # Secretary of the College
         '^/secretary-of-the-college/?$':
           to: '/people/offices-directory/secretary-of-the-college/'
           regexp: true
-        # Special Programs
+  # Special Programs
         '^/special-programs/(.*)$':
           to: '/people/offices-directory/special-programs/$1'
           regexp: true
@@ -748,7 +765,7 @@
         '^/specialprograms/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/special-programs/$1/'
           regexp: true
-        # Student Fianncial Services
+  # Student Fianncial Services
         '^/student-financial-services/(.*)$':
           to: '/people/offices-directory/student-financial-services/$1'
           regexp: true
@@ -758,7 +775,7 @@
         '^/sfs/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/student-financial-services/$1/'
           regexp: true
-        # VPCFO
+  # VPCFO
         '^/vice-president-and-chief-financial-officer/(.*)$':
           to: '/people/offices-directory/vice-president-and-chief-financial-officer/$1'
           regexp: true
@@ -769,7 +786,7 @@
           to: '/people/offices-directory/vice-president-and-chief-financial-officer/$1/'
           regexp: true
 ########## MISC. ROOT LEVEL SITES ##########
-        # Visitors
+  # Visitors
         # '^/visitors/(.*)$':
         #   to: '/visitors/$1'
         #   regexp: true
@@ -779,14 +796,14 @@
         '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/visitors/$1/'
           regexp: true
-        # Academic Integrity
+  # Academic Integrity
         '^/academicintegrity/?$':
           to: '/academic-integrity/'
           regexp: true
         '^/academicintegrity/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academic-integrity/'
           regexp: true
-        # January Program
+  # January Program
         '^/januaryprogram/(.*)$':
           to: '/january-program/$1'
           regexp: true
@@ -796,7 +813,10 @@
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/january-program/$1/'
           regexp: true
-        # Green Colby
+        '^/janplanphotocontest$': 
+          to: ‘/januaryprogram/offcampus/jan-plan-photo-contest/’     
+          regexp: true
+  # Green Colby
         '^/green/(.*)$':
           to: '/green-colby/$1'
           regexp: true
@@ -812,7 +832,7 @@
         '^/green/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/green-colby/$1/'
           regexp: true
-        # Office of the President
+  # Office of the President
         '^/office-of-the-president/?$':
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
@@ -825,7 +845,7 @@
         '^/president/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
-        # Office of the Provost
+  # Office of the Provost
         '^/office-of-the-provost/?$':
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
@@ -839,7 +859,11 @@
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
 ########## MISC ACADEMIC SITES ##########
-        # CAPS Program
+  # Academic Calendar
+        '^academics/calendar/?$':
+          to: ‘https://www.colby.edu/academics/calendar/2022-2023-academic-calendar/’
+          regexp: true
+  # CAPS Program
         '^/colby-achievement-program-in-the-sciences/(.*)$':
           to: '/academics/colby-achievement-program-in-the-sciences/$1'
           regexp: true
@@ -849,7 +873,7 @@
         '^/caps/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/colby-achievement-program-in-the-sciences/$1/'
           regexp: true
-        # CUSRR
+  # CUSRR
         '^/colby-undergraduate-summer-research-retreat/(.*)$':
           to: '/academics/colby-undergraduate-summer-research-retreat/$1'
           regexp: true
@@ -859,11 +883,11 @@
         '^/cusrr/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/colby-undergraduate-summer-research-retreat/$1/'
           regexp: true
-        # Humanities
+  # Humanities
         '^/humanities/$':
           to: '/academics/humanities/'
           regexp: true
-        # Phi Beta Kappa
+  # Phi Beta Kappa
         '^/phi-beta-kappa/(.*)$':
           to: '/academics/phi-beta-kappa/$1'
           regexp: true
@@ -873,7 +897,7 @@
         '^/phibetakappa/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/phi-beta-kappa/$1/'
           regexp: true
-        # Research
+  # Research
         '^/research/(.*)$':
           to: '/academics/research/$1'
           regexp: true
@@ -883,9 +907,784 @@
         '^/research/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academics/research/$1/'
           regexp: true
-        # Catalogue
+  # Catalogue
         '^/catalogue/requirements/AA/(.*)$':
           to: '/academics/research/$1'
+          regexp: true
+########## OFF SITE REDIRECTS ##########
+  # Admissions
+        '^admission/(.+)$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+        '^admission/$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+        '^admission/20-21-sib-survey/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/22-23-Sibling-Survey.pdf’     
+          regexp: true
+        'admission/admissions-and-financial-aid-requirements/?$':
+          to: ‘https://afa.colby.edu/apply/requirements/applying-for-aid/’
+          regexp: 
+        '^admission/academics/?$':
+          to: ‘https://afa.colby.edu/academics/’
+          regexp: true
+        '^admission/afford/?$': 
+          to: ‘https://www.colby.edu/admission/cost-and-aid/’     
+          regexp: true
+        '^admission/after-colby/?$':
+          to: ‘https://afa.colby.edu/outcomes/’
+          regexp: true
+        '^admission/apply/?$':
+          to: ‘https://afa.colby.edu/apply’
+          regexp: true
+        '^admission/apply/arts-supplement/?$':
+          to: ‘https://afa.colby.edu/apply/arts-supplement’
+          regexp: true
+        '^admission/apply/deadlines/?$': 
+          to: ‘https://afa.colby.edu/apply/requirements/’     
+          regexp: true
+        '^admission/apply/deferral/?$':
+          to: ‘https://afa.colby.edu/apply/deferral-policy/’
+          regexp: true
+        '^admission/apply/federal-loans/?$': 
+          to: ‘https://afa.colby.edu/apply/requirements/applying-for-aid/’     
+          regexp: true
+        '^admission/apply/first-year-faq/?$':
+          to: ‘https://afa.colby.edu/apply/faq/’
+          regexp: true
+        '^admission/apply/first-year-FAQ/?$':
+          to: ‘https://afa.colby.edu/apply/faq/’
+          regexp: true
+        '^admission/apply/first-year-international-applicants/?$': 
+          to: ‘https://afa.colby.edu/apply/requirements/international-applicants/’     
+          regexp: true
+        '^admission/apply/international/?$': 
+          to: ‘https://afa.colby.edu/apply/requirements/international-applicants/’     
+          regexp: true
+        '^admission/apply/international-applicant-frequently-asked-questions/?$':
+          to: ‘https://afa.colby.edu/apply/faq/’
+          regexp: true
+        '^admission/apply/international/international-faq/?$':
+          to: ‘https://afa.colby.edu/apply/faq/’
+          regexp: true
+        '^admission/apply/international-student-certification-of-finances-iscof/?$':
+          to: ‘https://afa.colby.edu/iscof/’
+          regexp: true
+        '^admission/apply/nescac/?$': 
+          to: ‘https://afa.colby.edu/apply/nescac-admissions-practices/’     
+          regexp: true
+        '^admission/apply/nescac-statement-of-common-admissions-practices/?$':
+          to: ‘https://afa.colby.edu/apply/nescac-admissions-practices/’
+          regexp: true
+        '^admission/apply/waitlist-faq/?$':
+          to: ‘https://afa.colby.edu/apply/faq/’
+          regexp: true
+        '^admission/bunche/?$':
+          to: ‘https://afa.colby.edu/academics/scholar-programs/bunche-scholars/’
+          regexp: true
+        '^admission/cbb/?$': 
+          to: ‘https://afa.colby.edu/counselors/’     
+          regexp: true
+        '^admission/class-of-2024-admitted-students/understanding-your-financial-aid-package/?$':
+          to: ‘https://afa.colby.edu/understanding-your-aid-package/’
+          regexp: true
+        '^admission/class-of-2024-admitted-students/understanding-your-financial-aid-package-2/?$':
+          to: ‘https://afa.colby.edu/understanding-your-aid-package/’
+          regexp: true
+        '^admission/colbyclassof2025/?$':
+          to: ‘https://admittedstudents.colby.edu/’
+          regexp: true
+        '^admission/college-profile/?$':
+          to: ‘https://afa.colby.edu/apply/college-profile/’
+          regexp: true
+        '^admission/commitment/?$':
+          to: ‘https://afa.colby.edu/cost-and-aid/colby-commitment/’
+          regexp: true
+        '^admission/commitment/financial-aid-final/?$':
+          to: ‘https://www.colby.edu/admission/cost-and-aid/the-colby-commitment/’
+          regexp: true
+        '^admission/commitment/financial-aid-final/applying-for-financial-aid/?$': 
+          to: ‘https://afa.colby.edu/apply/requirements/applying-for-aid/’     
+          regexp: true
+        '^admission/commitment/financial-aid-final/understanding-your-financial-aid-package/?$':
+          to: ‘https://afa.colby.edu/understanding-your-aid-package/’
+          regexp: true
+        '^admission/contact/?$':
+          to: ‘https://afa.colby.edu/counselors/’
+          regexp: true
+        '^admission/contact-admissions/?$':
+          to: ‘https://afa.colby.edu/counselors/’
+          regexp: true
+        '^admission/contact/for-school-counselors/?$':
+          to: ‘https://afa.colby.edu/visit/’
+          regexp: true
+        '^admission/counselors/?$':
+          to: ‘https://afa.colby.edu/counselors/’
+          regexp: true
+        '^admission/counselors/barker-lexie/?$': 
+          to: ‘https://afa.colby.edu/counselors/sumner-lexie/’     
+          regexp: true
+        '^admission/counselors/brewster-jamie/?$':
+          to: ‘https://afa.colby.edu/counselors/brewster-jamie/’
+          regexp: true
+        '^admission/counselors/crocker-abigail/?$':
+          to: ‘https://afa.colby.edu/counselors/st-johns-abigail/’
+          regexp: true
+        '^admission/counselors/gilbertson-katy/?$':
+          to: ‘https://afa.colby.edu/counselors/gilbertson-katy/’
+          regexp: true
+        '^admission/counselors/hartin-shelby/?$':
+          to: ‘https://afa.colby.edu/counselors/hartin-shelby/’
+          regexp: true
+        '^admission/counselors/hodgkins-molly/?$':
+          to: ‘https://afa.colby.edu/counselors/hodgkins-molly/’
+          regexp: true
+        '^admission/counselors/phanor-kevin/?$': 
+          to: ‘https://afa.colby.edu/counselors/phanor-kevin/’     
+          regexp: true
+        '^admission/counselors/robinov-mesa/?$':
+          to: ‘https://afa.colby.edu/counselors/robinov-mesa/’
+          regexp: true
+        '^admission/counselors/st-johns-abigail/?$':
+          to: ‘https://afa.colby.edu/counselors/st-johns-abigail/’
+          regexp: true
+        '^admission/counselors/sumner-lexie/?$':
+          to: ‘https://afa.colby.edu/counselors/sumner-lexie/’
+          regexp: true
+        '^admission/covid-19/?$':
+          to: ‘https://afa.colby.edu/apply/faq/’
+          regexp: true
+        '^admission/explore-colby/?$':
+          to: ‘https://afa.colby.edu/visit/’
+          regexp: true
+        '^admission/finaid/?$': 
+          to: ‘https://afa.colby.edu/cost-and-aid/’     
+          regexp: true
+        '^admission/finaid/apply/?$':
+          to: ‘https://afa.colby.edu/apply/requirements/applying-for-aid/’
+          regexp: true
+        '^admission/finaid/colby-aid/?$': 
+          to: ‘https://afa.colby.edu/cost-and-aid/’     
+          regexp: true
+        '^admission/finaid/no-loan/?$': 
+          to: ‘https://afa.colby.edu/cost-and-aid/colby-commitment/’     
+          regexp: true
+        '^admission/finaid/options/?$': 
+          to: ‘https://afa.colby.edu/cost-and-aid/’     
+          regexp: true
+        '^admission/first-year/?$':
+          to: ‘https://afa.colby.edu/apply/requirements/’
+          regexp: true
+        '^admission/for-our-partners/?$': 
+          to: ‘https://afa.colby.edu/visit/’     
+          regexp: true
+        '^admission/front-page-2-2/?$':
+          to: ‘https://afa.colby.edu/’
+          regexp: true
+        '^admission/gapyear/?$': 
+          to: ‘https://afa.colby.edu/apply/gap-year/’     
+          regexp: true
+        '^admission/healthy-active-lifestyle/?$': 
+          to: ‘https://afa.colby.edu/student-life/’     
+          regexp: true
+        '^admission/international/?$':
+          to: ‘https://afa.colby.edu/apply/requirements/international-applicants/’
+          regexp: true
+        '^admission/join-a-community/?$':
+          to: ‘https://afa.colby.edu/visit/’
+          regexp: true
+        '^admission/myintuition/?$':
+          to: ‘https://afa.colby.edu/cost-and-aid/calculate-your-costs/myintuition-calculator/’
+          regexp: true
+        '^admission/nondiscrimination-policy/?$': 
+          to: ‘https://afa.colby.edu/nondiscrimination-policy/’     
+          regexp: true
+        '^admission/planning-your-visit-to-campus/?$': 
+          to: ‘https://afa.colby.edu/visit/’     
+          regexp: true
+        '^admission/planning-your-visit-to-campus-2/?$': 
+          to: ‘https://afa.colby.edu/visit/’     
+          regexp: true
+        '^admission/presidential/?$':
+          to: ‘https://afa.colby.edu/academics/scholar-programs/presidential-scholars/’
+          regexp: true
+        '^admission/presidential/cara/opportunity-grants/?$': 
+          to: ‘https://afa.colby.edu/academics/scholar-programs/presidential-scholars/opportunity-grants/’     
+          regexp: true
+        '^admission/pulver-science-scholars/?$':
+          to: ‘https://afa.colby.edu/academics/scholar-programs/pulver-science-scholars/’
+          regexp: true
+        '^admission/questbridge/?$': 
+          to: ‘https://afa.colby.edu/apply/requirements/questbridge-applicants/’     
+          regexp: true
+        '^admission/schedule-your-visit/?$':
+          to: ‘https://afa.colby.edu/visit/’
+          regexp: true
+        '^admission/school-counselors/?$': 
+          to: ‘https://afa.colby.edu/visit/’     
+          regexp: true
+        '^admission/snapshots/our-counselors/?$':
+          to: ‘https://afa.colby.edu/counselors/’
+          regexp: true
+        '^admission/student-life/?$':
+          to: ‘https://afa.colby.edu/student-life’
+          regexp: true
+        '^admission/terms-of-use/?$':
+          to: ‘https://www.colby.edu/generalcounsel/terms-of-use/’
+          regexp: true
+        '^admission-terms-of-use.htm/?$': 
+          to: ‘https://www.colby.edu/generalcounsel/terms-of-use/’     
+          regexp: true
+        '^admission/transfer/?$': 
+          to: ‘https://afa.colby.edu/apply/requirements/transfer-applicants/’     
+          regexp: true
+        '^admission/tuition-payment-plan/?$': 
+          to: ‘https://www.colby.edu/sfs/student-charges-payment-schedule/’     
+          regexp: true
+        '^admission/understanding-your-financial-aid-package/?$':
+          to: ‘https://afa.colby.edu/understanding-your-aid-package/’
+          regexp: true
+        '^admission/undocumented/?$': 
+          to: ‘https://afa.colby.edu/apply/requirements/undocumented-daca-applicants/’     
+          regexp: true
+        '^admission/virtual-visit/?$':
+          to: ‘https://afa.colby.edu/visit/’
+          regexp: true
+        '^admission/visit/?$':
+          to: ‘https://afa.colby.edu/visit/’
+          regexp: true
+        '^admission/visiting-colby/?$': 
+          to: ‘https://afa.colby.edu/visit/’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/04/2020-21-International-Student-Certification-of-Finances.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2020-21-International-Student-Certification-of-Finances-1.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2019/12/20-21-Review-Request-Form.pdf/?$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/2020-2021-Verif-of-Identity-Stmt-of-Ed-Purp.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2022-2023-Veri-Identity-Stmt-of-Ed-Purp.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/02/2020-2021-Colby-Dependent-Veri-Wksht-V1-1.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/09/2019-Student-Non-Filer-Statement.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2020-Student-Non-Filer-Statement.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/09/2019-Parent-Non-Tax-Filer-Statement.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2020-Student-Non-Filer-Statement.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/2020-21-Verification-Dep.-Wrksht.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/2020-21-International-Student-Certification-of-Finances.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2020-21-International-Student-Certification-of-Finances-1.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/2020-2021-Verif-of-Identity-Stmt-of-Ed-Purp.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2022-2023-Veri-Identity-Stmt-of-Ed-Purp.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2019/03/19-20-Sib-Survey.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/22-23-Sibling-Survey.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/2018-Student-Non-Filer-Statement.pdf/?$': 
+          to: ‘https://afa.colby.edu//wp-content/uploads/2021/09/2020-Student-Non-Filer-Statement.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/2018-Parent-Non-Tax-Filer-Statement.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2020-Parent-Non-Tax-Filer-Statement.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2019/10/2020-21-Non-Custodial-Parent-Waiver-Form.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2018/09/2019-20-Non-Custodial-Parent-Waiver-Form.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/2020-21-Verification-Ind.-Wrksht.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Ind.-Wrksht.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/02/2020-2021-Colby-Independent-Veri-Wksht-V1.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Ind.-Wrksht.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/02/2020-2021-Colby-Dependent-Veri-Wksht-V1-1.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2019/03/2019-20-Colby-Verification-Worksheet.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2019/12/20-21-Review-Request-Form.pdf/?$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2019/10/OFFICIAL-Overnight-Host-Contract.pdf/?$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2018/11/Alumni-Admissions-Volunteer-Handbook-2019.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/Alumni-Admissions-Volunteer-Handbook-2019.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2019/07/Final-Report3-2.pdf/?$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2019/04/CampusMap_2023.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2019/08/18-163_Campus-Map_v2_map-only.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/02/ASP_Campus_Map_02142020.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/02/Colby-Overnight-Visit-Agreement-2020.pdf/?$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/04/2020-21-International-Student-Certification-of-Finances.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2020-21-International-Student-Certification-of-Finances-1.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/19-20-Final-Report-1.pdf/?$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/2020-21-International-Student-Certification-of-Finances.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2020-21-International-Student-Certification-of-Finances-1.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/05/2020-21-Verification-Dep.-Wrksht.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/07/Colby-College-Outcomes-2019-Spreads.pdf/?$': 
+          to: ‘https://issuu.com/colbycollegelibrary/docs/c25089_21_outcomes.hp_spreads_final’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/09/2019-Parent-Non-Tax-Filer-Statement.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2020-Parent-Non-Tax-Filer-Statement.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/09/2019-Student-Non-Filer-Statement.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2021/05/2021-22-Verification-Dep.-Wrksht.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2021/06/Campus-Map.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2021/05/20-063-Campus-Map-for-Orientation.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/09/2021-22-Non-Custodial-Parent-Waiver-Form.pdf/?$': 
+          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf’     
+          regexp: true
+        '^admission/wp-content/uploads/sites/191/2020/12/21-22-Review-Request-Form.pdf/?$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+        '^presidential/presidential-scholars/?$': 
+          to: ‘https://afa.colby.edu/academics/scholar-programs/presidential-scholars/’     
+          regexp: true
+        '^/thiscolbylife/?$': 
+          to: ‘https://afa.colby.edu/’     
+          regexp: true
+  # Alumni
+        '^/alumni/?$':
+          to: ‘/colbyalumni/’     
+          regexp: true
+        '^/alumni/?$':
+          to: ‘/colbyalumni/’     
+          regexp: true
+        '^/campaign/?$':
+          to: ‘/support-colby/’     
+          regexp: true
+        '^/waystogive/?$':
+          to: ‘/colbyalumni/ways-to-give/’     
+          regexp: true
+  # Athletics
+        '^/athletics/?$':
+          to: ‘https://colbyathletics.com/’     
+          regexp: true
+  # AI
+        '^ai/?$':
+          to: ‘https://davisinstituteai.colby.edu/’
+          regexp: true
+  # Allen & Benner Isalnds
+        '^allenisland/?$':
+          to: ‘https://islandcampus.colby.edu’
+          regexp: true
+  # CAH
+        '^centerartshumanities/?(.*)$':
+          to: ‘https://cah.colby.edu’
+          regexp: true
+  # Commencement
+        '^commencement/?$':
+          to: ‘https://commencement.colby.edu’
+          regexp: true
+  # Davis Connects
+        '^/careercenter/?$': 
+          to: ‘/davisconnects’     
+          regexp: true
+        '^/careercenter/students/internships$': 
+          to: ‘/davisconnects/internships/’     
+          regexp: true
+        '^davisconnects/?$':
+          to: ‘https://davisconnects.colby.edu’
+          regexp: true
+        '^davisconnects/engage/?$':
+          to: ‘https://davisconnects.colby.edu/hire-a-colby-student/’
+          regexp: true
+        '^davisconnects/entrepreneurship-and-innovation/?$':
+          to: ‘https://davisconnects.colby.edu/partner-with-colby/’
+          regexp: true
+        '^davisconnects/davis-global-course-proposals/?$':
+          to: ‘https://davisconnects.colby.edu/funding-opportunities/faculty/’
+          regexp: true
+        '^davisconnects/davis-global-innovation-courses/?$':
+          to: ‘https://davisconnects.colby.edu/funding-opportunities/faculty/’
+          regexp: true
+        '^davisconnects/davis-global-labs/?$':
+          to: ‘https://davisconnects.colby.edu/funding-opportunities/faculty/’
+          regexp: true
+        '^davisconnects/internships/?$':
+          to: ‘https://davisconnects.colby.edu/internships/find-an-internship/’
+          regexp: true
+        '^davisconnects/labs/buck-lab/?$':
+          to: ‘https://web.colby.edu/bucklab/’
+          regexp: true
+        '^davisconnects/labs/linde-packman/?$':
+          to: ‘https://web.colby.edu/linde-packman-lab/linde-packman-lab-for-biosciences-innovation’
+          regexp: true
+        '^davisconnects/news/?$':
+          to: ‘https://davisconnects.colby.edu/events-workshops/’
+          regexp: true
+        '^davisconnects/research-and-colby-labs/?$':
+          to: ‘https://davisconnects.colby.edu/find-a-research-opportunity/’
+          regexp: true
+        '^davisconnects/staff/?$':
+          to: ‘https://davisconnects.colby.edu/about/’
+          regexp: true
+        '^davisconnects/student-advising/?$':
+          to: ‘https://davisconnects.colby.edu/advising/’
+          regexp: true
+        '^davisconnects/student-advising/fellowships/?$':
+          to: ‘https://davisconnects.colby.edu/after-colby/fellowships/’
+          regexp: true
+        '^davisconnects/student-funding/?$':
+          to: ‘https://davisconnects.colby.edu/funding-opportunities/students/’
+          regexp: true
+  # Goldfarb
+        '^goldfarb/?$':
+          to: ‘https://goldfarbcenter.colby.edu/’
+          regexp: true
+  # Health Services
+  # Jewish Life
+        '^jewishlife/(.*)$':
+          to: ‘https://jewishlife.colby.edu/’
+          regexp: true
+  # Libraries
+        '^libraries/(.+)/?$':
+          to: ‘https://libraries.colby.edu/$1/’
+          regexp: true
+      '^libraries/?$':
+          to: ‘https://libraries.colby.edu/’
+          regexp: true
+  # Life (including SGA, Off Campus, Health Services)
+        '^bigelowprogram/?$':
+          to: ‘https://life.colby.edu/offcampus/colby-at-bigelow-laboratory/’
+          regexp: true
+        '^civic-engagement/?$':
+          to: ‘https://life.colby.edu/what-to-do/civic-engagement/’
+          regexp: true
+        '^civic-engagement/(.*)$':
+          to: ‘https://life.colby.edu/what-to-do/civic-engagement/’
+          regexp: true
+        '^/counseling/?$':
+          to: ‘https://life.colby.edu/your-health/counseling-services/’     
+          regexp: true
+        '^diversity/?$':
+          to: ‘https://life.colby.edu/what-to-do/diversity-equity-inclusion/’
+          regexp: true
+        '^diversity/(.*)$':
+          to: ‘https://life.colby.edu/what-to-do/diversity-equity-inclusion/’
+          regexp: true
+        '^health-services.*/?$':
+          to: ‘https://life.colby.edu/health-services/’
+          regexp: true
+        '^healthandcounseling/counseling-services/?$':
+          to: ‘https://life.colby.edu/your-health/counseling-services/’
+          regexp: true
+        '^healthandcounseling/health-services/?$':
+          to: ‘https://www.colby.edu/health-services/’
+          regexp: true
+        '^life/?$':
+          to: ‘https://life.colby.edu/’
+          regexp: true
+        '^life/(.*)$':
+          to: ‘https://life.colby.edu/’
+          regexp: true
+        '^offcampus/?$':
+          to: ‘https://life.colby.edu/offcampus/’
+          regexp: true
+        '^offcampus/about-us/?$':
+          to: ‘https://life.colby.edu/offcampus/about-us/’
+          regexp: true
+        '^offcampus/academic-policy/?$':
+          to: ‘https://life.colby.edu/offcampus/academic-travel-policies/’
+          regexp: true
+        '^offcampus/advising-appointments/?$':
+          to: ‘https://calendar.google.com/calendar/u/0/selfsched?sstoken=UU5fRFRCUFNhNVVBfGRlZmF1bHR8MmMxNTdhYzE2NGNhMWM5MjVmYmY3OWY4MDJiMjhhNzk’
+          regexp: true
+        '^offcampus/application-process/?$':
+          to: ‘https://life.colby.edu/offcampus/take-your-first-steps/’
+          regexp: true
+        '^offcampus/colby-in-dijon/?$':
+          to: ‘https://life.colby.edu/offcampus/colby-in-dijon/’
+          regexp: true
+        '^offcampus/colby-in-salamanca/?$':
+          to: ‘https://life.colby.edu/offcampus/colby-in-salamanca/’
+          regexp: true
+        '^offcampus/covid-19/?$':
+          to: ‘https://life.colby.edu/offcampus/stay-safe/’
+          regexp: true
+        '^offcampus/financial-faq-about-ocs/?$':
+          to: ‘https://life.colby.edu/offcampus/financial-aid-faq/’
+          regexp: true
+        '^offcampus/financing-off-campus-study/?$':
+          to: ‘https://life.colby.edu/offcampus/finance-your-experience/’
+          regexp: true
+        '^offcampus/getting-started-2/?$':
+          to: ‘https://life.colby.edu/offcampus/go-off-campus/’
+          regexp: true
+        '^offcampus/global-entry-semester/?$':
+          to: ‘https://life.colby.edu/offcampus/global-entry-semesters/’
+          regexp: true
+        '^offcampus/global-entry-semester/dijon/?$':
+          to: ‘https://life.colby.edu/offcampus/global-entry-semesters/’
+          regexp: true
+        '^offcampus/global-images-photo-contest-2/?$':
+          to: ‘https://life.colby.edu/offcampus/global-images-photo-contest/’
+          regexp: true
+        '^offcampus/jan-plan-off-campus/?$':
+          to: ‘https://life.colby.edu/offcampus/janplan-off-campus/’
+          regexp: true
+        '^offcampus/pre-departure/safety-security-abroad/?$':
+          to: ‘https://life.colby.edu/offcampus/stay-safe/’
+          regexp: true
+        '^offcampus/pre-departure/what-to-know-before-you-go/health-safety/health-precautions/?$':
+          to: ‘https://life.colby.edu/offcampus/stay-safe/’
+          regexp: true
+        '^offcampus/pre-departure/what-to-know-before-you-go/health-safety/staying-safe-and-healthy-abroad/?$':
+          to: ‘https://life.colby.edu/offcampus/stay-safe/’
+          regexp: true
+        '^offcampus/travel-registry/?$':
+          to: ‘https://life.colby.edu/offcampus/colby-travel-policy-registry/’
+          regexp: true
+        '^offcampus/types-of-ocs-programs/?$':
+          to: ‘https://life.colby.edu/offcampus/understanding-your-options/’
+          regexp: true
+        '^offcampus/welcome-back-2/?$':
+          to: ‘https://life.colby.edu/offcampus/welcome-back/’
+          regexp: true
+        '^orientation/?$':
+          to: ‘https://life.colby.edu/what-to-do/first-year-experience/orientation/’
+          regexp: true
+        '^residentiallife/?$':
+          to: ‘https://life.colby.edu/where-to-live/’
+          regexp: true
+        '^residentiallife/(.*)?$':
+          to: ‘https://life.colby.edu/where-to-live/’
+          regexp: true
+        '^safetyandaccountability/?$':
+          to: ‘https://life.colby.edu/your-safety/’
+          regexp: true
+        '^safetyandaccountability/(,*)$':
+          to: ‘https://life.colby.edu/your-safety/’
+          regexp: true
+        '^securitydept/(.*)$':
+          to: ‘https://life.colby.edu/conduct-safety/campus-safety/’
+          regexp: true
+        '^securitydept/parking-permit-registration/?$':
+          to: ‘https://life.colby.edu/your-safety/campus-safety/parking-permit-registration/’
+          regexp: true
+        '^sga/?$':
+          to: ‘https://life.colby.edu/sga/’
+          regexp: true
+        '^sga/sga-documents/constitution/?$':
+          to: ‘https://life.colby.edu/sga/who-we-are/’
+          regexp: true
+        '^sga/affirmation/?$':
+          to: ‘https://life.colby.edu/sga/who-we-are/’
+          regexp: true
+        '^sga/archived-committee-reports/?$':
+          to: ‘https://life.colby.edu/sga/sga-resources/’
+          regexp: true
+        '^sga/class-of-2022/?$':
+          to: ‘https://life.colby.edu/sga/presidents-council/’
+          regexp: true
+        '^sga/class-of-2023/?$':
+          to: ‘https://life.colby.edu/sga/presidents-council/’
+          regexp: true
+        '^sga/class-of-2025/?$':
+          to: ‘https://life.colby.edu/sga/presidents-council/’
+          regexp: true
+        '^sga/committees/?$':
+          to: ‘https://life.colby.edu/sga/who-we-are/’
+          regexp: true
+        '^sga/executive-board/?$':
+          to: ‘https://life.colby.edu/sga/members/executive-board/’
+          regexp: true
+        '^sga/funding-requests/?$':
+          to: ‘https://life.colby.edu/sga/sga-resources/’
+          regexp: true
+        '^sga/getting-involved/?$':
+          to: ‘https://life.colby.edu/sga/who-we-are/’
+          regexp: true
+        '^sga/overview/?$':
+          to: ‘https://life.colby.edu/sga/who-we-are/’
+          regexp: true
+        '^sga/sga-documents/agendas-and-minutes/?$':
+          to: ‘https://life.colby.edu/sga/sga-resources/’
+          regexp: true
+        '^sga/sga-documents/motions/?$':
+          to: ‘https://life.colby.edu/sga/sga-resources/’
+          regexp: true
+        '^sga/state-of-the-college/?$':
+          to: ‘https://life.colby.edu/sga/’
+          regexp: true
+        '^sga/story-time/?$':
+          to: ‘https://life.colby.edu/sga/’
+          regexp: true
+        '^sga/student-clubs/club-budgets-and-re-registration/?$':
+          to: ‘https://life.colby.edu/sga/student-clubs/’
+          regexp: true
+        '^sga/student-clubs/how-to-start-a-club/?$':
+          to: ‘https://life.colby.edu/sga/student-clubs/’
+          regexp: true
+        '^sga/weekly-newsletter-updates/?$':
+          to: ‘https://life.colby.edu/sga/’
+          regexp: true
+        '^sexualviolence/?$':
+          to: ‘https://life.colby.edu/conduct-safety/sexual-violence-title-ix/’
+          regexp: true
+        '^sexualviolence/(?!wp-admin)(.*)$':
+          to: ‘https://life.colby.edu/conduct-safety/sexual-violence-title-ix/’
+          regexp: true
+        '^spirituallife/?$':
+          to: ‘https://life.colby.edu/what-to-do/spiritual-life/’
+          regexp: true
+        '^studentactivities/?$':
+          to: ‘https://life.colby.edu/what-to-do/’
+          regexp: true
+        '^studentactivities/(.*)$':
+          to: ‘https://life.colby.edu/what-to-do/’
+          regexp: true
+        '^studentadvising/?$':
+          to: ‘https://life.colby.edu/get-support/advising-academic-success/’
+          regexp: true
+        '^studentadvising/(.*)$':
+          to: ‘https://life.colby.edu/get-support/advising-academic-success/’
+          regexp: true
+        '^studentlife/?$':
+          to: ‘https://life.colby.edu/’
+          regexp: true
+        '^studentlife/student-handbook$':
+          to: ‘https://life.colby.edu/your-safety/’
+          regexp: true
+  # Lunder Institute
+        '^lunderinstitute/(.+)/?$':
+          to: ‘https://lunderinstitute.colby.edu/$1/’
+          regexp: true
+        '^lunderinstitute/?$':
+          to: ‘https://lunderinstitute.colby.edu’
+          regexp: true
+  # Museum/Museum Exhibits
+        '^museum/?$':
+          to: ‘https://museum.colby.edu’
+          regexp: true
+        '^museum/(?!wp-admin)(.+)/?$':
+          to: ‘https://museum.colby.edu/$1/’
+          regexp: true
+        '^museum/exhibition/?$':
+          to: ‘https://museum-exhibitions.colby.edu/current-exhibitions/’
+          regexp: true
+        '^museum/exhibition/2021-senior-exhibition/?$':
+          to: ‘https://museum-exhibitions.colby.edu/exhibition/2021-senior-exhibition/’
+          regexp: true
+        '^museum/exhibition/an-ecstatic-experience/?$':
+          to: ‘https://museum-exhibitions.colby.edu/exhibition/jatovia-gary-an-ecstatic-experience/’
+          regexp: true
+        '^museum/exhibition/bob-thompson-this-house-is-mine/?$':
+          to: ‘https://museum-exhibitions.colby.edu/exhibition/bob-thompson-this-house-is-mine/’
+          regexp: true
+        '^museum/exhibition/hew-locke-heres-the-thing/?$':
+          to: ‘https://museum-exhibitions.colby.edu/exhibition/hew-locke-heres-the-thing/’
+          regexp: true
+        '^museum/exhibition/inside-out-the-prints-of-mary-cassatt/?$':
+          to: ‘https://museum-exhibitions.colby.edu/exhibition/inside-out-the-prints-of-mary-cassatt/’
+          regexp: true
+        '^museum/exhibition/miracles-on-the-boarder-retablos-of-mexican-migrants-to-the-united-states/?$':
+          to: ‘https://museum-exhibitions.colby.edu/exhibition/miracles-on-the-border-retablos-of-mexican-migrants-to-the-united-states/’
+          regexp: true
+        '^museum/exhibition/roy-lichtenstein-history-in-the-making-1948-1960/?$':
+          to: ‘https://museum-exhibitions.colby.edu/exhibition/roy-lichtenstein-history-in-the-making-1948-1960/’
+          regexp: true
+        '^museum/exhibition/the-sea-in-a-jug-the-welch-collection-of-islamic-and-later-indian-art/?$':
+          to: ‘https://museum-exhibitions.colby.edu/exhibition/the-sea-in-a-jug-the-welch-collection-of-islamic-and-later-indian-art/’
+          regexp: true
+        '^museum/exhibition/view/traveling/?$':
+          to: ‘https://museum-exhibitions.colby.edu/traveling-exhibitions/’
+          regexp: true
+        '^museum/exhibition/view/upcoming/?$':
+          to: ‘https://museum-exhibitions.colby.edu/upcoming-exhibitions/’
+          regexp: true
+  # News/Magazine
+        '^climate/?$':
+          to: ‘https://news.colby.edu/’
+          regexp: true
+        '^climate/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: ‘https://news.colby.edu/story/$1/’
+          regexp: true
+        '^in-the-news/?$':
+          to: ‘https://news.colby.edu/’
+          regexp: true
+        '^in-the-news/covid-19/?$':
+          to: ‘https://news.colby.edu/external/media-coverage/’
+          regexp: true
+        '^magazine/?$':
+          to: ‘https://news.colby.edu/colby-magazine/’
+          regexp: true
+        '^magazine/(?!wp-admin)(.+)/?$':
+          to: ‘https://news.colby.edu/story/$1/’
+          regexp: true
+        '^magazine/covid-19-response/?$':
+          to: ‘https://www.colby.edu/communications/magazine/covid-19/’
+          regexp: true
+        '^magazine/letter-to-the-editor/?$':
+          to: ‘https://news.colby.edu/contact/’
+          regexp: true
+        '^magazine/magazine/issue/spring-2021/classnotes/?$':
+          to: ‘https://news.colby.edu/colby-magazine/’
+          regexp: true
+        '^magazine/magazine/issue/spring-2021/obituaries/?$':
+          to: ‘https://news.colby.edu/colby-magazine/’
+          regexp: true
+        '^news/?$':
+          to: ‘https://news.colby.edu/’
+          regexp: true
+        '^news/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: ‘https://news.colby.edu/story/$1/’
+          regexp: true
+        '^news/category/type/press-release/?$':
+          to: ‘https://news.colby.edu/story/category/announcements/’
+          regexp: true
+        '^news/pressroom/?$':
+          to: ‘https://news.colby.edu/resources-for-the-media/’
+          regexp: true
+        '^news/recent-faculty-accomplishments/?$':
+          to: ‘https://news.colby.edu/external/faculty-accomplishments/’
+          regexp: true
+        '^news/tag/faculty-accomplishments/?$':
+          to: ‘https://news.colby.edu/external/faculty-accomplishments/’
+          regexp: true
+        '^newsletter/?$':
+          to: ‘https://news.colby.edu/newsletter/’
+          regexp: true
+  # Oak Institute
+        '^oakinstitute/(.*)$':
+          to: ‘https://oakinstitute.colby.edu/’
+          regexp: true
+  # SOBLU
+        '^mag/soblu/?$':
+          to: ‘https://soblu50.colby.edu/’
           regexp: true
 ########## MISC REDIRECTS ##########
         '^2023sendoffs/?$':
@@ -893,9 +1692,6 @@
           regexp: true
         '^administration_cs/student-affairs/deanofstudents/multicultural/upload/Cultural-Events-Committee-Proposal-Form.pdf$':
           to: ‘https://web.colby.edu/cec/files/2021/10/CEC-app-form-10.20.21.pdf’
-          regexp: true
-        '^admission/apply/international-faq/?$':
-          to: ‘https://www.colby.edu/admission/apply/first-year-faq/’
           regexp: true
         '^advancement-careers/?$':
           to: ‘https://www.colby.edu/humanresources/employment/’
@@ -921,6 +1717,9 @@
         '^compbio/?$':
           to: ‘https://www.colby.edu/catalogue/requirements/bi/’
           regexp: true
+        '^/cs/?$':
+          to: ‘http://www.cs.colby.edu/’     
+          regexp: true
         '^culturalevents/?$':
           to: ‘https://web.colby.edu/cec/’
           regexp: true
@@ -929,6 +1728,9 @@
           regexp: true
         '^economicimpactreport/?$':
           to: ‘http://www.colby.edu/people/offices-directory/office-of-the-president/reports/economic-impact-report/’
+          regexp: true
+        '^/engineering$':
+          to: ‘/academics/dual-degree/’     
           regexp: true
         '^eofymailer22/?$':
           to: ‘https://www.colby.edu/give’
@@ -1002,6 +1804,9 @@
         '^student-emergency-fund/?$':
           to: ‘https://darenorthward.colby.edu/student-emergency-fund/’
           regexp: true
+        '^/sturesearch/bassett/$': 
+          to: ‘/academics/bassett-teaching-award/’     
+          regexp: true
         '^TB22/?$':
           to: ‘https://darenorthward.colby.edu/give/’
           regexp: true
@@ -1011,13 +1816,9 @@
         '^vpadmin/?$':
           to: ‘https://www.colby.edu/vpcfo/’
           regexp: true
-
-
-
-
-
-
-
+        '^/workday/?$':
+          to: ‘https://web.colby.edu/workday/’
+          regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://www.{all}/":
     type: redirect

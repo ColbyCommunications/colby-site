@@ -1232,9 +1232,6 @@
         '^/alumni/?$':
           to: ‘/colbyalumni/’     
           regexp: true
-        '^/alumni/?$':
-          to: ‘/colbyalumni/’     
-          regexp: true
         '^/campaign/?$':
           to: ‘/support-colby/’     
           regexp: true

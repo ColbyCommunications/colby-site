@@ -1165,9 +1165,6 @@
         '^admission/wp-content/uploads/sites/191/2020/05/2020-2021-Verif-of-Identity-Stmt-of-Ed-Purp.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2022-2023-Veri-Identity-Stmt-of-Ed-Purp.pdf’     
           regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/02/2020-2021-Colby-Dependent-Veri-Wksht-V1-1.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
-          regexp: true
         '^admission/wp-content/uploads/sites/191/2020/09/2019-Student-Non-Filer-Statement.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2020-Student-Non-Filer-Statement.pdf’     
           regexp: true
@@ -1196,9 +1193,6 @@
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf’     
           regexp: true
         '^admission/wp-content/uploads/sites/191/2020/05/2020-21-Verification-Ind.-Wrksht.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Ind.-Wrksht.pdf’     
-          regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/02/2020-2021-Colby-Independent-Veri-Wksht-V1.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Ind.-Wrksht.pdf’     
           regexp: true
         '^admission/wp-content/uploads/sites/191/2020/02/2020-2021-Colby-Dependent-Veri-Wksht-V1-1.pdf/?$': 

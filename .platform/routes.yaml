@@ -858,6 +858,115 @@
         '^/provost/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
+########## MAJORS/MINORS TABLE REDIRECTS ##########
+  # African American Studies
+        '^/dept/afam/?$':
+          to: '/academics/departments-and-programs/african-american-studies/'
+          regexp: true
+  # American Studies
+        '^/dept/amer/?$':
+          to: '/academics/departments-and-programs/american-studies/'
+          regexp: true
+  # Anthropology
+        '^/dept/anth/?$':
+          to: '/academics/departments-and-programs/anthropology/'
+          regexp: true
+  # Art
+        '^/dept/art/?$':
+          to: '/academics/departments-and-programs/art/'
+          regexp: true
+  # Astronomy/Physics
+        '^/dept/phys/?$':
+          to: '/academics/departments-and-programs/physics-and-astronomy/'
+          regexp: true
+  # Biology
+        '^/dept/biol/?$':
+          to: '/academics/departments-and-programs/biology/'
+          regexp: true
+  # Chemistry
+        '^/dept/chem/?$':
+          to: '/academics/departments-and-programs/chemistry/'
+          regexp: true
+  # Cinema Studies
+        '^/dept/intd/?$':
+          to: '/academics/departments-and-programs/cinema-studies/'
+          regexp: true
+  # Classics
+        '^/dept/clas/?$':
+          to: '/academics/departments-and-programs/classics/'
+          regexp: true
+  # Computer Science
+        '^/dept/comp/?$':
+          to: '/academics/departments-and-programs/computer-science/'
+          regexp: true
+  # East Asian Studies
+        '^/dept/east/?$':
+          to: '/academics/departments-and-programs/east-asian-studies/'
+          regexp: true
+  # Economics
+        '^/dept/econ/?$':
+          to: '/academics/departments-and-programs/economics/'
+          regexp: true
+  # Education
+        '^/dept/educ/?$':
+          to: '/academics/departments-and-programs/education/'
+          regexp: true
+  # English
+        '^/dept/engl/?$':
+          to: '/academics/departments-and-programs/english/'
+          regexp: true
+  # Environmental Studies
+        '^/dept/envs/?$':
+          to: '/academics/departments-and-programs/environmental-studies/'
+          regexp: true
+  # French/Italian
+        '^/dept/frit/?$':
+          to: '/academics/departments-and-programs/french-and-italian/'
+          regexp: true
+  # Geology
+        '^/dept/geol/?$':
+          to: '/academics/departments-and-programs/geology/'
+          regexp: true
+  # German/Russian
+        '^/dept/gmru/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+  # Math
+        '^/dept/math/?$':
+          to: '/academics/departments-and-programs/mathematics/'
+          regexp: true
+  # Music
+        '^/dept/musi/?$':
+          to: '/academics/departments-and-programs/music/'
+          regexp: true
+  # Philosophy
+        '^/dept/phil/?$':
+          to: '/academics/departments-and-programs/philosophy/'
+          regexp: true
+  # Religious Studies
+        '^/dept/relg/?$':
+          to: '/academics/departments-and-programs/religious-studies/'
+          regexp: true
+  # Sociology
+        '^/dept/socy/?$':
+          to: '/academics/departments-and-programs/sociology/'
+          regexp: true
+  # Statistics
+        '^/dept/stat/?$':
+          to: '/academics/departments-and-programs/statistics/'
+          regexp: true
+  # Science, Technology, and Society
+        '^/dept/scit/?$':
+          to: '/academics/departments-and-programs/science-technology-and-society/'
+          regexp: true
+  # Theater/Dance
+        '^/dept/thea/?$':
+          to: '/academics/departments-and-programs/performance-theater-and-dance/'
+          regexp: true
+  # Women, Gender, Sexuality
+        '^/dept/wgst/?$':
+          to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
+          regexp: true
 ########## MISC ACADEMIC SITES ##########
   # Academic Calendar
         '^/academics/calendar/?$':

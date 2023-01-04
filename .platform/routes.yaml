@@ -3,7 +3,7 @@
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
-#### REDIRECT LIST KEY ####
+##### REDIRECT LIST KEY #####
 # ------------------------------------
 # COLBY.EDU REDIRECTS
 # ------------------------------------

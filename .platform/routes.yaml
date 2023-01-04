@@ -562,7 +562,7 @@
           to: '/womens-gender-and-sexuality-studies/$1/'
           regexp: true
         '^/wgss/?$':
-          to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/
+          to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
           regexp: true
   # Writing Department
         '^/writing-program/?$':

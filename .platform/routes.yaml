@@ -1177,9 +1177,6 @@
         '^admission/wp-content/uploads/sites/191/2020/05/2018-Student-Non-Filer-Statement.pdf/?$': 
           to: ‘https://afa.colby.edu//wp-content/uploads/2021/09/2020-Student-Non-Filer-Statement.pdf’     
           regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/05/2018-Parent-Non-Tax-Filer-Statement.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2020-Parent-Non-Tax-Filer-Statement.pdf’     
-          regexp: true
         '^admission/wp-content/uploads/sites/191/2019/10/2020-21-Non-Custodial-Parent-Waiver-Form.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf’     
           regexp: true
@@ -1204,9 +1201,6 @@
         '^admission/wp-content/uploads/sites/191/2019/08/18-163_Campus-Map_v2_map-only.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf’     
           regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/02/ASP_Campus_Map_02142020.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf’     
-          regexp: true
         '^admission/wp-content/uploads/sites/191/2020/02/Colby-Overnight-Visit-Agreement-2020.pdf/?$': 
           to: ‘https://afa.colby.edu/’     
           regexp: true
@@ -1218,9 +1212,6 @@
           regexp: true
         '^admission/wp-content/uploads/sites/191/2020/07/Colby-College-Outcomes-2019-Spreads.pdf/?$': 
           to: ‘https://issuu.com/colbycollegelibrary/docs/c25089_21_outcomes.hp_spreads_final’     
-          regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/09/2019-Parent-Non-Tax-Filer-Statement.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2020-Parent-Non-Tax-Filer-Statement.pdf’     
           regexp: true
         '^admission/wp-content/uploads/sites/191/2021/06/Campus-Map.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf’     

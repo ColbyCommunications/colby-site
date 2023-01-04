@@ -1374,7 +1374,7 @@
         '^libraries/(.+)/?$':
           to: ‘https://libraries.colby.edu/$1/’
           regexp: true
-      '^libraries/?$':
+        '^libraries/?$':
           to: ‘https://libraries.colby.edu/’
           regexp: true
   # Life (including SGA, Off Campus, Health Services)

@@ -1186,13 +1186,7 @@
         '^admission/wp-content/uploads/sites/191/2018/09/2019-20-Non-Custodial-Parent-Waiver-Form.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf’     
           regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/05/2020-21-Verification-Ind.-Wrksht.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Ind.-Wrksht.pdf’     
-          regexp: true
         '^admission/wp-content/uploads/sites/191/2020/02/2020-2021-Colby-Dependent-Veri-Wksht-V1-1.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
-          regexp: true
-        '^admission/wp-content/uploads/sites/191/2019/03/2019-20-Colby-Verification-Worksheet.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
           regexp: true
         '^admission/wp-content/uploads/sites/191/2019/10/OFFICIAL-Overnight-Host-Contract.pdf/?$': 
@@ -1222,17 +1216,11 @@
         '^admission/wp-content/uploads/sites/191/2020/05/2020-21-International-Student-Certification-of-Finances.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2020-21-International-Student-Certification-of-Finances-1.pdf’     
           regexp: true
-        '^admission/wp-content/uploads/sites/191/2020/05/2020-21-Verification-Dep.-Wrksht.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
-          regexp: true
         '^admission/wp-content/uploads/sites/191/2020/07/Colby-College-Outcomes-2019-Spreads.pdf/?$': 
           to: ‘https://issuu.com/colbycollegelibrary/docs/c25089_21_outcomes.hp_spreads_final’     
           regexp: true
         '^admission/wp-content/uploads/sites/191/2020/09/2019-Parent-Non-Tax-Filer-Statement.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2020-Parent-Non-Tax-Filer-Statement.pdf’     
-          regexp: true
-        '^admission/wp-content/uploads/sites/191/2021/05/2021-22-Verification-Dep.-Wrksht.pdf/?$': 
-          to: ‘https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf’     
           regexp: true
         '^admission/wp-content/uploads/sites/191/2021/06/Campus-Map.pdf/?$': 
           to: ‘https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf’     

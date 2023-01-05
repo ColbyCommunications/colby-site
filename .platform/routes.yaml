@@ -728,9 +728,6 @@
         '^/generalcounsel/?$':
           to: '/people/offices-directory/general-counsel/'
           regexp: true
-        '^/generalcounsel/?$':
-          to: '/people/offices-directory/general-counsel/'
-          regexp: true
         '^/generalcounsel/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/general-counsel/$1/'
           regexp: true

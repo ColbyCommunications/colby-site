@@ -931,6 +931,22 @@
         '^/dept/gmru/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+  # Global Studies
+        '^/dept/glst/?$':
+          to: '/academics/departments-and-programs/global-studies/'
+          regexp: true
+  # Government
+        '^/dept/govt/?$':
+          to: '/academics/departments-and-programs/government/'
+          regexp: true
+  # History
+        '^/dept/hist/?$':
+          to: '/academics/departments-and-programs/history/'
+          regexp: true
+  # Latin American Studies
+        '^/dept/ltam/?$':
+          to: '/academics/departments-and-programs/latin-american-studies/'
+          regexp: true
   # Math
         '^/dept/math/?$':
           to: '/academics/departments-and-programs/mathematics/'
@@ -942,6 +958,10 @@
   # Philosophy
         '^/dept/phil/?$':
           to: '/academics/departments-and-programs/philosophy/'
+          regexp: true
+  # Psychology
+        '^/dept/psyc/?$':
+          to: '/academics/departments-and-programs/psychology/'
           regexp: true
   # Religious Studies
         '^/dept/relg/?$':

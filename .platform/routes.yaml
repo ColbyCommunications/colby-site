@@ -139,10 +139,10 @@
           to: '/chemistry/$1/'
           regexp: true
         '^/chemistry/ch242s14/?$':
-          To: 'http://web.colby.edu/dmthamat/teaching/ch242/'
+          to: 'http://web.colby.edu/dmthamat/teaching/ch242/'
           regexp: true
         '^/chemistry/Das/?$':
-          To: 'http://web.colby.edu/dmthamat/'
+          to: 'http://web.colby.edu/dmthamat/'
           regexp: true
   # Cinema Studies
         '^/cinema-studies/?$':
@@ -1971,13 +1971,13 @@
           to: 'https://web.colby.edu/cec/'
           regexp: true
         '^/diningservices/?$':
-          To: 'http://colby.cafebonappetit.com/'
+          to: 'http://colby.cafebonappetit.com/'
           regexp: true
         '^/diningservices/catering/?$':
-          To: 'http://colby.cafebonappetit.com/catering/'
+          to: 'http://colby.cafebonappetit.com/catering/'
           regexp: true
         '^/directory/profile/(.*)/$':
-          To: '/people/people-directory/'
+          to: '/people/people-directory/'
           regexp: true
         '^/downtown/?$':
           to: 'https://news.colby.edu/story/the-revitalization-of-downtown-waterville/'
@@ -1989,7 +1989,7 @@
           to: '/academics/dual-degree/'     
           regexp: true
         '^/environmentalhumanities/?$':
-          To: 'http://web.colby.edu/environmentalhumantites/'
+          to: 'http://web.colby.edu/environmentalhumantites/'
           regexp: true
         '^/events/event-request/?$':
           to: 'https://www.colby.edu/eventsoffice/event-request/'
@@ -2031,7 +2031,7 @@
           to: 'http://www.colby.edu/healthandcounseling/coronavirus/'
           regexp: true
         '^/lobsters2dollars/?$':
-          To: 'http://colbycollege.maps.arcgis.com/apps/Cascade/index.html?appid=e0c247dcb1a34d8293d953f92f360eb9'
+          to: 'http://colbycollege.maps.arcgis.com/apps/Cascade/index.html?appid=e0c247dcb1a34d8293d953f92f360eb9'
           regexp: true
         '^/musigmarho/?$':
           to: 'https://www.colby.edu/statistics/musigmarho/'
@@ -2052,7 +2052,7 @@
           to: 'https://volunteernetworkfundraising.blackbaud.com/volunteer/login'
           regexp: true
         '^/schupf-arts/?$':
-          To: 'https://schupfarts.colby.edu/'
+          to: 'https://schupfarts.colby.edu/'
           regexp: true
         '^/securityreport/?$':
           to: 'https://life.colby.edu/your-safety/campus-safety/annual-security-report/'

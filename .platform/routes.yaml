@@ -140,10 +140,10 @@
           regexp: true
         '^/chemistry/ch242s14/?$':
           To: 'http://web.colby.edu/dmthamat/teaching/ch242/'
-          Regexp: true
+          regexp: true
         '^/chemistry/Das/?$':
           To: 'http://web.colby.edu/dmthamat/'
-          Regexp: true
+          regexp: true
   # Cinema Studies
         '^/cinema-studies/?$':
           to: '/academics/departments-and-programs/cinema-studies/'
@@ -1972,13 +1972,13 @@
           regexp: true
         '^/diningservices/?$':
           To: 'http://colby.cafebonappetit.com/'
-          Regexp: true
+          regexp: true
         '^/diningservices/catering/?$':
           To: 'http://colby.cafebonappetit.com/catering/'
-          Regexp: true
+          regexp: true
         '^/directory/profile/(.*)/$':
           To: '/people/people-directory/'
-          Regexp: true
+          regexp: true
         '^/downtown/?$':
           to: 'https://news.colby.edu/story/the-revitalization-of-downtown-waterville/'
           regexp: true
@@ -1990,7 +1990,7 @@
           regexp: true
         '^/environmentalhumanities/?$':
           To: 'http://web.colby.edu/environmentalhumantites/'
-          Regexp: true
+          regexp: true
         '^/events/event-request/?$':
           to: 'https://www.colby.edu/eventsoffice/event-request/'
           regexp: true
@@ -2032,7 +2032,7 @@
           regexp: true
         '^/lobsters2dollars/?$':
           To: 'http://colbycollege.maps.arcgis.com/apps/Cascade/index.html?appid=e0c247dcb1a34d8293d953f92f360eb9'
-          Regexp: true
+          regexp: true
         '^/musigmarho/?$':
           to: 'https://www.colby.edu/statistics/musigmarho/'
           regexp: true
@@ -2053,7 +2053,7 @@
           regexp: true
         '^/schupf-arts/?$':
           To: 'https://schupfarts.colby.edu/'
-          Regexp: true
+          regexp: true
         '^/securityreport/?$':
           to: 'https://life.colby.edu/your-safety/campus-safety/annual-security-report/'
           regexp: true

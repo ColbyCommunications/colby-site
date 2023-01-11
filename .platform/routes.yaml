@@ -1088,10 +1088,6 @@
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
           regexp: true
 ########## MISC ACADEMIC SITES ##########
-  # Academic Calendar
-        '^/academics/calendar/?$':
-          to: 'https://www.colby.edu/academics/calendar/2022-2023-academic-calendar/'
-          regexp: true
   # CAPS Program
         '^/colby-achievement-program-in-the-sciences/(.*)$':
           to: '/academics/colby-achievement-program-in-the-sciences/$1'

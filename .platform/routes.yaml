@@ -1622,7 +1622,10 @@
         '^/diversity/(.*)$':
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
-        '^/health-services.*/?$':
+        '^/ges/?$':
+          to: 'https://life.colby.edu/offcampus/global-entry-semesters/'
+          regexp: true
+        '^/health-services/?$':
           to: 'https://life.colby.edu/health-services/'
           regexp: true
         '^/healthandcounseling/counseling-services/?$':
@@ -1721,7 +1724,7 @@
         '^/securitydept/parking-permit-registration/?$':
           to: 'https://life.colby.edu/your-safety/campus-safety/parking-permit-registration/'
           regexp: true
-        '^/securitydept/(.*)$':
+        '^/securitydept/?$':
           to: 'https://life.colby.edu/conduct-safety/campus-safety/'
           regexp: true
         '^/sga/?$':
@@ -1854,6 +1857,9 @@
           regexp: true
         '^/museum/exhibition/view/upcoming/?$':
           to: 'https://museum-exhibitions.colby.edu/upcoming-exhibitions/'
+          regexp: true
+        '^/foadec2022/?$':
+          to: 'https://museum.colby.edu/support/foadec2022/'
           regexp: true
   # News/Magazine
         '^/climate/?$':
@@ -2071,6 +2077,12 @@
           regexp: true
         '^/visitors/campus-map/?$':
           to: 'https://map.colby.edu/'
+          regexp: true
+        '^volunteercenter/(.+)$':
+          to: 'https://life.colby.edu/what-to-do/civic-engagement/'
+          regexp: true
+        '^volunteercenter/?$':
+          to: 'https://life.colby.edu/what-to-do/civic-engagement/'
           regexp: true
         '^/vpadmin/?$':
           to: 'https://www.colby.edu/vpcfo/'

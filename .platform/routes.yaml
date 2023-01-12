@@ -249,7 +249,7 @@
           to: '/academics/departments-and-programs/english/'
           regexp: true
         '^/englishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academics/departments-and-programs/english/$1/'
+          to: '/english/$1/'
           regexp: true
   # Environmental Studies
         '^/environmental-studies/?$':
@@ -622,9 +622,6 @@
           regexp: true
 ########## OFFICES ##########
   # Academic Collaborative
-        '^/academic-collaborative/(.*)$':
-          to: '/people/offices-directory/academic-collaborative/$1'
-          regexp: true
         '^/ac/?$':
           to: '/people/offices-directory/academic-collaborative/'
           regexp: true
@@ -632,9 +629,6 @@
           to: '/academic-collaborative/$1/'
           regexp: true
   # AcITS
-        '^/academic-information-technology-services/(.*)$':
-          to: '/people/offices-directory/academic-information-technology-services/$1'
-          regexp: true
         '^/acits/?$':
           to: '/people/offices-directory/academic-information-technology-services/'
           regexp: true
@@ -642,9 +636,6 @@
           to: '/academic-information-technology-services/$1/'
           regexp: true
   # Advanced Research Computing
-        '^/advanced-research-computing/(.*)$':
-          to: '/people/offices-directory/advanced-research-computing/$1'
-          regexp: true
         '^/arc/?$':
           to: '/people/offices-directory/advanced-research-computing/'
           regexp: true
@@ -652,9 +643,6 @@
           to: '/advanced-research-computing/$1/'
           regexp: true
   # CTL
-        '^/center-for-teaching-and-learning/(.*)$':
-          to: '/people/offices-directory/center-for-teaching-and-learning/$1'
-          regexp: true
         '^/ctl/?$':
           to: '/people/offices-directory/center-for-teaching-and-learning/'
           regexp: true
@@ -662,9 +650,6 @@
           to: '/center-for-teaching-and-learning/$1/'
           regexp: true
   # Communications
-        '^/communications/(.*)$':
-          to: '/people/offices-directory/communications/$1'
-          regexp: true
         '^/communicationsoffice/?$':
           to: '/people/offices-directory/communications/'
           regexp: true
@@ -672,9 +657,6 @@
           to: '/communications/$1/'
           regexp: true
   # Events Office
-        '^/events-office/(.*)$':
-          to: '/people/offices-directory/events/$1'
-          regexp: true
         '^/eventsoffice/?$':
           to: '/people/offices-directory/events/'
           regexp: true
@@ -692,9 +674,6 @@
           to: '/facilities/$1/'
           regexp: true
   # Grants
-        '^/grants-and-sponsored-programs/(.*)$':
-          to: '/people/offices-directory/grants-and-sponsored-programs/$1'
-          regexp: true
         '^/grants/?$':
           to: '/people/offices-directory/grants-and-sponsored-programs/'
           regexp: true
@@ -702,9 +681,6 @@
           to: '/grants-and-sponsored-programs/$1/'
           regexp: true
   # Financial Planning
-        '^/financial-planning/(.*)$':
-          to: '/people/offices-directory/financial-planning/$1'
-          regexp: true
         '^/financialplanning/?$':
           to: '/people/offices-directory/financial-planning/'
           regexp: true
@@ -712,9 +688,6 @@
           to: '/financial-planning/$1/'
           regexp: true
   # Financial Services
-        '^/financial-services/(.*)$':
-          to: '/people/offices-directory/financial-services/$1'
-          regexp: true
         '^/financialservices/?$':
           to: '/people/offices-directory/financial-services/'
           regexp: true
@@ -722,9 +695,6 @@
           to: '/financial-services/$1/'
           regexp: true
   # General Counsel
-        '^/general-counsel/(.*)$':
-          to: '/people/offices-directory/general-counsel/$1'
-          regexp: true
         '^/generalcounsel/?$':
           to: '/people/offices-directory/general-counsel/'
           regexp: true
@@ -744,14 +714,11 @@
           to: '/people/offices-directory/general-counsel/office-of-risk-management/'
           regexp: true
   # Human Resources
-        '^/human-resources/(.*)$':
-          to: '/people/offices-directory/human-resources/$1'
-          regexp: true
         '^/humanresources/?$':
           to: '/people/offices-directory/human-resources/'
           regexp: true
         '^/humanresources/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/human-resources/$1/'
+          to: '/human-resources/$1/'
           regexp: true
         '^/wellness/?$':
           to: '/people/offices-directory/human-resources/'
@@ -773,7 +740,7 @@
           to: '/people/offices-directory/information-technology-services/'
           regexp: true
         '^/its/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/information-technology-services/$1/'
+          to: '/information-technology-services/$1/'
           regexp: true
         '^/its/software/sw-request-form/?$':
           to: 'https://colby.teamdynamix.com/TDClient/Requests/ServiceDet?ID=33254'
@@ -791,19 +758,13 @@
           to: 'https://colby.teamdynamix.com/TDClient/Requests/ServiceCatalog/'
           regexp: true
   # Institutional Research
-        '^/institutional-research/(.*)$':
-          to: '/people/offices-directory/institutional-research/$1'
-          regexp: true
         '^/institutionalresearch/?$':
           to: '/people/offices-directory/institutional-research/'
           regexp: true
         '^/institutionalresearch/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/institutional-research/$1/'
+          to: '/institutional-research/$1/'
           regexp: true
   # Language Resource Center
-        '^/language-resource-center/(.*)$':
-          to: '/people/offices-directory/language-resource-center/$1'
-          regexp: true
         '^/lrc/?$':
           to: '/people/offices-directory/language-resource-center/'
           regexp: true
@@ -814,44 +775,35 @@
           to: '/people/offices-directory/language-resource-center/'
           regexp: true
         '^/lrc/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/language-resource-center/$1/'
+          to: '/language-resource-center/$1/'
           regexp: true
         '^/new-lrc/?$':
           to: '/people/offices-directory/language-resource-center/'
           regexp: true
   # Mail Services
-        '^/mail-services/(.*)$':
-          to: '/people/offices-directory/mail-services/$1'
-          regexp: true
         '^/mailservices/?$':
           to: '/people/offices-directory/mail-services/'
           regexp: true
         '^/mailservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/mail-services/$1/'
+          to: '/mail-services/$1/'
           regexp: true
   # Registrar
-        '^/registrar/(.*)$':
-          to: '/people/offices-directory/registrar/$1'
-          regexp: true
         '^/registraroffice/?$':
           to: '/people/offices-directory/registrar/'
           regexp: true
         '^/registraroffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/registrar/$1/'
+          to: '/registrar/$1/'
           regexp: true
   # Secretary of the College
         '^/secretary-of-the-college/?$':
           to: '/people/offices-directory/secretary-of-the-college/'
           regexp: true
   # Special Programs
-        '^/special-programs/(.*)$':
-          to: '/people/offices-directory/special-programs/$1'
-          regexp: true
         '^/specialprograms/?$':
           to: '/people/offices-directory/special-programs/'
           regexp: true
         '^/specialprograms/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/special-programs/$1/'
+          to: '/special-programs/$1/'
           regexp: true
   # Student Fianncial Services
         '^/administration_cs/financialservices/sfs/?$':
@@ -866,24 +818,18 @@
         '^/administration_cs/financialservices/sfs/financialaidinfo.cfm/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
-        '^/student-financial-services/(.*)$':
-          to: '/people/offices-directory/student-financial-services/$1'
-          regexp: true
         '^/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
         '^/sfs/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/student-financial-services/$1/'
+          to: '/student-financial-services/$1/'
           regexp: true
   # VPCFO
-        '^/vice-president-and-chief-financial-officer/(.*)$':
-          to: '/people/offices-directory/vice-president-and-chief-financial-officer/$1'
-          regexp: true
         '^/vpcfo/?$':
           to: '/people/offices-directory/vice-president-and-chief-financial-officer/'
           regexp: true
         '^/vpcfo/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/vice-president-and-chief-financial-officer/$1/'
+          to: '/vice-president-and-chief-financial-officer/$1/'
           regexp: true
 ########## MISC. ROOT LEVEL SITES ##########
   # Visitors
@@ -943,7 +889,7 @@
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
         '^/president/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/office-of-the-president/'
+          to: '/office-of-the-president/$1/'
           regexp: true
   # Office of the Provost
         '^/office-of-the-provost/?$':
@@ -956,7 +902,7 @@
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
         '^/provost/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/people/offices-directory/office-of-the-provost/'
+          to: '/office-of-the-provost/$1/'
           regexp: true
 ########## MAJORS/MINORS TABLE REDIRECTS ##########
   # African American Studies
@@ -1089,48 +1035,36 @@
           regexp: true
 ########## MISC ACADEMIC SITES ##########
   # CAPS Program
-        '^/colby-achievement-program-in-the-sciences/(.*)$':
-          to: '/academics/colby-achievement-program-in-the-sciences/$1'
-          regexp: true
         '^/caps/$':
           to: '/academics/colby-achievement-program-in-the-sciences'
           regexp: true
         '^/caps/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academics/colby-achievement-program-in-the-sciences/$1/'
+          to: '/colby-achievement-program-in-the-sciences/$1/'
           regexp: true
   # CUSRR
-        '^/colby-undergraduate-summer-research-retreat/(.*)$':
-          to: '/academics/colby-undergraduate-summer-research-retreat/$1'
-          regexp: true
         '^/cusrr/$':
           to: '/academics/colby-undergraduate-summer-research-retreat/'
           regexp: true
         '^/cusrr/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academics/colby-undergraduate-summer-research-retreat/$1/'
+          to: '/colby-undergraduate-summer-research-retreat/$1/'
           regexp: true
   # Humanities
         '^/humanities/$':
           to: '/academics/humanities/'
           regexp: true
   # Phi Beta Kappa
-        '^/phi-beta-kappa/(.*)$':
-          to: '/academics/phi-beta-kappa/$1'
-          regexp: true
         '^/phibetakappa/?$':
           to: '/academics/phi-beta-kappa/'
           regexp: true
         '^/phibetakappa/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academics/phi-beta-kappa/$1/'
+          to: '/phi-beta-kappa/$1/'
           regexp: true
   # Research
-        '^/research/(.*)$':
-          to: '/academics/research/$1'
-          regexp: true
         '^/research/$':
           to: '/academics/research/'
           regexp: true
         '^/research/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academics/research/$1/'
+          to: '/research/$1/'
           regexp: true
   # Catalogue
         '^/catalogue/requirements/AA/(.*)$':

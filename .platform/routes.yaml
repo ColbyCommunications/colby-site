@@ -656,6 +656,191 @@
         '^/communicationsoffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/communications/$1/'
           regexp: true
+  # Editorial Style Guide
+        '^communicationsoffice/styles/academic-degrees/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/abbreviations/'
+          regexp: true
+        '^communicationsoffice/styles/months/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/abbreviations/'
+          regexp: true
+        '^communicationsoffice/styles/states-territories/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/abbreviations/'
+          regexp: true
+        '^communicationsoffice/styles/other-countries/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/abbreviations/'
+          regexp: true
+        
+        '^communicationsoffice/styles/academic-divisions-departments-and-programs-and-administrative-offices-and-departments/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/buildings/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/alma-mater/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/alumni-association-alumni-council/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/a-m-and-p-m/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/board-of-trustees-faculty-president-visitors/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/classes-and-courses/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/class-years/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/colby-fund/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/the-college/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/college-events/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/committees-clubs/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/official-and-courtesy-titles/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/student-classifications/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/historical-periods/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/honors/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/majors-programs/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/seasons/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/state-and-federal/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+        '^communicationsoffice/styles/21-web-words/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
+          regexp: true
+
+        '^communicationsoffice/styles/insure-ensure-assure/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
+          regexp: true
+        '^communicationsoffice/styles/none/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
+          regexp: true
+        '^communicationsoffice/styles/over-more-than/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
+          regexp: true
+        '^communicationsoffice/styles/while/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
+          regexp: true
+        '^communicationsoffice/styles/who-whom/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
+          regexp: true
+        
+        '^communicationsoffice/styles/days-dates-months-years/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        '^communicationsoffice/styles/measurements/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        '^communicationsoffice/styles/money/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        '^communicationsoffice/styles/numbers/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        '^communicationsoffice/styles/percentages/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        '^communicationsoffice/styles/telephone-numbers/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        '^communicationsoffice/styles/time/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        '^communicationsoffice/styles/the-colby-eight/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        '^communicationsoffice/styles/ncaa-divisions/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        '^communicationsoffice/styles/early-decision/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
+          regexp: true
+        
+        '^communicationsoffice/styles/names/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/plurals-and-possessives/'
+          regexp: true
+        '^communicationsoffice/styles/plurals/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/plurals-and-possessives/'
+          regexp: true
+        '^communicationsoffice/styles/preferred-plurals/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/plurals-and-possessives/'
+          regexp: true
+        
+        '^communicationsoffice/styles/punctuation-spaces/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        '^communicationsoffice/styles/introductory-phrases/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        '^communicationsoffice/styles/parentheses/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        '^communicationsoffice/styles/punctuation-with-quotations/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        '^communicationsoffice/styles/punctuation-with-states-countries-and-dates/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        '^communicationsoffice/styles/series/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        '^communicationsoffice/styles/titles-italics-and-quotes/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        '^communicationsoffice/styles/hyphens-and-dashes/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        '^communicationsoffice/styles/colons/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        '^communicationsoffice/styles/ellipses/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
+          regexp: true
+        
+        '^communicationsoffice/styles/preferred-colby-style/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/spelling-and-hyphenation/'
+          regexp: true
+        
+        '^communicationsoffice/styles/a-an/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
+          regexp: true
+        '^communicationsoffice/styles/alumni/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
+          regexp: true
+        '^communicationsoffice/styles/and/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
+          regexp: true
+        '^communicationsoffice/styles/collective-nouns/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
+          regexp: true
+        '^communicationsoffice/styles/jr-and-sr-ii-and-iii/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
+          regexp: true
+        '^communicationsoffice/styles/web-addresses-urls/?$':
+          to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
+          regexp: true
   # Events Office
         '^/eventsoffice/?$':
           to: '/people/offices-directory/events/'

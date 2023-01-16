@@ -32,6 +32,7 @@
     "wpackagist-plugin/wordpress-importer": "0.7",
     "wpackagist-plugin/custom-post-type-ui": "1.13.1",
     "colbycommunications/advanced-custom-fields-pro": "^6.0.3",
+    "colbycommunications/gravityforms": "^2.6.9",
     "phpseclib/phpseclib": "~3.0",
     "wpackagist-plugin/convert-to-blocks": "^1.0.2",
     "wpackagist-plugin/shortcodes-finder": "^1.5.1",

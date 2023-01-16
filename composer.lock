@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "220a9d1c0b0889ffd78dfa9ebfc4fc51",
+    "content-hash": "17bb03e72c1fc462b99c14f850f24af8",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -252,6 +252,33 @@
                 "wordpress"
             ],
             "time": "2022-07-12T13:03:47+00:00"
+        },
+        {
+            "name": "colbycommunications/gravityforms",
+            "version": "2.6.9",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:ColbyCommunications/gravityforms.git",
+                "reference": "5c7d6734f9c84b1ebf04678d07ce6596aa287abf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-5c7d6734f9c84b1ebf04678d07ce6596aa287abf-zip-e161a5.zip",
+                "reference": "5c7d6734f9c84b1ebf04678d07ce6596aa287abf"
+            },
+            "type": "wordpress-plugin",
+            "authors": [
+                {
+                    "name": "Brandon Waltz",
+                    "email": "brandon.waltz@colby.edu"
+                }
+            ],
+            "description": "Premium Gravity Forms plugin",
+            "homepage": "https://github.com/colbycommunications/gravityforms",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2023-01-16T20:20:31+00:00"
         },
         {
             "name": "colbycommunications/presspermit-pro",

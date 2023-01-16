@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38a3b1c6d946f8e92bd35c9e881430bc",
+    "content-hash": "220a9d1c0b0889ffd78dfa9ebfc4fc51",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -207,7 +207,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "86e9ce209e7765e00177f56369e42e3421e5acfe"
+                "reference": "7a7c0f766afe7fa8afb7908a9b5101f68154d805"
             },
             "require": {
                 "php": ">=7.1"
@@ -224,7 +224,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2023-01-13T22:07:29+00:00"
+            "time": "2023-01-16T20:00:08+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",
@@ -252,33 +252,6 @@
                 "wordpress"
             ],
             "time": "2022-07-12T13:03:47+00:00"
-        },
-        {
-            "name": "colbycommunications/gravityforms",
-            "version": "2.5.15.13",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:ColbyCommunications/gravityforms.git",
-                "reference": "5ddb13278d981cafcfc887b0e122c52307dd6d15"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-5ddb13278d981cafcfc887b0e122c52307dd6d15-zip-34a4a8.zip",
-                "reference": "5ddb13278d981cafcfc887b0e122c52307dd6d15"
-            },
-            "type": "wordpress-plugin",
-            "authors": [
-                {
-                    "name": "Brandon Waltz",
-                    "email": "brandon.waltz@colby.edu"
-                }
-            ],
-            "description": "Premium Gravity Forms plugin",
-            "homepage": "https://github.com/colbycommunications/gravityforms",
-            "keywords": [
-                "wordpress"
-            ],
-            "time": "2022-04-18T15:02:37+00:00"
         },
         {
             "name": "colbycommunications/presspermit-pro",
@@ -6107,15 +6080,15 @@
         },
         {
             "name": "wpackagist-plugin/shortcodes-finder",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/shortcodes-finder/",
-                "reference": "tags/1.5.1"
+                "reference": "tags/1.5.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/shortcodes-finder.1.5.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/shortcodes-finder.1.5.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

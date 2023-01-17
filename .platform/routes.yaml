@@ -2161,7 +2161,7 @@
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect
-    to: "https://{default}/"
+    to: "https://www.{default}/"
 # All vanity domain requests should be redirected to primary domain
 # "https://{all}/":
 #   type: redirect

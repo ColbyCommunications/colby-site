@@ -39,7 +39,7 @@
 # Misc. Redirects
 
 ########## DEFAULT ##########
-"https://{default}/":
+"https://www.{default}/":
     type: upstream
     upstream: "app:http"
     cache:
@@ -238,7 +238,7 @@
         '^/educationprogram/(?!wp-admin)(.+)/?$':
           to: '/academics/departments-and-programs/education/$1/'
           regexp: true
-        # English
+  # English
         '^/english/?$':
           to: '/academics/departments-and-programs/english/'
           regexp: true
@@ -628,20 +628,6 @@
         '^/ac/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academic-collaborative/$1/'
           regexp: true
-  # AcITS
-        '^/acits/?$':
-          to: '/people/offices-directory/academic-information-technology-services/'
-          regexp: true
-        '^/acits/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academic-information-technology-services/$1/'
-          regexp: true
-  # Advanced Research Computing
-        '^/arc/?$':
-          to: '/people/offices-directory/advanced-research-computing/'
-          regexp: true
-        '^/arc/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/advanced-research-computing/$1/'
-          regexp: true
   # CTL
         '^/ctl/?$':
           to: '/people/offices-directory/center-for-teaching-and-learning/'
@@ -858,13 +844,6 @@
         '^/facilities/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/facilities/$1/'
           regexp: true
-  # Grants
-        '^/grants/?$':
-          to: '/people/offices-directory/grants-and-sponsored-programs/'
-          regexp: true
-        '^/grants/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/grants-and-sponsored-programs/$1/'
-          regexp: true
   # Financial Planning
         '^/financialplanning/?$':
           to: '/people/offices-directory/financial-planning/'
@@ -897,16 +876,6 @@
           regexp: true
         '^/riskmanagement/records-retention/?$':
           to: '/people/offices-directory/general-counsel/office-of-risk-management/'
-          regexp: true
-  # Human Resources
-        '^/humanresources/?$':
-          to: '/people/offices-directory/human-resources/'
-          regexp: true
-        '^/humanresources/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/human-resources/$1/'
-          regexp: true
-        '^/wellness/?$':
-          to: '/people/offices-directory/human-resources/'
           regexp: true
   # ITS
         '^/directory_cs/altemail.cfm/?$':
@@ -948,22 +917,6 @@
           regexp: true
         '^/institutionalresearch/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/institutional-research/$1/'
-          regexp: true
-  # Language Resource Center
-        '^/lrc/?$':
-          to: '/people/offices-directory/language-resource-center/'
-          regexp: true
-        '^/lrc/fp/?$':
-          to: '/people/offices-directory/language-resource-center/'
-          regexp: true
-        '^/lrc/media/?$':
-          to: '/people/offices-directory/language-resource-center/'
-          regexp: true
-        '^/lrc/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/language-resource-center/$1/'
-          regexp: true
-        '^/new-lrc/?$':
-          to: '/people/offices-directory/language-resource-center/'
           regexp: true
   # Mail Services
         '^/mailservices/?$':
@@ -2206,10 +2159,10 @@
           to: 'https://web.colby.edu/workday/'
           regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
-"https://www.{all}/":
+"https://{all}/":
     type: redirect
     to: "https://{default}/"
 # All vanity domain requests should be redirected to primary domain
-"https://{all}/":
-  type: redirect
-  to: "https://{default}/"
+# "https://{all}/":
+#   type: redirect
+#   to: "https://{default}/"

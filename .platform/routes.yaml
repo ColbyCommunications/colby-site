@@ -43,7 +43,7 @@
     type: upstream
     upstream: "app:http"
     cache:
-        enabled: true
+        enabled: false
 
         # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
         cookies: ['/^SS?ESS/', '/^wordpress_/', '/^wp-settings/']
@@ -627,6 +627,10 @@
           regexp: true
         '^/ac/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academic-collaborative/$1/'
+          regexp: true
+  # Admissions
+        '^/people/offices-directory/admissions-and-financial-aid/?$':
+          to: 'https://afa.colby.edu'
           regexp: true
   # CTL
         '^/ctl/?$':

@@ -632,6 +632,26 @@
         '^/people/offices-directory/admissions-and-financial-aid/?$':
           to: 'https://afa.colby.edu'
           regexp: true
+  # Athletics
+        '^/people/offices-directory/athletics/?$':
+          to: 'https://colbyathletics.com/'
+          regexp: true
+  # Alumni & Families
+        '^/people/offices-directory/alumni-and-families/?$':
+          to: 'https://www.colby.edu/colbyalumni/'
+          regexp: true
+  # Bookstore
+        '^/people/offices-directory/bookstore/?$':
+          to: 'https://bookstore.colby.edu/'
+          regexp: true
+  # Campus Life
+        '^/people/offices-directory/campus-life/?$':
+          to: 'https://life.colby.edu/'
+          regexp: true
+  # Center for Small Town Jewish Life
+        '^/people/offices-directory/center-for-small-town-jewish-life/?$':
+          to: 'https://jewishlife.colby.edu/'
+          regexp: true
   # CTL
         '^/ctl/?$':
           to: '/people/offices-directory/center-for-teaching-and-learning/'
@@ -639,12 +659,28 @@
         '^/ctl/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/center-for-teaching-and-learning/$1/'
           regexp: true
+  # Center for the Arts and Humanities
+        '^/people/offices-directory/center-for-the-arts-and-humanities/?$':
+          to: 'https://cah.colby.edu/'
+          regexp: true
   # Communications
         '^/communicationsoffice/?$':
           to: '/people/offices-directory/communications/'
           regexp: true
         '^/communicationsoffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/communications/$1/'
+          regexp: true
+  # DavisConnects
+        '^/people/offices-directory/davisconnects/?$':
+          to: 'https://davisconnects.colby.edu/'
+          regexp: true
+  # Davis Institute for Artificial Intelligence
+        '^/people/offices-directory/davis-institute-for-artificial-intelligence/?$':
+          to: 'https://davisinstituteai.colby.edu/'
+          regexp: true
+  # Dining Services
+        '^/people/offices-directory/dining-services/?$':
+          to: 'https://colby.cafebonappetit.com/'
           regexp: true
   # Editorial Style Guide
         '^/communicationsoffice/styles/academic-degrees/?$':
@@ -848,6 +884,10 @@
         '^/facilities/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/facilities/$1/'
           regexp: true
+  # Farnham Writers' Center
+        '^/people/offices-directory/farnham-writers-center/?$':
+          to: 'https://web.colby.edu/writers-center/'
+          regexp: true
   # Financial Planning
         '^/financialplanning/?$':
           to: '/people/offices-directory/financial-planning/'
@@ -881,12 +921,40 @@
         '^/riskmanagement/records-retention/?$':
           to: '/people/offices-directory/general-counsel/office-of-risk-management/'
           regexp: true
+  # Goldfarb Center for Public Affairs
+        '^/people/offices-directory/goldfarb-center-for-public-affairs/?$':
+          to: 'https://goldfarbcenter.colby.edu/'
+          regexp: true
+  # Grants
+        '^/people/offices-directory/grants-and-sponsored-programs/?$':
+          to: 'https://www.colby.edu/grants/'
+          regexp: true
+  # Health and Counseling Services
+        '^/people/offices-directory/health-and-counseling-services/?$':
+          to: 'https://life.colby.edu/your-health/'
+          regexp: true
+  # HR
+        '^/people/offices-directory/human-resources/?$':
+          to: 'https://www.colby.edu/humanresources/'
+          regexp: true
+  # ITS
+        '^/people/offices-directory/information-technology-services/?$':
+          to: 'https://www.colby.edu/its/'
+          regexp: true
   # Institutional Research
         '^/institutionalresearch/?$':
           to: '/people/offices-directory/institutional-research/'
           regexp: true
         '^/institutionalresearch/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/institutional-research/$1/'
+          regexp: true
+  # Language Resource Center
+        '^/people/offices-directory/language-resource-center/?$':
+          to: 'https://www.colby.edu/lrc/'
+          regexp: true
+  # Libraries
+        '^/people/offices-directory/libraries/?$':
+          to: 'https://libraries.colby.edu/'
           regexp: true
   # Mail Services
         '^/mailservices/?$':
@@ -895,6 +963,22 @@
         '^/mailservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/mail-services/$1/'
           regexp: true
+  # Museum
+        '^/people/offices-directory/colby-museum/?$':
+          to: 'https://museum.colby.edu/'
+          regexp: true
+  # Oak Institute
+        '^/people/offices-directory/oak-institute-for-human-rights/?$':
+          to: 'https://oakinstitute.colby.edu/'
+          regexp: true
+  # Off-Campus Study
+        '^/people/offices-directory/off-campus-study/?$':
+          to: 'https://life.colby.edu/offcampus/'
+          regexp: true
+  # Pugh
+        '^/people/offices-directory/pugh-center/?$':
+          to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
+          regexp: true
   # Registrar
         '^/registraroffice/?$':
           to: '/people/offices-directory/registrar/'
@@ -902,9 +986,17 @@
         '^/registraroffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/registrar/$1/'
           regexp: true
+  # Religious & Spiritual Life
+        '^/people/offices-directory/religious-and-spiritual-life/?$':
+          to: 'https://life.colby.edu/what-to-do/spiritual-life/'
+          regexp: true
   # Secretary of the College
         '^/secretary-of-the-college/?$':
           to: '/people/offices-directory/secretary-of-the-college/'
+          regexp: true
+  # Security
+        '^/people/offices-directory/security/?$':
+          to: 'https://life.colby.edu/your-safety/'
           regexp: true
   # Special Programs
         '^/specialprograms/?$':

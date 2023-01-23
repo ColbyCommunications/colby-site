@@ -1974,6 +1974,10 @@
         '^/mag/soblu/?$':
           to: 'https://soblu50.colby.edu/'
           regexp: true
+  # Trustees
+        '^/trustees/honorary-degree-nomination/?$':
+          to: '/people/offices-directory/office-of-the-president/trustees/honorary-degree-nomination/'
+          regexp: true
 ########## MISC REDIRECTS ##########
         '^/1813/?$':
           to: '/colbyalumni/1813-society/'

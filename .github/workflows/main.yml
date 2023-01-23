@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - uses: webfactory/ssh-agent@v0.5.4
+      - uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.WEBMASTER_SSH_PRIVATE_KEY }}
 
@@ -75,14 +75,14 @@ jobs:
 
       - name: Set Domain ENV
         run: |
-          echo "DOMAIN=$( ~/.platformsh/bin/platform domains --format=plain --no-header --columns=name )" >> $GITHUB_ENV
+          echo "DOMAIN=www.psh.colby.edu" >> $GITHUB_ENV
           echo $DOMAIN
 
       - name: Generate Sitemap
         if: ${{ contains(env.DOMAIN, 'colby.edu')}}
         run: |
           ./scripts/sitemap_master.sh
-          flatten_sitemap --sitemap https://$( ~/.platformsh/bin/platform domains --format=plain --no-header --columns=name )/sitemap_index.xml --config .github/sitemap.json --limit 25 --randomize
+          flatten_sitemap --sitemap https://www.psh.colby.edu/sitemap_index.xml --config .github/sitemap.json --limit 25 --randomize
       
       - name: Generate Sitemap
         if: ${{ !contains(env.DOMAIN, 'colby.edu')}}
@@ -134,7 +134,7 @@ jobs:
     needs: lighthouse
     steps:
       - uses: actions/checkout@v3
-      - uses: webfactory/ssh-agent@v0.5.4
+      - uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.WEBMASTER_SSH_PRIVATE_KEY }}
       - name: Setup node

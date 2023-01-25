@@ -76,7 +76,6 @@ jobs:
       - name: Set Domain ENV
         run: |
           echo "DOMAIN=www.psh.colby.edu" >> $GITHUB_ENV
-          echo $DOMAIN
 
       - name: Generate Sitemap
         if: ${{ contains(env.DOMAIN, 'colby.edu')}}

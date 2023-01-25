@@ -82,7 +82,8 @@ jobs:
         if: ${{ contains(env.DOMAIN, 'colby.edu')}}
         run: |
           ./scripts/sitemap_master.sh
-          flatten_sitemap --sitemap https://www.psh.colby.edu/sitemap_index.xml --config .github/sitemap.json --limit 25 --randomize
+          flatten_sitemap --sitemap https://www.psh.colby.edu/post-sitemap.xml --config .github/sitemap.json --limit 25 --randomize
+          flatten_sitemap --sitemap https://www.psh.colby.edu/page-sitemap.xml --config .github/sitemap.json --limit 25 --randomize
       
       - name: Generate Sitemap
         if: ${{ !contains(env.DOMAIN, 'colby.edu')}}

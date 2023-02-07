@@ -46,7 +46,7 @@
         enabled: false
 
         # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
-        cookies: ['/^SS?ESS/', '/^wordpress_/', '/^wp-settings/']
+        cookies: ['/^SS?ESS/', '/^wordpress_/', '/^wp-settings/', '/^wp-postpass_/']
     redirects:
       expires: 1d
       paths:
@@ -628,6 +628,9 @@
         '^/ac/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academic-collaborative/$1/'
           regexp: true
+        '^/ac/(.*)$':
+          to: '/people/offices-directory/academic-collaborative/'
+          regexp: true
   # Admissions
         '^/people/offices-directory/admissions-and-financial-aid/?$':
           to: 'https://afa.colby.edu'
@@ -659,6 +662,9 @@
         '^/ctl/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/center-for-teaching-and-learning/$1/'
           regexp: true
+        '^/ctl/(.*)$':
+          to: '/people/offices-directory/center-for-teaching-and-learning/'
+          regexp: true
   # Center for the Arts and Humanities
         '^/people/offices-directory/center-for-the-arts-and-humanities/?$':
           to: 'https://cah.colby.edu/'
@@ -669,6 +675,9 @@
           regexp: true
         '^/communicationsoffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/communications/$1/'
+          regexp: true
+        '^/communicationsoffice/(.*)$':
+          to: '/people/offices-directory/communications/'
           regexp: true
   # DavisConnects
         '^/people/offices-directory/davisconnects/?$':
@@ -877,12 +886,18 @@
         '^/submit-event/?$':
           to: 'https://www.colby.edu/eventsoffice/event-request/'
           regexp: true
+        '^/eventsoffice/(.*)$':
+          to: '/people/offices-directory/events/'
+          regexp: true
   # Facilities
         '^/facilities/?$':
           to: '/people/offices-directory/facilities/'
           regexp: true
         '^/facilities/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/facilities/$1/'
+          regexp: true
+        '^/facilities/(.*)$':
+          to: '/people/offices-directory/facilities/'
           regexp: true
   # Farnham Writers' Center
         '^/people/offices-directory/farnham-writers-center/?$':
@@ -895,6 +910,9 @@
         '^/financialplanning/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/financial-planning/$1/'
           regexp: true
+        '^/financialplanning/(.*)$':
+          to: '/people/offices-directory/financial-planning/'
+          regexp: true
   # Financial Services
         '^/financialservices/?$':
           to: '/people/offices-directory/financial-services/'
@@ -902,12 +920,18 @@
         '^/financialservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/financial-services/$1/'
           regexp: true
+        '^/financialservices/(.*)$':
+          to: '/people/offices-directory/financial-services/'
+          regexp: true
   # General Counsel
         '^/generalcounsel/?$':
           to: '/people/offices-directory/general-counsel/'
           regexp: true
         '^/generalcounsel/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/general-counsel/$1/'
+          regexp: true
+        '^/generalcounsel/(.*)$':
+          to: '/people/offices-directory/general-counsel/'
           regexp: true
         '^/riskmanagement/?$':
           to: '/people/offices-directory/general-counsel/office-of-risk-management/'
@@ -948,6 +972,9 @@
         '^/institutionalresearch/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/institutional-research/$1/'
           regexp: true
+        '^/institutionalresearch/(.*)$':
+          to: '/people/offices-directory/institutional-research/'
+          regexp: true
   # Language Resource Center
         '^/people/offices-directory/language-resource-center/?$':
           to: 'https://www.colby.edu/lrc/'
@@ -962,6 +989,9 @@
           regexp: true
         '^/mailservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/mail-services/$1/'
+          regexp: true
+        '^/mailservices/(.*)$':
+          to: '/people/offices-directory/mail-services/'
           regexp: true
   # Museum
         '^/people/offices-directory/colby-museum/?$':
@@ -986,12 +1016,18 @@
         '^/registraroffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/registrar/$1/'
           regexp: true
+        '^/registraroffice/(.*)$':
+          to: '/people/offices-directory/registrar/'
+          regexp: true
   # Religious & Spiritual Life
         '^/people/offices-directory/religious-and-spiritual-life/?$':
           to: 'https://life.colby.edu/what-to-do/spiritual-life/'
           regexp: true
   # Secretary of the College
         '^/secretary-of-the-college/?$':
+          to: '/people/offices-directory/secretary-of-the-college/'
+          regexp: true
+        '^/secretary-of-the-college/(.*)$':
           to: '/people/offices-directory/secretary-of-the-college/'
           regexp: true
   # Security
@@ -1004,6 +1040,9 @@
           regexp: true
         '^/specialprograms/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/special-programs/$1/'
+          regexp: true
+        '^/specialprograms/(.*)$':
+          to: '/people/offices-directory/special-programs/'
           regexp: true
   # Student Fianncial Services
         '^/administration_cs/financialservices/sfs/?$':
@@ -1024,12 +1063,18 @@
         '^/sfs/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/student-financial-services/$1/'
           regexp: true
+        '^/sfs/(.*)$':
+          to: '/people/offices-directory/student-financial-services/'
+          regexp: true
   # VPCFO
         '^/vpcfo/?$':
           to: '/people/offices-directory/vice-president-and-chief-financial-officer/'
           regexp: true
         '^/vpcfo/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/vice-president-and-chief-financial-officer/$1/'
+          regexp: true
+        '^/vpcfo/(.*)$':
+          to: '/people/offices-directory/vice-president-and-chief-financial-officer/'
           regexp: true
 ########## MISC. ROOT LEVEL SITES ##########
   # Visitors
@@ -1095,14 +1140,14 @@
         '^/office-of-the-provost/?$':
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
-        '^/provost/(.*)$':
-          to: '/people/offices-directory/office-of-the-provost/'
-          regexp: true
         '^/provost/?$':
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
         '^/provost/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/office-of-the-provost/$1/'
+          regexp: true
+        '^/provost/(.*)$':
+          to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
 ########## MAJORS/MINORS TABLE REDIRECTS ##########
   # African American Studies
@@ -1252,6 +1297,9 @@
         '^/humanities/$':
           to: '/academics/humanities/'
           regexp: true
+        '^/humanities/(.*)$':
+          to: '/academics/humanities/'
+          regexp: true
   # Phi Beta Kappa
         '^/phibetakappa/?$':
           to: '/academics/phi-beta-kappa/'
@@ -1259,12 +1307,18 @@
         '^/phibetakappa/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/phi-beta-kappa/$1/'
           regexp: true
+        '^/phibetakappa/(.*)$':
+          to: '/academics/phi-beta-kappa/'
+          regexp: true
   # Research
         '^/research/$':
           to: '/academics/research/'
           regexp: true
         '^/research/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/research/$1/'
+          regexp: true
+        '^/research/(.*)$':
+          to: '/academics/research/'
           regexp: true
   # Catalogue
         '^/catalogue/requirements/AA/(.*)$':

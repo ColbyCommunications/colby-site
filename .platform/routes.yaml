@@ -190,8 +190,11 @@
           to: '/economics/$1/'
           regexp: true
   # Education
-        '^/education/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/education/$1/'
+        '^/education/?$':
+          to: '/academics/departments-and-programs/education/'
+          regexp: true
+        '^/education/(.*)$':
+          to: '/academics/departments-and-programs/education/'
           regexp: true
         '^/educationprogram/?$':
           to: '/academics/departments-and-programs/education/'
@@ -297,6 +300,9 @@
           regexp: true
   # Government
         '^/government/?$':
+          to: '/academics/departments-and-programs/government/'
+          regexp: true
+        '^/government/(.*)$':
           to: '/academics/departments-and-programs/government/'
           regexp: true
         '^/government/\d{4}/\d{2}/\d{2}/(.+)/?$':
@@ -486,7 +492,12 @@
           to: '/spanish/$1/'
           regexp: true
   # Statistics
-
+        '^/statistics/?$':
+          to: '/academics/departments-and-programs/education/'
+          regexp: true
+        '^/statistics/(.*)$':
+          to: '/academics/departments-and-programs/statistics/'
+          regexp: true
   # Women's, Gender, and Sexuality Studies
         '^/wgssdept/(.*)$':
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'

@@ -1209,6 +1209,9 @@
           to: '/academics/research/'
           regexp: true
   # Catalogue
+        '^/catalogue/?$':
+          to: '/academics/course-catalogue/'
+          regexp: true
         '^/catalogue/requirements/AA/(.*)$':
           to: '/academics/research/$1'
           regexp: true

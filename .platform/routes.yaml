@@ -1157,8 +1157,8 @@
           regexp: true
 ########## MISC ACADEMIC SITES ##########
   # CAPS Program
-        '^/caps/$':
-          to: '/academics/colby-achievement-program-in-the-sciences'
+        '^/caps/?$':
+          to: '/academics/research/colby-achievement-program-in-the-sciences/'
           regexp: true
         '^/caps/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/colby-achievement-program-in-the-sciences/$1/'
@@ -1172,7 +1172,7 @@
           regexp: true
   # Humanities
         '^/humanities/$':
-          to: '/academics/humanities/'
+          to: '/academics/departments-and-programs/humanities/'
           regexp: true
         '^/humanities/(.*)$':
           to: '/academics/humanities/'
@@ -1998,6 +1998,9 @@
           to: 'https://soblu50.colby.edu/'
           regexp: true
   # Trustees
+        '^/trustees/?$':
+          to: '/academics/departments-and-programs/people/offices-directory/office-of-the-president/trustees'
+          regexp: true
         '^/trustees/honorary-degree-nomination/?$':
           to: '/people/offices-directory/office-of-the-president/trustees/honorary-degree-nomination/'
           regexp: true
@@ -2029,6 +2032,9 @@
         '^/calendar/?$':
           to: 'https://events.colby.edu/'
           regexp: true
+        '^/caresaboutkids/?$':
+          to: 'https://life.colby.edu/what-to-do/civic-engagement/colby-cares-about-kids/'
+          regexp: true
         '^/colbytrail/?$':
           to: 'https://life.colby.edu/what-to-do/first-year-experience/student-guide/'
           regexp: true
@@ -2040,6 +2046,9 @@
           regexp: true
         '^/culturalevents/?$':
           to: 'https://web.colby.edu/cec/'
+          regexp: true
+        '^/cussr/?$':
+          to: '/academics/research/colby-undergraduate-summer-research-retreat/'
           regexp: true
         '^/diningservices/?$':
           to: 'http://colby.cafebonappetit.com/'
@@ -2092,6 +2101,9 @@
         '^/give/1813/?$':
           to: '/colbyalumni/1813-society/'
           regexp: true
+        '^/globalengagement/?$':
+          to: 'https://davisconnects.colby.edu/'
+          regexp: true
         '^/halloranlab/?(.*)$':
           to: 'https://halloranlab.colby.edu/'
           regexp: true
@@ -2122,6 +2134,9 @@
         '^/rally/?$':
           to: 'https://volunteernetworkfundraising.blackbaud.com/volunteer/login'
           regexp: true
+        '^/saac/?$':
+          to: 'https://colbyathletics.com/'
+          regexp: true
         '^/schupf-arts/?$':
           to: 'https://schupfarts.colby.edu/'
           regexp: true
@@ -2139,6 +2154,9 @@
           regexp: true
         '^/sturesearch/bassett/$': 
           to: '/academics/bassett-teaching-award/'     
+          regexp: true
+        '^/travelservices/$': 
+          to: '/people/offices-directory/travel-services/'     
           regexp: true
         '^/visitors/campus-map/?$':
           to: 'https://map.colby.edu/'

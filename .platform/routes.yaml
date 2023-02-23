@@ -493,7 +493,7 @@
           regexp: true
   # Statistics
         '^/statistics/?$':
-          to: '/academics/departments-and-programs/education/'
+          to: '/academics/departments-and-programs/statistics/'
           regexp: true
         '^/statistics/(.*)$':
           to: '/academics/departments-and-programs/statistics/'
@@ -2022,6 +2022,9 @@
         '^2023sendoffs/?$':
           to: 'https://colbyrsvp.regfox.com/2023sendoffs'
           regexp: true
+        '^/about/?$':
+          to: '/academics/course-catalogue/about-colby/'
+          regexp: true
         '^/administration_cs/student-affairs/deanofstudents/multicultural/upload/Cultural-Events-Committee-Proposal-Form.pdf$':
           to: 'https://web.colby.edu/cec/files/2021/10/CEC-app-form-10.20.21.pdf'
           regexp: true
@@ -2066,6 +2069,9 @@
           regexp: true
         '^/diningservices/catering/?$':
           to: 'http://colby.cafebonappetit.com/catering/'
+          regexp: true
+        '^/directory/?$':
+          to: '/people/people-directory/'
           regexp: true
         '^/directory/profile/(.*)/$':
           to: '/people/people-directory/'

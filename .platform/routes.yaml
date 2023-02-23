@@ -1186,7 +1186,7 @@
           to: '/academics/departments-and-programs/humanities/'
           regexp: true
         '^/humanities/(.*)$':
-          to: '/academics/humanities/'
+          to: '/academics/departments-and-programs/humanities/'
           regexp: true
   # Phi Beta Kappa
         '^/phibetakappa/?$':
@@ -2013,7 +2013,7 @@
           regexp: true
   # Trustees
         '^/trustees/?$':
-          to: '/academics/departments-and-programs/people/offices-directory/office-of-the-president/trustees'
+          to: '/people/offices-directory/office-of-the-president/trustees/'
           regexp: true
         '^/trustees/honorary-degree-nomination/?$':
           to: '/people/offices-directory/office-of-the-president/trustees/honorary-degree-nomination/'

@@ -493,7 +493,7 @@
           regexp: true
   # Statistics
         '^/statistics/?$':
-          to: '/academics/departments-and-programs/education/'
+          to: '/academics/departments-and-programs/statistics/'
           regexp: true
         '^/statistics/(.*)$':
           to: '/academics/departments-and-programs/statistics/'

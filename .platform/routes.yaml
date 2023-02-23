@@ -983,14 +983,14 @@
           to: '/academic-integrity/'
           regexp: true
   # January Program
-        '^/januaryprogram/(.*)$':
-          to: '/january-program/$1'
-          regexp: true
-        '^/januaryprogram/?$':
-          to: '/january-program/'
-          regexp: true
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/january-program/$1/'
+          regexp: true
+        '^/januaryprogram/(.*)$':
+          to: '/academics/departments-and-programs/january-program/'
+          regexp: true
+        '^/januaryprogram/?$':
+          to: '/academics/departments-and-programs/january-program/'
           regexp: true
         '^/janplanphotocontest$': 
           to: '/januaryprogram/offcampus/jan-plan-photo-contest/'     

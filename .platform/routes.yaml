@@ -58,9 +58,6 @@
           regexp: true
 ########## ACADEMIC DEPARTMENTS ##########
   # African-American Studies
-        '^/african-american-studies/?$':
-          to: '/academics/departments-and-programs/african-american-studies/'
-          regexp: true
         '^/african-american/?$':
           to: '/academics/departments-and-programs/african-american-studies/'
           regexp: true
@@ -74,9 +71,6 @@
           to: '/african-american-studies/$1/'
           regexp: true
   # American Studies
-        '^/american-studies/?$':
-          to: '/academics/departments-and-programs/american-studies/'
-          regexp: true
         '^/americanstudies/(.*)$':
           to: '/academics/departments-and-programs/american-studies/'
           regexp: true
@@ -87,9 +81,6 @@
           to: '/american-studies/$1/'
           regexp: true
   # Anthropology
-        '^/anthropology/?$':
-          to: '/academics/departments-and-programs/anthropology/'
-          regexp: true
         '^/anthro/(.*)$':
           to: '/academics/departments-and-programs/anthropology/'
           regexp: true
@@ -100,9 +91,6 @@
           to: '/anthropology/$1/'
           regexp: true
   # Art
-        '^/art/?$':
-          to: '/academics/departments-and-programs/art/'
-          regexp: true
         '^/artdept/(.*)$':
           to: '/academics/departments-and-programs/art/'
           regexp: true
@@ -113,9 +101,6 @@
           to: '/art/$1/'
           regexp: true
   # Biology
-        '^/biology/?$':
-          to: '/academics/departments-and-programs/biology/'
-          regexp: true
         '^/bio/(.*)$':
           to: '/academics/departments-and-programs/biology/'
           regexp: true
@@ -126,9 +111,6 @@
           to: '/biology/$1/'
           regexp: true
   # Chemistry
-        '^/chemistry/?$':
-          to: '/academics/departments-and-programs/chemistry/'
-          regexp: true
         '^/chem/(.*)$':
           to: '/academics/departments-and-programs/chemistry/'
           regexp: true
@@ -145,9 +127,6 @@
           to: 'http://web.colby.edu/dmthamat/'
           regexp: true
   # Cinema Studies
-        '^/cinema-studies/?$':
-          to: '/academics/departments-and-programs/cinema-studies/'
-          regexp: true
         '^/cinemastudies/(.*)$':
           to: '/academics/departments-and-programs/cinema-studies/'
           regexp: true
@@ -158,9 +137,6 @@
           to: '/cinema-studies/$1/'
           regexp: true
   # Classics
-        '^/classics/?$':
-          to: '/academics/departments-and-programs/classics/'
-          regexp: true
         '^/classicsdept/(.*)$':
           to: '/academics/departments-and-programs/classics/'
           regexp: true
@@ -171,9 +147,6 @@
           to: '/classics/$1/'
           regexp: true
   # Computer Science
-        '^/computer-science/?$':
-          to: '/academics/departments-and-programs/computer-science/'
-          regexp: true
         '^/computerscience/(.*)$':
           to: '/academics/departments-and-programs/computer-science/'
           regexp: true
@@ -184,9 +157,6 @@
           to: '/computer-science/$1/'
           regexp: true
   # Creative Writing
-        '^/creative-writing/?$':
-          to: '/academics/departments-and-programs/creative-writing/'
-          regexp: true
         '^/cwriting/(.*)$':
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
@@ -200,9 +170,6 @@
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
   # East Asian Studies
-        '^/east-asian-studies/?$':
-          to: '/academics/departments-and-programs/east-asian-studies/'
-          regexp: true
         '^/eastasianstudies/(.*)$':
           to: '/academics/departments-and-programs/east-asian-studies/'
           regexp: true
@@ -213,9 +180,6 @@
           to: '/east-asian-studies/$1/'
           regexp: true
   # Economics
-        '^/economics/?$':
-          to: '/academics/departments-and-programs/economics/'
-          regexp: true
         '^/econ/(.*)$':
           to: '/academics/departments-and-programs/economics/'
           regexp: true
@@ -229,8 +193,8 @@
         '^/education/?$':
           to: '/academics/departments-and-programs/education/'
           regexp: true
-        '^/education/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/education/$1/'
+        '^/education/(.*)$':
+          to: '/academics/departments-and-programs/education/'
           regexp: true
         '^/educationprogram/?$':
           to: '/academics/departments-and-programs/education/'
@@ -239,9 +203,6 @@
           to: '/academics/departments-and-programs/education/'
           regexp: true
   # English
-        '^/english/?$':
-          to: '/academics/departments-and-programs/english/'
-          regexp: true
         '^/englishdept/(.*)$':
           to: '/academics/departments-and-programs/english/'
           regexp: true
@@ -252,9 +213,6 @@
           to: '/english/$1/'
           regexp: true
   # Environmental Studies
-        '^/environmental-studies/?$':
-          to: '/academics/departments-and-programs/environmental-studies/'
-          regexp: true
         '^/environmentalstudies/(.*)$':
           to: '/academics/departments-and-programs/environmental-studies/'
           regexp: true
@@ -265,9 +223,6 @@
           to: '/environmental-studies/$1/'
           regexp: true
   # French and Italian
-        '^/french-and-italian/?$':
-          to: '/academics/departments-and-programs/french-and-italian/'
-          regexp: true
         '^/frenchanditalian/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
@@ -296,9 +251,6 @@
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
   # Geology
-        '^/geology/?$':
-          to: '/academics/departments-and-programs/geology/'
-          regexp: true
         '^/geologydept/(.*)$':
           to: '/academics/departments-and-programs/geology/'
           regexp: true
@@ -309,9 +261,6 @@
           to: '/geology/$1/'
           regexp: true
   # German and Russian
-        '^/german-and-russian/?$':
-          to: '/academics/departments-and-programs/german-and-russian/'
-          regexp: true
         '^/germanandrussian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
@@ -340,9 +289,6 @@
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
   # Global Studies
-        '^/global-studies/?$':
-          to: '/academics/departments-and-programs/global-studies/'
-          regexp: true
         '^/globalstudies/(.*)$':
           to: '/academics/departments-and-programs/global-studies/'
           regexp: true
@@ -356,10 +302,13 @@
         '^/government/?$':
           to: '/academics/departments-and-programs/government/'
           regexp: true
-  # History
-        '^/history/?$':
-          to: '/academics/departments-and-programs/history/'
+        '^/government/(.*)$':
+          to: '/academics/departments-and-programs/government/'
           regexp: true
+        '^/government/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/government/$1/'
+          regexp: true
+  # History
         '^/historydept/(.*)$':
           to: '/academics/departments-and-programs/history/'
           regexp: true
@@ -370,9 +319,6 @@
           to: '/history/$1/'
           regexp: true
   # Independent Major
-        '^/independent-major/?$':
-          to: '/academics/departments-and-programs/independent-major/'
-          regexp: true
         '^/independentmajor/(.*)$':
           to: '/academics/departments-and-programs/independent-major/'
           regexp: true
@@ -395,9 +341,6 @@
           to: '/academics/departments-and-programs/independent-major/$1'
           regexp: true
   # Integrated Studies
-        '^/integrated-studies/?$':
-          to: '/academics/departments-and-programs/integrated-studies/'
-          regexp: true
         '^/integratedstudies/(.*)$':
           to: '/academics/departments-and-programs/integrated-studies/'
           regexp: true
@@ -408,9 +351,6 @@
           to: '/integrated-studies/$1/'
           regexp: true
   # Jewish Studies
-        '^/jewish-studies/?$':
-          to: '/academics/departments-and-programs/jewish-studies/'
-          regexp: true
         '^/jewishstudies/(.*)$':
           to: '/academics/departments-and-programs/jewish-studies/'
           regexp: true
@@ -421,9 +361,6 @@
           to: '/jewish-studies/$1/'
           regexp: true
   # Latin American Studies
-        '^/latin-american-studies/?$':
-          to: '/academics/departments-and-programs/latin-american-studies/'
-          regexp: true
         '^/latinamerican/(.*)$':
           to: '/academics/departments-and-programs/latin-american-studies/'
           regexp: true
@@ -434,9 +371,6 @@
           to: '/latin-american-studies/$1/'
           regexp: true
   # Mathematics
-        '^/mathematics/?$':
-          to: '/academics/departments-and-programs/mathematics/'
-          regexp: true
         '^/math/(.*)$':
           to: '/academics/departments-and-programs/mathematics/'
           regexp: true
@@ -447,9 +381,6 @@
           to: '/mathematics/$1/'
           regexp: true
   # Music
-        '^/music/?$':
-          to: '/academics/departments-and-programs/music/'
-          regexp: true
         '^/musicdept/(.*)$':
           to: '/academics/departments-and-programs/music/'
           regexp: true
@@ -466,9 +397,6 @@
         '^/drama/?$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
-        '^/performance-theater-and-dance/?$':
-          to: '/academics/departments-and-programs/performance-theater-and-dance/'
-          regexp: true
         '^/theater/?$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
@@ -482,9 +410,6 @@
           to: '/performance-theater-and-dance/$1/'
           regexp: true
   # Philosophy
-        '^/philosophy/?$':
-          to: '/academics/departments-and-programs/philosophy/'
-          regexp: true
         '^/philosophydept/(.*)$':
           to: '/academics/departments-and-programs/philosophy/'
           regexp: true
@@ -501,9 +426,6 @@
         '^/physics/?$':
           to: '/academics/departments-and-programs/physics-and-astronomy/'
           regexp: true
-        '^/physics-and-astronomy/?$':
-          to: '/academics/departments-and-programs/physics-and-astronomy/'
-          regexp: true
         '^/physicsastronomy/(.*)$':
           to: '/academics/departments-and-programs/physics-and-astronomy/'
           regexp: true
@@ -514,10 +436,7 @@
           to: '/physics-and-astronomy/$1/'
           regexp: true
   # Psychology
-        '^/psychology/?$':
-          to: '/academics/departments-and-programs/psychology/'
-          regexp: true
-        '^/psychologylabs/memory?$':
+        '^/psychologylabs/memory/?$':
           to: 'https://web.colby.edu/memoryandlanguagelab/'
           regexp: true
         '^/psych/(.*)$':
@@ -530,9 +449,6 @@
           to: '/psychology/$1/'
           regexp: true
   # Religious Studies
-        '^/religious-studies/?$':
-          to: '/academics/departments-and-programs/religious-studies/'
-          regexp: true
         '^/religiousstudies/(.*)$':
           to: '/academics/departments-and-programs/religious-studies/'
           regexp: true
@@ -543,9 +459,6 @@
           to: '/religious-studies/$1/'
           regexp: true
   # Science, Technology, and Society
-        '^/science-technology-and-society/?$':
-          to: '/academics/departments-and-programs/science-technology-and-society/'
-          regexp: true
         '^/sts/?$':
           to: '/academics/departments-and-programs/science-technology-and-society/'
           regexp: true
@@ -559,9 +472,6 @@
           to: '/science-technology-and-society/$1/'
           regexp: true
   # Sociology
-        '^/sociology/?$':
-          to: '/academics/departments-and-programs/sociology/'
-          regexp: true
         '^/sociologydept/(.*)$':
           to: '/academics/departments-and-programs/sociology/'
           regexp: true
@@ -572,9 +482,6 @@
           to: '/sociology/$1/'
           regexp: true
   # Spanish
-        '^/spanish/?$':
-          to: '/academics/departments-and-programs/spanish/'
-          regexp: true
         '^/spanisgdept/(.*)$':
           to: '/academics/departments-and-programs/spanish/'
           regexp: true
@@ -588,10 +495,10 @@
         '^/statistics/?$':
           to: '/academics/departments-and-programs/statistics/'
           regexp: true
-  # Women's, Gender, and Sexuality Studies
-        '^/womens-gender-and-sexuality-studies/?$':
-          to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
+        '^/statistics/(.*)$':
+          to: '/academics/departments-and-programs/statistics/'
           regexp: true
+  # Women's, Gender, and Sexuality Studies
         '^/wgssdept/(.*)$':
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
           regexp: true
@@ -621,16 +528,6 @@
           to: '/writing-department/$1/'
           regexp: true
 ########## OFFICES ##########
-  # Academic Collaborative
-        '^/ac/?$':
-          to: '/people/offices-directory/academic-collaborative/'
-          regexp: true
-        '^/ac/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academic-collaborative/$1/'
-          regexp: true
-        '^/ac/(.*)$':
-          to: '/people/offices-directory/academic-collaborative/'
-          regexp: true
   # Admissions
         '^/people/offices-directory/admissions-and-financial-aid/?$':
           to: 'https://afa.colby.edu'
@@ -890,9 +787,6 @@
           to: '/people/offices-directory/events/'
           regexp: true
   # Facilities
-        '^/facilities/?$':
-          to: '/people/offices-directory/facilities/'
-          regexp: true
         '^/facilities/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/facilities/$1/'
           regexp: true
@@ -904,9 +798,6 @@
           to: 'https://web.colby.edu/writers-center/'
           regexp: true
   # Financial Planning
-        '^/financialplanning/?$':
-          to: '/people/offices-directory/financial-planning/'
-          regexp: true
         '^/financialplanning/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/financial-planning/$1/'
           regexp: true
@@ -1024,9 +915,6 @@
           to: 'https://life.colby.edu/what-to-do/spiritual-life/'
           regexp: true
   # Secretary of the College
-        '^/secretary-of-the-college/?$':
-          to: '/people/offices-directory/secretary-of-the-college/'
-          regexp: true
         '^/secretary-of-the-college/(.*)$':
           to: '/people/offices-directory/secretary-of-the-college/'
           regexp: true
@@ -1078,14 +966,14 @@
           regexp: true
 ########## MISC. ROOT LEVEL SITES ##########
   # Visitors
-        # '^/visitors/(.*)$':
-        #   to: '/visitors/$1'
-        #   regexp: true
-        # '^/visitors/$':
-        #   to: '/visitors/'
-        #   regexp: true
+        '^/visitors/(.*)$':
+          to: '/visit/'
+          regexp: true
+        '^/visitors/$':
+          to: '/visit/'
+          regexp: true
         '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/visitors/$1/'
+          to: '/visit/'
           regexp: true
   # Academic Integrity
         '^/academicintegrity/?$':
@@ -1095,14 +983,14 @@
           to: '/academic-integrity/'
           regexp: true
   # January Program
-        '^/januaryprogram/(.*)$':
-          to: '/january-program/$1'
-          regexp: true
-        '^/januaryprogram/?$':
-          to: '/january-program/'
-          regexp: true
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/january-program/$1/'
+          regexp: true
+        '^/januaryprogram/(.*)$':
+          to: '/academics/departments-and-programs/january-program/'
+          regexp: true
+        '^/januaryprogram/?$':
+          to: '/academics/departments-and-programs/january-program/'
           regexp: true
         '^/janplanphotocontest$': 
           to: '/januaryprogram/offcampus/jan-plan-photo-contest/'     
@@ -1280,8 +1168,8 @@
           regexp: true
 ########## MISC ACADEMIC SITES ##########
   # CAPS Program
-        '^/caps/$':
-          to: '/academics/colby-achievement-program-in-the-sciences'
+        '^/caps/?$':
+          to: '/academics/research/colby-achievement-program-in-the-sciences/'
           regexp: true
         '^/caps/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/colby-achievement-program-in-the-sciences/$1/'
@@ -1295,10 +1183,10 @@
           regexp: true
   # Humanities
         '^/humanities/$':
-          to: '/academics/humanities/'
+          to: '/academics/departments-and-programs/humanities/'
           regexp: true
         '^/humanities/(.*)$':
-          to: '/academics/humanities/'
+          to: '/academics/departments-and-programs/humanities/'
           regexp: true
   # Phi Beta Kappa
         '^/phibetakappa/?$':
@@ -1321,6 +1209,9 @@
           to: '/academics/research/'
           regexp: true
   # Catalogue
+        '^/catalogue/?$':
+          to: '/academics/course-catalogue/'
+          regexp: true
         '^/catalogue/requirements/AA/(.*)$':
           to: '/academics/research/$1'
           regexp: true
@@ -2121,6 +2012,9 @@
           to: 'https://soblu50.colby.edu/'
           regexp: true
   # Trustees
+        '^/trustees/?$':
+          to: '/people/offices-directory/office-of-the-president/trustees/'
+          regexp: true
         '^/trustees/honorary-degree-nomination/?$':
           to: '/people/offices-directory/office-of-the-president/trustees/honorary-degree-nomination/'
           regexp: true
@@ -2130,6 +2024,9 @@
           regexp: true
         '^2023sendoffs/?$':
           to: 'https://colbyrsvp.regfox.com/2023sendoffs'
+          regexp: true
+        '^/about/?$':
+          to: '/academics/course-catalogue/about-colby/'
           regexp: true
         '^/administration_cs/student-affairs/deanofstudents/multicultural/upload/Cultural-Events-Committee-Proposal-Form.pdf$':
           to: 'https://web.colby.edu/cec/files/2021/10/CEC-app-form-10.20.21.pdf'
@@ -2152,6 +2049,9 @@
         '^/calendar/?$':
           to: 'https://events.colby.edu/'
           regexp: true
+        '^/caresaboutkids/?$':
+          to: 'https://life.colby.edu/what-to-do/civic-engagement/colby-cares-about-kids/'
+          regexp: true
         '^/colbytrail/?$':
           to: 'https://life.colby.edu/what-to-do/first-year-experience/student-guide/'
           regexp: true
@@ -2164,11 +2064,17 @@
         '^/culturalevents/?$':
           to: 'https://web.colby.edu/cec/'
           regexp: true
+        '^/cussr/?$':
+          to: '/academics/research/colby-undergraduate-summer-research-retreat/'
+          regexp: true
         '^/diningservices/?$':
           to: 'http://colby.cafebonappetit.com/'
           regexp: true
         '^/diningservices/catering/?$':
           to: 'http://colby.cafebonappetit.com/catering/'
+          regexp: true
+        '^/directory/?$':
+          to: '/people/people-directory/'
           regexp: true
         '^/directory/profile/(.*)/$':
           to: '/people/people-directory/'
@@ -2215,6 +2121,9 @@
         '^/give/1813/?$':
           to: '/colbyalumni/1813-society/'
           regexp: true
+        '^/globalengagement/?$':
+          to: 'https://davisconnects.colby.edu/'
+          regexp: true
         '^/halloranlab/?(.*)$':
           to: 'https://halloranlab.colby.edu/'
           regexp: true
@@ -2245,6 +2154,9 @@
         '^/rally/?$':
           to: 'https://volunteernetworkfundraising.blackbaud.com/volunteer/login'
           regexp: true
+        '^/saac/?$':
+          to: 'https://colbyathletics.com/'
+          regexp: true
         '^/schupf-arts/?$':
           to: 'https://schupfarts.colby.edu/'
           regexp: true
@@ -2262,6 +2174,9 @@
           regexp: true
         '^/sturesearch/bassett/$': 
           to: '/academics/bassett-teaching-award/'     
+          regexp: true
+        '^/travelservices/$': 
+          to: '/people/offices-directory/travel-services/'     
           regexp: true
         '^/visitors/campus-map/?$':
           to: 'https://map.colby.edu/'

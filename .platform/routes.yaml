@@ -901,6 +901,18 @@
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
   # Registrar
+        '^/registrar/faculty/?$':
+          to: 'https://my.colby.edu/ICS/Academics/'
+          regexp: true
+        '^/registrar/student/?$':
+          to: 'https://my.colby.edu/ICS/Academic/'
+          regexp: true
+        '^/mycolby/faculty/?$':
+          to: 'https://my.colby.edu/ICS/Academics/'
+          regexp: true
+        '^/mycolby/student/?$':
+          to: 'https://my.colby.edu/ICS/Academic/'
+          regexp: true
         '^/registrar/?$':
           to: '/people/offices-directory/registrar/'
           regexp: true

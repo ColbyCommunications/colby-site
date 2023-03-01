@@ -2031,7 +2031,7 @@
         '^/about/?$':
           to: '/academics/course-catalogue/about-colby/'
           regexp: true
-        '^/academics/majors-minors?$':
+        '^/academics/majors-minors/?$':
           to: '/academics/majors-and-minors/'
           regexp: true
         '^/administration_cs/student-affairs/deanofstudents/multicultural/upload/Cultural-Events-Committee-Proposal-Form.pdf$':

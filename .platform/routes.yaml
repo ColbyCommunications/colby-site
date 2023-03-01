@@ -852,9 +852,18 @@
         '^/people/offices-directory/human-resources/?$':
           to: 'https://www.colby.edu/humanresources/'
           regexp: true
+        '^/hr/?$':
+          to: 'https://www.colby.edu/humanresources/'
+          regexp: true
+        '^/hr/(.*)$':
+          to: 'https://www.colby.edu/humanresources/$1/'
+          regexp: true
   # ITS
         '^/people/offices-directory/information-technology-services/?$':
           to: 'https://www.colby.edu/its/'
+          regexp: true
+        '^/printersetup/?$':
+          to: 'https://www.colby.edu/its/printer-setup'
           regexp: true
   # Institutional Research
         '^/institutionalresearch/?$':

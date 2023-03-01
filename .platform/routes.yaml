@@ -901,6 +901,9 @@
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
   # Registrar
+        '^/registrar/?$':
+          to: '/people/offices-directory/registrar/'
+          regexp: true
         '^/registraroffice/?$':
           to: '/people/offices-directory/registrar/'
           regexp: true

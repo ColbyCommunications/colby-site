@@ -2160,6 +2160,9 @@
         '^/life/2020/03/12/2019-novel-coronavirus-information-and-resources/?$':
           to: 'http://www.colby.edu/healthandcounseling/coronavirus/'
           regexp: true
+        '^/livestream/?$':
+          to: '/people/offices-directory/events/livestream/'
+          regexp: true
         '^/lobsters2dollars/?$':
           to: 'http://colbycollege.maps.arcgis.com/apps/Cascade/index.html?appid=e0c247dcb1a34d8293d953f92f360eb9'
           regexp: true

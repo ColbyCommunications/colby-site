@@ -2223,6 +2223,9 @@
         '^/clas/?$':
           to: 'https://www.colby.edu/academics/research/colby-liberal-arts-symposium/'
           regexp: true
+        '^/jamf/?$':
+          to: 'https://colbycollege.jamfcloud.com/'
+          regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

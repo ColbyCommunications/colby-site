@@ -2220,6 +2220,9 @@
         '^/workday/?$':
           to: 'https://web.colby.edu/workday/'
           regexp: true
+        '^/clas/?$':
+          to: 'https://www.colby.edu/academics/research/colby-liberal-arts-symposium/'
+          regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

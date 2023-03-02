@@ -2070,6 +2070,9 @@
         '^/apply-now/?$':
           to: 'https://www.colby.edu/admission/apply-now/'
           regexp: true
+        '^/askAO/?$':
+          to: 'https://colby.teamdynamix.com/TDClient/3030/Portal/Home/'
+          regexp: true
         '^/brodyrsvp/?$':
           to: 'https://colbycollegesecretary.regfox.com/2022-brody-award/'
           regexp: true

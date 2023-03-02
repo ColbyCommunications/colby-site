@@ -2070,7 +2070,7 @@
         '^/apply-now/?$':
           to: 'https://www.colby.edu/admission/apply-now/'
           regexp: true
-        '^/askAO/?$':
+        '^/AskAO/?$':
           to: 'https://colby.teamdynamix.com/TDClient/3030/Portal/Home/'
           regexp: true
         '^/brodyrsvp/?$':

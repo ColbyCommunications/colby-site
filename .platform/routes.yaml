@@ -2229,6 +2229,9 @@
         '^/jamf/?$':
           to: 'https://colbycollege.jamfcloud.com/'
           regexp: true
+        '^/bookstore/?$':
+          to: 'https://bookstore.colby.edu/'
+          regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

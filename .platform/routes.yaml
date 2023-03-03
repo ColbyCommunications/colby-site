@@ -774,6 +774,9 @@
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
           regexp: true
   # Events Office
+        '^/eventsoffice/building-availability-search/?$':
+          to: 'https://www.colby.edu/itscustomcf/news_events/calendar/buildingavail.cfm'
+          regexp: true
         '^/eventsoffice/?$':
           to: '/people/offices-directory/events/'
           regexp: true
@@ -782,9 +785,6 @@
           regexp: true
         '^/submit-event/?$':
           to: 'https://www.colby.edu/people/offices-directory/events/all-forms/event-request/'
-          regexp: true
-        '^/eventsoffice/building-availability-search/?$':
-          to: 'https://www.colby.edu/itscustomcf/news_events/calendar/buildingavail.cfm'
           regexp: true
         '^/eventsoffice/(.*)$':
           to: '/people/offices-directory/events/'

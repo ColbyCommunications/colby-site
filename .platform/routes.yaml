@@ -2124,12 +2124,6 @@
         '^/environmentalhumanities/?$':
           to: 'http://web.colby.edu/environmentalhumantites/'
           regexp: true
-        '^/events/event-request/?$':
-          to: 'https://www.colby.edu/eventsoffice/event-request/'
-          regexp: true
-        '^/events(?!office)/?(.*)$':
-          to: 'https://events.colby.edu/'
-          regexp: true
         '^/fgli/?$':
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true

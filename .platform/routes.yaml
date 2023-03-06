@@ -2256,6 +2256,9 @@
         '^/~ampaliye/?$':
           to: 'http://personal.colby.edu/personal/a/ampaliye/'
           regexp: true
+        '^/~sataylor/?$':
+          to: 'https://personal.colby.edu/personal/s/sataylor/home.php'
+          regexp: true
         '^/checkevents/?$':
           to: 'https://www.colby.edu/news_events/calendar/lookbook.cfm'
           regexp: true

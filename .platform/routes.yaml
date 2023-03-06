@@ -963,6 +963,9 @@
         '^/ach/?$':
           to: 'https://commerce.cashnet.com/cashnetg/static/epayment/colbypay/login?isGuestUser=yes'
           regexp: true
+        '^/administration/?$':
+          to: '/people/offices-directory/'
+          regexp: true
         '^/administration_cs/financialservices/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
@@ -974,6 +977,15 @@
           regexp: true
         '^/administration_cs/financialservices/sfs/financialaidinfo.cfm/?$':
           to: '/people/offices-directory/student-financial-services/'
+          regexp: true
+        '^/admissions_cs/index.cfm/?$':
+          to: 'https://afa.colby.edu/'
+          regexp: true
+        '^/alumni_parents_cs/alumni/index.cfm/?$':
+          to: '/alumni/'
+          regexp: true
+        '^/athletics_cs/index.cfm/?$':
+          to: 'https://colbyathletics.com/'
           regexp: true
         '^/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
@@ -2060,6 +2072,12 @@
           regexp: true
         '^/academics/majors-minors/?$':
           to: '/academics/majors-and-minors/'
+          regexp: true
+        '^/about_cs/index.cfm/?$':
+          to: '/academics/course-catalogue/about-colby/'
+          regexp: true
+        '^/academics_cs/index.cfm/?$':
+          to: '/academics/'
           regexp: true
         '^/administration_cs/student-affairs/deanofstudents/multicultural/upload/Cultural-Events-Committee-Proposal-Form.pdf$':
           to: 'https://web.colby.edu/cec/files/2021/10/CEC-app-form-10.20.21.pdf'

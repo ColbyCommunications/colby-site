@@ -960,6 +960,9 @@
           to: '/people/offices-directory/special-programs/'
           regexp: true
   # Student Fianncial Services
+        '^/ach/?$':
+          to: 'https://commerce.cashnet.com/cashnetg/static/epayment/colbypay/login?isGuestUser=yes'
+          regexp: true
         '^/administration_cs/financialservices/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true

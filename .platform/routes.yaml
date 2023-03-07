@@ -2265,6 +2265,9 @@
         '^/administration_cs/index.cfm/?$':
           to: '/people/offices-directory/'
           regexp: true
+        '^/administration_cs/financialservices/afs/ap/check.cfm/?$':
+          to: '/people/offices-directory/financial-services/administrative/accounts-payable/'
+          regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

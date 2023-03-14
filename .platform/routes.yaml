@@ -869,7 +869,7 @@
           to: 'https://www.colby.edu/its/printer-setup'
           regexp: true
         '^/mfpsetup/?$':
-          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/Edit?ID=143564'
+          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=143564'
           regexp: true
   # Institutional Research
         '^/institutionalresearch/?$':

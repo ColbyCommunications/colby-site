@@ -774,6 +774,9 @@
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
           regexp: true
   # Events Office
+        '^/eventsoffice/building-availability-search/?$':
+          to: 'https://www.colby.edu/itscustomcf/news_events/calendar/buildingavail.cfm'
+          regexp: true
         '^/eventsoffice/?$':
           to: '/people/offices-directory/events/'
           regexp: true
@@ -781,7 +784,7 @@
           to: '/events/$1/'
           regexp: true
         '^/submit-event/?$':
-          to: 'https://www.colby.edu/eventsoffice/event-request/'
+          to: 'https://www.colby.edu/people/offices-directory/events/all-forms/event-request/'
           regexp: true
         '^/eventsoffice/(.*)$':
           to: '/people/offices-directory/events/'
@@ -852,9 +855,21 @@
         '^/people/offices-directory/human-resources/?$':
           to: 'https://www.colby.edu/humanresources/'
           regexp: true
+        '^/hr/?$':
+          to: 'https://www.colby.edu/humanresources/'
+          regexp: true
+        '^/hr/(.*)$':
+          to: 'https://www.colby.edu/humanresources/$1/'
+          regexp: true
   # ITS
         '^/people/offices-directory/information-technology-services/?$':
           to: 'https://www.colby.edu/its/'
+          regexp: true
+        '^/printersetup/?$':
+          to: 'https://www.colby.edu/its/printer-setup'
+          regexp: true
+        '^/mfpsetup/?$':
+          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=143564'
           regexp: true
   # Institutional Research
         '^/institutionalresearch/?$':
@@ -901,6 +916,21 @@
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
   # Registrar
+        '^/registrar/faculty/?$':
+          to: 'https://my.colby.edu/ICS/Academics/'
+          regexp: true
+        '^/registrar/student/?$':
+          to: 'https://my.colby.edu/ICS/Academic/'
+          regexp: true
+        '^/mycolby/faculty/?$':
+          to: 'https://my.colby.edu/ICS/Academics/'
+          regexp: true
+        '^/mycolby/student/?$':
+          to: 'https://my.colby.edu/ICS/Academic/'
+          regexp: true
+        '^/registrar/?$':
+          to: '/people/offices-directory/registrar/'
+          regexp: true
         '^/registraroffice/?$':
           to: '/people/offices-directory/registrar/'
           regexp: true
@@ -933,6 +963,12 @@
           to: '/people/offices-directory/special-programs/'
           regexp: true
   # Student Fianncial Services
+        '^/ach/?$':
+          to: 'https://commerce.cashnet.com/cashnetg/static/epayment/colbypay/login?isGuestUser=yes'
+          regexp: true
+        '^/administration/?$':
+          to: '/people/offices-directory/'
+          regexp: true
         '^/administration_cs/financialservices/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
@@ -944,6 +980,15 @@
           regexp: true
         '^/administration_cs/financialservices/sfs/financialaidinfo.cfm/?$':
           to: '/people/offices-directory/student-financial-services/'
+          regexp: true
+        '^/admissions_cs/index.cfm/?$':
+          to: 'https://afa.colby.edu/'
+          regexp: true
+        '^/alumni_parents_cs/alumni/index.cfm/?$':
+          to: '/alumni/'
+          regexp: true
+        '^/athletics_cs/index.cfm/?$':
+          to: 'https://colbyathletics.com/'
           regexp: true
         '^/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
@@ -2028,6 +2073,15 @@
         '^/about/?$':
           to: '/academics/course-catalogue/about-colby/'
           regexp: true
+        '^/academics/majors-minors/?$':
+          to: '/academics/majors-and-minors/'
+          regexp: true
+        '^/about_cs/index.cfm/?$':
+          to: '/academics/course-catalogue/about-colby/'
+          regexp: true
+        '^/academics_cs/index.cfm/?$':
+          to: '/academics/'
+          regexp: true
         '^/administration_cs/student-affairs/deanofstudents/multicultural/upload/Cultural-Events-Committee-Proposal-Form.pdf$':
           to: 'https://web.colby.edu/cec/files/2021/10/CEC-app-form-10.20.21.pdf'
           regexp: true
@@ -2042,6 +2096,9 @@
           regexp: true
         '^/apply-now/?$':
           to: 'https://www.colby.edu/admission/apply-now/'
+          regexp: true
+        '^/AskAO/?$':
+          to: 'https://colby.teamdynamix.com/TDClient/3030/Portal/Home/'
           regexp: true
         '^/brodyrsvp/?$':
           to: 'https://colbycollegesecretary.regfox.com/2022-brody-award/'
@@ -2091,12 +2148,6 @@
         '^/environmentalhumanities/?$':
           to: 'http://web.colby.edu/environmentalhumantites/'
           regexp: true
-        '^/events/event-request/?$':
-          to: 'https://www.colby.edu/eventsoffice/event-request/'
-          regexp: true
-        '^/events(?!office)/?(.*)$':
-          to: 'https://events.colby.edu/'
-          regexp: true
         '^/fgli/?$':
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
@@ -2132,6 +2183,9 @@
           regexp: true
         '^/life/2020/03/12/2019-novel-coronavirus-information-and-resources/?$':
           to: 'http://www.colby.edu/healthandcounseling/coronavirus/'
+          regexp: true
+        '^/livestream/?$':
+          to: '/people/offices-directory/events/livestream/'
           regexp: true
         '^/lobsters2dollars/?$':
           to: 'http://colbycollege.maps.arcgis.com/apps/Cascade/index.html?appid=e0c247dcb1a34d8293d953f92f360eb9'
@@ -2193,11 +2247,35 @@
         '^/workday/?$':
           to: 'https://web.colby.edu/workday/'
           regexp: true
+        '^/clas/?$':
+          to: 'https://www.colby.edu/academics/research/colby-liberal-arts-symposium/'
+          regexp: true
+        '^/jamf/?$':
+          to: 'https://colbycollege.jamfcloud.com/'
+          regexp: true
+        '^/bookstore/?$':
+          to: 'https://bookstore.colby.edu/'
+          regexp: true
+        '^/~ampaliye/?$':
+          to: 'http://personal.colby.edu/personal/a/ampaliye/'
+          regexp: true
+        '^/~sataylor/?$':
+          to: 'https://personal.colby.edu/personal/s/sataylor/home.php'
+          regexp: true
+        '^/checkevents/?$':
+          to: 'https://www.colby.edu/news_events/calendar/lookbook.cfm'
+          regexp: true
+        '^/administration_cs/index.cfm/?$':
+          to: '/people/offices-directory/'
+          regexp: true
+        '^/administration_cs/financialservices/afs/ap/check.cfm/?$':
+          to: '/people/offices-directory/financial-services/administrative/accounts-payable/'
+          regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect
     to: "https://www.{default}/"
 # All vanity domain requests should be redirected to primary domain
-# "https://{all}/":
-#   type: redirect
-#   to: "https://{default}/"
+"https://{default}/":
+  type: redirect
+  to: "https://www.{default}/"

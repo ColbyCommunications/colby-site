@@ -808,6 +808,9 @@
           to: '/people/offices-directory/financial-planning/'
           regexp: true
   # Financial Services
+        '^/colbycard/?$':
+          to: '/people/offices-directory/financial-services/colbycard-office/'
+          regexp: true
         '^/financialservices/?$':
           to: '/people/offices-directory/financial-services/'
           regexp: true

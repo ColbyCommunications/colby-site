@@ -190,8 +190,11 @@
           to: '/economics/$1/'
           regexp: true
   # Education
-        '^/education/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/education/$1/'
+        '^/education/?$':
+          to: '/academics/departments-and-programs/education/'
+          regexp: true
+        '^/education/(.*)$':
+          to: '/academics/departments-and-programs/education/'
           regexp: true
         '^/educationprogram/?$':
           to: '/academics/departments-and-programs/education/'
@@ -297,6 +300,9 @@
           regexp: true
   # Government
         '^/government/?$':
+          to: '/academics/departments-and-programs/government/'
+          regexp: true
+        '^/government/(.*)$':
           to: '/academics/departments-and-programs/government/'
           regexp: true
         '^/government/\d{4}/\d{2}/\d{2}/(.+)/?$':
@@ -486,7 +492,12 @@
           to: '/spanish/$1/'
           regexp: true
   # Statistics
-
+        '^/statistics/?$':
+          to: '/academics/departments-and-programs/statistics/'
+          regexp: true
+        '^/statistics/(.*)$':
+          to: '/academics/departments-and-programs/statistics/'
+          regexp: true
   # Women's, Gender, and Sexuality Studies
         '^/wgssdept/(.*)$':
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
@@ -763,6 +774,9 @@
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
           regexp: true
   # Events Office
+        '^/eventsoffice/building-availability-search/?$':
+          to: 'https://www.colby.edu/itscustomcf/news_events/calendar/buildingavail.cfm'
+          regexp: true
         '^/eventsoffice/?$':
           to: '/people/offices-directory/events/'
           regexp: true
@@ -770,7 +784,7 @@
           to: '/events/$1/'
           regexp: true
         '^/submit-event/?$':
-          to: 'https://www.colby.edu/eventsoffice/event-request/'
+          to: 'https://www.colby.edu/people/offices-directory/events/all-forms/event-request/'
           regexp: true
         '^/eventsoffice/(.*)$':
           to: '/people/offices-directory/events/'
@@ -794,6 +808,9 @@
           to: '/people/offices-directory/financial-planning/'
           regexp: true
   # Financial Services
+        '^/colbycard/?$':
+          to: '/people/offices-directory/financial-services/colbycard-office/'
+          regexp: true
         '^/financialservices/?$':
           to: '/people/offices-directory/financial-services/'
           regexp: true
@@ -841,9 +858,21 @@
         '^/people/offices-directory/human-resources/?$':
           to: 'https://www.colby.edu/humanresources/'
           regexp: true
+        '^/hr/?$':
+          to: 'https://www.colby.edu/humanresources/'
+          regexp: true
+        '^/hr/(.*)$':
+          to: 'https://www.colby.edu/humanresources/$1/'
+          regexp: true
   # ITS
         '^/people/offices-directory/information-technology-services/?$':
           to: 'https://www.colby.edu/its/'
+          regexp: true
+        '^/printersetup/?$':
+          to: 'https://www.colby.edu/its/printer-setup'
+          regexp: true
+        '^/mfpsetup/?$':
+          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=143564'
           regexp: true
   # Institutional Research
         '^/institutionalresearch/?$':
@@ -890,6 +919,21 @@
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
   # Registrar
+        '^/registrar/faculty/?$':
+          to: 'https://my.colby.edu/ICS/Academics/'
+          regexp: true
+        '^/registrar/student/?$':
+          to: 'https://my.colby.edu/ICS/Academic/'
+          regexp: true
+        '^/mycolby/faculty/?$':
+          to: 'https://my.colby.edu/ICS/Academics/'
+          regexp: true
+        '^/mycolby/student/?$':
+          to: 'https://my.colby.edu/ICS/Academic/'
+          regexp: true
+        '^/registrar/?$':
+          to: '/people/offices-directory/registrar/'
+          regexp: true
         '^/registraroffice/?$':
           to: '/people/offices-directory/registrar/'
           regexp: true
@@ -922,6 +966,12 @@
           to: '/people/offices-directory/special-programs/'
           regexp: true
   # Student Fianncial Services
+        '^/ach/?$':
+          to: 'https://commerce.cashnet.com/cashnetg/static/epayment/colbypay/login?isGuestUser=yes'
+          regexp: true
+        '^/administration/?$':
+          to: '/people/offices-directory/'
+          regexp: true
         '^/administration_cs/financialservices/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
@@ -933,6 +983,15 @@
           regexp: true
         '^/administration_cs/financialservices/sfs/financialaidinfo.cfm/?$':
           to: '/people/offices-directory/student-financial-services/'
+          regexp: true
+        '^/admissions_cs/index.cfm/?$':
+          to: 'https://afa.colby.edu/'
+          regexp: true
+        '^/alumni_parents_cs/alumni/index.cfm/?$':
+          to: '/alumni/'
+          regexp: true
+        '^/athletics_cs/index.cfm/?$':
+          to: 'https://colbyathletics.com/'
           regexp: true
         '^/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
@@ -955,14 +1014,14 @@
           regexp: true
 ########## MISC. ROOT LEVEL SITES ##########
   # Visitors
-        # '^/visitors/(.*)$':
-        #   to: '/visitors/$1'
-        #   regexp: true
-        # '^/visitors/$':
-        #   to: '/visitors/'
-        #   regexp: true
+        '^/visitors/(.*)$':
+          to: '/visit/'
+          regexp: true
+        '^/visitors/$':
+          to: '/visit/'
+          regexp: true
         '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/visitors/$1/'
+          to: '/visit/'
           regexp: true
   # Academic Integrity
         '^/academicintegrity/?$':
@@ -972,14 +1031,14 @@
           to: '/academic-integrity/'
           regexp: true
   # January Program
-        '^/januaryprogram/(.*)$':
-          to: '/january-program/$1'
-          regexp: true
-        '^/januaryprogram/?$':
-          to: '/january-program/'
-          regexp: true
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/january-program/$1/'
+          regexp: true
+        '^/januaryprogram/(.*)$':
+          to: '/academics/departments-and-programs/january-program/'
+          regexp: true
+        '^/januaryprogram/?$':
+          to: '/academics/departments-and-programs/january-program/'
           regexp: true
         '^/janplanphotocontest$': 
           to: '/januaryprogram/offcampus/jan-plan-photo-contest/'     
@@ -1157,8 +1216,8 @@
           regexp: true
 ########## MISC ACADEMIC SITES ##########
   # CAPS Program
-        '^/caps/$':
-          to: '/academics/colby-achievement-program-in-the-sciences'
+        '^/caps/?$':
+          to: '/academics/research/colby-achievement-program-in-the-sciences/'
           regexp: true
         '^/caps/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/colby-achievement-program-in-the-sciences/$1/'
@@ -1172,10 +1231,10 @@
           regexp: true
   # Humanities
         '^/humanities/$':
-          to: '/academics/humanities/'
+          to: '/academics/departments-and-programs/humanities/'
           regexp: true
         '^/humanities/(.*)$':
-          to: '/academics/humanities/'
+          to: '/academics/departments-and-programs/humanities/'
           regexp: true
   # Phi Beta Kappa
         '^/phibetakappa/?$':
@@ -1198,6 +1257,9 @@
           to: '/academics/research/'
           regexp: true
   # Catalogue
+        '^/catalogue/?$':
+          to: '/academics/course-catalogue/'
+          regexp: true
         '^/catalogue/requirements/AA/(.*)$':
           to: '/academics/research/$1'
           regexp: true
@@ -1998,6 +2060,9 @@
           to: 'https://soblu50.colby.edu/'
           regexp: true
   # Trustees
+        '^/trustees/?$':
+          to: '/people/offices-directory/office-of-the-president/trustees/'
+          regexp: true
         '^/trustees/honorary-degree-nomination/?$':
           to: '/people/offices-directory/office-of-the-president/trustees/honorary-degree-nomination/'
           regexp: true
@@ -2007,6 +2072,18 @@
           regexp: true
         '^2023sendoffs/?$':
           to: 'https://colbyrsvp.regfox.com/2023sendoffs'
+          regexp: true
+        '^/about/?$':
+          to: '/academics/course-catalogue/about-colby/'
+          regexp: true
+        '^/academics/majors-minors/?$':
+          to: '/academics/majors-and-minors/'
+          regexp: true
+        '^/about_cs/index.cfm/?$':
+          to: '/academics/course-catalogue/about-colby/'
+          regexp: true
+        '^/academics_cs/index.cfm/?$':
+          to: '/academics/'
           regexp: true
         '^/administration_cs/student-affairs/deanofstudents/multicultural/upload/Cultural-Events-Committee-Proposal-Form.pdf$':
           to: 'https://web.colby.edu/cec/files/2021/10/CEC-app-form-10.20.21.pdf'
@@ -2023,11 +2100,17 @@
         '^/apply-now/?$':
           to: 'https://www.colby.edu/admission/apply-now/'
           regexp: true
+        '^/AskAO/?$':
+          to: 'https://colby.teamdynamix.com/TDClient/3030/Portal/Home/'
+          regexp: true
         '^/brodyrsvp/?$':
           to: 'https://colbycollegesecretary.regfox.com/2022-brody-award/'
           regexp: true
         '^/calendar/?$':
           to: 'https://events.colby.edu/'
+          regexp: true
+        '^/caresaboutkids/?$':
+          to: 'https://life.colby.edu/what-to-do/civic-engagement/colby-cares-about-kids/'
           regexp: true
         '^/colbytrail/?$':
           to: 'https://life.colby.edu/what-to-do/first-year-experience/student-guide/'
@@ -2041,11 +2124,17 @@
         '^/culturalevents/?$':
           to: 'https://web.colby.edu/cec/'
           regexp: true
+        '^/cussr/?$':
+          to: '/academics/research/colby-undergraduate-summer-research-retreat/'
+          regexp: true
         '^/diningservices/?$':
           to: 'http://colby.cafebonappetit.com/'
           regexp: true
         '^/diningservices/catering/?$':
           to: 'http://colby.cafebonappetit.com/catering/'
+          regexp: true
+        '^/directory/?$':
+          to: '/people/people-directory/'
           regexp: true
         '^/directory/profile/(.*)/$':
           to: '/people/people-directory/'
@@ -2061,12 +2150,6 @@
           regexp: true
         '^/environmentalhumanities/?$':
           to: 'http://web.colby.edu/environmentalhumantites/'
-          regexp: true
-        '^/events/event-request/?$':
-          to: 'https://www.colby.edu/eventsoffice/event-request/'
-          regexp: true
-        '^/events(?!office)/?(.*)$':
-          to: 'https://events.colby.edu/'
           regexp: true
         '^/fgli/?$':
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
@@ -2092,6 +2175,9 @@
         '^/give/1813/?$':
           to: '/colbyalumni/1813-society/'
           regexp: true
+        '^/globalengagement/?$':
+          to: 'https://davisconnects.colby.edu/'
+          regexp: true
         '^/halloranlab/?(.*)$':
           to: 'https://halloranlab.colby.edu/'
           regexp: true
@@ -2101,8 +2187,14 @@
         '^/life/2020/03/12/2019-novel-coronavirus-information-and-resources/?$':
           to: 'http://www.colby.edu/healthandcounseling/coronavirus/'
           regexp: true
+        '^/livestream/?$':
+          to: '/people/offices-directory/events/livestream/'
+          regexp: true
         '^/lobsters2dollars/?$':
           to: 'http://colbycollege.maps.arcgis.com/apps/Cascade/index.html?appid=e0c247dcb1a34d8293d953f92f360eb9'
+          regexp: true
+        '^/map/?$':
+          to: 'https://map.colby.edu/'
           regexp: true
         '^/musigmarho/?$':
           to: 'https://www.colby.edu/statistics/musigmarho/'
@@ -2122,6 +2214,9 @@
         '^/rally/?$':
           to: 'https://volunteernetworkfundraising.blackbaud.com/volunteer/login'
           regexp: true
+        '^/saac/?$':
+          to: 'https://colbyathletics.com/'
+          regexp: true
         '^/schupf-arts/?$':
           to: 'https://schupfarts.colby.edu/'
           regexp: true
@@ -2140,6 +2235,9 @@
         '^/sturesearch/bassett/$': 
           to: '/academics/bassett-teaching-award/'     
           regexp: true
+        '^/travelservices/$': 
+          to: '/people/offices-directory/travel-services/'     
+          regexp: true
         '^/visitors/campus-map/?$':
           to: 'https://map.colby.edu/'
           regexp: true
@@ -2155,11 +2253,35 @@
         '^/workday/?$':
           to: 'https://web.colby.edu/workday/'
           regexp: true
+        '^/clas/?$':
+          to: 'https://www.colby.edu/academics/research/colby-liberal-arts-symposium/'
+          regexp: true
+        '^/jamf/?$':
+          to: 'https://colbycollege.jamfcloud.com/'
+          regexp: true
+        '^/bookstore/?$':
+          to: 'https://bookstore.colby.edu/'
+          regexp: true
+        '^/~ampaliye/?$':
+          to: 'http://personal.colby.edu/personal/a/ampaliye/'
+          regexp: true
+        '^/~sataylor/?$':
+          to: 'https://personal.colby.edu/personal/s/sataylor/home.php'
+          regexp: true
+        '^/checkevents/?$':
+          to: 'https://www.colby.edu/news_events/calendar/lookbook.cfm'
+          regexp: true
+        '^/administration_cs/index.cfm/?$':
+          to: '/people/offices-directory/'
+          regexp: true
+        '^/administration_cs/financialservices/afs/ap/check.cfm/?$':
+          to: '/people/offices-directory/financial-services/administrative/accounts-payable/'
+          regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect
     to: "https://www.{default}/"
 # All vanity domain requests should be redirected to primary domain
-# "https://{all}/":
-#   type: redirect
-#   to: "https://{default}/"
+"https://{default}/":
+  type: redirect
+  to: "https://www.{default}/"

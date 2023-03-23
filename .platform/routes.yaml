@@ -808,6 +808,9 @@
           to: '/people/offices-directory/financial-planning/'
           regexp: true
   # Financial Services
+        '^/colbycard/?$':
+          to: '/people/offices-directory/financial-services/colbycard-office/'
+          regexp: true
         '^/financialservices/?$':
           to: '/people/offices-directory/financial-services/'
           regexp: true
@@ -2190,6 +2193,9 @@
         '^/lobsters2dollars/?$':
           to: 'http://colbycollege.maps.arcgis.com/apps/Cascade/index.html?appid=e0c247dcb1a34d8293d953f92f360eb9'
           regexp: true
+        '^/map/?$':
+          to: 'https://map.colby.edu/'
+          regexp: true
         '^/musigmarho/?$':
           to: 'https://www.colby.edu/statistics/musigmarho/'
           regexp: true
@@ -2270,6 +2276,9 @@
           regexp: true
         '^/administration_cs/financialservices/afs/ap/check.cfm/?$':
           to: '/people/offices-directory/financial-services/administrative/accounts-payable/'
+          regexp: true
+        '^/colbyathletics/?$':
+          to: 'https://colbyathletics.com/sports/2020/9/8/giving-form'
           regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":

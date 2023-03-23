@@ -2277,6 +2277,9 @@
         '^/administration_cs/financialservices/afs/ap/check.cfm/?$':
           to: '/people/offices-directory/financial-services/administrative/accounts-payable/'
           regexp: true
+        '^/colbyathletics/?$':
+          to: 'https://colbyathletics.com/sports/2020/9/8/giving-form'
+          regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

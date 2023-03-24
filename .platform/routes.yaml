@@ -2716,8 +2716,8 @@
           regexp: true
           code: 301
         '^/afford/?$':
-           to: 'https://www.colby.edu/admission/afford/'
-           regexp: true
+          to: 'https://www.colby.edu/admission/afford/'
+          regexp: true
           code: 301
         '^/alumniawards/?$':
           to: 'https://www.colby.edu/colbyalumni/alumni-council/nominations-for-alumni-awards/'

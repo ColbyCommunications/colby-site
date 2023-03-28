@@ -1268,10 +1268,10 @@
         '^/admission/(.+)$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
-        '^/admission/$': 
+        '^/admission/?$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
-        '^/admissions/$': 
+        '^/admissions/?$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
         '^/admission/20-21-sib-survey/?$': 

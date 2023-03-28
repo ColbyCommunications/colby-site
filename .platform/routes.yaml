@@ -1271,6 +1271,9 @@
         '^/admission/$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
+        '^/admissions/$': 
+          to: 'https://afa.colby.edu/'     
+          regexp: true
         '^/admission/20-21-sib-survey/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/22-23-Sibling-Survey.pdf'     
           regexp: true

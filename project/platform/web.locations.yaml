@@ -60,7 +60,7 @@
 ###############################
 # Add any additional project specific php dependencies you need in the environment after this line
 "/simplesaml":
-  root: 'web/wp-content/themes/colby-college-theme/vendor/simplesamlphp/simplesamlphp/public'
+  root: 'web/wp-content/themes/colby-college-theme/lib/simplesamlphp/public'
   allow: true
   scripts: true
   index:

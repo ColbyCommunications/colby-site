@@ -46,7 +46,7 @@
         enabled: false
 
         # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
-        cookies: ['/^SS?ESS/', '/^wordpress_/', '/^wp-settings/', '/^wp-postpass_/']
+        cookies: ['/^SS?ESS/', '/^wordpress_/', '/^wp-settings/', '/^wp-postpass_/', '/^ColbyDirectorySAML/']
     redirects:
       expires: 1d
       paths:

@@ -2289,6 +2289,9 @@
         '^/emergency-contact-information-update/?$':
           to: 'https://my.colby.edu/ICS/Campus_Life/Emergency_Contact_Information.jnz'
           regexp: true
+        '^/~bknelson/SLC/?$':
+          to: 'https://personal.colby.edu/~bknelson/SLC/'
+          regexp: true
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

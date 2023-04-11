@@ -796,6 +796,9 @@
         '^/facilities/(.*)$':
           to: '/people/offices-directory/facilities/'
           regexp: true
+        '^/ppd/(.*)$':
+          to: '/people/offices-directory/facilities/'
+          regexp: true
   # Farnham Writers' Center
         '^/people/offices-directory/farnham-writers-center/?$':
           to: 'https://web.colby.edu/writers-center/'

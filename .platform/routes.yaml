@@ -796,7 +796,7 @@
         '^/facilities/(.*)$':
           to: '/people/offices-directory/facilities/'
           regexp: true
-        '^/ppd/(.*)$':
+        '^/ppd/?$':
           to: '/people/offices-directory/facilities/'
           regexp: true
   # Farnham Writers' Center

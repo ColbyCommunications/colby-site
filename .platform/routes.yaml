@@ -1,5 +1,5 @@
 # The routes of the project.
-#
+##
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
@@ -46,7 +46,7 @@
         enabled: false
 
         # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
-        cookies: ['/^SS?ESS/', '/^wordpress_/', '/^wp-settings/', '/^wp-postpass_/']
+        cookies: ['/^SS?ESS/', '/^wordpress_/', '/^wp-settings/', '/^wp-postpass_/', 'ColbyDirectorySAMLSession', 'ColbyDirectorySAMLAuthToken', 'colby_directory_id']
     redirects:
       expires: 1d
       paths:
@@ -61,749 +61,977 @@
         '^/african-american/?$':
           to: '/academics/departments-and-programs/african-american-studies/'
           regexp: true
+          code: 301
         '^/africanamerican/(.*)$':
           to: '/academics/departments-and-programs/african-american-studies/'
           regexp: true
+          code: 301
         '^/africanamerican/?$':
           to: '/academics/departments-and-programs/african-american-studies/'
           regexp: true
+          code: 301
         '^/africanamerican/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/african-american-studies/$1/'
           regexp: true
+          code: 301
   # American Studies
         '^/americanstudies/(.*)$':
           to: '/academics/departments-and-programs/american-studies/'
           regexp: true
+          code: 301
         '^/americanstudies/?$':
           to: '/academics/departments-and-programs/american-studies/'
           regexp: true
+          code: 301
         '^/americanstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/american-studies/$1/'
           regexp: true
+          code: 301
   # Anthropology
         '^/anthro/(.*)$':
           to: '/academics/departments-and-programs/anthropology/'
           regexp: true
+          code: 301
         '^/anthro/?$':
           to: '/academics/departments-and-programs/anthropology/'
           regexp: true
+          code: 301
         '^/anthro/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/anthropology/$1/'
           regexp: true
+          code: 301
   # Art
         '^/artdept/(.*)$':
           to: '/academics/departments-and-programs/art/'
           regexp: true
+          code: 301
         '^/artdept/?$':
           to: '/academics/departments-and-programs/art/'
           regexp: true
+          code: 301
         '^/artdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/art/$1/'
           regexp: true
+          code: 301
   # Biology
         '^/bio/(.*)$':
           to: '/academics/departments-and-programs/biology/'
           regexp: true
+          code: 301
         '^/bio/?$':
           to: '/academics/departments-and-programs/biology/'
           regexp: true
+          code: 301
         '^/bio/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/biology/$1/'
           regexp: true
+          code: 301
   # Chemistry
         '^/chem/(.*)$':
           to: '/academics/departments-and-programs/chemistry/'
           regexp: true
+          code: 301
         '^/chem/?$':
           to: '/academics/departments-and-programs/chemistry/'
           regexp: true
+          code: 301
         '^/chem/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/chemistry/$1/'
           regexp: true
+          code: 301
         '^/chemistry/ch242s14/?$':
           to: 'http://web.colby.edu/dmthamat/teaching/ch242/'
           regexp: true
+          code: 301
         '^/chemistry/Das/?$':
           to: 'http://web.colby.edu/dmthamat/'
           regexp: true
+          code: 301
   # Cinema Studies
         '^/cinemastudies/(.*)$':
           to: '/academics/departments-and-programs/cinema-studies/'
           regexp: true
+          code: 301
         '^/cinemastudies/?$':
           to: '/academics/departments-and-programs/cinema-studies/'
           regexp: true
+          code: 301
         '^/cinemastudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/cinema-studies/$1/'
           regexp: true
+          code: 301
   # Classics
         '^/classicsdept/(.*)$':
           to: '/academics/departments-and-programs/classics/'
           regexp: true
+          code: 301
         '^/classicsdept/?$':
           to: '/academics/departments-and-programs/classics/'
           regexp: true
+          code: 301
         '^/classicsdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/classics/$1/'
           regexp: true
+          code: 301
   # Computer Science
         '^/computerscience/(.*)$':
           to: '/academics/departments-and-programs/computer-science/'
           regexp: true
+          code: 301
         '^/computerscience/?$':
           to: '/academics/departments-and-programs/computer-science/'
           regexp: true
+          code: 301
         '^/computerscience/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/computer-science/$1/'
           regexp: true
+          code: 301
   # Creative Writing
         '^/cwriting/(.*)$':
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
+          code: 301
         '^/cwriting/?$':
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
+          code: 301
         '^/cwriting/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/creative-writing/$1/'
           regexp: true
+          code: 301
         '^/creativewriting/?$':
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
+          code: 301
   # East Asian Studies
         '^/eastasianstudies/(.*)$':
           to: '/academics/departments-and-programs/east-asian-studies/'
           regexp: true
+          code: 301
         '^/eastasianstudies/?$':
           to: '/academics/departments-and-programs/east-asian-studies/'
           regexp: true
+          code: 301
         '^/eastasianstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/east-asian-studies/$1/'
           regexp: true
+          code: 301
   # Economics
         '^/econ/(.*)$':
           to: '/academics/departments-and-programs/economics/'
           regexp: true
+          code: 301
         '^/econ/?$':
           to: '/academics/departments-and-programs/economics/'
           regexp: true
+          code: 301
         '^/econ/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/economics/$1/'
           regexp: true
+          code: 301
   # Education
         '^/education/?$':
           to: '/academics/departments-and-programs/education/'
           regexp: true
+          code: 301
         '^/education/(.*)$':
           to: '/academics/departments-and-programs/education/'
           regexp: true
+          code: 301
         '^/educationprogram/?$':
           to: '/academics/departments-and-programs/education/'
           regexp: true
+          code: 301
         '^/educationprogram/(.+)/?$':
           to: '/academics/departments-and-programs/education/'
           regexp: true
+          code: 301
   # English
         '^/englishdept/(.*)$':
           to: '/academics/departments-and-programs/english/'
           regexp: true
+          code: 301
         '^/englishdept/?$':
           to: '/academics/departments-and-programs/english/'
           regexp: true
+          code: 301
         '^/englishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/english/$1/'
           regexp: true
+          code: 301
   # Environmental Studies
         '^/environmentalstudies/(.*)$':
           to: '/academics/departments-and-programs/environmental-studies/'
           regexp: true
+          code: 301
         '^/environmentalstudies/?$':
           to: '/academics/departments-and-programs/environmental-studies/'
           regexp: true
+          code: 301
         '^/environmentalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/environmental-studies/$1/'
           regexp: true
+          code: 301
   # French and Italian
         '^/frenchanditalian/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
+          code: 301
         '^/frenchitalian/(.*)$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
+          code: 301
         '^/frenchitalian/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
+          code: 301
         '^/frenchitalian/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/french-and-italian/$1/'
           regexp: true
+          code: 301
         '^/italian-and-french/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
+          code: 301
         '^/italianandfrench/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
+          code: 301
         '^/italianfrench/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
+          code: 301
         '^/french/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
+          code: 301
         '^/italian/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
+          code: 301
   # Geology
         '^/geologydept/(.*)$':
           to: '/academics/departments-and-programs/geology/'
           regexp: true
+          code: 301
         '^/geologydept/?$':
           to: '/academics/departments-and-programs/geology/'
           regexp: true
+          code: 301
         '^/geologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/geology/$1/'
           regexp: true
+          code: 301
   # German and Russian
         '^/germanandrussian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+          code: 301
         '^/germanrussian/(.*)$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+          code: 301
         '^/germanrussian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+          code: 301
         '^/germanrussian/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/german-and-russian/$1/'
           regexp: true
+          code: 301
         '^/russian-and-german/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+          code: 301
         '^/russianandgerman/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+          code: 301
         '^/russiangerman/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+          code: 301
         '^/german/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+          code: 301
         '^/russian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+          code: 301
   # Global Studies
         '^/globalstudies/(.*)$':
           to: '/academics/departments-and-programs/global-studies/'
           regexp: true
+          code: 301
         '^/globalstudies/?$':
           to: '/academics/departments-and-programs/global-studies/'
           regexp: true
+          code: 301
         '^/globalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/global-studies/$1/'
           regexp: true
+          code: 301
   # Government
         '^/government/?$':
           to: '/academics/departments-and-programs/government/'
           regexp: true
+          code: 301
         '^/government/(.*)$':
           to: '/academics/departments-and-programs/government/'
           regexp: true
+          code: 301
         '^/government/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/government/$1/'
           regexp: true
+          code: 301
   # History
         '^/historydept/(.*)$':
           to: '/academics/departments-and-programs/history/'
           regexp: true
+          code: 301
         '^/historydept/?$':
           to: '/academics/departments-and-programs/history/'
           regexp: true
+          code: 301
         '^/historydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/history/$1/'
           regexp: true
+          code: 301
   # Independent Major
         '^/independentmajor/(.*)$':
           to: '/academics/departments-and-programs/independent-major/'
           regexp: true
+          code: 301
         '^/independentmajor/?$':
           to: '/academics/departments-and-programs/independent-major/'
           regexp: true
+          code: 301
         '^/independentmajor/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/independent-major/$1/'
           regexp: true
+          code: 301
         '^/independentstudy/?$':
           to: '/academics/departments-and-programs/independent-major/'
           regexp: true
+          code: 301
         '^/independentstudy/(.*)$':
           to: '/academics/departments-and-programs/independent-major/'
           regexp: true
+          code: 301
         '^/independent-study/?$':
           to: '/academics/departments-and-programs/independent-major/'
           regexp: true
+          code: 301
         '^/independent-study/(.*)$':
           to: '/academics/departments-and-programs/independent-major/$1'
           regexp: true
+          code: 301
   # Integrated Studies
         '^/integratedstudies/(.*)$':
           to: '/academics/departments-and-programs/integrated-studies/'
           regexp: true
+          code: 301
         '^/integratedstudies/?$':
           to: '/academics/departments-and-programs/integrated-studies/'
           regexp: true
+          code: 301
         '^/integratedstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/integrated-studies/$1/'
           regexp: true
+          code: 301
   # Jewish Studies
         '^/jewishstudies/(.*)$':
           to: '/academics/departments-and-programs/jewish-studies/'
           regexp: true
+          code: 301
         '^/jewishstudies/?$':
           to: '/academics/departments-and-programs/jewish-studies/'
           regexp: true
+          code: 301
         '^/jewishstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/jewish-studies/$1/'
           regexp: true
+          code: 301
   # Latin American Studies
         '^/latinamerican/(.*)$':
           to: '/academics/departments-and-programs/latin-american-studies/'
           regexp: true
+          code: 301
         '^/latinamerican/?$':
           to: '/academics/departments-and-programs/latin-american-studies/'
           regexp: true
+          code: 301
         '^/latinamericans/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/latin-american-studies/$1/'
           regexp: true
+          code: 301
   # Mathematics
         '^/math/(.*)$':
           to: '/academics/departments-and-programs/mathematics/'
           regexp: true
+          code: 301
         '^/math/?$':
           to: '/academics/departments-and-programs/mathematics/'
           regexp: true
+          code: 301
         '^/math/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/mathematics/$1/'
           regexp: true
+          code: 301
   # Music
         '^/musicdept/(.*)$':
           to: '/academics/departments-and-programs/music/'
           regexp: true
+          code: 301
         '^/musicdept/?$':
           to: '/academics/departments-and-programs/music/'
           regexp: true
+          code: 301
         '^/musicdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/music/$1/'
           regexp: true
+          code: 301
   # Peformance, Theater, and Dance
         '^/dance/?$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
+          code: 301
         '^/drama/?$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
+          code: 301
         '^/theater/?$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
+          code: 301
         '^/theaterdance/(.*)$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
+          code: 301
         '^/theaterdance/?$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
+          code: 301
         '^/theaterdance/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/performance-theater-and-dance/$1/'
           regexp: true
+          code: 301
   # Philosophy
         '^/philosophydept/(.*)$':
           to: '/academics/departments-and-programs/philosophy/'
           regexp: true
+          code: 301
         '^/philosophydept/?$':
           to: '/academics/departments-and-programs/philosophy/'
           regexp: true
+          code: 301
         '^/philosophydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/philosophy/$1/'
           regexp: true
+          code: 301
   # Physics and Astronomy
         '^/astronomy/?$':
           to: '/academics/departments-and-programs/physics-and-astronomy/'
           regexp: true
+          code: 301
         '^/physics/?$':
           to: '/academics/departments-and-programs/physics-and-astronomy/'
           regexp: true
+          code: 301
         '^/physicsastronomy/(.*)$':
           to: '/academics/departments-and-programs/physics-and-astronomy/'
           regexp: true
+          code: 301
         '^/physicsastronomy/?$':
           to: '/academics/departments-and-programs/physics-and-astronomy/'
           regexp: true
+          code: 301
         '^/physicsastronomy/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/physics-and-astronomy/$1/'
           regexp: true
+          code: 301
   # Psychology
         '^/psychologylabs/memory/?$':
           to: 'https://web.colby.edu/memoryandlanguagelab/'
           regexp: true
+          code: 301
         '^/psych/(.*)$':
           to: '/academics/departments-and-programs/psychology/'
           regexp: true
+          code: 301
         '^/psych/?$':
           to: '/academics/departments-and-programs/psychology/'
           regexp: true
+          code: 301
         '^/psych/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/psychology/$1/'
           regexp: true
+          code: 301
   # Religious Studies
         '^/religiousstudies/(.*)$':
           to: '/academics/departments-and-programs/religious-studies/'
           regexp: true
+          code: 301
         '^/religiousstudies/?$':
           to: '/academics/departments-and-programs/religious-studies/'
           regexp: true
+          code: 301
         '^/religiousstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/religious-studies/$1/'
           regexp: true
+          code: 301
   # Science, Technology, and Society
         '^/sts/?$':
           to: '/academics/departments-and-programs/science-technology-and-society/'
           regexp: true
+          code: 301
         '^/stsdept/(.*)$':
           to: '/academics/departments-and-programs/science-technology-and-society/'
           regexp: true
+          code: 301
         '^/stsdept/?$':
           to: '/academics/departments-and-programs/science-technology-and-society/'
           regexp: true
+          code: 301
         '^/stsdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/science-technology-and-society/$1/'
           regexp: true
+          code: 301
   # Sociology
         '^/sociologydept/(.*)$':
           to: '/academics/departments-and-programs/sociology/'
           regexp: true
+          code: 301
         '^/sociologydept/?$':
           to: '/academics/departments-and-programs/sociology/'
           regexp: true
+          code: 301
         '^/sociologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/sociology/$1/'
           regexp: true
+          code: 301
   # Spanish
         '^/spanisgdept/(.*)$':
           to: '/academics/departments-and-programs/spanish/'
           regexp: true
+          code: 301
         '^/spanishdept/?$':
           to: '/academics/departments-and-programs/spanish/'
           regexp: true
+          code: 301
         '^/spanishdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/spanish/$1/'
           regexp: true
+          code: 301
   # Statistics
         '^/statistics/?$':
           to: '/academics/departments-and-programs/statistics/'
           regexp: true
+          code: 301
         '^/statistics/(.*)$':
           to: '/academics/departments-and-programs/statistics/'
           regexp: true
+          code: 301
   # Women's, Gender, and Sexuality Studies
         '^/wgssdept/(.*)$':
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
           regexp: true
+          code: 301
         '^/wgssdept/?$':
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
           regexp: true
+          code: 301
         '^/wgssdept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/womens-gender-and-sexuality-studies/$1/'
           regexp: true
+          code: 301
         '^/wgss/?$':
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
           regexp: true
+          code: 301
   # Writing Department
         '^/writing-program/?$':
           to: '/academics/departments-and-programs/writing-department/'
           regexp: true
+          code: 301
         '^/writingprogram/?$':
           to: '/academics/departments-and-programs/writing-department/'
           regexp: true
+          code: 301
         '^/writingdepartment/(.*)$':
           to: '/academics/departments-and-programs/writing-department/'
           regexp: true
+          code: 301
         '^/writingdepartment/?$':
           to: '/academics/departments-and-programs/writing-department/'
           regexp: true
+          code: 301
         '^/writingdepartment/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/writing-department/$1/'
           regexp: true
+          code: 301
 ########## OFFICES ##########
   # Admissions
         '^/people/offices-directory/admissions-and-financial-aid/?$':
           to: 'https://afa.colby.edu'
           regexp: true
+          code: 301
   # Athletics
         '^/people/offices-directory/athletics/?$':
           to: 'https://colbyathletics.com/'
           regexp: true
+          code: 301
   # Alumni & Families
         '^/people/offices-directory/alumni-and-families/?$':
           to: 'https://www.colby.edu/colbyalumni/'
           regexp: true
+          code: 301
   # Bookstore
         '^/people/offices-directory/bookstore/?$':
           to: 'https://bookstore.colby.edu/'
           regexp: true
+          code: 301
   # Campus Life
         '^/people/offices-directory/campus-life/?$':
           to: 'https://life.colby.edu/'
           regexp: true
+          code: 301
   # Center for Small Town Jewish Life
         '^/people/offices-directory/center-for-small-town-jewish-life/?$':
           to: 'https://jewishlife.colby.edu/'
           regexp: true
+          code: 301
   # CTL
         '^/ctl/?$':
           to: '/people/offices-directory/center-for-teaching-and-learning/'
           regexp: true
+          code: 301
         '^/ctl/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/center-for-teaching-and-learning/$1/'
           regexp: true
+          code: 301
         '^/ctl/(.*)$':
           to: '/people/offices-directory/center-for-teaching-and-learning/'
           regexp: true
+          code: 301
   # Center for the Arts and Humanities
         '^/people/offices-directory/center-for-the-arts-and-humanities/?$':
           to: 'https://cah.colby.edu/'
           regexp: true
+          code: 301
   # Communications
         '^/communicationsoffice/?$':
           to: '/people/offices-directory/communications/'
           regexp: true
+          code: 301
         '^/communicationsoffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/communications/$1/'
           regexp: true
+          code: 301
         '^/communicationsoffice/(.*)$':
           to: '/people/offices-directory/communications/'
           regexp: true
+          code: 301
   # DavisConnects
         '^/people/offices-directory/davisconnects/?$':
           to: 'https://davisconnects.colby.edu/'
           regexp: true
+          code: 301
   # Davis Institute for Artificial Intelligence
         '^/people/offices-directory/davis-institute-for-artificial-intelligence/?$':
           to: 'https://davisinstituteai.colby.edu/'
           regexp: true
+          code: 301
   # Dining Services
         '^/people/offices-directory/dining-services/?$':
           to: 'https://colby.cafebonappetit.com/'
           regexp: true
+          code: 301
   # Editorial Style Guide
         '^/communicationsoffice/styles/academic-degrees/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/abbreviations/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/months/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/abbreviations/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/states-territories/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/abbreviations/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/other-countries/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/abbreviations/'
           regexp: true
-        
+          code: 301
+
         '^/communicationsoffice/styles/academic-divisions-departments-and-programs-and-administrative-offices-and-departments/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/buildings/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/alma-mater/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/alumni-association-alumni-council/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/a-m-and-p-m/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/board-of-trustees-faculty-president-visitors/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/classes-and-courses/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/class-years/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/colby-fund/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/the-college/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/college-events/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/committees-clubs/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/official-and-courtesy-titles/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/student-classifications/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/historical-periods/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/honors/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/majors-programs/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/seasons/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/state-and-federal/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/21-web-words/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
           regexp: true
+          code: 301
 
         '^/communicationsoffice/styles/insure-ensure-assure/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/none/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/over-more-than/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/while/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/who-whom/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/commonly-misused-words/'
           regexp: true
+          code: 301
         
         '^/communicationsoffice/styles/days-dates-months-years/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/measurements/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/money/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/numbers/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/percentages/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/telephone-numbers/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/time/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/the-colby-eight/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/ncaa-divisions/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/early-decision/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/numerals/'
           regexp: true
+          code: 301
         
         '^/communicationsoffice/styles/names/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/plurals-and-possessives/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/plurals/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/plurals-and-possessives/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/preferred-plurals/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/plurals-and-possessives/'
           regexp: true
+          code: 301
         
         '^/communicationsoffice/styles/punctuation-spaces/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/introductory-phrases/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/parentheses/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/punctuation-with-quotations/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/punctuation-with-states-countries-and-dates/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/series/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/titles-italics-and-quotes/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/hyphens-and-dashes/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/colons/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/ellipses/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/punctuation-basics/'
           regexp: true
+          code: 301
         
         '^/communicationsoffice/styles/preferred-colby-style/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/spelling-and-hyphenation/'
           regexp: true
+          code: 301
         
         '^/communicationsoffice/styles/a-an/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/alumni/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/and/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/collective-nouns/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/jr-and-sr-ii-and-iii/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
           regexp: true
+          code: 301
         '^/communicationsoffice/styles/web-addresses-urls/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/usage/'
           regexp: true
+          code: 301
   # Events Office
         '^/eventsoffice/building-availability-search/?$':
           to: 'https://www.colby.edu/itscustomcf/news_events/calendar/buildingavail.cfm'
           regexp: true
+          code: 301
         '^/eventsoffice/?$':
           to: '/people/offices-directory/events/'
           regexp: true
+          code: 301
         '^/eventsoffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/events/$1/'
           regexp: true
+          code: 301
         '^/submit-event/?$':
           to: 'https://www.colby.edu/people/offices-directory/events/all-forms/event-request/'
           regexp: true
+          code: 301
         '^/eventsoffice/(.*)$':
           to: '/people/offices-directory/events/'
           regexp: true
+          code: 301
   # Facilities
         '^/facilities/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/facilities/$1/'
           regexp: true
+          code: 301
         '^/facilities/(.*)$':
           to: '/people/offices-directory/facilities/'
           regexp: true
+          code: 301
   # Farnham Writers' Center
         '^/people/offices-directory/farnham-writers-center/?$':
           to: 'https://web.colby.edu/writers-center/'
           regexp: true
+          code: 301
   # Financial Planning
         '^/financialplanning/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/financial-planning/$1/'
           regexp: true
+          code: 301
         '^/financialplanning/(.*)$':
           to: '/people/offices-directory/financial-planning/'
           regexp: true
@@ -811,1475 +1039,1956 @@
         '^/colbycard/?$':
           to: '/people/offices-directory/financial-services/colbycard-office/'
           regexp: true
+          code: 301
         '^/financialservices/?$':
           to: '/people/offices-directory/financial-services/'
           regexp: true
+          code: 301
         '^/financialservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/financial-services/$1/'
           regexp: true
+          code: 301
         '^/financialservices/(.*)$':
           to: '/people/offices-directory/financial-services/'
           regexp: true
+          code: 301
   # General Counsel
         '^/generalcounsel/?$':
           to: '/people/offices-directory/general-counsel/'
           regexp: true
+          code: 301
         '^/generalcounsel/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/general-counsel/$1/'
           regexp: true
+          code: 301
         '^/generalcounsel/(.*)$':
           to: '/people/offices-directory/general-counsel/'
           regexp: true
+          code: 301
         '^/riskmanagement/?$':
           to: '/people/offices-directory/general-counsel/office-of-risk-management/'
           regexp: true
+          code: 301
         '^/riskmanagement/insurance/?$':
           to: '/people/offices-directory/general-counsel/office-of-risk-management/'
           regexp: true
+          code: 301
         '^/riskmanagement/contracting/?$':
           to: '/people/offices-directory/general-counsel/office-of-risk-management/'
           regexp: true
+          code: 301
         '^/riskmanagement/records-retention/?$':
           to: '/people/offices-directory/general-counsel/office-of-risk-management/'
           regexp: true
+          code: 301
   # Goldfarb Center for Public Affairs
         '^/people/offices-directory/goldfarb-center-for-public-affairs/?$':
           to: 'https://goldfarbcenter.colby.edu/'
           regexp: true
+          code: 301
   # Grants
         '^/people/offices-directory/grants-and-sponsored-programs/?$':
           to: 'https://www.colby.edu/grants/'
           regexp: true
+          code: 301
   # Health and Counseling Services
         '^/people/offices-directory/health-and-counseling-services/?$':
           to: 'https://life.colby.edu/your-health/'
           regexp: true
+          code: 301
   # HR
         '^/people/offices-directory/human-resources/?$':
           to: 'https://www.colby.edu/humanresources/'
           regexp: true
+          code: 301
         '^/hr/?$':
           to: 'https://www.colby.edu/humanresources/'
           regexp: true
+          code: 301
         '^/hr/(.*)$':
           to: 'https://www.colby.edu/humanresources/$1/'
           regexp: true
+          code: 301
   # ITS
         '^/people/offices-directory/information-technology-services/?$':
           to: 'https://www.colby.edu/its/'
           regexp: true
+          code: 301
         '^/printersetup/?$':
           to: 'https://www.colby.edu/its/printer-setup'
           regexp: true
+          code: 301
         '^/mfpsetup/?$':
           to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=143564'
           regexp: true
+          code: 301
   # Institutional Research
         '^/institutionalresearch/?$':
           to: '/people/offices-directory/institutional-research/'
           regexp: true
+          code: 301
         '^/institutionalresearch/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/institutional-research/$1/'
           regexp: true
+          code: 301
         '^/institutionalresearch/(.*)$':
           to: '/people/offices-directory/institutional-research/'
           regexp: true
+          code: 301
   # Language Resource Center
         '^/people/offices-directory/language-resource-center/?$':
           to: 'https://www.colby.edu/lrc/'
           regexp: true
+          code: 301
   # Libraries
         '^/people/offices-directory/libraries/?$':
           to: 'https://libraries.colby.edu/'
           regexp: true
+          code: 301
   # Mail Services
         '^/mailservices/?$':
           to: '/people/offices-directory/mail-services/'
           regexp: true
+          code: 301
         '^/mailservices/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/mail-services/$1/'
           regexp: true
+          code: 301
         '^/mailservices/(.*)$':
           to: '/people/offices-directory/mail-services/'
           regexp: true
+          code: 301
   # Museum
         '^/people/offices-directory/colby-museum/?$':
           to: 'https://museum.colby.edu/'
           regexp: true
+          code: 301
   # Oak Institute
         '^/people/offices-directory/oak-institute-for-human-rights/?$':
           to: 'https://oakinstitute.colby.edu/'
           regexp: true
+          code: 301
   # Off-Campus Study
         '^/people/offices-directory/off-campus-study/?$':
           to: 'https://life.colby.edu/offcampus/'
           regexp: true
+          code: 301
   # Pugh
         '^/people/offices-directory/pugh-center/?$':
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
+          code: 301
   # Registrar
         '^/registrar/faculty/?$':
           to: 'https://my.colby.edu/ICS/Academics/'
           regexp: true
+          code: 301
         '^/registrar/student/?$':
           to: 'https://my.colby.edu/ICS/Academic/'
           regexp: true
+          code: 301
         '^/mycolby/faculty/?$':
           to: 'https://my.colby.edu/ICS/Academics/'
           regexp: true
+          code: 301
         '^/mycolby/student/?$':
           to: 'https://my.colby.edu/ICS/Academic/'
           regexp: true
+          code: 301
         '^/registrar/?$':
           to: '/people/offices-directory/registrar/'
           regexp: true
+          code: 301
         '^/registraroffice/?$':
           to: '/people/offices-directory/registrar/'
           regexp: true
+          code: 301
         '^/registraroffice/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/registrar/$1/'
           regexp: true
+          code: 301
         '^/registraroffice/(.*)$':
           to: '/people/offices-directory/registrar/'
           regexp: true
+          code: 301
   # Religious & Spiritual Life
         '^/people/offices-directory/religious-and-spiritual-life/?$':
           to: 'https://life.colby.edu/what-to-do/spiritual-life/'
           regexp: true
+          code: 301
   # Secretary of the College
         '^/secretary-of-the-college/(.*)$':
           to: '/people/offices-directory/secretary-of-the-college/'
           regexp: true
+          code: 301
   # Security
         '^/people/offices-directory/security/?$':
           to: 'https://life.colby.edu/your-safety/'
           regexp: true
+          code: 301
   # Special Programs
         '^/specialprograms/?$':
           to: '/people/offices-directory/special-programs/'
           regexp: true
+          code: 301
         '^/specialprograms/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/special-programs/$1/'
           regexp: true
+          code: 301
         '^/specialprograms/(.*)$':
           to: '/people/offices-directory/special-programs/'
           regexp: true
+          code: 301
   # Student Fianncial Services
         '^/ach/?$':
           to: 'https://commerce.cashnet.com/cashnetg/static/epayment/colbypay/login?isGuestUser=yes'
           regexp: true
+          code: 301
         '^/administration/?$':
           to: '/people/offices-directory/'
           regexp: true
+          code: 301
         '^/administration_cs/financialservices/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
+          code: 301
         '^/administration_cs/financialservices/sfs/index.cfm/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
+          code: 301
         '^/administration_cs/financialservices/sfs/paying/apply/plus-loan.cfm/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
+          code: 301
         '^/administration_cs/financialservices/sfs/financialaidinfo.cfm/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
+          code: 301
         '^/admissions_cs/index.cfm/?$':
           to: 'https://afa.colby.edu/'
           regexp: true
+          code: 301
         '^/alumni_parents_cs/alumni/index.cfm/?$':
           to: '/alumni/'
           regexp: true
+          code: 301
         '^/athletics_cs/index.cfm/?$':
           to: 'https://colbyathletics.com/'
           regexp: true
+          code: 301
         '^/sfs/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
+          code: 301
         '^/sfs/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/student-financial-services/$1/'
           regexp: true
+          code: 301
         '^/sfs/(.*)$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
+          code: 301
   # VPCFO
         '^/vpcfo/?$':
           to: '/people/offices-directory/vice-president-and-chief-financial-officer/'
           regexp: true
+          code: 301
         '^/vpcfo/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/vice-president-and-chief-financial-officer/$1/'
           regexp: true
+          code: 301
         '^/vpcfo/(.*)$':
           to: '/people/offices-directory/vice-president-and-chief-financial-officer/'
           regexp: true
+          code: 301
 ########## MISC. ROOT LEVEL SITES ##########
   # Visitors
         '^/visitors/(.*)$':
           to: '/visit/'
           regexp: true
+          code: 301
         '^/visitors/$':
           to: '/visit/'
           regexp: true
+          code: 301
         '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/visit/'
           regexp: true
+          code: 301
   # Academic Integrity
         '^/academicintegrity/?$':
           to: '/academic-integrity/'
           regexp: true
+          code: 301
         '^/academicintegrity/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academic-integrity/'
           regexp: true
+          code: 301
   # January Program
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/january-program/$1/'
           regexp: true
+          code: 301
         '^/januaryprogram/(.*)$':
           to: '/academics/departments-and-programs/january-program/'
           regexp: true
+          code: 301
         '^/januaryprogram/?$':
           to: '/academics/departments-and-programs/january-program/'
           regexp: true
+          code: 301
         '^/janplanphotocontest$': 
           to: '/januaryprogram/offcampus/jan-plan-photo-contest/'     
           regexp: true
+          code: 301
   # Green Colby
         '^/green/(.*)$':
           to: '/green-colby/'
           regexp: true
+          code: 301
         '^/green/?$':
           to: '/green-colby/'
           regexp: true
+          code: 301
         '^/greencolby/(.*)$':
           to: '/green-colby/'
           regexp: true
+          code: 301
         '^/greencolby/?$':
           to: '/green-colby/'
           regexp: true
+          code: 301
         '^/green/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/green-colby/$1/'
           regexp: true
+          code: 301
   # Office of the President
         '^/office-of-the-president/?$':
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
+          code: 301
         '^/president/(.*)$':
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
+          code: 301
         '^/president/?$':
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
+          code: 301
         '^/president/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/office-of-the-president/$1/'
           regexp: true
+          code: 301
   # Office of the Provost
         '^/office-of-the-provost/?$':
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
+          code: 301
         '^/provost/?$':
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
+          code: 301
         '^/provost/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/office-of-the-provost/$1/'
           regexp: true
+          code: 301
         '^/provost/(.*)$':
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
+          code: 301
 ########## MAJORS/MINORS TABLE REDIRECTS ##########
   # African American Studies
         '^/dept/afam/?$':
           to: '/academics/departments-and-programs/african-american-studies/'
           regexp: true
+          code: 301
   # American Studies
         '^/dept/amer/?$':
           to: '/academics/departments-and-programs/american-studies/'
           regexp: true
+          code: 301
   # Anthropology
         '^/dept/anth/?$':
           to: '/academics/departments-and-programs/anthropology/'
           regexp: true
+          code: 301
   # Art
         '^/dept/art/?$':
           to: '/academics/departments-and-programs/art/'
           regexp: true
+          code: 301
   # Astronomy/Physics
         '^/dept/phys/?$':
           to: '/academics/departments-and-programs/physics-and-astronomy/'
           regexp: true
+          code: 301
   # Biology
         '^/dept/biol/?$':
           to: '/academics/departments-and-programs/biology/'
           regexp: true
+          code: 301
   # Chemistry
         '^/dept/chem/?$':
           to: '/academics/departments-and-programs/chemistry/'
           regexp: true
+          code: 301
   # Cinema Studies
         '^/dept/intd/?$':
           to: '/academics/departments-and-programs/cinema-studies/'
           regexp: true
+          code: 301
   # Classics
         '^/dept/clas/?$':
           to: '/academics/departments-and-programs/classics/'
           regexp: true
+          code: 301
   # Computer Science
         '^/dept/comp/?$':
           to: '/academics/departments-and-programs/computer-science/'
           regexp: true
+          code: 301
   # East Asian Studies
         '^/dept/east/?$':
           to: '/academics/departments-and-programs/east-asian-studies/'
           regexp: true
+          code: 301
   # Economics
         '^/dept/econ/?$':
           to: '/academics/departments-and-programs/economics/'
           regexp: true
+          code: 301
   # Education
         '^/dept/educ/?$':
           to: '/academics/departments-and-programs/education/'
           regexp: true
+          code: 301
   # English
         '^/dept/engl/?$':
           to: '/academics/departments-and-programs/english/'
           regexp: true
+          code: 301
   # Environmental Studies
         '^/dept/envs/?$':
           to: '/academics/departments-and-programs/environmental-studies/'
           regexp: true
+          code: 301
   # French/Italian
         '^/dept/frit/?$':
           to: '/academics/departments-and-programs/french-and-italian/'
           regexp: true
+          code: 301
   # Geology
         '^/dept/geol/?$':
           to: '/academics/departments-and-programs/geology/'
           regexp: true
+          code: 301
   # German/Russian
         '^/dept/gmru/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
+          code: 301
   # Global Studies
         '^/dept/glst/?$':
           to: '/academics/departments-and-programs/global-studies/'
           regexp: true
+          code: 301
   # Government
         '^/dept/govt/?$':
           to: '/academics/departments-and-programs/government/'
           regexp: true
+          code: 301
   # History
         '^/dept/hist/?$':
           to: '/academics/departments-and-programs/history/'
           regexp: true
+          code: 301
   # Latin American Studies
         '^/dept/ltam/?$':
           to: '/academics/departments-and-programs/latin-american-studies/'
           regexp: true
+          code: 301
   # Math
         '^/dept/math/?$':
           to: '/academics/departments-and-programs/mathematics/'
           regexp: true
+          code: 301
   # Music
         '^/dept/musi/?$':
           to: '/academics/departments-and-programs/music/'
           regexp: true
+          code: 301
   # Philosophy
         '^/dept/phil/?$':
           to: '/academics/departments-and-programs/philosophy/'
           regexp: true
+          code: 301
   # Psychology
         '^/dept/psyc/?$':
           to: '/academics/departments-and-programs/psychology/'
           regexp: true
+          code: 301
   # Religious Studies
         '^/dept/relg/?$':
           to: '/academics/departments-and-programs/religious-studies/'
           regexp: true
+          code: 301
   # Sociology
         '^/dept/socy/?$':
           to: '/academics/departments-and-programs/sociology/'
           regexp: true
+          code: 301
   # Statistics
         '^/dept/stat/?$':
           to: '/academics/departments-and-programs/statistics/'
           regexp: true
+          code: 301
   # Science, Technology, and Society
         '^/dept/scit/?$':
           to: '/academics/departments-and-programs/science-technology-and-society/'
           regexp: true
+          code: 301
   # Theater/Dance
         '^/dept/thea/?$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
+          code: 301
   # Women, Gender, Sexuality
         '^/dept/wgst/?$':
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
           regexp: true
+          code: 301
 ########## MISC ACADEMIC SITES ##########
   # CAPS Program
         '^/caps/?$':
           to: '/academics/research/colby-achievement-program-in-the-sciences/'
           regexp: true
+          code: 301
         '^/caps/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/colby-achievement-program-in-the-sciences/$1/'
           regexp: true
+          code: 301
   # CUSRR
         '^/cusrr/$':
           to: '/academics/colby-undergraduate-summer-research-retreat/'
           regexp: true
+          code: 301
         '^/cusrr/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/colby-undergraduate-summer-research-retreat/$1/'
           regexp: true
+          code: 301
   # Humanities
         '^/humanities/$':
           to: '/academics/departments-and-programs/humanities/'
           regexp: true
+          code: 301
         '^/humanities/(.*)$':
           to: '/academics/departments-and-programs/humanities/'
           regexp: true
+          code: 301
   # Phi Beta Kappa
         '^/phibetakappa/?$':
           to: '/academics/phi-beta-kappa/'
           regexp: true
+          code: 301
         '^/phibetakappa/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/phi-beta-kappa/$1/'
           regexp: true
+          code: 301
         '^/phibetakappa/(.*)$':
           to: '/academics/phi-beta-kappa/'
           regexp: true
+          code: 301
   # Research
         '^/research/$':
           to: '/academics/research/'
           regexp: true
+          code: 301
         '^/research/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/research/$1/'
           regexp: true
+          code: 301
         '^/research/(.*)$':
           to: '/academics/research/'
           regexp: true
+          code: 301
   # Catalogue
         '^/catalogue/?$':
           to: '/academics/course-catalogue/'
           regexp: true
+          code: 301
         '^/catalogue/requirements/AA/(.*)$':
           to: '/academics/research/$1'
           regexp: true
+          code: 301
 ########## OFF SITE REDIRECTS ##########
   # Admissions
         '^/admission/(.+)$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
+          code: 301
         '^/admission/$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
+          code: 301
+        '^/admissions/$': 
+          to: 'https://afa.colby.edu/'     
+          regexp: true
+          code: 301
         '^/admission/20-21-sib-survey/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/22-23-Sibling-Survey.pdf'     
           regexp: true
+          code: 301
         'admission/admissions-and-financial-aid-requirements/?$':
           to: 'https://afa.colby.edu/apply/requirements/applying-for-aid/'
-          regexp: 
+          regexp: true
+          code: 301
         '^/admission/academics/?$':
           to: 'https://afa.colby.edu/academics/'
           regexp: true
+          code: 301
         '^/admission/afford/?$': 
           to: 'https://www.colby.edu/admission/cost-and-aid/'     
           regexp: true
+          code: 301
         '^/admission/after-colby/?$':
           to: 'https://afa.colby.edu/outcomes/'
           regexp: true
+          code: 301
         '^/admission/apply/?$':
           to: 'https://afa.colby.edu/apply'
           regexp: true
+          code: 301
         '^/admission/apply/arts-supplement/?$':
           to: 'https://afa.colby.edu/apply/arts-supplement'
           regexp: true
+          code: 301
         '^/admission/apply/deadlines/?$': 
           to: 'https://afa.colby.edu/apply/requirements/'     
           regexp: true
+          code: 301
         '^/admission/apply/deferral/?$':
           to: 'https://afa.colby.edu/apply/deferral-policy/'
           regexp: true
+          code: 301
         '^/admission/apply/federal-loans/?$': 
           to: 'https://afa.colby.edu/apply/requirements/applying-for-aid/'     
           regexp: true
+          code: 301
         '^/admission/apply/first-year-faq/?$':
           to: 'https://afa.colby.edu/apply/faq/'
           regexp: true
+          code: 301
         '^/admission/apply/first-year-FAQ/?$':
           to: 'https://afa.colby.edu/apply/faq/'
           regexp: true
+          code: 301
         '^/admission/apply/first-year-international-applicants/?$': 
           to: 'https://afa.colby.edu/apply/requirements/international-applicants/'     
           regexp: true
+          code: 301
         '^/admission/apply/international/?$': 
           to: 'https://afa.colby.edu/apply/requirements/international-applicants/'     
           regexp: true
+          code: 301
         '^/admission/apply/international-applicant-frequently-asked-questions/?$':
           to: 'https://afa.colby.edu/apply/faq/'
           regexp: true
+          code: 301
         '^/admission/apply/international/international-faq/?$':
           to: 'https://afa.colby.edu/apply/faq/'
           regexp: true
+          code: 301
         '^/admission/apply/international-student-certification-of-finances-iscof/?$':
           to: 'https://afa.colby.edu/iscof/'
           regexp: true
+          code: 301
         '^/admission/apply/nescac/?$': 
           to: 'https://afa.colby.edu/apply/nescac-admissions-practices/'     
           regexp: true
+          code: 301
         '^/admission/apply/nescac-statement-of-common-admissions-practices/?$':
           to: 'https://afa.colby.edu/apply/nescac-admissions-practices/'
           regexp: true
+          code: 301
         '^/admission/apply/waitlist-faq/?$':
           to: 'https://afa.colby.edu/apply/faq/'
           regexp: true
+          code: 301
         '^/admission/bunche/?$':
           to: 'https://afa.colby.edu/academics/scholar-programs/bunche-scholars/'
           regexp: true
+          code: 301
         '^/admission/cbb/?$': 
           to: 'https://afa.colby.edu/counselors/'     
           regexp: true
+          code: 301
         '^/admission/class-of-2024-admitted-students/understanding-your-financial-aid-package/?$':
           to: 'https://afa.colby.edu/understanding-your-aid-package/'
           regexp: true
+          code: 301
         '^/admission/class-of-2024-admitted-students/understanding-your-financial-aid-package-2/?$':
           to: 'https://afa.colby.edu/understanding-your-aid-package/'
           regexp: true
+          code: 301
         '^/admission/colbyclassof2025/?$':
           to: 'https://admittedstudents.colby.edu/'
           regexp: true
+          code: 301
         '^/admission/college-profile/?$':
           to: 'https://afa.colby.edu/apply/college-profile/'
           regexp: true
+          code: 301
         '^/admission/commitment/?$':
           to: 'https://afa.colby.edu/cost-and-aid/colby-commitment/'
           regexp: true
+          code: 301
         '^/admission/commitment/financial-aid-final/?$':
           to: 'https://www.colby.edu/admission/cost-and-aid/the-colby-commitment/'
           regexp: true
+          code: 301
         '^/admission/commitment/financial-aid-final/applying-for-financial-aid/?$': 
           to: 'https://afa.colby.edu/apply/requirements/applying-for-aid/'     
           regexp: true
+          code: 301
         '^/admission/commitment/financial-aid-final/understanding-your-financial-aid-package/?$':
           to: 'https://afa.colby.edu/understanding-your-aid-package/'
           regexp: true
+          code: 301
         '^/admission/contact/?$':
           to: 'https://afa.colby.edu/counselors/'
           regexp: true
+          code: 301
         '^/admission/contact-admissions/?$':
           to: 'https://afa.colby.edu/counselors/'
           regexp: true
+          code: 301
         '^/admission/contact/for-school-counselors/?$':
           to: 'https://afa.colby.edu/visit/'
           regexp: true
+          code: 301
         '^/admission/counselors/?$':
           to: 'https://afa.colby.edu/counselors/'
           regexp: true
+          code: 301
         '^/admission/counselors/barker-lexie/?$': 
           to: 'https://afa.colby.edu/counselors/sumner-lexie/'     
           regexp: true
+          code: 301
         '^/admission/counselors/brewster-jamie/?$':
           to: 'https://afa.colby.edu/counselors/brewster-jamie/'
           regexp: true
+          code: 301
         '^/admission/counselors/crocker-abigail/?$':
           to: 'https://afa.colby.edu/counselors/st-johns-abigail/'
           regexp: true
+          code: 301
         '^/admission/counselors/gilbertson-katy/?$':
           to: 'https://afa.colby.edu/counselors/gilbertson-katy/'
           regexp: true
+          code: 301
         '^/admission/counselors/hartin-shelby/?$':
           to: 'https://afa.colby.edu/counselors/hartin-shelby/'
           regexp: true
+          code: 301
         '^/admission/counselors/hodgkins-molly/?$':
           to: 'https://afa.colby.edu/counselors/hodgkins-molly/'
           regexp: true
+          code: 301
         '^/admission/counselors/phanor-kevin/?$': 
           to: 'https://afa.colby.edu/counselors/phanor-kevin/'     
           regexp: true
+          code: 301
         '^/admission/counselors/robinov-mesa/?$':
           to: 'https://afa.colby.edu/counselors/robinov-mesa/'
           regexp: true
+          code: 301
         '^/admission/counselors/st-johns-abigail/?$':
           to: 'https://afa.colby.edu/counselors/st-johns-abigail/'
           regexp: true
+          code: 301
         '^/admission/counselors/sumner-lexie/?$':
           to: 'https://afa.colby.edu/counselors/sumner-lexie/'
           regexp: true
+          code: 301
         '^/admission/covid-19/?$':
           to: 'https://afa.colby.edu/apply/faq/'
           regexp: true
+          code: 301
         '^/admission/explore-colby/?$':
           to: 'https://afa.colby.edu/visit/'
           regexp: true
+          code: 301
         '^/admission/finaid/?$': 
           to: 'https://afa.colby.edu/cost-and-aid/'     
           regexp: true
+          code: 301
         '^/admission/finaid/apply/?$':
           to: 'https://afa.colby.edu/apply/requirements/applying-for-aid/'
           regexp: true
+          code: 301
         '^/admission/finaid/colby-aid/?$': 
           to: 'https://afa.colby.edu/cost-and-aid/'     
           regexp: true
+          code: 301
         '^/admission/finaid/no-loan/?$': 
           to: 'https://afa.colby.edu/cost-and-aid/colby-commitment/'     
           regexp: true
+          code: 301
         '^/admission/finaid/options/?$': 
           to: 'https://afa.colby.edu/cost-and-aid/'     
           regexp: true
+          code: 301
         '^/admission/first-year/?$':
           to: 'https://afa.colby.edu/apply/requirements/'
           regexp: true
+          code: 301
         '^/admission/for-our-partners/?$': 
           to: 'https://afa.colby.edu/visit/'     
           regexp: true
+          code: 301
         '^/admission/front-page-2-2/?$':
           to: 'https://afa.colby.edu/'
           regexp: true
+          code: 301
         '^/admission/gapyear/?$': 
           to: 'https://afa.colby.edu/apply/gap-year/'     
           regexp: true
+          code: 301
         '^/admission/healthy-active-lifestyle/?$': 
           to: 'https://afa.colby.edu/student-life/'     
           regexp: true
+          code: 301
         '^/admission/international/?$':
           to: 'https://afa.colby.edu/apply/requirements/international-applicants/'
           regexp: true
+          code: 301
         '^/admission/join-a-community/?$':
           to: 'https://afa.colby.edu/visit/'
           regexp: true
+          code: 301
         '^/admission/myintuition/?$':
           to: 'https://afa.colby.edu/cost-and-aid/calculate-your-costs/myintuition-calculator/'
           regexp: true
+          code: 301
         '^/admission/nondiscrimination-policy/?$': 
           to: 'https://afa.colby.edu/nondiscrimination-policy/'     
           regexp: true
+          code: 301
         '^/admission/planning-your-visit-to-campus/?$': 
           to: 'https://afa.colby.edu/visit/'     
           regexp: true
+          code: 301
         '^/admission/planning-your-visit-to-campus-2/?$': 
           to: 'https://afa.colby.edu/visit/'     
           regexp: true
+          code: 301
         '^/admission/presidential/?$':
           to: 'https://afa.colby.edu/academics/scholar-programs/presidential-scholars/'
           regexp: true
+          code: 301
         '^/admission/presidential/cara/opportunity-grants/?$': 
           to: 'https://afa.colby.edu/academics/scholar-programs/presidential-scholars/opportunity-grants/'     
           regexp: true
+          code: 301
         '^/admission/pulver-science-scholars/?$':
           to: 'https://afa.colby.edu/academics/scholar-programs/pulver-science-scholars/'
           regexp: true
+          code: 301
         '^/admission/questbridge/?$': 
           to: 'https://afa.colby.edu/apply/requirements/questbridge-applicants/'     
           regexp: true
+          code: 301
         '^/admission/schedule-your-visit/?$':
           to: 'https://afa.colby.edu/visit/'
           regexp: true
+          code: 301
         '^/admission/school-counselors/?$': 
           to: 'https://afa.colby.edu/visit/'     
           regexp: true
+          code: 301
         '^/admission/snapshots/our-counselors/?$':
           to: 'https://afa.colby.edu/counselors/'
           regexp: true
+          code: 301
         '^/admission/student-life/?$':
           to: 'https://afa.colby.edu/student-life'
           regexp: true
+          code: 301
         '^/admission/terms-of-use/?$':
           to: 'https://www.colby.edu/generalcounsel/terms-of-use/'
           regexp: true
+          code: 301
         '^/admission-terms-of-use.htm/?$': 
           to: 'https://www.colby.edu/generalcounsel/terms-of-use/'     
           regexp: true
+          code: 301
         '^/admission/transfer/?$': 
           to: 'https://afa.colby.edu/apply/requirements/transfer-applicants/'     
           regexp: true
+          code: 301
         '^/admission/tuition-payment-plan/?$': 
           to: 'https://www.colby.edu/sfs/student-charges-payment-schedule/'     
           regexp: true
+          code: 301
         '^/admission/understanding-your-financial-aid-package/?$':
           to: 'https://afa.colby.edu/understanding-your-aid-package/'
           regexp: true
+          code: 301
         '^/admission/undocumented/?$': 
           to: 'https://afa.colby.edu/apply/requirements/undocumented-daca-applicants/'     
           regexp: true
+          code: 301
         '^/admission/virtual-visit/?$':
           to: 'https://afa.colby.edu/visit/'
           regexp: true
+          code: 301
         '^/admission/visit/?$':
           to: 'https://afa.colby.edu/visit/'
           regexp: true
+          code: 301
         '^/admission/visiting-colby/?$': 
           to: 'https://afa.colby.edu/visit/'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2019/12/20-21-Review-Request-Form.pdf/?$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/05/2020-2021-Verif-of-Identity-Stmt-of-Ed-Purp.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2022/05/2022-2023-Veri-Identity-Stmt-of-Ed-Purp.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/09/2019-Student-Non-Filer-Statement.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/2020-Student-Non-Filer-Statement.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/09/2019-Parent-Non-Tax-Filer-Statement.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/2020-Student-Non-Filer-Statement.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/05/2020-21-Verification-Dep.-Wrksht.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2019/03/19-20-Sib-Survey.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/22-23-Sibling-Survey.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/05/2018-Student-Non-Filer-Statement.pdf/?$': 
           to: 'https://afa.colby.edu//wp-content/uploads/2021/09/2020-Student-Non-Filer-Statement.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2019/10/2020-21-Non-Custodial-Parent-Waiver-Form.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2018/09/2019-20-Non-Custodial-Parent-Waiver-Form.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/02/2020-2021-Colby-Dependent-Veri-Wksht-V1-1.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Verification-Dep.-Wrksht.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2019/10/OFFICIAL-Overnight-Host-Contract.pdf/?$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2018/11/Alumni-Admissions-Volunteer-Handbook-2019.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2022/05/Alumni-Admissions-Volunteer-Handbook-2019.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2019/07/Final-Report3-2.pdf/?$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2019/04/CampusMap_2023.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2019/08/18-163_Campus-Map_v2_map-only.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/02/Colby-Overnight-Visit-Agreement-2020.pdf/?$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/05/19-20-Final-Report-1.pdf/?$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/05/2020-21-International-Student-Certification-of-Finances.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2022/05/2020-21-International-Student-Certification-of-Finances-1.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/07/Colby-College-Outcomes-2019-Spreads.pdf/?$': 
           to: 'https://issuu.com/colbycollegelibrary/docs/c25089_21_outcomes.hp_spreads_final'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2021/06/Campus-Map.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2021/05/20-063-Campus-Map-for-Orientation.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2022/05/2021-Campus-Map.pdf'     
           regexp: true
+          code: 301
         '^/admission/wp-content/uploads/sites/191/2020/09/2021-22-Non-Custodial-Parent-Waiver-Form.pdf/?$': 
           to: 'https://afa.colby.edu/wp-content/uploads/2021/09/2022-23-Non-Custodial-Parent-Waiver-Form.pdf'     
           regexp: true
+          code: 301
         '^/presidential/presidential-scholars/?$': 
           to: 'https://afa.colby.edu/academics/scholar-programs/presidential-scholars/'     
           regexp: true
+          code: 301
         '^/thiscolbylife/?$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
+          code: 301
   # Alumni
         '^/alumni/?$':
           to: '/colbyalumni/'     
           regexp: true
+          code: 301
         '^/campaign/?$':
           to: '/support-colby/'     
           regexp: true
+          code: 301
         '^/waystogive/?$':
           to: '/colbyalumni/ways-to-give/'     
           regexp: true
+          code: 301
   # Athletics
         '^/athletics/?$':
           to: 'https://colbyathletics.com/'     
           regexp: true
+          code: 301
   # AI
         '^/ai/?$':
           to: 'https://davisinstituteai.colby.edu/'
           regexp: true
+          code: 301
   # Allen & Benner Isalnds
         '^/allenisland/?$':
           to: 'https://islandcampus.colby.edu'
           regexp: true
+          code: 301
   # CAH
         '^/centerartshumanities/?(.*)$':
           to: 'https://cah.colby.edu'
           regexp: true
+          code: 301
   # Commencement
         '^/commencement/?$':
           to: 'https://commencement.colby.edu'
           regexp: true
+          code: 301
   # Dare Northward
         '^/eofymailer22/?$':
           to: 'https://darenorthward.colby.edu/give/'
           regexp: true
+          code: 301
         '^/give/?$':
           to: 'https://darenorthward.colby.edu/give/'
           regexp: true
+          code: 301
         '^/give/reunion/?$':
           to: 'https://darenorthward.colby.edu/mail/'
           regexp: true
+          code: 301
         '^/givingtuesday/?$':
           to: 'https://darenorthward.colby.edu/give-form-a/'
           regexp: true
+          code: 301
         '^/gt/?$':
           to: 'https://darenorthward.colby.edu/give-form-b/'
           regexp: true
+          code: 301
         '^/pledgepayment/?$':
           to: 'https://darenorthward.colby.edu/give-pledge/'
           regexp: true
+          code: 301
         '^/specialgift/?$':
           to: 'https://darenorthward.colby.edu/specialgift/'
           regexp: true
+          code: 301
         '^/student-emergency-fund/?$':
           to: 'https://darenorthward.colby.edu/student-emergency-fund/'
           regexp: true
+          code: 301
         '^/support-colby/?$':
           to: 'https://darenorthward.colby.edu/give/'
           regexp: true
+          code: 301
         '^TB22/?$':
           to: 'https://darenorthward.colby.edu/give/'
           regexp: true
+          code: 301
   # Davis Connects
         '^/careercenter/?$': 
           to: '/davisconnects'     
           regexp: true
+          code: 301
         '^/careercenter/students/internships$': 
           to: '/davisconnects/internships/'     
           regexp: true
+          code: 301
         '^/davisconnects/?$':
           to: 'https://davisconnects.colby.edu'
           regexp: true
+          code: 301
         '^/davisconnects/engage/?$':
           to: 'https://davisconnects.colby.edu/hire-a-colby-student/'
           regexp: true
+          code: 301
         '^/davisconnects/entrepreneurship-and-innovation/?$':
           to: 'https://davisconnects.colby.edu/partner-with-colby/'
           regexp: true
+          code: 301
         '^/davisconnects/davis-global-course-proposals/?$':
           to: 'https://davisconnects.colby.edu/funding-opportunities/faculty/'
           regexp: true
+          code: 301
         '^/davisconnects/davis-global-innovation-courses/?$':
           to: 'https://davisconnects.colby.edu/funding-opportunities/faculty/'
           regexp: true
+          code: 301
         '^/davisconnects/davis-global-labs/?$':
           to: 'https://davisconnects.colby.edu/funding-opportunities/faculty/'
           regexp: true
+          code: 301
         '^/davisconnects/internships/?$':
           to: 'https://davisconnects.colby.edu/internships/find-an-internship/'
           regexp: true
+          code: 301
         '^/davisconnects/labs/buck-lab/?$':
           to: 'https://web.colby.edu/bucklab/'
           regexp: true
+          code: 301
         '^/davisconnects/labs/linde-packman/?$':
           to: 'https://web.colby.edu/linde-packman-lab/linde-packman-lab-for-biosciences-innovation'
           regexp: true
+          code: 301
         '^/davisconnects/news/?$':
           to: 'https://davisconnects.colby.edu/events-workshops/'
           regexp: true
+          code: 301
         '^/davisconnects/research-and-colby-labs/?$':
           to: 'https://davisconnects.colby.edu/find-a-research-opportunity/'
           regexp: true
+          code: 301
         '^/davisconnects/staff/?$':
           to: 'https://davisconnects.colby.edu/about/'
           regexp: true
+          code: 301
         '^/davisconnects/student-advising/?$':
           to: 'https://davisconnects.colby.edu/advising/'
           regexp: true
+          code: 301
         '^/davisconnects/student-advising/fellowships/?$':
           to: 'https://davisconnects.colby.edu/after-colby/fellowships/'
           regexp: true
+          code: 301
         '^/davisconnects/student-funding/?$':
           to: 'https://davisconnects.colby.edu/funding-opportunities/students/'
           regexp: true
+          code: 301
   # Goldfarb
         '^/goldfarb/?$':
           to: 'https://goldfarbcenter.colby.edu/'
           regexp: true
+          code: 301
         '^/lovejoy/?$':
           to: 'https://goldfarbcenter.colby.edu/events/flagship-events/elijah-parish-lovejoy-award-for-courage-in-journalism/'
           regexp: true
+          code: 301
         '^/lovejoyaward/?$':
           to: 'https://goldfarbcenter.colby.edu/events/flagship-events/elijah-parish-lovejoy-award-for-courage-in-journalism/'
           regexp: true
+          code: 301
   # Jewish Life
         '^/jewishlife/(.*)$':
           to: 'https://jewishlife.colby.edu/'
           regexp: true
+          code: 301
   # Libraries
         '^/libraries/(.+)/?$':
           to: 'https://libraries.colby.edu/$1/'
           regexp: true
+          code: 301
         '^/libraries/?$':
           to: 'https://libraries.colby.edu/'
           regexp: true
+          code: 301
         '^/libraries/research-help/researchlibrarians/?$':
           to: 'https://libraries.colby.edu/research-help/subjectspecialists/'
           regexp: true
+          code: 301
         '^/library/?$':
           to: 'https://libraries.colby.edu/'
           regexp: true
+          code: 301
 # Life (including SGA, Off Campus, Health Services, Security)
         '^/bigelowprogram/?$':
           to: 'https://life.colby.edu/offcampus/colby-at-bigelow-laboratory/'
           regexp: true
+          code: 301
         '^/bigelow/?$':
           to: 'https://life.colby.edu/offcampus/colby-at-bigelow-laboratory/'
           regexp: true
+          code: 301
         '^/civic-engagement/?$':
           to: 'https://life.colby.edu/what-to-do/civic-engagement/'
           regexp: true
+          code: 301
         '^/civic-engagement/(.*)$':
           to: 'https://life.colby.edu/what-to-do/civic-engagement/'
           regexp: true
+          code: 301
         '^/clubs/?$':
           to: 'https://life.colby.edu/'     
           regexp: true
+          code: 301
         '^/counseling/?$':
           to: 'https://life.colby.edu/your-health/counseling-services/'     
           regexp: true
+          code: 301
         '^/diversity/?$':
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
+          code: 301
         '^/diversity/(.*)$':
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
+          code: 301
         '^/ges/?$':
           to: 'https://life.colby.edu/offcampus/global-entry-semesters/'
           regexp: true
+          code: 301
         '^/health-services/?$':
           to: 'https://life.colby.edu/health-services/'
           regexp: true
+          code: 301
         '^/healthandcounseling/counseling-services/?$':
           to: 'https://life.colby.edu/your-health/counseling-services/'
           regexp: true
+          code: 301
         '^/healthandcounseling/health-services/?$':
           to: 'https://www.colby.edu/health-services/'
           regexp: true
+          code: 301
         '^/life/?$':
           to: 'https://life.colby.edu/'
           regexp: true
+          code: 301
         '^/life/(.*)$':
           to: 'https://life.colby.edu/'
           regexp: true
+          code: 301
         '^/offcampus/?$':
           to: 'https://life.colby.edu/offcampus/'
           regexp: true
+          code: 301
         '^/offcampus/about-us/?$':
           to: 'https://life.colby.edu/offcampus/about-us/'
           regexp: true
+          code: 301
         '^/offcampus/academic-policy/?$':
           to: 'https://life.colby.edu/offcampus/academic-travel-policies/'
           regexp: true
+          code: 301
         '^/offcampus/advising-appointments/?$':
           to: 'https://calendar.google.com/calendar/u/0/selfsched?sstoken=UU5fRFRCUFNhNVVBfGRlZmF1bHR8MmMxNTdhYzE2NGNhMWM5MjVmYmY3OWY4MDJiMjhhNzk'
           regexp: true
+          code: 301
         '^/offcampus/application-process/?$':
           to: 'https://life.colby.edu/offcampus/take-your-first-steps/'
           regexp: true
+          code: 301
         '^/offcampus/colby-in-dijon/?$':
           to: 'https://life.colby.edu/offcampus/colby-in-dijon/'
           regexp: true
+          code: 301
         '^/offcampus/colby-in-salamanca/?$':
           to: 'https://life.colby.edu/offcampus/colby-in-salamanca/'
           regexp: true
+          code: 301
         '^/offcampus/covid-19/?$':
           to: 'https://life.colby.edu/offcampus/stay-safe/'
           regexp: true
+          code: 301
         '^/offcampus/financial-faq-about-ocs/?$':
           to: 'https://life.colby.edu/offcampus/financial-aid-faq/'
           regexp: true
+          code: 301
         '^/offcampus/financing-off-campus-study/?$':
           to: 'https://life.colby.edu/offcampus/finance-your-experience/'
           regexp: true
+          code: 301
         '^/offcampus/getting-started-2/?$':
           to: 'https://life.colby.edu/offcampus/go-off-campus/'
           regexp: true
+          code: 301
         '^/offcampus/global-entry-semester/?$':
           to: 'https://life.colby.edu/offcampus/global-entry-semesters/'
           regexp: true
+          code: 301
         '^/offcampus/global-entry-semester/dijon/?$':
           to: 'https://life.colby.edu/offcampus/global-entry-semesters/'
           regexp: true
+          code: 301
         '^/offcampus/global-images-photo-contest-2/?$':
           to: 'https://life.colby.edu/offcampus/global-images-photo-contest/'
           regexp: true
+          code: 301
         '^/offcampus/jan-plan-off-campus/?$':
           to: 'https://life.colby.edu/offcampus/janplan-off-campus/'
           regexp: true
+          code: 301
         '^/offcampus/pre-departure/safety-security-abroad/?$':
           to: 'https://life.colby.edu/offcampus/stay-safe/'
           regexp: true
+          code: 301
         '^/offcampus/pre-departure/what-to-know-before-you-go/health-safety/health-precautions/?$':
           to: 'https://life.colby.edu/offcampus/stay-safe/'
           regexp: true
+          code: 301
         '^/offcampus/pre-departure/what-to-know-before-you-go/health-safety/staying-safe-and-healthy-abroad/?$':
           to: 'https://life.colby.edu/offcampus/stay-safe/'
           regexp: true
+          code: 301
         '^/offcampus/travel-registry/?$':
           to: 'https://life.colby.edu/offcampus/colby-travel-policy-registry/'
           regexp: true
+          code: 301
         '^/offcampus/types-of-ocs-programs/?$':
           to: 'https://life.colby.edu/offcampus/understanding-your-options/'
           regexp: true
+          code: 301
         '^/offcampus/welcome-back-2/?$':
           to: 'https://life.colby.edu/offcampus/welcome-back/'
           regexp: true
+          code: 301
         '^/orientation/?$':
           to: 'https://life.colby.edu/what-to-do/first-year-experience/orientation/'
           regexp: true
+          code: 301
         '^/residentiallife/?$':
           to: 'https://life.colby.edu/where-to-live/'
           regexp: true
+          code: 301
         '^/residentiallife/(.*)?$':
           to: 'https://life.colby.edu/where-to-live/'
           regexp: true
+          code: 301
         '^/safetyandaccountability/?$':
           to: 'https://life.colby.edu/your-safety/'
           regexp: true
+          code: 301
         '^/safetyandaccountability/(,*)$':
           to: 'https://life.colby.edu/your-safety/'
           regexp: true
+          code: 301
         '^/security/(.*)$':
           to: 'https://life.colby.edu/conduct-safety/campus-safety/'
           regexp: true
+          code: 301
         '^/securitydept/parking-permit-registration/?$':
           to: 'https://life.colby.edu/your-safety/campus-safety/parking-permit-registration/'
           regexp: true
+          code: 301
         '^/securitydept/?$':
           to: 'https://life.colby.edu/conduct-safety/campus-safety/'
           regexp: true
+          code: 301
         '^/sga/?$':
           to: 'https://life.colby.edu/sga/'
           regexp: true
+          code: 301
         '^/sga/sga-documents/constitution/?$':
           to: 'https://life.colby.edu/sga/who-we-are/'
           regexp: true
+          code: 301
         '^/sga/affirmation/?$':
           to: 'https://life.colby.edu/sga/who-we-are/'
           regexp: true
+          code: 301
         '^/sga/archived-committee-reports/?$':
           to: 'https://life.colby.edu/sga/sga-resources/'
           regexp: true
+          code: 301
         '^/sga/class-of-2022/?$':
           to: 'https://life.colby.edu/sga/presidents-council/'
           regexp: true
+          code: 301
         '^/sga/class-of-2023/?$':
           to: 'https://life.colby.edu/sga/presidents-council/'
           regexp: true
+          code: 301
         '^/sga/class-of-2025/?$':
           to: 'https://life.colby.edu/sga/presidents-council/'
           regexp: true
+          code: 301
         '^/sga/committees/?$':
           to: 'https://life.colby.edu/sga/who-we-are/'
           regexp: true
+          code: 301
         '^/sga/executive-board/?$':
           to: 'https://life.colby.edu/sga/members/executive-board/'
           regexp: true
+          code: 301
         '^/sga/funding-requests/?$':
           to: 'https://life.colby.edu/sga/sga-resources/'
           regexp: true
+          code: 301
         '^/sga/getting-involved/?$':
           to: 'https://life.colby.edu/sga/who-we-are/'
           regexp: true
+          code: 301
         '^/sga/overview/?$':
           to: 'https://life.colby.edu/sga/who-we-are/'
           regexp: true
+          code: 301
         '^/sga/sga-documents/agendas-and-minutes/?$':
           to: 'https://life.colby.edu/sga/sga-resources/'
           regexp: true
+          code: 301
         '^/sga/sga-documents/motions/?$':
           to: 'https://life.colby.edu/sga/sga-resources/'
           regexp: true
+          code: 301
         '^/sga/state-of-the-college/?$':
           to: 'https://life.colby.edu/sga/'
           regexp: true
+          code: 301
         '^/sga/story-time/?$':
           to: 'https://life.colby.edu/sga/'
           regexp: true
+          code: 301
         '^/sga/student-clubs/club-budgets-and-re-registration/?$':
           to: 'https://life.colby.edu/sga/student-clubs/'
           regexp: true
+          code: 301
         '^/sga/student-clubs/how-to-start-a-club/?$':
           to: 'https://life.colby.edu/sga/student-clubs/'
           regexp: true
+          code: 301
         '^/sga/weekly-newsletter-updates/?$':
           to: 'https://life.colby.edu/sga/'
           regexp: true
+          code: 301
         '^/sexualviolence/?$':
           to: 'https://life.colby.edu/conduct-safety/sexual-violence-title-ix/'
           regexp: true
+          code: 301
         '^/sexualviolence/(?!wp-admin)(.*)$':
           to: 'https://life.colby.edu/conduct-safety/sexual-violence-title-ix/'
           regexp: true
+          code: 301
         '^/spirituallife/?$':
           to: 'https://life.colby.edu/what-to-do/spiritual-life/'
           regexp: true
+          code: 301
         '^/studentactivities/?$':
           to: 'https://life.colby.edu/what-to-do/'
           regexp: true
+          code: 301
         '^/studentactivities/(.*)$':
           to: 'https://life.colby.edu/what-to-do/'
           regexp: true
+          code: 301
         '^/studentadvising/?$':
           to: 'https://life.colby.edu/get-support/advising-academic-success/'
           regexp: true
+          code: 301
         '^/studentadvising/(.*)$':
           to: 'https://life.colby.edu/get-support/advising-academic-success/'
           regexp: true
+          code: 301
         '^/studentlife/?$':
           to: 'https://life.colby.edu/'
           regexp: true
+          code: 301
         '^/studentlife/student-handbook$':
           to: 'https://life.colby.edu/your-safety/'
           regexp: true
+          code: 301
   # Lunder Institute
         '^/lunderinstitute/(.+)/?$':
           to: 'https://lunderinstitute.colby.edu/$1/'
           regexp: true
+          code: 301
         '^/lunderinstitute/?$':
           to: 'https://lunderinstitute.colby.edu'
           regexp: true
+          code: 301
   # Museum/Museum Exhibits
         '^/museum/?$':
           to: 'https://museum.colby.edu'
           regexp: true
+          code: 301
         '^/museum/(?!wp-admin)(.+)/?$':
           to: 'https://museum.colby.edu/$1/'
           regexp: true
+          code: 301
         '^/museum/exhibition/?$':
           to: 'https://museum-exhibitions.colby.edu/current-exhibitions/'
           regexp: true
+          code: 301
         '^/museum/exhibition/2021-senior-exhibition/?$':
           to: 'https://museum-exhibitions.colby.edu/exhibition/2021-senior-exhibition/'
           regexp: true
+          code: 301
         '^/museum/exhibition/an-ecstatic-experience/?$':
           to: 'https://museum-exhibitions.colby.edu/exhibition/jatovia-gary-an-ecstatic-experience/'
           regexp: true
+          code: 301
         '^/museum/exhibition/bob-thompson-this-house-is-mine/?$':
           to: 'https://museum-exhibitions.colby.edu/exhibition/bob-thompson-this-house-is-mine/'
           regexp: true
+          code: 301
         '^/museum/exhibition/hew-locke-heres-the-thing/?$':
           to: 'https://museum-exhibitions.colby.edu/exhibition/hew-locke-heres-the-thing/'
           regexp: true
+          code: 301
         '^/museum/exhibition/inside-out-the-prints-of-mary-cassatt/?$':
           to: 'https://museum-exhibitions.colby.edu/exhibition/inside-out-the-prints-of-mary-cassatt/'
           regexp: true
+          code: 301
         '^/museum/exhibition/miracles-on-the-boarder-retablos-of-mexican-migrants-to-the-united-states/?$':
           to: 'https://museum-exhibitions.colby.edu/exhibition/miracles-on-the-border-retablos-of-mexican-migrants-to-the-united-states/'
           regexp: true
+          code: 301
         '^/museum/exhibition/roy-lichtenstein-history-in-the-making-1948-1960/?$':
           to: 'https://museum-exhibitions.colby.edu/exhibition/roy-lichtenstein-history-in-the-making-1948-1960/'
           regexp: true
+          code: 301
         '^/museum/exhibition/the-sea-in-a-jug-the-welch-collection-of-islamic-and-later-indian-art/?$':
           to: 'https://museum-exhibitions.colby.edu/exhibition/the-sea-in-a-jug-the-welch-collection-of-islamic-and-later-indian-art/'
           regexp: true
+          code: 301
         '^/museum/exhibition/view/traveling/?$':
           to: 'https://museum-exhibitions.colby.edu/traveling-exhibitions/'
           regexp: true
+          code: 301
         '^/museum/exhibition/view/upcoming/?$':
           to: 'https://museum-exhibitions.colby.edu/upcoming-exhibitions/'
           regexp: true
+          code: 301
         '^/foadec2022/?$':
           to: 'https://museum.colby.edu/support/foadec2022/'
           regexp: true
+          code: 301
   # News/Magazine
         '^/climate/?$':
           to: 'https://news.colby.edu/'
           regexp: true
+          code: 301
         '^/climate/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: 'https://news.colby.edu/story/$1/'
           regexp: true
+          code: 301
         '^/colby.mag/(.*)$':
           to: 'https://news.colby.edu/'
           regexp: true
+          code: 301
         '^/in-the-news/?$':
           to: 'https://news.colby.edu/'
           regexp: true
+          code: 301
         '^/in-the-news/covid-19/?$':
           to: 'https://news.colby.edu/external/media-coverage/'
           regexp: true
+          code: 301
         '^/mag/?$':
           to: 'https://magazine.colby.edu/'
           regexp: true
+          code: 301
         '^/magazine/?$':
           to: 'https://magazine.colby.edu/'
           regexp: true
+          code: 301
         '^/magazine/(?!wp-admin)(.+)/?$':
           to: 'https://news.colby.edu/story/$1/'
           regexp: true
+          code: 301
         '^/magazine/covid-19-response/?$':
           to: 'https://www.colby.edu/communications/magazine/covid-19/'
           regexp: true
+          code: 301
         '^/magazine/letter-to-the-editor/?$':
           to: 'https://news.colby.edu/contact/'
           regexp: true
+          code: 301
         '^/magazine/magazine/issue/spring-2021/classnotes/?$':
           to: 'https://news.colby.edu/colby-magazine/'
           regexp: true
+          code: 301
         '^/magazine/magazine/issue/spring-2021/obituaries/?$':
           to: 'https://news.colby.edu/colby-magazine/'
           regexp: true
+          code: 301
         '^/news/?$':
           to: 'https://news.colby.edu/'
           regexp: true
+          code: 301
         '^/news/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: 'https://news.colby.edu/story/$1/'
           regexp: true
+          code: 301
         '^/news/category/type/press-release/?$':
           to: 'https://news.colby.edu/story/category/announcements/'
           regexp: true
+          code: 301
         '^/news/pressroom/?$':
           to: 'https://news.colby.edu/resources-for-the-media/'
           regexp: true
+          code: 301
         '^/news/recent-faculty-accomplishments/?$':
           to: 'https://news.colby.edu/external/faculty-accomplishments/'
           regexp: true
+          code: 301
         '^/news/subscribe/?$':
           to: 'https://news.colby.edu/newsletter/'
           regexp: true
+          code: 301
         '^/news/tag/faculty-accomplishments/?$':
           to: 'https://news.colby.edu/external/faculty-accomplishments/'
           regexp: true
+          code: 301
         '^/newsletter/?$':
           to: 'https://news.colby.edu/newsletter/'
           regexp: true
+          code: 301
         '^/subscribe/?$':
           to: 'https://news.colby.edu/newsletter/'
           regexp: true
+          code: 301
   # Oak Institute
         '^/oak/?$':
           to: 'https://oakinstitute.colby.edu/'
           regexp: true
+          code: 301
         '^/oakinstitute/(.*)$':
           to: 'https://oakinstitute.colby.edu/'
           regexp: true
+          code: 301
   # SOBLU
         '^/mag/soblu/?$':
           to: 'https://soblu50.colby.edu/'
           regexp: true
+          code: 301
   # Trustees
         '^/trustees/?$':
           to: '/people/offices-directory/office-of-the-president/trustees/'
           regexp: true
+          code: 301
         '^/trustees/honorary-degree-nomination/?$':
           to: '/people/offices-directory/office-of-the-president/trustees/honorary-degree-nomination/'
           regexp: true
+          code: 301
 ########## MISC REDIRECTS ##########
         '^/1813/?$':
           to: '/colbyalumni/1813-society/'
           regexp: true
+          code: 301
         '^2023sendoffs/?$':
           to: 'https://colbyrsvp.regfox.com/2023sendoffs'
           regexp: true
+          code: 301
         '^/about/?$':
           to: '/academics/course-catalogue/about-colby/'
           regexp: true
+          code: 301
         '^/academics/majors-minors/?$':
           to: '/academics/majors-and-minors/'
           regexp: true
+          code: 301
         '^/about_cs/index.cfm/?$':
           to: '/academics/course-catalogue/about-colby/'
           regexp: true
+          code: 301
         '^/academics_cs/index.cfm/?$':
           to: '/academics/'
           regexp: true
+          code: 301
         '^/administration_cs/student-affairs/deanofstudents/multicultural/upload/Cultural-Events-Committee-Proposal-Form.pdf$':
           to: 'https://web.colby.edu/cec/files/2021/10/CEC-app-form-10.20.21.pdf'
           regexp: true
+          code: 301
         '^/advancement-careers/?$':
           to: 'https://www.colby.edu/humanresources/employment/'
           regexp: true
+          code: 301
         '^/afford/?$':
-           to: 'https://www.colby.edu/admission/afford/'
-           regexp: true
+          to: 'https://www.colby.edu/admission/afford/'
+          regexp: true
+          code: 301
         '^/alumniawards/?$':
           to: 'https://www.colby.edu/colbyalumni/alumni-council/nominations-for-alumni-awards/'
           regexp: true
+          code: 301
         '^/apply-now/?$':
           to: 'https://www.colby.edu/admission/apply-now/'
           regexp: true
+          code: 301
         '^/AskAO/?$':
           to: 'https://colby.teamdynamix.com/TDClient/3030/Portal/Home/'
           regexp: true
+          code: 301
         '^/brodyrsvp/?$':
           to: 'https://colbycollegesecretary.regfox.com/2022-brody-award/'
           regexp: true
+          code: 301
         '^/calendar/?$':
           to: 'https://events.colby.edu/'
           regexp: true
+          code: 301
         '^/caresaboutkids/?$':
           to: 'https://life.colby.edu/what-to-do/civic-engagement/colby-cares-about-kids/'
           regexp: true
+          code: 301
         '^/colbytrail/?$':
           to: 'https://life.colby.edu/what-to-do/first-year-experience/student-guide/'
           regexp: true
+          code: 301
         '^/compbio/?$':
           to: 'https://www.colby.edu/catalogue/requirements/bi/'
           regexp: true
+          code: 301
         '^/cs/?$':
           to: 'http://www.cs.colby.edu/'     
           regexp: true
+          code: 301
         '^/culturalevents/?$':
           to: 'https://web.colby.edu/cec/'
           regexp: true
+          code: 301
         '^/cussr/?$':
           to: '/academics/research/colby-undergraduate-summer-research-retreat/'
           regexp: true
+          code: 301
         '^/diningservices/?$':
           to: 'http://colby.cafebonappetit.com/'
           regexp: true
+          code: 301
         '^/diningservices/catering/?$':
           to: 'http://colby.cafebonappetit.com/catering/'
           regexp: true
+          code: 301
         '^/directory/?$':
           to: '/people/people-directory/'
           regexp: true
+          code: 301
         '^/directory/profile/(.*)/$':
           to: '/people/people-directory/'
           regexp: true
+          code: 301
         '^/downtown/?$':
           to: 'https://news.colby.edu/story/the-revitalization-of-downtown-waterville/'
           regexp: true
+          code: 301
         '^/economicimpactreport/?$':
           to: 'http://www.colby.edu/people/offices-directory/office-of-the-president/reports/economic-impact-report/'
           regexp: true
+          code: 301
         '^/engineering$':
           to: '/academics/dual-degree/'     
           regexp: true
+          code: 301
         '^/environmentalhumanities/?$':
           to: 'http://web.colby.edu/environmentalhumantites/'
           regexp: true
+          code: 301
         '^/fgli/?$':
           to: 'https://life.colby.edu/what-to-do/diversity-equity-inclusion/'
           regexp: true
+          code: 301
         '^/financialaidchallenge/?$':
           to: 'https://www.givecampus.com/schools/ColbyCollege/the-colby-commitment-challenge-2023'
           regexp: true
+          code: 301
         '^/friendsofathletics/?$':
           to: 'https://colbyathletics.com/sports/2020/9/8/giving-form.aspx'
           regexp: true
+          code: 301
         '^/giftplanning/?$':
           to: 'http://giftplanning.colby.edu/'
           regexp: true
+          code: 301
         '^/giftplanning/leave-a-legacy/?$':
           to: 'http://giftplanning.colby.edu/?DID=7793&pageID=166/'
           regexp: true
+          code: 301
         '^/giftplanning/planning-resources/?$':
           to: 'http://giftplanning.colby.edu/?pageID=124/'
           regexp: true
+          code: 301
         '^/giftplanning/why-donors-give/?$':
           to: 'http://giftplanning.colby.edu/?pageID=2/'
           regexp: true
+          code: 301
         '^/give/1813/?$':
           to: '/colbyalumni/1813-society/'
           regexp: true
+          code: 301
         '^/globalengagement/?$':
           to: 'https://davisconnects.colby.edu/'
           regexp: true
+          code: 301
         '^/halloranlab/?(.*)$':
           to: 'https://halloranlab.colby.edu/'
           regexp: true
+          code: 301
         '^/harold-alfond-foundation-announcement/?$':
           to: 'https://www.colby.edu/communications/haf'
           regexp: true
+          code: 301
         '^/life/2020/03/12/2019-novel-coronavirus-information-and-resources/?$':
           to: 'http://www.colby.edu/healthandcounseling/coronavirus/'
           regexp: true
+          code: 301
         '^/livestream/?$':
           to: '/people/offices-directory/events/livestream/'
           regexp: true
+          code: 301
         '^/lobsters2dollars/?$':
           to: 'http://colbycollege.maps.arcgis.com/apps/Cascade/index.html?appid=e0c247dcb1a34d8293d953f92f360eb9'
           regexp: true
+          code: 301
         '^/map/?$':
           to: 'https://map.colby.edu/'
           regexp: true
+          code: 301
         '^/musigmarho/?$':
           to: 'https://www.colby.edu/statistics/musigmarho/'
           regexp: true
+          code: 301
         '^/planned.giving/?$':
           to: 'https://www.colby.edu/statistics/musigmarho/'
           regexp: true
+          code: 301
         '^/plannedgiving/?$':
           to: 'https://www.colby.edu/statistics/musigmarho/'
           regexp: true
+          code: 301
         '^/premed/?$':
           to: 'https://davisconnects.colby.edu/explore-careers/pre-health/'
           regexp: true
+          code: 301
         '^/provost/staff/?$':
           to: '/provost/about/'
           regexp: true
+          code: 301
         '^/rally/?$':
           to: 'https://volunteernetworkfundraising.blackbaud.com/volunteer/login'
           regexp: true
+          code: 301
         '^/saac/?$':
           to: 'https://colbyathletics.com/'
           regexp: true
+          code: 301
         '^/schupf-arts/?$':
           to: 'https://schupfarts.colby.edu/'
           regexp: true
+          code: 301
         '^/securityreport/?$':
           to: 'https://life.colby.edu/your-safety/campus-safety/annual-security-report/'
           regexp: true
+          code: 301
         '^/seniorgift22/?$':
           to: 'https://www.givecampus.com/cph9e6'
           regexp: true
+          code: 301
         '^/specialcollections/(.+)/?$':
           to: 'https://libraries.colby.edu/specialcollections/$1/'
           regexp: true
+          code: 301
         '^/specialcollections/?$':
           to: 'https://libraries.colby.edu/specialcollections/'
           regexp: true
+          code: 301
         '^/sturesearch/bassett/$': 
           to: '/academics/bassett-teaching-award/'     
           regexp: true
+          code: 301
         '^/travelservices/$': 
           to: '/people/offices-directory/travel-services/'     
           regexp: true
+          code: 301
         '^/visitors/campus-map/?$':
           to: 'https://map.colby.edu/'
           regexp: true
+          code: 301
         '^volunteercenter/(.+)$':
           to: 'https://life.colby.edu/what-to-do/civic-engagement/'
           regexp: true
+          code: 301
         '^volunteercenter/?$':
           to: 'https://life.colby.edu/what-to-do/civic-engagement/'
           regexp: true
+          code: 301
         '^/vpadmin/?$':
           to: 'https://www.colby.edu/vpcfo/'
           regexp: true
+          code: 301
         '^/workday/?$':
           to: 'https://web.colby.edu/workday/'
           regexp: true
+          code: 301
         '^/clas/?$':
           to: 'https://www.colby.edu/academics/research/colby-liberal-arts-symposium/'
           regexp: true
+          code: 301
         '^/jamf/?$':
           to: 'https://colbycollege.jamfcloud.com/'
           regexp: true
+          code: 301
         '^/bookstore/?$':
           to: 'https://bookstore.colby.edu/'
           regexp: true
+          code: 301
         '^/~ampaliye/?$':
           to: 'http://personal.colby.edu/personal/a/ampaliye/'
           regexp: true
+          code: 301
         '^/~sataylor/?$':
           to: 'https://personal.colby.edu/personal/s/sataylor/home.php'
           regexp: true
+          code: 301
         '^/checkevents/?$':
           to: 'https://www.colby.edu/news_events/calendar/lookbook.cfm'
           regexp: true
+          code: 301
         '^/administration_cs/index.cfm/?$':
           to: '/people/offices-directory/'
           regexp: true
+          code: 301
         '^/administration_cs/financialservices/afs/ap/check.cfm/?$':
           to: '/people/offices-directory/financial-services/administrative/accounts-payable/'
           regexp: true
+          code: 301
         '^/colbyathletics/?$':
           to: 'https://colbyathletics.com/sports/2020/9/8/giving-form'
           regexp: true
+          code: 301
+        '^/employment/?$':
+          to: '/humanresources/employment/'
+          regexp: true
+          code: 301
+        '^/emergency-contact-information-update/?$':
+          to: 'https://my.colby.edu/ICS/Campus_Life/Emergency_Contact_Information.jnz'
+          regexp: true
+          code: 301
+        '^/~bknelson/SLC/?$':
+          to: 'https://personal.colby.edu/~bknelson/SLC/'
+          regexp: true
+          code: 301
+        '^/ppd/(.*)$':
+          to: '/people/offices-directory/facilities/'
+          regexp: true
+          code: 301
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

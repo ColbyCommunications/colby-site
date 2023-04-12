@@ -31,6 +31,7 @@ mounts:
     source_path: web
   "/web/wp-content/scripting": "shared:files/scripting"
   "/web/wp-content/directory_data": "shared:files/directory_data"
+  "/web/wp-content/themes/colby-college-theme/simplesaml": "shared:files/simplesaml"
 
 # The configuration of app when it is exposed to the web.
 web:

@@ -229,6 +229,10 @@
           to: '/economics/$1/'
           regexp: true
           code: 301
+        '^/economics/?$':
+          to: '/academics/departments-and-programs/economics/'
+          regexp: true
+          code: 301
   # Education
         '^/education/?$':
           to: '/academics/departments-and-programs/education/'
@@ -1457,6 +1461,7 @@
           to: '/academics/departments-and-programs/economics/'
           regexp: true
           code: 301
+
   # Education
         '^/dept/educ/?$':
           to: '/academics/departments-and-programs/education/'

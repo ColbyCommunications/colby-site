@@ -7,6 +7,8 @@ name: app
 # The runtime the application uses.
 type: "php:8.0"
 
+size: L
+
 # Configuration of the build of the application.
 build:
   flavor: composer
@@ -62,7 +64,6 @@ variables:
   php:
     upload_max_filesize: 128M
     memory_limit: 256M
-  size: L
 
 # The configuration of scheduled execution.
 # crons: !include project/platform/crons.yaml

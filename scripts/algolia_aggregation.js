@@ -80,16 +80,15 @@ async function main() {
       let cleanedTitle = null;
       if (indicies[k].indexName === "Colby News") {
         if (hits[i].post_type === "external_post") {
-          hits[i].permalink = hits[i].external_url;
+          result = {
+            post_title: hits[i].title,
+            cleaned_title: cleanedTitle,
+            content: hits[i].excerpt,
+            permalink: hits[i].external_url,
+            originIndexLabel: indicies[k].label,
+            objectID: indicies[k].indexName + "-" + i,
+          };
         }
-        result = {
-          post_title: hits[i].title,
-          cleaned_title: cleanedTitle,
-          content: hits[i].excerpt,
-          permalink: "https://identity.colby.edu" + hits[i].uri,
-          originIndexLabel: indicies[k].label,
-          objectID: indicies[k].indexName + "-" + i,
-        };
       } else if (indicies[k].indexName === "Identity Site") {
         if (hits[i].title) {
           cleanedTitle = hits[i].title.replace(/<\/?[^>]+(>|$)/g, "");

@@ -78,17 +78,21 @@ async function main() {
     for (let i = 0; i < hits.length; i++) {
       let result = {};
       let cleanedTitle = null;
-      if (indicies[k].indexName === "prod_news_searchable_posts") {
-        if (hits[i].post_type === "external_post") {
-          result = {
-            post_title: hits[i].title,
-            cleaned_title: cleanedTitle,
-            content: hits[i].excerpt,
-            permalink: hits[i].external_url,
-            originIndexLabel: indicies[k].label,
-            objectID: indicies[k].indexName + "-" + i,
-          };
+      if (
+        indicies[k].indexName === "prod_news_searchable_posts" &&
+        hits[i].post_type === "external_post"
+      ) {
+        if (hits[i].title) {
+          cleanedTitle = hits[i].title.replace(/<\/?[^>]+(>|$)/g, "");
         }
+        result = {
+          post_title: hits[i].title,
+          cleaned_title: cleanedTitle,
+          content: hits[i].excerpt,
+          permalink: hits[i].external_url,
+          originIndexLabel: indicies[k].label,
+          objectID: indicies[k].indexName + "-" + i,
+        };
       } else if (indicies[k].indexName === "Identity Site") {
         if (hits[i].title) {
           cleanedTitle = hits[i].title.replace(/<\/?[^>]+(>|$)/g, "");

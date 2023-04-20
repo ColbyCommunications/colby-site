@@ -83,13 +83,12 @@ async function main() {
         hits[i].post_type === "external_post"
       ) {
         if (hits[i].title) {
-          cleanedTitle = hits[i].title.replace(/<\/?[^>]+(>|$)/g, "");
+          cleanedTitle = hits[i].post_title.replace(/<\/?[^>]+(>|$)/g, "");
         }
         result = {
-          post_title: hits[i].title,
-          cleaned_title: cleanedTitle,
-          content: hits[i].excerpt,
+          ..._omit(hits[i], ["objectID"]),
           permalink: hits[i].external_url,
+          cleaned_title: cleanedTitle,
           originIndexLabel: indicies[k].label,
           objectID: indicies[k].indexName + "-" + i,
         };

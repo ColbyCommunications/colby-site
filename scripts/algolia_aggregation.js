@@ -82,7 +82,7 @@ async function main() {
         indicies[k].indexName === "prod_news_searchable_posts" &&
         hits[i].post_type === "external_post"
       ) {
-        if (hits[i].title) {
+        if (hits[i].post_title) {
           cleanedTitle = hits[i].post_title.replace(/<\/?[^>]+(>|$)/g, "");
         }
         result = {

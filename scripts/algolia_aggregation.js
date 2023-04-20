@@ -62,7 +62,13 @@ async function main() {
     } else {
       await index.browseObjects({
         query: "",
-        attributesToRetrieve: ["post_title", "content", "permalink"],
+        attributesToRetrieve: [
+          "post_title",
+          "content",
+          "permalink",
+          "post_type",
+          "external_url",
+        ],
         batch: (batch) => {
           hits = hits.concat(batch);
         },
@@ -72,7 +78,19 @@ async function main() {
     for (let i = 0; i < hits.length; i++) {
       let result = {};
       let cleanedTitle = null;
-      if (indicies[k].indexName === "Identity Site") {
+      if (indicies[k].indexName === "Colby News") {
+        if (hits[i].post_type === "external_post") {
+          hits[i].permalink = hits[i].external_url;
+        }
+        result = {
+          post_title: hits[i].title,
+          cleaned_title: cleanedTitle,
+          content: hits[i].excerpt,
+          permalink: "https://identity.colby.edu" + hits[i].uri,
+          originIndexLabel: indicies[k].label,
+          objectID: indicies[k].indexName + "-" + i,
+        };
+      } else if (indicies[k].indexName === "Identity Site") {
         if (hits[i].title) {
           cleanedTitle = hits[i].title.replace(/<\/?[^>]+(>|$)/g, "");
         }

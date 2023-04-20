@@ -78,7 +78,7 @@ async function main() {
     for (let i = 0; i < hits.length; i++) {
       let result = {};
       let cleanedTitle = null;
-      if (indicies[k].indexName === "Colby News") {
+      if (indicies[k].indexName === "prod_news_searchable_posts") {
         if (hits[i].post_type === "external_post") {
           result = {
             post_title: hits[i].title,

@@ -2946,6 +2946,10 @@
           to: 'https://www.colby.edu/academics/research/colby-liberal-arts-symposium/'
           regexp: true
           code: 301
+        '^/CLAS/?$':
+          to: 'https://www.colby.edu/academics/research/colby-liberal-arts-symposium/'
+          regexp: true
+          code: 301
         '^/jamf/?$':
           to: 'https://colbycollege.jamfcloud.com/'
           regexp: true

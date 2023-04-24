@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e1cbea54b9453562ba5f97e2c119fb0",
+    "content-hash": "bf2ede6583b8d4f0d744faedb28b96d8",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -203,11 +203,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "dab2bf1b5e7a35724613b35857f10e40b924aa7b"
+                "reference": "7dee2ba035b807e27ab8347e6d56374df57604a1"
             },
             "require": {
                 "php": ">=7.1"
@@ -223,7 +223,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2023-04-14T14:44:22+00:00"
+            "time": "2023-04-24T17:04:03+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",
@@ -2180,12 +2180,12 @@
             "version": "v1.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/publishpress/publishpress-instance-protection.git",
+                "url": "https://github.com/publishpress/library-instance-protection.git",
                 "reference": "6a4e7038c95fac43264b1d61a5cdae2b1e3cc4ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/publishpress-instance-protection/zipball/6a4e7038c95fac43264b1d61a5cdae2b1e3cc4ee",
+                "url": "https://api.github.com/repos/publishpress/library-instance-protection/zipball/6a4e7038c95fac43264b1d61a5cdae2b1e3cc4ee",
                 "reference": "6a4e7038c95fac43264b1d61a5cdae2b1e3cc4ee",
                 "shasum": ""
             },
@@ -2209,9 +2209,10 @@
                 "wordpress plugin"
             ],
             "support": {
-                "issues": "https://github.com/publishpress/publishpress-instance-protection/issues",
-                "source": "https://github.com/publishpress/publishpress-instance-protection/tree/v1.0.3"
+                "issues": "https://github.com/publishpress/library-instance-protection/issues",
+                "source": "https://github.com/publishpress/library-instance-protection/tree/v1.0.3"
             },
+            "abandoned": "publishpress/instance-protection",
             "time": "2022-10-28T16:14:03+00:00"
         },
         {
@@ -2219,12 +2220,12 @@
             "version": "v1.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/publishpress/wordpress-banners.git",
+                "url": "https://github.com/publishpress/library-wordpress-banners.git",
                 "reference": "bcb5f9f00973d53e2db027f9a05c059f18743fae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/wordpress-banners/zipball/bcb5f9f00973d53e2db027f9a05c059f18743fae",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-banners/zipball/bcb5f9f00973d53e2db027f9a05c059f18743fae",
                 "reference": "bcb5f9f00973d53e2db027f9a05c059f18743fae",
                 "shasum": ""
             },
@@ -2250,8 +2251,8 @@
             "description": "Display banners in admin pages of PublishPress Plugins.",
             "homepage": "http://publishpress.com/",
             "support": {
-                "issues": "https://github.com/publishpress/wordpress-banners/issues",
-                "source": "https://github.com/publishpress/wordpress-banners/tree/v1.3.1"
+                "issues": "https://github.com/publishpress/library-wordpress-banners/issues",
+                "source": "https://github.com/publishpress/library-wordpress-banners/tree/v1.3.1"
             },
             "time": "2022-08-15T18:07:23+00:00"
         },
@@ -2260,12 +2261,12 @@
             "version": "v1.1.19",
             "source": {
                 "type": "git",
-                "url": "https://github.com/publishpress/wordpress-reviews.git",
+                "url": "https://github.com/publishpress/library-wordpress-reviews.git",
                 "reference": "028e573eb7c5da2455a7a823cabbbe5e3f89ca9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/wordpress-reviews/zipball/028e573eb7c5da2455a7a823cabbbe5e3f89ca9c",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-reviews/zipball/028e573eb7c5da2455a7a823cabbbe5e3f89ca9c",
                 "reference": "028e573eb7c5da2455a7a823cabbbe5e3f89ca9c",
                 "shasum": ""
             },
@@ -2318,8 +2319,8 @@
                 "wordpress plugin"
             ],
             "support": {
-                "issues": "https://github.com/publishpress/wordpress-reviews/issues",
-                "source": "https://github.com/publishpress/wordpress-reviews/tree/v1.1.19"
+                "issues": "https://github.com/publishpress/library-wordpress-reviews/issues",
+                "source": "https://github.com/publishpress/library-wordpress-reviews/tree/v1.1.19"
             },
             "time": "2022-06-03T13:38:53+00:00"
         },
@@ -5863,15 +5864,15 @@
         },
         {
             "name": "wpackagist-plugin/advanced-gutenberg",
-            "version": "2.14.1",
+            "version": "3.1.4.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/advanced-gutenberg/",
-                "reference": "tags/2.14.1"
+                "reference": "tags/3.1.4.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-gutenberg.2.14.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/advanced-gutenberg.3.1.4.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

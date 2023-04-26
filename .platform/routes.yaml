@@ -2782,12 +2782,12 @@
           to: 'http://colby.cafebonappetit.com/catering/'
           regexp: true
           code: 301
-        '^/directory/?$':
-          to: '/people/people-directory/'
+        '^/directory/profile/jfleming/?$':
+          to: '/people/people-directory/jim-fleming/'
           regexp: true
           code: 301
-        '^/directory/profile/jfleming/':
-          to: '/people/people-directory/jim-fleming/'
+        '^/directory/?$':
+          to: '/people/people-directory/'
           regexp: true
           code: 301
         '^/directory/profile/(.*)/$':

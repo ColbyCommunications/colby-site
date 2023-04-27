@@ -2790,6 +2790,10 @@
           to: '/people/people-directory/'
           regexp: true
           code: 301
+        '^/directory/profile/jfleming/?$':
+          to: '/people/people-directory/jim-fleming/'
+          regexp: true
+          code: 301
         '^/downtown/?$':
           to: 'https://news.colby.edu/story/the-revitalization-of-downtown-waterville/'
           regexp: true

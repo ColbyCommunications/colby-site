@@ -2786,7 +2786,7 @@
           to: '/people/people-directory/'
           regexp: true
           code: 301
-        '^/directory/profile/(?!jfleming/?$)(.*)/$':
+        '^/directory/profile/(?!jfleming/?$)(.*)/?$':
           to: '/people/people-directory/'
           regexp: true
           code: 301

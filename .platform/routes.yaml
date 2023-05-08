@@ -2702,7 +2702,7 @@
           to: '/colbyalumni/1813-society/'
           regexp: true
           code: 301
-        '^/2023FamilyPledge/?$/i':
+        '(?i)^/2023FamilyPledge/?$':
           to: 'https://www.givecampus.com/xyd4ot/'
           regexp: true
           code: 301

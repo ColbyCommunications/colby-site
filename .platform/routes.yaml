@@ -2702,8 +2702,16 @@
           to: '/colbyalumni/1813-society/'
           regexp: true
           code: 301
-        '^2023sendoffs/?$':
-          to: 'https://colbyrsvp.regfox.com/2023sendoffs'
+        '^/2023FamilyPledge/?$/i':
+          to: 'https://www.givecampus.com/xyd4ot/'
+          regexp: true
+          code: 301
+        '^/2023sendoffs/?$':
+          to: 'https://colbyrsvp.regfox.com/2023sendoffs/'
+          regexp: true
+          code: 301
+        '^/23_SPSFAM_HE/?$':
+          to: 'https://www.givecampus.com/2cnbti/'
           regexp: true
           code: 301
         '^/about/?$':

@@ -62,23 +62,23 @@
         },
         {
             "name": "alledia/wordpress-edd-license-integration",
-            "version": "2.3.9",
+            "version": "v2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/WordPress-EDD-License-Integration.git",
-                "reference": "cd57c371af3e7425178e0e20b4b5fe628ac99d2f"
+                "reference": "dac5525596a2c919a576da9a5c45644fe6c2c2e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/WordPress-EDD-License-Integration/zipball/cd57c371af3e7425178e0e20b4b5fe628ac99d2f",
-                "reference": "cd57c371af3e7425178e0e20b4b5fe628ac99d2f",
+                "url": "https://api.github.com/repos/publishpress/WordPress-EDD-License-Integration/zipball/dac5525596a2c919a576da9a5c45644fe6c2c2e5",
+                "reference": "dac5525596a2c919a576da9a5c45644fe6c2c2e5",
                 "shasum": ""
             },
             "require": {
                 "alledia/edd-sl-plugin-updater": "^1.6",
                 "ext-json": "*",
                 "php": ">=5.6.20",
-                "publishpress/pimple-pimple": "~3.2"
+                "pimple/pimple": "~3.2"
             },
             "require-dev": {
                 "codeception/domain-assert": "^1.0",
@@ -125,9 +125,10 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/WordPress-EDD-License-Integration/issues",
-                "source": "https://github.com/publishpress/WordPress-EDD-License-Integration/tree/2.3.9"
+                "source": "https://github.com/publishpress/WordPress-EDD-License-Integration/tree/v2.3.8"
             },
-            "time": "2023-04-27T17:35:56+00:00"
+            "abandoned": "publishpress/wordpress-edd-license",
+            "time": "2022-06-03T17:37:40+00:00"
         },
         {
             "name": "colbycommunications/advanced-custom-fields-pro",
@@ -2176,203 +2177,16 @@
             "time": "2021-11-30T14:05:36+00:00"
         },
         {
-            "name": "publishpress/pimple-pimple",
-            "version": "3.5.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/publishpress/library-pimple-pimple.git",
-                "reference": "71391cfc7817381d3c8942b01909755701fd57ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-pimple-pimple/zipball/71391cfc7817381d3c8942b01909755701fd57ad",
-                "reference": "71391cfc7817381d3c8942b01909755701fd57ad",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5",
-                "publishpress/psr-container": "^2.0.1.1"
-            },
-            "require-dev": {
-                "brianhenryie/strauss": "^0.14.0",
-                "codeception/module-asserts": "^1.0",
-                "codeception/module-cli": "^1.0",
-                "codeception/module-db": "^1.0",
-                "codeception/module-filesystem": "^1.0",
-                "codeception/module-phpbrowser": "^1.0",
-                "codeception/module-webdriver": "^1.0",
-                "codeception/util-universalframework": "^1.0",
-                "lucatume/wp-browser": "^3.1",
-                "pimple/pimple": "3.5.0",
-                "publishpress/codeception-extension-extended-copier": "^1.0",
-                "publishpress/version-loader-generator": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "generator": {
-                    "lib-class-test": "class_exists('PublishPress\\Pimple\\Container')",
-                    "action-initialize-priority": "-185",
-                    "action-register-priority": "-200"
-                },
-                "strauss": {
-                    "target_directory": "lib",
-                    "namespace_prefix": "PublishPress\\",
-                    "classmap_prefix": "PublishPress_",
-                    "constant_prefix": "PUBLISHPRESS_",
-                    "include_author": "true",
-                    "classmap_output": "true",
-                    "packages": [
-                        "pimple/pimple",
-                        "psr/container"
-                    ],
-                    "override_autoload": [],
-                    "exclude_from_copy": {
-                        "packages": [],
-                        "namespaces": [],
-                        "file_patterns": []
-                    },
-                    "exclude_from_prefix": {
-                        "packages": [],
-                        "namespaces": [],
-                        "file_patterns": []
-                    },
-                    "namespace_replacement_patterns": [],
-                    "delete_vendor_packages": true,
-                    "delete_vendor_files": true
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "PublishPress",
-                    "email": "help@publishpress.com"
-                }
-            ],
-            "description": "Pimple, a simple Dependency Injection Container, prefixed for PublishPress",
-            "homepage": "https://github.com/silexphp/Pimple/",
-            "keywords": [
-                "container",
-                "dependency injection",
-                "publishpress"
-            ],
-            "support": {
-                "issues": "https://github.com/publishpress/library-pimple-pimple/issues",
-                "source": "https://github.com/publishpress/library-pimple-pimple/tree/3.5.0.9"
-            },
-            "time": "2023-04-27T21:07:44+00:00"
-        },
-        {
-            "name": "publishpress/psr-container",
-            "version": "2.0.1.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/publishpress/library-psr-container.git",
-                "reference": "bf3626cbf9bc4c46b936d7151148c3b43ea64bff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-psr-container/zipball/bf3626cbf9bc4c46b936d7151148c3b43ea64bff",
-                "reference": "bf3626cbf9bc4c46b936d7151148c3b43ea64bff",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5"
-            },
-            "require-dev": {
-                "brianhenryie/strauss": "^0.14.0",
-                "codeception/module-asserts": "^1.0",
-                "codeception/module-cli": "^1.0",
-                "codeception/module-db": "^1.0",
-                "codeception/module-filesystem": "^1.0",
-                "codeception/module-phpbrowser": "^1.0",
-                "codeception/module-webdriver": "^1.0",
-                "codeception/util-universalframework": "^1.0",
-                "lucatume/wp-browser": "^3.1",
-                "psr/container": "2.0.1",
-                "publishpress/codeception-extension-extended-copier": "^1.0",
-                "publishpress/version-loader-generator": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "generator": {
-                    "lib-class-test": "interface_exists('PublishPress\\Psr\\Container\\ContainerInterface')",
-                    "action-initialize-priority": "-190",
-                    "action-register-priority": "-200"
-                },
-                "strauss": {
-                    "target_directory": "lib",
-                    "namespace_prefix": "PublishPress\\",
-                    "classmap_prefix": "PublishPress_",
-                    "constant_prefix": "PUBLISHPRESS_",
-                    "include_author": "true",
-                    "classmap_output": "true",
-                    "packages": [
-                        "psr/container"
-                    ],
-                    "override_autoload": [],
-                    "exclude_from_copy": {
-                        "packages": [],
-                        "namespaces": [],
-                        "file_patterns": []
-                    },
-                    "exclude_from_prefix": {
-                        "packages": [],
-                        "namespaces": [],
-                        "file_patterns": []
-                    },
-                    "namespace_replacement_patterns": [],
-                    "delete_vendor_packages": true,
-                    "delete_vendor_files": true
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                },
-                {
-                    "name": "PublishPress",
-                    "email": "help@publishpress.com"
-                }
-            ],
-            "description": "Common Container Interface (PHP FIG PSR-11), prefixed for PublishPress plugins",
-            "homepage": "https://github.com/php-fig/container",
-            "keywords": [
-                "PSR-11",
-                "container",
-                "container-interface",
-                "container-interop",
-                "psr",
-                "publishpress"
-            ],
-            "support": {
-                "issues": "https://github.com/publishpress/library-psr-container/issues",
-                "source": "https://github.com/publishpress/library-psr-container/tree/2.0.1.9"
-            },
-            "time": "2023-04-27T21:09:00+00:00"
-        },
-        {
             "name": "publishpress/publishpress-instance-protection",
             "version": "v1.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/publishpress/library-instance-protection.git",
+                "url": "https://github.com/publishpress/legacy-instance-protection.git",
                 "reference": "6a4e7038c95fac43264b1d61a5cdae2b1e3cc4ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-instance-protection/zipball/6a4e7038c95fac43264b1d61a5cdae2b1e3cc4ee",
+                "url": "https://api.github.com/repos/publishpress/legacy-instance-protection/zipball/6a4e7038c95fac43264b1d61a5cdae2b1e3cc4ee",
                 "reference": "6a4e7038c95fac43264b1d61a5cdae2b1e3cc4ee",
                 "shasum": ""
             },
@@ -2396,8 +2210,7 @@
                 "wordpress plugin"
             ],
             "support": {
-                "issues": "https://github.com/publishpress/library-instance-protection/issues",
-                "source": "https://github.com/publishpress/library-instance-protection/tree/v1.0.3"
+                "source": "https://github.com/publishpress/legacy-instance-protection/tree/v1.0.3"
             },
             "abandoned": "publishpress/instance-protection",
             "time": "2022-10-28T16:14:03+00:00"
@@ -2513,23 +2326,23 @@
         },
         {
             "name": "react/promise",
-            "version": "v2.9.0",
+            "version": "v2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "234f8fd1023c9158e2314fa9d7d0e6a83db42910"
+                "reference": "f913fb8cceba1e6644b7b90c4bfb678ed8a3ef38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/234f8fd1023c9158e2314fa9d7d0e6a83db42910",
-                "reference": "234f8fd1023c9158e2314fa9d7d0e6a83db42910",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/f913fb8cceba1e6644b7b90c4bfb678ed8a3ef38",
+                "reference": "f913fb8cceba1e6644b7b90c4bfb678ed8a3ef38",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.36"
+                "phpunit/phpunit": "^9.5 || ^5.7 || ^4.8.36"
             },
             "type": "library",
             "autoload": {
@@ -2573,19 +2386,15 @@
             ],
             "support": {
                 "issues": "https://github.com/reactphp/promise/issues",
-                "source": "https://github.com/reactphp/promise/tree/v2.9.0"
+                "source": "https://github.com/reactphp/promise/tree/v2.10.0"
             },
             "funding": [
                 {
-                    "url": "https://github.com/WyriHaximus",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/clue",
-                    "type": "github"
+                    "url": "https://opencollective.com/reactphp",
+                    "type": "open_collective"
                 }
             ],
-            "time": "2022-02-11T10:27:51+00:00"
+            "time": "2023-05-02T15:15:43+00:00"
         },
         {
             "name": "rmccue/requests",
@@ -4429,16 +4238,16 @@
         },
         {
             "name": "wp-cli/entity-command",
-            "version": "v2.4.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/entity-command.git",
-                "reference": "694a4a556d2c16860b738787b4c0294a89c4a760"
+                "reference": "931bf8f28cc804fcebbcd484375e27116658de79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/entity-command/zipball/694a4a556d2c16860b738787b4c0294a89c4a760",
-                "reference": "694a4a556d2c16860b738787b4c0294a89c4a760",
+                "url": "https://api.github.com/repos/wp-cli/entity-command/zipball/931bf8f28cc804fcebbcd484375e27116658de79",
+                "reference": "931bf8f28cc804fcebbcd484375e27116658de79",
                 "shasum": ""
             },
             "require": {
@@ -4634,9 +4443,9 @@
             "homepage": "https://github.com/wp-cli/entity-command",
             "support": {
                 "issues": "https://github.com/wp-cli/entity-command/issues",
-                "source": "https://github.com/wp-cli/entity-command/tree/v2.4.2"
+                "source": "https://github.com/wp-cli/entity-command/tree/v2.4.3"
             },
-            "time": "2023-03-15T17:10:20+00:00"
+            "time": "2023-05-08T19:35:25+00:00"
         },
         {
             "name": "wp-cli/eval-command",
@@ -4859,16 +4668,16 @@
         },
         {
             "name": "wp-cli/i18n-command",
-            "version": "v2.4.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/i18n-command.git",
-                "reference": "43d5cf8968dbddf90907083ad048f12be5ca3d43"
+                "reference": "203b020318fe2596a218bf52db25adc6b187f42d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/43d5cf8968dbddf90907083ad048f12be5ca3d43",
-                "reference": "43d5cf8968dbddf90907083ad048f12be5ca3d43",
+                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/203b020318fe2596a218bf52db25adc6b187f42d",
+                "reference": "203b020318fe2596a218bf52db25adc6b187f42d",
                 "shasum": ""
             },
             "require": {
@@ -4921,22 +4730,22 @@
             "homepage": "https://github.com/wp-cli/i18n-command",
             "support": {
                 "issues": "https://github.com/wp-cli/i18n-command/issues",
-                "source": "https://github.com/wp-cli/i18n-command/tree/v2.4.2"
+                "source": "https://github.com/wp-cli/i18n-command/tree/v2.4.3"
             },
-            "time": "2023-02-17T18:14:41+00:00"
+            "time": "2023-03-24T18:15:59+00:00"
         },
         {
             "name": "wp-cli/import-command",
-            "version": "v2.0.10",
+            "version": "v2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/import-command.git",
-                "reference": "e40f43252a3fc298c762b62ef338bf2bdfde8b19"
+                "reference": "2019a69abbe7d278dfcae927cfa6aa46cd5f0460"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/import-command/zipball/e40f43252a3fc298c762b62ef338bf2bdfde8b19",
-                "reference": "e40f43252a3fc298c762b62ef338bf2bdfde8b19",
+                "url": "https://api.github.com/repos/wp-cli/import-command/zipball/2019a69abbe7d278dfcae927cfa6aa46cd5f0460",
+                "reference": "2019a69abbe7d278dfcae927cfa6aa46cd5f0460",
                 "shasum": ""
             },
             "require": {
@@ -4981,9 +4790,9 @@
             "homepage": "https://github.com/wp-cli/import-command",
             "support": {
                 "issues": "https://github.com/wp-cli/import-command/issues",
-                "source": "https://github.com/wp-cli/import-command/tree/v2.0.10"
+                "source": "https://github.com/wp-cli/import-command/tree/v2.0.11"
             },
-            "time": "2023-02-17T17:52:09+00:00"
+            "time": "2023-03-15T15:15:38+00:00"
         },
         {
             "name": "wp-cli/language-command",
@@ -6233,15 +6042,15 @@
         },
         {
             "name": "wpackagist-plugin/press-permit-core",
-            "version": "3.8.7",
+            "version": "3.9.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/press-permit-core/",
-                "reference": "tags/3.8.7"
+                "reference": "tags/3.9.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/press-permit-core.3.8.7.zip"
+                "url": "https://downloads.wordpress.org/plugin/press-permit-core.3.9.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6485,15 +6294,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-search-with-algolia",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wp-search-with-algolia/",
-                "reference": "tags/2.5.0"
+                "reference": "tags/2.5.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-search-with-algolia.2.5.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/wp-search-with-algolia.2.5.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

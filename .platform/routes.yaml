@@ -2523,6 +2523,14 @@
           to: 'https://life.colby.edu/your-safety/'
           regexp: true
           code: 301
+        '^/studentlife/student-organizations/?$':
+          to: 'https://life.colby.edu/what-to-do/clubs-organizations/'
+          regexp: true
+          code: 301
+        '^/studentlife/coot-outdoor-healthy-active-living/?$':
+          to: 'https://life.colby.edu/what-to-do/first-year-experience/coot/'
+          regexp: true
+          code: 301
   # Lunder Institute
         '^/lunderinstitute/(.+)/?$':
           to: 'https://lunderinstitute.colby.edu/$1/'

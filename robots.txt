@@ -34,8 +34,20 @@ Disallow: /chemistry/CH342/*
 Disallow: /chemistry/CH331/*
 Disallow: /chemistry/webmo/*
 Disallow: /chemistry/Colby%20Compass/Colby%20Compass.htm
+Disallow: /chemistry/CompChem/*
+Disallow: /chemistry/instruments/*
+Disallow: /chemistry/JCAMP/*
+Disallow: /chemistry/Das/*
+Disallow: /chemistry/tracker/*
 Disallow: /sfs/stuemp/*
 Disallow: /itscustomcf/administration_cs/financialservices/sfs/stuemp/*
 Disallow: /registrar/CWcurricq.html
+Disallow: /sturesearch/*
+Disallow: /lrc/vll/*
+Disallow: /lrc/_vll/*
+Disallow: /lrc/help/diacritics.html
+Disallow: /old-lrc/*
+Disallow: /personal/*
+
 
 Sitemap: https://www.colby.edu/sitemap_index.xml

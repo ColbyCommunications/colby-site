@@ -3026,6 +3026,10 @@
           to: '/people/offices-directory/facilities/'
           regexp: true
           code: 301
+        '^/now/shuttle/?$':
+          to: 'https://colby.passiogo.com/'
+          regexp: true
+          code: 301
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

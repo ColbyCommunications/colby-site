@@ -2723,7 +2723,7 @@
           regexp: true
           code: 301
         '^(?i)/23PECLetter/?$':
-          to: 'https://darenorthward.colby.edu/give/'
+          to: 'https://darenorthward.colby.edu/23pecletter/'
           regexp: true
           code: 301
         '^(?i)/FamilyPledge23/?$':

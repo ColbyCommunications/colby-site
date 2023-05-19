@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa058c78ad528fff5b1c27e7213c0fdc",
+    "content-hash": "78f35e412af021ff68b3d53066756102",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -1271,16 +1271,16 @@
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "6.2.0",
+            "version": "6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "cec139b6b71913343b68fbf043c468407a921225"
+                "reference": "5c079d327a849f6ca05082a5099879f4ffc50597"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/cec139b6b71913343b68fbf043c468407a921225",
-                "reference": "cec139b6b71913343b68fbf043c468407a921225",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/5c079d327a849f6ca05082a5099879f4ffc50597",
+                "reference": "5c079d327a849f6ca05082a5099879f4ffc50597",
                 "shasum": ""
             },
             "require": {
@@ -1288,7 +1288,7 @@
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "6.2.0"
+                "wordpress/core-implementation": "6.2.1"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -1315,7 +1315,7 @@
                 "source": "https://core.trac.wordpress.org/browser",
                 "wiki": "https://codex.wordpress.org/"
             },
-            "time": "2023-03-30T04:14:50+00:00"
+            "time": "2023-05-16T16:54:48+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -2458,16 +2458,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.9.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "4211420d25eba80712bff236a98960ef68b866b7"
+                "reference": "594fd6462aad8ecee0b45ca5045acea4776667f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/4211420d25eba80712bff236a98960ef68b866b7",
-                "reference": "4211420d25eba80712bff236a98960ef68b866b7",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/594fd6462aad8ecee0b45ca5045acea4776667f1",
+                "reference": "594fd6462aad8ecee0b45ca5045acea4776667f1",
                 "shasum": ""
             },
             "require": {
@@ -2506,7 +2506,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/jsonlint/issues",
-                "source": "https://github.com/Seldaek/jsonlint/tree/1.9.0"
+                "source": "https://github.com/Seldaek/jsonlint/tree/1.10.0"
             },
             "funding": [
                 {
@@ -2518,7 +2518,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-01T13:37:23+00:00"
+            "time": "2023-05-11T13:16:46+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -4238,16 +4238,16 @@
         },
         {
             "name": "wp-cli/entity-command",
-            "version": "v2.4.3",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/entity-command.git",
-                "reference": "931bf8f28cc804fcebbcd484375e27116658de79"
+                "reference": "ca979c45ccb69c010bbbd6d4eee9df1ff4c839da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/entity-command/zipball/931bf8f28cc804fcebbcd484375e27116658de79",
-                "reference": "931bf8f28cc804fcebbcd484375e27116658de79",
+                "url": "https://api.github.com/repos/wp-cli/entity-command/zipball/ca979c45ccb69c010bbbd6d4eee9df1ff4c839da",
+                "reference": "ca979c45ccb69c010bbbd6d4eee9df1ff4c839da",
                 "shasum": ""
             },
             "require": {
@@ -4443,9 +4443,9 @@
             "homepage": "https://github.com/wp-cli/entity-command",
             "support": {
                 "issues": "https://github.com/wp-cli/entity-command/issues",
-                "source": "https://github.com/wp-cli/entity-command/tree/v2.4.3"
+                "source": "https://github.com/wp-cli/entity-command/tree/v2.5.0"
             },
-            "time": "2023-05-08T19:35:25+00:00"
+            "time": "2023-05-18T10:23:46+00:00"
         },
         {
             "name": "wp-cli/eval-command",
@@ -5370,16 +5370,16 @@
         },
         {
             "name": "wp-cli/search-replace-command",
-            "version": "v2.0.20",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/search-replace-command.git",
-                "reference": "6b195e3f39dd18270710b28343a8038f5927dd2c"
+                "reference": "c23820436dcac45662e7a6833bbdfa542b0f21a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/search-replace-command/zipball/6b195e3f39dd18270710b28343a8038f5927dd2c",
-                "reference": "6b195e3f39dd18270710b28343a8038f5927dd2c",
+                "url": "https://api.github.com/repos/wp-cli/search-replace-command/zipball/c23820436dcac45662e7a6833bbdfa542b0f21a0",
+                "reference": "c23820436dcac45662e7a6833bbdfa542b0f21a0",
                 "shasum": ""
             },
             "require": {
@@ -5424,9 +5424,9 @@
             "homepage": "https://github.com/wp-cli/search-replace-command",
             "support": {
                 "issues": "https://github.com/wp-cli/search-replace-command/issues",
-                "source": "https://github.com/wp-cli/search-replace-command/tree/v2.0.20"
+                "source": "https://github.com/wp-cli/search-replace-command/tree/v2.1.0"
             },
-            "time": "2023-02-17T16:23:58+00:00"
+            "time": "2023-05-11T08:09:28+00:00"
         },
         {
             "name": "wp-cli/server-command",
@@ -6042,15 +6042,15 @@
         },
         {
             "name": "wpackagist-plugin/press-permit-core",
-            "version": "3.9.0",
+            "version": "3.9.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/press-permit-core/",
-                "reference": "tags/3.9.0"
+                "reference": "tags/3.9.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/press-permit-core.3.9.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/press-permit-core.3.9.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6078,15 +6078,15 @@
         },
         {
             "name": "wpackagist-plugin/query-monitor",
-            "version": "3.12.2",
+            "version": "3.12.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/query-monitor/",
-                "reference": "tags/3.12.2"
+                "reference": "tags/3.12.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.12.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.12.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6111,6 +6111,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
+        },
+        {
+            "name": "wpackagist-plugin/seo-by-rank-math",
+            "version": "1.0.114",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
+                "reference": "tags/1.0.114"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.114.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/seo-by-rank-math/"
         },
         {
             "name": "wpackagist-plugin/shortcodes-finder",
@@ -6237,24 +6255,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-importer/"
-        },
-        {
-            "name": "wpackagist-plugin/wordpress-seo",
-            "version": "19.14",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/19.14"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.19.14.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         },
         {
             "name": "wpackagist-plugin/wp-nested-pages",

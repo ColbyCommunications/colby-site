@@ -2722,6 +2722,10 @@
           to: 'https://www.givecampus.com/2cnbti/'
           regexp: true
           code: 301
+        '^(?i)/23PECLetter/?$':
+          to: 'https://darenorthward.colby.edu/give/'
+          regexp: true
+          code: 301
         '^(?i)/FamilyPledge23/?$':
           to: 'https://www.givecampus.com/ubr1pj'
           regexp: true

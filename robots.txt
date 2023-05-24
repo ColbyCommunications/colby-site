@@ -49,6 +49,7 @@ Disallow: /lrc/_vll/*
 Disallow: /lrc/help/diacritics.html
 Disallow: /old-lrc/*
 Disallow: /personal/*
+Disallow: /now/*
 
 
 Sitemap: https://www.colby.edu/sitemap_index.xml

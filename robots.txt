@@ -51,3 +51,4 @@ Disallow: /personal/*
 
 
 Sitemap: https://www.colby.edu/sitemap_index.xml
+Sitemap: https://news.colby.edu/news-sitemap.xml

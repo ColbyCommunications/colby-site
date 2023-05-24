@@ -32,6 +32,7 @@ Disallow: /chemistry/CH112/*
 Disallow: /chemistry/CH112/*
 Disallow: /chemistry/CH342/*
 Disallow: /chemistry/CH331/*
+Disallow: /chemistry/CH241/*
 Disallow: /chemistry/webmo/*
 Disallow: /chemistry/Colby%20Compass/Colby%20Compass.htm
 Disallow: /chemistry/CompChem/*

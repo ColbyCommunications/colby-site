@@ -50,6 +50,7 @@ Disallow: /lrc/help/diacritics.html
 Disallow: /old-lrc/*
 Disallow: /personal/*
 Disallow: /now/*
+Disallow: /reload/chemistry/*
 
 
 Sitemap: https://www.colby.edu/sitemap_index.xml

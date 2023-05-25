@@ -40,7 +40,8 @@
     "wpackagist-plugin/wp-nested-pages": "3.2.3",
     "wpackagist-plugin/block-manager": "^1.2",
     "wpackagist-plugin/tinymce-advanced": "^5.6",
-    "wpackagist-plugin/seo-by-rank-math": "1.0.114"
+    "wpackagist-plugin/seo-by-rank-math": "1.0.114",
+    "wpackagist-plugin/wordpress-seo": "^20.8"
   },
   "authors": [
     {

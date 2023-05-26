@@ -48,6 +48,10 @@ Disallow: /chemistry/JCAMP/*
 Disallow: /chemistry/Das/*
 Disallow: /chemistry/tracker/*
 Disallow: /chemistry/boekelheide/*
+Disallow: /chemistry/KatzGroup/*
+Disallow: /chemistry/Weather/*
+Disallow: /chemistry/BC176/*
+Disallow: /chemistry/BC362/*
 Disallow: /sfs/stuemp/*
 Disallow: /itscustomcf/*
 Disallow: /info.tech/*
@@ -70,6 +74,8 @@ Disallow: /faculty_staff_cs/*
 Disallow: /feministalliance/*
 Disallow: /directory_cs/*
 Disallow: /arc/*
+Disallow: /economics/faculty/*
+Disallow: /french/fr128/*
 
 # Colby Group Sites
 Disallow: /humanresources/benefits/insurance/flexible-spending-account/*

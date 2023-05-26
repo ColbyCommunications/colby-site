@@ -29,10 +29,17 @@ Disallow: /chemistry/PChem/*
 Disallow: /chemistry/cmp/*
 Disallow: /chemistry/CH432/*
 Disallow: /chemistry/CH112/*
-Disallow: /chemistry/CH112/*
+Disallow: /chemistry/CH141/*
+Disallow: /chemistry/CH142/*
+Disallow: /chemistry/CH143/*
+Disallow: /chemistry/CH145/*
 Disallow: /chemistry/CH342/*
 Disallow: /chemistry/CH331/*
 Disallow: /chemistry/CH241/*
+Disallow: /chemistry/CH241F/*
+Disallow: /chemistry/CH342_spring_2008/*
+Disallow: /chemistry/cmp/*
+Disallow: /chemistry/GenChem/*
 Disallow: /chemistry/webmo/*
 Disallow: /chemistry/Colby%20Compass/Colby%20Compass.htm
 Disallow: /chemistry/CompChem/*
@@ -40,8 +47,11 @@ Disallow: /chemistry/instruments/*
 Disallow: /chemistry/JCAMP/*
 Disallow: /chemistry/Das/*
 Disallow: /chemistry/tracker/*
+Disallow: /chemistry/boekelheide/*
 Disallow: /sfs/stuemp/*
-Disallow: /itscustomcf/administration_cs/financialservices/sfs/stuemp/*
+Disallow: /itscustomcf/*
+Disallow: /info.tech/*
+Disallow: /administration_cs/*
 Disallow: /registrar/CWcurricq.html
 Disallow: /sturesearch/*
 Disallow: /lrc/vll/*
@@ -51,7 +61,28 @@ Disallow: /old-lrc/*
 Disallow: /personal/*
 Disallow: /now/*
 Disallow: /reload/chemistry/*
+Disallow: /athleticsstatic/*
+Disallow: /commencement_archives/*
+Disallow: /committees_cs/*
+Disallow: /commonspot/*
+Disallow: /news_events/*
+Disallow: /faculty_staff_cs/*
+Disallow: /feministalliance/*
+Disallow: /directory_cs/*
+Disallow: /arc/*
 
+# Colby Group Sites
+Disallow: /humanresources/benefits/insurance/flexible-spending-account/*
+Disallow: /humanresources/recruitment/*
+Disallow: /humanresources/staff-handbook/
+Disallow: /humanresources/talent-development/
+Disallow: /humanresources/environmental-health-and-safety/colby-msdssds/
+Disallow: /humanresources/resources/
+Disallow: /its/office-use-only/
+Disallow: /its/hw-request-form/
+Disallow: /grants/faculty/*
+Disallow: /grants/recent-grants/*
+Disallow: /acits/remote-teaching-and-learning-consultation-request/
 
 Sitemap: https://www.colby.edu/sitemap_index.xml
 Sitemap: https://news.colby.edu/news-sitemap.xml

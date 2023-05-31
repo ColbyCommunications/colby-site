@@ -52,11 +52,18 @@ Disallow: /chemistry/KatzGroup/*
 Disallow: /chemistry/Weather/*
 Disallow: /chemistry/BC176/*
 Disallow: /chemistry/BC362/*
+Disallow: /chemistry/EastPond/*
+Disallow: /chemistry/Grants/*
+Disallow: /chemistry/LakeStudies/*
+Disallow: /chemistry/lmm/*
+Disallow: /chemistry/Tour/*
+Disallow: /chemistry/wackerly/*
 Disallow: /sfs/stuemp/*
 Disallow: /itscustomcf/*
 Disallow: /info.tech/*
 Disallow: /administration_cs/*
 Disallow: /registrar/CWcurricq.html
+Disallow: /registrar/JP.html
 Disallow: /sturesearch/*
 Disallow: /lrc/vll/*
 Disallow: /lrc/_vll/*
@@ -76,6 +83,7 @@ Disallow: /directory_cs/*
 Disallow: /arc/*
 Disallow: /economics/faculty/*
 Disallow: /french/fr128/*
+Disallow: /sts/*
 
 # Colby Group Sites
 Disallow: /humanresources/benefits/insurance/flexible-spending-account/*

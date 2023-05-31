@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18e3072a9cab4d404aa8d4d862577628",
+    "content-hash": "eceff4c38968b0ef560eed4ba285bf45",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -6005,6 +6005,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/disable-comments/"
+        },
+        {
+            "name": "wpackagist-plugin/disable-everything",
+            "version": "0.4.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/disable-everything/",
+                "reference": "tags/0.4.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/disable-everything.0.4.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/disable-everything/"
         },
         {
             "name": "wpackagist-plugin/duplicate-post",

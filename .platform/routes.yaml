@@ -2391,6 +2391,10 @@
           to: 'https://life.colby.edu/what-to-do/first-year-experience/orientation/'
           regexp: true
           code: 301
+        '^/outingclub/?$':
+          to: 'https://web.colby.edu/outingclub/'
+          regexp: true
+          code: 301
         '^/residentiallife/?$':
           to: 'https://life.colby.edu/where-to-live/'
           regexp: true

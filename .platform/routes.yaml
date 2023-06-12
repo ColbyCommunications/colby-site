@@ -2822,6 +2822,10 @@
           to: 'http://colby.cafebonappetit.com/catering/'
           regexp: true
           code: 301
+        '^/diningservices/(.*)':
+          to: 'http://colby.cafebonappetit.com/'
+          regexp: true
+          code: 301
         '^/directory/?$':
           to: '/people/people-directory/'
           regexp: true

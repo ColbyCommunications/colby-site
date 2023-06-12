@@ -1017,6 +1017,14 @@
           to: '/people/offices-directory/events/'
           regexp: true
           code: 301
+        '^/events/event-request/?$':
+          to: '/people/offices-directory/events/all-forms/event-request/'
+          regexp: true
+          code: 301
+        '^/news_events/calendar/roomrequest.cfm/?$':
+          to: '/people/offices-directory/events/all-forms/event-request/'
+          regexp: true
+          code: 301
   # Facilities
         '^/facilities/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/facilities/$1/'

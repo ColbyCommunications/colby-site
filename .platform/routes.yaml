@@ -2901,6 +2901,8 @@
           to: 'https://www.givecampus.com/cph9e6'
           regexp: true
           code: 301
+        '^/signature/?$'
+          to: '/signature/'
         '^/specialcollections/(.+)/?$':
           to: 'https://libraries.colby.edu/specialcollections/$1/'
           regexp: true
@@ -2989,6 +2991,9 @@
           to: '/people/offices-directory/facilities/'
           regexp: true
           code: 301
+'^/signature/?$':
+    to: '/signature/index.html'
+    type: upstream
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

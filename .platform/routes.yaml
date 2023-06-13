@@ -2989,9 +2989,11 @@
           to: '/people/offices-directory/facilities/'
           regexp: true
           code: 301
-'^/signature/?$':
-    to: 'index.html'
-    type: upstream
+"/signature":
+  type: upstream
+  upstream: "app:http"
+  cache:
+    enabled: false
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

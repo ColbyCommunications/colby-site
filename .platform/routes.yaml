@@ -2990,7 +2990,7 @@
           regexp: true
           code: 301
 '^/signature/?$':
-    to: 'http://app:$1'
+    to: 'index.html'
     type: upstream
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":

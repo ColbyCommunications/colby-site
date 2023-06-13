@@ -2901,8 +2901,6 @@
           to: 'https://www.givecampus.com/cph9e6'
           regexp: true
           code: 301
-        '^/signature/?$'
-          to: '/signature/'
         '^/specialcollections/(.+)/?$':
           to: 'https://libraries.colby.edu/specialcollections/$1/'
           regexp: true

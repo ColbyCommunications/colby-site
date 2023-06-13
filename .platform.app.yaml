@@ -34,7 +34,9 @@ mounts:
   "/web/wp-content/scripting": "shared:files/scripting"
   "/web/wp-content/directory_data": "shared:files/directory_data"
   "/web/wp-content/themes/colby-college-theme/simplesaml": "shared:files/simplesaml"
-  "/signature": "npm run build"
+  "/signature":
+    source: local
+    source_path: "path/to/your/react/app/build"
 
 # The configuration of app when it is exposed to the web.
 web:

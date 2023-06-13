@@ -34,7 +34,11 @@ mounts:
   "/web/wp-content/scripting": "shared:files/scripting"
   "/web/wp-content/directory_data": "shared:files/directory_data"
   "/web/wp-content/themes/colby-college-theme/simplesaml": "shared:files/simplesaml"
-  "/signature": "/signature/build"
+  "/signature": "shared:signature"
+upstreams:
+  "signature:nodejs":
+    type: "nodejs:14"
+    disk: 2048
 
 # The configuration of app when it is exposed to the web.
 web:

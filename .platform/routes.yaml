@@ -2989,11 +2989,11 @@
           to: '/people/offices-directory/facilities/'
           regexp: true
           code: 301
+########## COLBY SIGNATURE GENERATOR ##########
         '/signature/?$':
           to: '/signature/index.html'
           regexp: true
           code: 301
-
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-color: #1a2d38;
+}
+
+.signature-form {
+  @apply flex flex-col justify-center w-2/3;
+}
+
+.gen-input {
+  @apply w-full mb-2 px-2 max-w-xs;
+}
+
+#social {
+  margin-left: 0.5rem;
+}
+
+.output {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 15px !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.name-output {
+  display: flex;
+}
+
+.signature-container {
+  width: auto;
+}
+
+.social-input {
+  margin-bottom: 1rem;
+}
+
+.material-icons-sharp:hover {
+  cursor: pointer;
+}
+
+.copy-container {
+  margin-top: 16px;
+  padding-right: 37px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.copy {
+  border: none;
+  color: white;
+  background-color: #002169;
+  box-shadow: 0px 3px 15px rgb(0 0 0 / 20%);
+  padding: 3px 7px;
+  font-size: 14px;
+  transition: all 0.1s ease-in-out;
+}
+
+.social-label:hover {
+  cursor: pointer;
+}
+
+.copy:hover {
+  transform: scale(1.1);
+  background-color: black;
+}
+
+.alert {
+  right: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  animation: slidein 0.3s ease-in, fade 1s linear 1s;
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fade {
+  100% {
+    opacity: 0;
+  }
+}

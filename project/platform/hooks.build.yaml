@@ -38,6 +38,3 @@ node ./scripts/platform_generate-env.js
 ###     Project Specific    ###
 ###############################
 # Add any additional project specific build hooks you need in the environment after this line.
-cd /app/signature
-npm install
-npm run build

@@ -1,5 +1,0 @@
-set -e
-
-cd /app/signature
-npm install
-npm run build

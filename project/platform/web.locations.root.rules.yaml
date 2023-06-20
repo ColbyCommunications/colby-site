@@ -41,8 +41,5 @@
 ###############################
 # Add any additional project specific root override rules after this line
 
-'^/signature-assets':
-  passthru: '/signature/dist/signature-assets'
-  allow: true
 
   

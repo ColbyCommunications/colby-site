@@ -70,10 +70,9 @@
   root: 'signature/dist'
   passthru: "/signature/index.html"
   scripts: true
-  includes:
-    - "signature/dist/**"
 
-"/signature-assets":
+"/signature/dist/{:all}":
+  root: 'signature/dist'
+
+"/signature/dist/signature-assets/{:all}":
   root: 'signature/dist/signature-assets'
-  includes:
-    - "signature/dist/signature-assets/**"

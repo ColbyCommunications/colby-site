@@ -71,3 +71,5 @@
   scripts: true
   index:
     - index.html
+"/signature/dist/signature-assets":
+  scripts: true

@@ -1,4 +1,0 @@
-services:
-  signature:
-    type: nodejs:14
-    disk: 2048

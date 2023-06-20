@@ -12,7 +12,7 @@
   allow: true
 '^/signature/?$':
   allow: true
-  passthru: '/signature/dist/index.html'
+  passthru: '/signature/index.html'
 #reserved
 
 

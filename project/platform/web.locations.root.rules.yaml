@@ -41,10 +41,6 @@
 ###############################
 # Add any additional project specific root override rules after this line
 
-'^/signature':
-  passthru: '/signature/dist'
-  allow: true
-
 '^/signature-assets':
   passthru: '/signature/dist/signature-assets'
   allow: true

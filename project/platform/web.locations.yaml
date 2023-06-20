@@ -65,4 +65,10 @@
   scripts: true
   index:
     - index.php
+"/signature":
+  root: 'signature/dist'
+  allow: true
+  scripts: true
+  index:
+    - index.html
 

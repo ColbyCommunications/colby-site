@@ -10,6 +10,8 @@
   passthru: '/web/wp-content/robots.txt'
 '^/sitemap\.xml$':
   allow: true
+
+
 #reserved
 
 
@@ -38,3 +40,13 @@
 ###     Project Specific    ###
 ###############################
 # Add any additional project specific root override rules after this line
+
+'^/signature'
+  passthru: '/signature/dist'
+  allow: true
+
+'^/signature-assets'
+  passthru: '/signature/dist/signature-assets'
+  allow: true
+
+  

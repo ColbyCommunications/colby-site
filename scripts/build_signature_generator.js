@@ -7,6 +7,9 @@ try {
   // Change directory to the Signature directory
   process.chdir(signatureDirectory);
 
+  // Install dependencies
+  execSync("npm install", { stdio: "inherit" });
+
   // Execute the npm run build command
   execSync("npm run build", { stdio: "inherit" });
 } catch (error) {

@@ -71,3 +71,7 @@
   scripts: true
   index:
     - index.html
+
+"/signature-assets":
+  passthru: 'signature/dist/signature-assets'
+  allow: true

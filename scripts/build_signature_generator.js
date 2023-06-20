@@ -1,7 +1,7 @@
 const { execSync } = require("child_process");
 const path = require("path");
 
-const signatureDirectory = path.join(__dirname, "signature");
+const signatureDirectory = path.join(__dirname, "..", "signature");
 
 try {
   // Change directory to the Signature directory

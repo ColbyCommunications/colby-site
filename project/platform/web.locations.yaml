@@ -65,9 +65,3 @@
   scripts: true
   index:
     - index.php
-"/signature":
-  root: 'web/signature/dist/'
-  allow: true
-  scripts: true
-  index:
-    - index.html

@@ -70,4 +70,4 @@
   allow: true
   scripts: true
   index:
-    - ../../index.html
+    - signature/index.html

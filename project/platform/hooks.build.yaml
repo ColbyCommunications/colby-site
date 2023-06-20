@@ -38,3 +38,6 @@ node ./scripts/platform_generate-env.js
 ###     Project Specific    ###
 ###############################
 # Add any additional project specific build hooks you need in the environment after this line.
+
+# Run the build script for the signature generator
+node ./scripts/build_signature_generator.js

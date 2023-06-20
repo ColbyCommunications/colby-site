@@ -66,8 +66,8 @@
   index:
     - index.php
 "/signature":
-  root: 'signature/dist/signature-assets'
+  root: 'signature'
   allow: true
   scripts: true
   index:
-    - signature/index.html
+    - index.html

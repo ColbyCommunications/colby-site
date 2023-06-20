@@ -71,16 +71,3 @@ variables:
 resources: 
     base_memory: 256
     memory_ratio: 256
-
-upstreams:
-  "signature_backend":
-    type: "static:directory"
-    options:
-      directory: "signature/dist"
-      passthru: true
-
-  "signature_assets_backend":
-    type: "static:directory"
-    options:
-      directory: "signature/dist/signature-assets"
-      passthru: true

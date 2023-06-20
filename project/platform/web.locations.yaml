@@ -66,8 +66,7 @@
   index:
     - index.php
 "/signature":
-  root: 'signature/'
+  root: "signature/dist"
   allow: true
+  passthru: "/signature/index.html"
   scripts: true
-  index:
-    - index.html

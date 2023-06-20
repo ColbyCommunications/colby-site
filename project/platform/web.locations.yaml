@@ -65,14 +65,9 @@
   scripts: true
   index:
     - index.php
-    
 "/signature":
   root: 'signature/dist'
-  passthru: "/signature/index.html"
+  allow: true
   scripts: true
-
-"/signature/dist/{:all}":
-  root: 'signature/dist'
-
-"/signature/dist/signature-assets/{:all}":
-  root: 'signature/dist/signature-assets'
+  index:
+    - index.html

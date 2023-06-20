@@ -10,9 +10,6 @@
   passthru: '/web/wp-content/robots.txt'
 '^/sitemap\.xml$':
   allow: true
-'^/signature/?$':
-  allow: true
-  passthru: '/signature/index.html'
 #reserved
 
 

@@ -2890,6 +2890,10 @@
           to: 'https://davisconnects.colby.edu/'
           regexp: true
           code: 301
+        '(?i)^/HailColbyHail/?$':
+          to: 'https://www.givecampus.com/wglvk2'
+          regexp: true
+          code: 301
         '^/halloranlab/?(.*)$':
           to: 'https://halloranlab.colby.edu/'
           regexp: true

@@ -1,8 +1,37 @@
 const Alert = () => {
   return (
-    <div className="alert flex flex-col justify-center fixed">
-      <div className="flex items-center bg-green-500 border-l-4 border-green-700 py-2 px-3 shadow-md mb-2">
-        <div className="text-green-500 rounded-full bg-white mr-3">
+    <div
+      className="alert"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        position: "fixed",
+      }}
+    >
+      <div
+        style={{
+          padding: "0.5rem 0.75rem",
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: "rgb(34 197 94)",
+          boxShadow:
+            "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        }}
+      >
+        <div
+          style={{
+            marginRight: "0.75rem",
+            width: "1.5rem",
+            height: "1.5rem",
+            color: "rgb(34 197 94)",
+            borderRadius: "9999px",
+            backgroundColor: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <svg
             width="1.8em"
             height="1.8em"
@@ -17,7 +46,9 @@ const Alert = () => {
             />
           </svg>
         </div>
-        <div className="text-white max-w-xs ">Signature copied!</div>
+        <div style={{ color: "white", maxWidth: "20rem" }}>
+          Signature copied!
+        </div>
       </div>
     </div>
   );

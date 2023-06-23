@@ -64,32 +64,32 @@ function App() {
   return (
     <div>
       {alert === true ? <Alert /> : ""}
-      <div className="flex md:flex-row flex-col-reverse">
-        <aside className="flex flex-col items-center w-full bg-colbyBlue md:w-3/5">
+      <div className="signature-app-container">
+        <aside>
           <form className="signature-form">
             <article>
-              <header className="flex flex-col justify-center">
-                <h1 className="py-4 text-white text-xl lg:text-4xl">
+              <header>
+                <h1>
                   Colby Email Signature Generator{" "}
-                  <span className="text-xs">v4</span>
+                  <span className="version">v4</span>
                 </h1>
               </header>
-              <div className="mb-4">
-                <ul className="py-1 list-decimal text-white text-sm">
-                  <li className="mb-3 tracking-wide">
-                    <p className="ml-3">
+              <div>
+                <ul>
+                  <li>
+                    <p>
                       Use the fields below to input your information. The
                       preview will change as you type.
                     </p>
                   </li>
-                  <li className="mb-3 tracking-wide">
-                    <p className="ml-3">
+                  <li>
+                    <p>
                       Once everything looks good, use the copy button to copy
                       the signature to your clipboard.
                     </p>
                   </li>
-                  <li className="mb-3 tracking-wide">
-                    <p className="ml-3">
+                  <li>
+                    <p>
                       Paste your new signature into the signature box in Gmail
                       settings (Gmail &rarr; Settings &rarr; General &rarr;
                       Signature)
@@ -98,9 +98,7 @@ function App() {
                 </ul>
               </div>
             </article>
-            <label className="text-white my-1" htmlFor="name">
-              Name:
-            </label>
+            <label htmlFor="name">Name:</label>
             <input
               className="gen-input"
               type="text"
@@ -108,38 +106,34 @@ function App() {
               placeholder="Name"
               onChange={(e) => setName(e.target.value)}
             ></input>
-            <label className="text-white my-1" htmlFor="pronouns">
-              Pronouns:
-            </label>
-            <div className="w-full">
+            <label htmlFor="pronouns">Pronouns:</label>
+            <div style={{ width: "100%" }}>
               <input
-                className="mr-3 p-0 w-auto"
+                style={{ marginRight: "0.75rem", padding: "0", width: "auto" }}
                 type="checkbox"
                 onChange={() => setShowPn(!showPn)}
               ></input>
               <input
-                style={{ width: "50px" }}
+                style={{ marginRight: "0.25rem", width: "50px" }}
                 type="text"
                 id="pronouns"
-                className="mr-1 gen-input"
+                className="gen-input"
                 placeholder="He"
                 disabled={showPn === false}
                 onChange={(e) => setPronouns1(e.target.value)}
               ></input>
-              <span className="text-white">/</span>
+              <span style={{ color: "white" }}>/</span>
               <input
-                style={{ width: "50px" }}
+                style={{ marginLeft: "0.25rem", width: "50px" }}
                 type="text"
                 id="pronouns2"
-                className="ml-1 gen-input"
+                className="gen-input"
                 placeholder="Him"
                 disabled={showPn === false}
                 onChange={(e) => setPronouns2(e.target.value)}
               ></input>
             </div>
-            <label className="text-white my-1" htmlFor="title">
-              Title:
-            </label>
+            <label htmlFor="title">Title:</label>
             <input
               className="gen-input"
               type="text"
@@ -147,9 +141,7 @@ function App() {
               placeholder="Title"
               onChange={(e) => setTitle(e.target.value)}
             ></input>
-            <label className="text-white my-1" htmlFor="dept">
-              Department:
-            </label>
+            <label htmlFor="dept">Department:</label>
             <input
               className="gen-input"
               type="text"
@@ -157,9 +149,7 @@ function App() {
               placeholder="Communications"
               onChange={(e) => setDepartment(e.target.value)}
             ></input>
-            <label className="text-white my-1" htmlFor="phone">
-              Phone Number:
-            </label>
+            <label htmlFor="phone">Phone Number:</label>
             <FormattedInput
               className="formatted-input gen-input"
               format={phonePattern}
@@ -169,9 +159,7 @@ function App() {
               }}
               placeholder="0123456789"
             />
-            <label className="text-white my-1" htmlFor="address1">
-              Address Ln 1:
-            </label>
+            <label htmlFor="address1">Address Ln 1:</label>
             <input
               className="gen-input"
               type="text"
@@ -179,9 +167,7 @@ function App() {
               placeholder="4000 Mayflower Hill"
               onChange={(e) => setAddress1(e.target.value)}
             ></input>
-            <label className="text-white my-1" htmlFor="address2">
-              Address Ln 2:
-            </label>
+            <label htmlFor="address2">Address Ln 2:</label>
             <input
               className="gen-input"
               type="text"
@@ -191,28 +177,42 @@ function App() {
             ></input>
             <div
               onClick={() => setShowSocial(!showSocial)}
-              className="w-full my-4 flex flex-row justify-start text-white"
+              style={{
+                width: "100%",
+                margin: "1rem 0",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "start",
+                alignItems: "center",
+                color: "white",
+              }}
             >
               <label className="social-label">Social icons</label>
               {showSocial === true ? (
-                <span className="material-icons-sharp">expand_more</span>
+                <span className="material-icons-sharp arrow">expand_more</span>
               ) : (
-                <span className="material-icons-sharp">navigate_next</span>
+                <span className="material-icons-sharp arrow">
+                  navigate_next
+                </span>
               )}
             </div>
 
             {showSocial && (
-              <form className="pb-6">
-                <span className="flex justify-start items-center">
+              <form style={{ paddingBottom: "1.5rem" }}>
+                <span
+                  style={{
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "center",
+                  }}
+                >
                   <input
-                    className="w-auto mr-3"
+                    style={{ width: "auto", marginRight: "0.75rem" }}
                     type="checkbox"
                     checked={fbChecked}
                     onChange={() => setFbChecked(!fbChecked)}
                   />
-                  <label className="text-white my-1" htmlFor="fb">
-                    Facebook:
-                  </label>
+                  <label htmlFor="fb">Facebook:</label>
                 </span>
                 <input
                   id="fb"
@@ -223,16 +223,20 @@ function App() {
                   onChange={(e) => setFbUrl(e.target.value)}
                 ></input>
 
-                <span className="flex justify-start items-center">
+                <span
+                  style={{
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "center",
+                  }}
+                >
                   <input
-                    className="w-auto mr-3"
+                    style={{ width: "auto", marginRight: "0.75rem" }}
                     type="checkbox"
                     checked={instaChecked === true}
                     onChange={() => setInstaChecked(!instaChecked)}
                   />
-                  <label className="text-white my-1" htmlFor="insta">
-                    Instagram:
-                  </label>
+                  <label htmlFor="insta">Instagram:</label>
                 </span>
                 <input
                   id="insta"
@@ -243,16 +247,20 @@ function App() {
                   onChange={(e) => setInstaUrl(e.target.value)}
                 ></input>
 
-                <span className="flex justify-start items-center">
+                <span
+                  style={{
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "center",
+                  }}
+                >
                   <input
-                    className="w-auto mr-3"
+                    style={{ width: "auto", marginRight: "0.75rem" }}
                     type="checkbox"
                     checked={twitChecked === true}
                     onChange={() => setTwitChecked(!twitChecked)}
                   />
-                  <label className="text-white my-1" htmlFor="twit">
-                    Twitter:
-                  </label>
+                  <label htmlFor="twit">Twitter:</label>
                 </span>
                 <input
                   id="twit"
@@ -263,16 +271,20 @@ function App() {
                   onChange={(e) => setTwitUrl(e.target.value)}
                 ></input>
 
-                <span className="flex justify-start items-center">
+                <span
+                  style={{
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "center",
+                  }}
+                >
                   <input
-                    className="w-auto mr-3"
+                    style={{ width: "auto", marginRight: "0.75rem" }}
                     type="checkbox"
                     checked={liChecked === true}
                     onChange={() => setLiChecked(!liChecked)}
                   />
-                  <label className="text-white my-1" htmlFor="li">
-                    LinkedIn:
-                  </label>
+                  <label htmlFor="li">LinkedIn:</label>
                 </span>
                 <input
                   id="li"
@@ -283,16 +295,20 @@ function App() {
                   onChange={(e) => setLiUrl(e.target.value)}
                 ></input>
 
-                <span className="flex justify-start items-center">
+                <span
+                  style={{
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "center",
+                  }}
+                >
                   <input
-                    className="w-auto mr-3"
+                    style={{ width: "auto", marginRight: "0.75rem" }}
                     type="checkbox"
                     checked={ytChecked === true}
                     onChange={() => setYtChecked(!ytChecked)}
                   />
-                  <label className="text-white my-1" htmlFor="yt">
-                    YouTube:
-                  </label>
+                  <label htmlFor="yt">YouTube:</label>
                 </span>
                 <input
                   id="yt"
@@ -303,24 +319,28 @@ function App() {
                   onChange={(e) => setYtUrl(e.target.value)}
                 ></input>
 
-                <span className="flex justify-start items-center">
+                <span
+                  style={{
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "center",
+                  }}
+                >
                   <input
                     id="cn"
-                    className="w-auto mr-3"
+                    style={{ width: "auto", marginRight: "0.75rem" }}
                     type="checkbox"
                     checked={cnChecked === true}
                     onChange={() => setCnChecked(!cnChecked)}
                   />
-                  <label className="text-white my-1" htmlFor="cn">
-                    Colby News
-                  </label>
+                  <label htmlFor="cn">Colby News</label>
                 </span>
               </form>
             )}
           </form>
         </aside>
-        <div className="w-full flex justify-center md:flex justify-center items-center w-1/2 bg-drkBlueGrey">
-          <div className="w-full my-5 py-5 flex flex-col flex-shrink-0 justify-center items-center bg-white shadow-md md:my-0 py-0">
+        <div className="display-container">
+          <div className="display-container-inner">
             <div>
               <table
                 ref={tableRef}
@@ -344,7 +364,7 @@ function App() {
                       className="logo-cell"
                     >
                       <a
-                        href="https://colby.edu"
+                        href="https://www.colby.edu"
                         target="_blank"
                         rel="noreferrer"
                         style={{
@@ -406,8 +426,9 @@ function App() {
                                         style={{
                                           border: "none",
                                           whiteSpace: "nowrap",
+                                          marginRight: "1rem",
                                         }}
-                                        className="mr-4 output bold"
+                                        className="output bold"
                                       >
                                         {name}
                                       </p>
@@ -702,24 +723,26 @@ function App() {
         </div>
       </div>
       <footer>
-        <div className="text-white">
-          <div className="container mx-auto py-8 px-4">
-            <div className="flex justify-between flex-col md:flex-row">
-              <div className="flex items-center justify-center">
-                <div className="md:mr-8 mb-6 md:mb-0">
+        <div>
+          <div className="footer-container">
+            <div className="footer-container-inner">
+              <div className="footer-logo-container">
+                <div>
                   <a href="/">
                     <img
-                      className="w-24 md:w-3/4"
+                      className="footer-logo"
                       src="images/COLBY_logotype_white.png"
                       alt="Colby Logo"
                     />
                   </a>
                 </div>
-                <div className="hidden md:block">Office of Communications</div>
+                <div className="hidden logo-subtext">
+                  Office of Communications
+                </div>
               </div>
-              <div className="flex items-center justify-center">
+              <div className="footer-icon-container">
                 <div
-                  className="mr-4 cursor-pointer"
+                  className="footer-icon"
                   onClick={() =>
                     (window.location = "https://www.facebook.com/colbycollege")
                   }
@@ -741,7 +764,7 @@ function App() {
                   </svg>
                 </div>
                 <div
-                  className="mr-4 cursor-pointer"
+                  className="footer-icon"
                   onClick={() =>
                     (window.location =
                       "https://www.linkedin.com/school/colby-college/")
@@ -760,7 +783,7 @@ function App() {
                   </svg>
                 </div>
                 <div
-                  className="mr-4 cursor-pointer"
+                  className="footer-icon"
                   onClick={() =>
                     (window.location =
                       "https://www.youtube.com/user/colbycollege")
@@ -783,7 +806,7 @@ function App() {
                   </svg>
                 </div>
                 <div
-                  className="mr-4 cursor-pointer"
+                  className="footer-icon"
                   onClick={() =>
                     (window.location = "https://www.colby.edu/newsletter/")
                   }
@@ -801,7 +824,7 @@ function App() {
                   </svg>
                 </div>
                 <div
-                  className="mr-4 cursor-pointer"
+                  className="footer-icon"
                   onClick={() =>
                     (window.location =
                       "https://www.instagram.com/colbycollege/")
@@ -827,7 +850,7 @@ function App() {
                   </svg>
                 </div>
                 <div
-                  className="mr-4 cursor-pointer"
+                  className="footer-icon"
                   onClick={() =>
                     (window.location = "https://twitter.com/ColbyCollege")
                   }

@@ -62,7 +62,13 @@ async function main() {
     } else {
       await index.browseObjects({
         query: "",
-        attributesToRetrieve: ["post_title", "content", "permalink"],
+        attributesToRetrieve: [
+          "post_title",
+          "content",
+          "permalink",
+          "post_type",
+          "external_url",
+        ],
         batch: (batch) => {
           hits = hits.concat(batch);
         },
@@ -72,7 +78,21 @@ async function main() {
     for (let i = 0; i < hits.length; i++) {
       let result = {};
       let cleanedTitle = null;
-      if (indicies[k].indexName === "Identity Site") {
+      if (
+        indicies[k].indexName === "prod_news_searchable_posts" &&
+        hits[i].post_type === "external_post"
+      ) {
+        if (hits[i].post_title) {
+          cleanedTitle = hits[i].post_title.replace(/<\/?[^>]+(>|$)/g, "");
+        }
+        result = {
+          ..._omit(hits[i], ["objectID"]),
+          permalink: hits[i].external_url,
+          cleaned_title: cleanedTitle,
+          originIndexLabel: indicies[k].label,
+          objectID: indicies[k].indexName + "-" + i,
+        };
+      } else if (indicies[k].indexName === "Identity Site") {
         if (hits[i].title) {
           cleanedTitle = hits[i].title.replace(/<\/?[^>]+(>|$)/g, "");
         }

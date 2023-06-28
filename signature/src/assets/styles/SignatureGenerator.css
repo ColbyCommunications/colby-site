@@ -1,0 +1,279 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: libre-franklin, sans-serif;
+}
+
+html {
+  background-color: #1a2d38;
+  line-height: 1.5;
+}
+
+.signature-form {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signature-form article div {
+  margin-bottom: 1rem;
+}
+
+.signature-form article div ul {
+  padding: 0.25rem 0;
+  list-style: decimal;
+  color: white;
+  font-size: 0.875rem;
+}
+
+ul li {
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.025rem;
+}
+
+ul li p {
+  margin-left: 0.75rem;
+  font-size: 14px;
+}
+
+label {
+  margin: 0.25rem 0;
+  color: white;
+}
+
+.gen-input {
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+  max-width: 20rem;
+  width: 100%;
+}
+
+#social {
+  margin-left: 0.5rem;
+}
+
+.output {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 15px !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.name-output {
+  display: flex;
+}
+
+.signature-container {
+  width: auto;
+}
+
+.social-input {
+  margin-bottom: 1rem;
+}
+
+.copy-container {
+  margin-top: 16px;
+  padding-right: 37px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.copy {
+  border: none;
+  color: white;
+  background-color: #002169;
+  box-shadow: 0px 3px 15px rgb(0 0 0 / 20%);
+  padding: 5px 7px;
+  font-size: 14px;
+  transition: all 0.1s ease-in-out;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.social-label:hover {
+  cursor: pointer;
+}
+
+.copy:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: black;
+}
+
+.alert {
+  right: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  animation: slidein 0.3s ease-in, fade 1s linear 1s;
+}
+
+.signature-app-container {
+  min-width: 450px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+aside {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #002169;
+}
+
+h1 {
+  padding: 1rem 0;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: inherit;
+}
+
+.version {
+  font-size: 0.75rem;
+}
+
+footer {
+  color: white;
+}
+
+footer .footer-container {
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+footer .footer-container .footer-container-inner {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-icon {
+  margin-right: 1rem;
+}
+
+.footer-icon:hover {
+  cursor: pointer;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo-container div {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 6rem;
+}
+
+.footer-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #707682;
+}
+
+.display-container-inner {
+  margin: 1.25rem 0;
+  padding: 1.25rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.gen-input,
+.social-input {
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .signature-app-container {
+    flex-direction: row;
+  }
+
+  aside {
+    width: 60%;
+  }
+
+  footer .footer-container .footer-container-inner {
+    flex-direction: row;
+  }
+
+  footer .footer-logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .footer-logo-container div {
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
+
+  .footer-logo {
+    width: 75%;
+  }
+
+  .logo-subtext {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 1.65rem;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fade {
+  100% {
+    opacity: 0;
+  }
+}

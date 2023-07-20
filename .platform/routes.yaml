@@ -2743,7 +2743,7 @@
           regexp: true
           code: 301
         '^/about/?$':
-          to: '/academics/course-catalogue/about-colby/'
+          to: '/academics/course-catalogue/admission-fees-about-colby/about-colby/'
           regexp: true
           code: 301
         '^/academics/majors-minors/?$':

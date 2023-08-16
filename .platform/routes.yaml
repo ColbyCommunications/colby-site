@@ -1647,7 +1647,7 @@
           to: 'https://afa.colby.edu/'     
           regexp: true
           code: 301
-        '^/admissions/$': 
+        '^/admissions/?$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
           code: 301

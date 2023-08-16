@@ -1412,7 +1412,7 @@
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
           code: 301
-########## MAJORS/MINORS TABLE REDIRECTS ##########
+########## MAJORS/MINORS TABLE REDIRECTS ###########
   # African American Studies
         '^/dept/afam/?$':
           to: '/academics/departments-and-programs/african-american-studies/'

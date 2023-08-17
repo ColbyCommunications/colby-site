@@ -1191,6 +1191,10 @@
           regexp: true
           code: 301
   # Registrar
+        '^/registraroffice/course-authorization-instructions/?$':
+          to: '/people/offices-directory/registrar/resources/course-authorization-instructions/'
+          regexp: true
+          code: 301
         '^/registrar/faculty/?$':
           to: 'https://my.colby.edu/ICS/Academics/'
           regexp: true
@@ -1209,10 +1213,6 @@
           code: 301
         '^/registrar/?$':
           to: '/people/offices-directory/registrar/'
-          regexp: true
-          code: 301
-        '^/registraroffice/course-authorization-instructions/?$':
-          to: '/people/offices-directory/registrar/resources/course-authorization-instructions/'
           regexp: true
           code: 301
         '^/registraroffice/?$':

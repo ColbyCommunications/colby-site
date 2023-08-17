@@ -1211,6 +1211,10 @@
           to: '/people/offices-directory/registrar/'
           regexp: true
           code: 301
+        '^/registraroffice/course-authorization-instructions/?$':
+          to: '/people/offices-directory/registrar/resources/course-authorization-instructions/'
+          regexp: true
+          code: 301
         '^/registraroffice/?$':
           to: '/people/offices-directory/registrar/'
           regexp: true
@@ -1412,7 +1416,7 @@
           to: '/people/offices-directory/office-of-the-provost/'
           regexp: true
           code: 301
-########## MAJORS/MINORS TABLE REDIRECTS ###########
+########## MAJORS/MINORS TABLE REDIRECTS ##########
   # African American Studies
         '^/dept/afam/?$':
           to: '/academics/departments-and-programs/african-american-studies/'

@@ -68,6 +68,7 @@ variables:
 # The configuration of scheduled execution.
 # crons: !include project/platform/crons.yaml
 
+size: M
 resources: 
     base_memory: 128
-    memory_ratio: 128
+    memory_ratio: 256

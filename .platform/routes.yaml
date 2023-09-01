@@ -2076,6 +2076,10 @@
           to: '/support-colby/'     
           regexp: true
           code: 301
+        '^/pec/?$':
+          to: '/parents/parents-executive-committee-information-page/'     
+          regexp: true
+          code: 301
         '^/waystogive/?$':
           to: '/colbyalumni/ways-to-give/'     
           regexp: true
@@ -2212,7 +2216,7 @@
           regexp: true
           code: 301
         '^/davisconnects/student-funding/?$':
-          to: 'https://davisconnects.colby.edu/funding-opportunities/students/'
+          to: 'https://davisconnects.colby.edu/resources/understand-and-apply-for-funding-from-colby/'
           regexp: true
           code: 301
   # Goldfarb

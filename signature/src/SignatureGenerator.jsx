@@ -2,13 +2,6 @@ import { useState, useRef } from 'react';
 import Alert from './components/Alert';
 import { FormattedInput } from '@buttercup/react-formatted-input';
 import './assets/styles/SignatureGenerator.css';
-import ColbyLogo from './assets/images/colby-logo.png';
-import CnWhite from './assets/images/cn-white.jpg';
-import FbWhite from './assets/images/fb-white.jpg';
-import InstaWhite from './assets/images/insta-white.jpg';
-import TwitWhite from './assets/images/twit-white.jpg';
-import LiWhite from './assets/images/li-white.jpg';
-import YtWhite from './assets/images/yt-white.jpg';
 
 function App() {
     const [name, setName] = useState('');
@@ -374,7 +367,7 @@ function App() {
                                                 }}
                                             >
                                                 <img
-                                                    src={ColbyLogo}
+                                                    src="https://www.colby.edu/signature/images/colby-logo.png"
                                                     alt="Colby"
                                                     className="logo"
                                                     width="96px"
@@ -557,9 +550,7 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src={
-                                                                                            FbWhite
-                                                                                        }
+                                                                                        src="https://www.colby.edu/signature/images/fb-white.jpg"
                                                                                         alt="Facebook"
                                                                                         style={{
                                                                                             paddingRight:
@@ -587,9 +578,7 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src={
-                                                                                            InstaWhite
-                                                                                        }
+                                                                                        src="https://www.colby.edu/signature/images/insta-white.jpg"
                                                                                         alt="Instagram"
                                                                                         style={{
                                                                                             paddingRight:
@@ -617,9 +606,7 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src={
-                                                                                            TwitWhite
-                                                                                        }
+                                                                                        src="https://www.colby.edu/signature/images/twit-white.jpg"
                                                                                         alt="Twitter"
                                                                                         style={{
                                                                                             paddingRight:
@@ -647,9 +634,7 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src={
-                                                                                            LiWhite
-                                                                                        }
+                                                                                        src="https://www.colby.edu/signature/images/li-white.jpg"
                                                                                         alt="LinkedIn"
                                                                                         style={{
                                                                                             paddingRight:
@@ -677,9 +662,7 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src={
-                                                                                            YtWhite
-                                                                                        }
+                                                                                        src="https://www.colby.edu/signature/images/yt-white.jpg"
                                                                                         alt="YouTube"
                                                                                         style={{
                                                                                             paddingRight:
@@ -707,9 +690,7 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src={
-                                                                                            CnWhite
-                                                                                        }
+                                                                                        src="https://www.colby.edu/signature/images/cn-white.jpg"
                                                                                         alt="Colby News"
                                                                                         style={{
                                                                                             paddingRight:

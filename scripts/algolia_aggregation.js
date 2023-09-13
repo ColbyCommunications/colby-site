@@ -43,10 +43,10 @@ async function main() {
     let index = client.initIndex(indicies[k].indexName);
     let hits = [];
 
-    if (indicies[k].indexName === "Identity Site") {
+    if (indicies[k].indexName === "Admissions") {
       await index.browseObjects({
         query: "",
-        attributesToRetrieve: ["title", "excerpt", "uri"],
+        attributesToRetrieve: ["title", "description", "url"],
         batch: (batch) => {
           hits = hits.concat(batch);
         },

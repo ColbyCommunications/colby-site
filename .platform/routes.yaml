@@ -2906,6 +2906,10 @@
           to: 'https://halloranlab.colby.edu/'
           regexp: true
           code: 301
+        '^/halloran/?$':
+          to: '/halloran-lab-for-entrepreneurship/'
+          regexp: true
+          code: 301
         '^/harold-alfond-foundation-announcement/?$':
           to: 'https://www.colby.edu/communications/haf'
           regexp: true

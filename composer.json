@@ -36,7 +36,8 @@
         "wpackagist-plugin/wp-nested-pages": "3.2.3",
         "wpackagist-plugin/tinymce-advanced": "5.9.0",
         "wpackagist-plugin/wordpress-seo": "20.8",
-        "wpackagist-plugin/disable-everything": "0.4.0"
+        "wpackagist-plugin/disable-everything": "0.4.0",
+        "wpackagist-plugin/tablepress": "2.1.7"
     },
     "authors": [
         {

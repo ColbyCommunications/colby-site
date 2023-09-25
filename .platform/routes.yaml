@@ -2067,6 +2067,10 @@
           regexp: true
           code: 301
   # Advancement (including Alumni, DareNorthward, Truenorth, Giving, Parents, Reunion)
+        '^/advancement/?$':
+          to: 'https://alumni.colby.edu/'     
+          regexp: true
+          code: 301
         '^/alumni/?$':
           to: 'https://alumni.colby.edu/'     
           regexp: true
@@ -2160,10 +2164,6 @@
           regexp: true
           code: 301
         '^/eofymailer22/?$':
-          to: 'https://darenorthward.colby.edu/give/'
-          regexp: true
-          code: 301
-        '^/give/?$':
           to: 'https://darenorthward.colby.edu/give/'
           regexp: true
           code: 301

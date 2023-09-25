@@ -2132,7 +2132,7 @@
           regexp: true
           code: 301
         '^/colbyalumni/clubs/?$': 
-          to: 'https://alumni.colby.edu/clubs/'     
+          to: 'https://alumni.colby.edu/alumni-and-families/clubs/'     
           regexp: true
           code: 301
         '^/colbyalumni/events/?$': 
@@ -2140,11 +2140,11 @@
           regexp: true
           code: 301
         '^/colbyalumni/alumni-council/?$': 
-          to: 'https://alumni.colby.edu/alumni-and-families/alumni/alumni-council/'     
+          to: 'https://alumni.colby.edu/alumni-and-families/alumni-council/'     
           regexp: true
           code: 301
         '^/colbyalumni/alumni-council/nominations-for-alumni-awards/?$': 
-          to: 'https://alumni.colby.edu/alumni-and-families/alumni/alumni-awards/'     
+          to: 'https://alumni.colby.edu/alumni-and-families/alumni-awards/'     
           regexp: true
           code: 301
         '^/colbyalumni/host-your-own-colby-event/?$': 

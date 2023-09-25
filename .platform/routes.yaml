@@ -2087,6 +2087,10 @@
           to: '/colbyalumni/ways-to-give/'     
           regexp: true
           code: 301
+        '^/giving/?$': 
+          to: 'https://alumni.colby.edu/ways-to-give/'     
+          regexp: true
+          code: 301
         '^/reunion/?$': 
           to: 'https://alumni.colby.edu/events/reunion/'     
           regexp: true

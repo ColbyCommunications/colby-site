@@ -2127,10 +2127,6 @@
           to: 'https://alumni.colby.edu/clubs/'     
           regexp: true
           code: 301
-        '^/colbyalumni/clubs/?$': 
-          to: 'https://alumni.colby.edu/clubs/'     
-          regexp: true
-          code: 301
         '^/colbyalumni/events/?$': 
           to: 'https://alumni.colby.edu/events/'     
           regexp: true

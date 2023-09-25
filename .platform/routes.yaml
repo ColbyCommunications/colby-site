@@ -16,13 +16,12 @@
 # OFF SITE REDIRECTS
 # ------------------------------------
 # Admissions
-# Alumni
+# Advancement (including Alumni, DareNorthward, Truenorth, Giving, Parents, Reunion)
 # Athletics
 # AI
 # Allen & Benner Isalnds
 # CAH
 # Commencement
-# Dare Northward
 # Davis Connects
 # Goldfarb
 # Jewish Life
@@ -2067,9 +2066,9 @@
           to: 'https://afa.colby.edu/'     
           regexp: true
           code: 301
-  # Alumni
+  # Advancement (including Alumni, DareNorthward, Truenorth, Giving, Parents, Reunion)
         '^/alumni/?$':
-          to: '/colbyalumni/'     
+          to: 'https://alumni.colby.edu/'     
           regexp: true
           code: 301
         '^/campaign/?$':
@@ -2084,32 +2083,86 @@
           to: '/colbyalumni/ways-to-give/'     
           regexp: true
           code: 301
-  # Athletics
-        '^/athletics/?$':
-          to: 'https://colbyathletics.com/'     
+        '^/reunion/?$': 
+          to: 'https://alumni.colby.edu/events/reunion/'     
           regexp: true
           code: 301
-  # AI
-        '^/ai/?$':
-          to: 'https://davisinstituteai.colby.edu/'
+        '^/homecoming/?$': 
+          to: 'https://alumni.colby.edu/events/homecoming/'     
           regexp: true
           code: 301
-  # Allen & Benner Isalnds
-        '^/allenisland/?$':
-          to: 'https://islandcampus.colby.edu'
+        '^/homecoming/schedule/?$': 
+          to: 'https://alumni.colby.edu/events/homecoming/'     
           regexp: true
           code: 301
-  # CAH
-        '^/centerartshumanities/?(.*)$':
-          to: 'https://cah.colby.edu'
+        '^/parents/?$': 
+          to: 'https://alumni.colby.edu/alumni-and-families/families/'     
           regexp: true
           code: 301
-  # Commencement
-        '^/commencement/?$':
-          to: 'https://commencement.colby.edu'
+        '^/parents/parents-executive-committee-information-page/?$': 
+          to: 'https://alumni.colby.edu/alumni-and-families/families/pec/'     
           regexp: true
           code: 301
-  # Dare Northward
+        '^/colbyalumni/?$': 
+          to: 'https://alumni.colby.edu/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/update-your-info/?$': 
+          to: 'https://alumni.colby.edu/update-info/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/giving-to-colby/?$': 
+          to: 'https://alumni.colby.edu/ways-to-give/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/volunteer/?$': 
+          to: 'https://alumni.colby.edu/ways-to-give/volunteer/'     
+          regexp: true
+          code: 301
+        '^/give/?$': 
+          to: 'https://alumni.colby.edu/give/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/clubs/?$': 
+          to: 'https://alumni.colby.edu/clubs/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/clubs/?$': 
+          to: 'https://alumni.colby.edu/clubs/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/events/?$': 
+          to: 'https://alumni.colby.edu/events/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/alumni-council/?$': 
+          to: 'https://alumni.colby.edu/alumni-and-families/alumni/alumni-council/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/alumni-council/nominations-for-alumni-awards/?$': 
+          to: 'https://alumni.colby.edu/alumni-and-families/alumni/alumni-awards/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/host-your-own-colby-event/?$': 
+          to: 'https://alumni.colby.edu/events/host-an-event/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/alumni-council/bylaws/?$': 
+          to: 'https://alumni.colby.edu/alumni-and-families//bylaws/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/c-club/?$': 
+          to: 'https://alumni.colby.edu/alumni-and-families/clubs/c-club/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/c-club/awards/?$': 
+          to: 'https://alumni.colby.edu/alumni-and-families/clubs/c-club/'     
+          regexp: true
+          code: 301
+        '^/colbyalumni/uk-fund/?$': 
+          to: 'https://alumni.colby.edu/ways-to-give/'     
+          regexp: true
+          code: 301
         '^/eofymailer22/?$':
           to: 'https://darenorthward.colby.edu/give/'
           regexp: true
@@ -2148,6 +2201,31 @@
           code: 301
         '^TB22/?$':
           to: 'https://darenorthward.colby.edu/give/'
+          regexp: true
+          code: 301
+  # Athletics
+        '^/athletics/?$':
+          to: 'https://colbyathletics.com/'     
+          regexp: true
+          code: 301
+  # AI
+        '^/ai/?$':
+          to: 'https://davisinstituteai.colby.edu/'
+          regexp: true
+          code: 301
+  # Allen & Benner Isalnds
+        '^/allenisland/?$':
+          to: 'https://islandcampus.colby.edu'
+          regexp: true
+          code: 301
+  # CAH
+        '^/centerartshumanities/?(.*)$':
+          to: 'https://cah.colby.edu'
+          regexp: true
+          code: 301
+  # Commencement
+        '^/commencement/?$':
+          to: 'https://commencement.colby.edu'
           regexp: true
           code: 301
   # Davis Connects

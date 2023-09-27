@@ -7,7 +7,7 @@ name: app
 # The runtime the application uses.
 type: "php:8.0"
 
-size: L
+size: M
 
 # Configuration of the build of the application.
 build:
@@ -69,5 +69,5 @@ variables:
 # crons: !include project/platform/crons.yaml
 
 resources: 
-    base_memory: 256
+    base_memory: 128
     memory_ratio: 256

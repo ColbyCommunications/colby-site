@@ -43,10 +43,10 @@ async function main() {
     let index = client.initIndex(indicies[k].indexName);
     let hits = [];
 
-    if (indicies[k].indexName === "Identity Site") {
+    if (indicies[k].indexName === "Admissions") {
       await index.browseObjects({
         query: "",
-        attributesToRetrieve: ["title", "excerpt", "uri"],
+        attributesToRetrieve: ["title", "description", "url"],
         batch: (batch) => {
           hits = hits.concat(batch);
         },
@@ -92,15 +92,15 @@ async function main() {
           originIndexLabel: indicies[k].label,
           objectID: indicies[k].indexName + "-" + i,
         };
-      } else if (indicies[k].indexName === "Identity Site") {
+      } else if (indicies[k].indexName === "Admissions") {
         if (hits[i].title) {
           cleanedTitle = hits[i].title.replace(/<\/?[^>]+(>|$)/g, "");
         }
         result = {
           post_title: hits[i].title,
           cleaned_title: cleanedTitle,
-          content: hits[i].excerpt,
-          permalink: "https://identity.colby.edu" + hits[i].uri,
+          content: hits[i].description,
+          permalink: hits[i].url,
           originIndexLabel: indicies[k].label,
           objectID: indicies[k].indexName + "-" + i,
         };

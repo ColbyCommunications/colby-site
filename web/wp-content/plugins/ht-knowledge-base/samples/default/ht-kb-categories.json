@@ -1,0 +1,26 @@
+{
+	"name": "HeroThemes Default Sample Categories",
+	"version": "1.0.0",
+	"categories": [
+		{
+			"name": "Getting Started",
+			"description": "",
+			"icon": ""
+		},
+		{
+			"name": "Account Management",
+			"description": "",
+			"icon": ""
+		},
+		{
+			"name": "Copyright and Legal",
+			"description": "",
+			"icon": ""
+		},
+		{
+			"name": "Heroic Knowledge Base Plugin",
+			"description": "",
+			"icon": ""
+		}
+	]
+}

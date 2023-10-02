@@ -1,0 +1,10 @@
+{
+	"name": "HeroThemes Default Sample Settings",
+	"version": "1.0.0",
+	"settings": [
+		{
+			"key": "kb-transfer-url",
+			"value": "https://www.example.com/contact-support"
+		}
+	]
+}

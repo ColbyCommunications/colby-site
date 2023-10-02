@@ -1,0 +1,216 @@
+{
+	"name": "HeroThemes Default Sample Articles",
+	"version": "1.0.0",
+	"articles": [
+		{
+			"title": "How to Create an Account",
+			"source": "include",
+			/* "include": "articles/how-to-create-an-account", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "account", "getting-started" ]
+		},
+		{
+			"title": "Best Practices for Account Security",
+			"source": "include",
+			/* "include": "articles/best-practices-for-account-security", */
+			"include": "articles/sample-two.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "tips", "security" ]
+		},
+		{
+			"title": "Close an Account",
+			"source": "include",
+			/* "include": "articles/close-an-account", */
+			"include": "articles/sample-three.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "end", "close" ]
+		},
+		{
+			"title": "Edit Your Profile",
+			"source": "include",
+			/* "include": "articles/edit-your-profile", */
+			"include": "articles/sample-two.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "profile", "account" ]
+		},
+		{
+			"title": "Reactivate or Deactivate an Account",
+			"source": "include",
+			/* "include": "articles/reactivate-or-deactivate-an-account", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "reactivate", "new" ]
+		},
+		{
+			"title": "Recover Your Username or Password",
+			"source": "include",
+			/* "include": "articles/recover-your-username-or-password", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "password", "username", "password" ]
+		},
+		{
+			"title": "Export and Back Up Account Data",
+			"source": "include",
+			/* "include": "articles/export-and-back-up-account-data", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Account Settings" ],three
+			"tags": [ "import", "export", "backup" ]
+		},
+		{
+			"title": "Change Your Account Email Address",
+			"source": "include",
+			/* "include": "articles/change-your-account-email-address", */
+			"include": "articles/sample-two.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "profile", "email", "address" ]
+		},
+		{
+			"title": "How Do I Change My Email Notification Settings or Unsubscribe?",
+			"source": "include",
+			/* "include": "articles/how-do-i-change-my-email-notification-settings-or-unsubscribe", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "subscriptions", "notifications", "unsubscribe", "remove" ]
+		},
+		{
+			"title": "Forgot Your Password?",
+			"source": "include",
+			/* "include": "articles/forgot-your-password", */
+			"include": "articles/sample-three.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "password", "management" ]
+		},
+		{
+			"title": "How Do I Change My Timezone?",
+			"source": "include",
+			/* "include": "articles/how-do-i-change-my-timezone", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Account Settings" ],
+			"tags": [ "profile", "timezone", "time", "i18n" ]
+		},
+		{
+			"title": "Edit Your Account Privacy",
+			"source": "include",
+			/* "include": "articles/edit-your-account-privacy", */
+			"include": "articles/sample-two.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "profile", "privacy", "account" ]
+		},
+		{
+			"title": "How to Add Tags to Your Articles",
+			"source": "include",
+			/* "include": "articles/how-to-add-tags-to-your-articles", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "tags", "articles" ]
+		},
+		{
+			"title": "Setting up Categories in Your Knowledge Base",
+			"source": "include",
+			/* "include": "articles/setting-up-categories-in-your-knowledge-base", */
+			"include": "articles/sample-three.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "categories" ]
+		},
+		{
+			"title": "What Web Browsers Are Compatible?",
+			"source": "include",
+			/* "include": "articles/what-web-browsers-are-compatible", */
+			"include": "articles/sample-two.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "browser", "compatibility" ]
+		},
+		{
+			"title": "A Quick Look at the Dashboard",
+			"source": "include",
+			/* "include": "articles/a-quick-look-at-the-dashboard", */
+			"include": "articles/sample-two.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "getting-started", "dashboard" ]
+		},
+		{
+			"title": "How Do I See My Published Page?",
+			"source": "include",
+			/* "include": "articles/how-do-i-see-my-published-page", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "publishing" ]
+		},
+		{
+			"title": "How Can I Edit My Already Existing Page?",
+			"source": "include",
+			/* "include": "articles/how-can-i-edit-my-already-existing-page", */
+			"include": "articles/sample-three.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "editing", "articles" ]
+		},
+		{
+			"title": "How Does the 30 Day Money Back Guarantee Work?",
+			"source": "include",
+			/* "include": "articles/how-does-the-30-day-money-back-guarantee-work", */
+			"include": "articles/sample-two.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "money-back", "guarantee" ]
+		},
+		{
+			"title": "Getting Started: A Quick Guide",
+			"source": "include",
+			/* "include": "articles/getting-started-a-quick-guide", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "getting-started", "guide" ]
+		},
+		{
+			"title": "How to Enable Two-Step Verification",
+			"source": "include",
+			/* "include": "articles/how-to-enable-two-step-verification", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "two-factor", "security" ]
+		},
+		{
+			"title": "How Do I Get Started?",
+			"source": "include",
+			/* "include": "articles/how-do-i-get-started", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "getting-started" ]
+		},
+		{
+			"title": "Which Plan Is Right for Me?",
+			"source": "include",
+			/* "include": "articles/which-plan-is-right-for-me", */
+			"include": "articles/sample-one.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "plans", "pricing" ]
+		},
+		{
+			"title": "How Do I Set up My Team?",
+			"source": "include",
+			/* "include": "articles/how-do-i-set-up-my-team", */
+			"include": "articles/sample-three.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "team", "introduction" ]
+		},
+		{
+			"title": "How Does the Referral Program Work?",
+			"source": "include",
+			/* "include": "articles/how-does-the-referral-program-work", */
+			"include": "articles/sample-two.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "referral", "pricing" ]
+		},
+		{
+			"title": "Can I Reorder My Articles and Categories?",
+			"source": "include",
+			/* "include": "articles/can-i-reorder-my-articles-and-categories", */
+			"include": "articles/sample-three.php",
+			"categories": [ "Getting Started" ],
+			"tags": [ "ordering", "articles" ]
+		}		
+
+
+	]
+}

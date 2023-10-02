@@ -1,0 +1,3376 @@
+# Copyright (C) 2023 HeroThemes
+# This file is distributed under the same license as the Heroic Knowledge Base plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Heroic Knowledge Base 3.10.4-beta2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ht-knowledge-base\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-09-07T16:27:52+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: ht-knowledge-base\n"
+
+#. Plugin Name of the plugin
+#: blocks/v1/ht-kb-blocks.php:138
+#: php/ht-knowledge-base-site-health.php:28
+msgid "Heroic Knowledge Base"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://herothemes.com"
+msgstr ""
+
+#. Description of the plugin
+msgid "Knowledge Base plugin for WordPress"
+msgstr ""
+
+#. Author of the plugin
+msgid "HeroThemes"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://herothemes.com/"
+msgstr ""
+
+#: addons/heroic-kb-plus-addons.php:96
+msgid "Heroic KB Plus Addons works only with Heroic Knowledge Base plugin or the KnowAll theme package active, please <a href=\"%s\">activate a valid HeroThemes theme</a> or <a href=\"%s\">install/activate the Heroic Knowledge Base plugin</a>."
+msgstr ""
+
+#: addons/heroic-kb-pro-addons.php:97
+msgid "Heroic KB Pro Addons works only with Heroic Knowledge Base plugin or the KnowAll theme package active, please <a href=\"%s\">activate a valid HeroThemes theme</a> or <a href=\"%s\">install/activate the Heroic Knowledge Base plugin</a>."
+msgstr ""
+
+#: analytics-reporting/ht-knowledge-base-analytics-reporting.php:73
+#: analytics/ht-knowledge-base-analytics.php:85
+msgid "Heroic Knowledge Base Analytics"
+msgstr ""
+
+#: analytics-reporting/ht-knowledge-base-analytics-reporting.php:74
+#: analytics/inc/analytics-admin-page.php:12
+msgid "Analytics"
+msgstr ""
+
+#: analytics-reporting/ht-knowledge-base-analytics-reporting.php:129
+msgid "Heroic Knowledge Base Analytics Page loading..."
+msgstr ""
+
+#: analytics-reporting/ht-knowledge-base-analytics-reporting.php:133
+#: setup/inc/ht-kb-welcome-setup-page.php:164
+msgid "You do not have permission to view this page"
+msgstr ""
+
+#: analytics-reporting/ht-knowledge-base-analytics-reporting.php:169
+msgid "This is a new version of Analytics and Reporting for Heroic Knowledge Base, if you experience any issues, you can continue to use the <a href=\"%s\">old analytics pages here</a>."
+msgstr ""
+
+#: analytics-reporting/ht-knowledge-base-analytics-reporting.php:171
+msgid "Dismiss this message"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:321
+#: analytics/inc/analytics-admin-page-dash-tab.php:90
+#: analytics/inc/dynamic-stats.php:171
+msgid "Total Searches"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:324
+#: analytics/inc/analytics-admin-page-exits-tab.php:46
+#: analytics/inc/dynamic-stats.php:173
+msgid "Total Transfers"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:353
+#: analytics/inc/dynamic-stats.php:198
+msgid "Articles published between %s and %s"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:364
+#: analytics/inc/dynamic-stats.php:209
+msgid "Articles published before %s"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:375
+#: analytics/inc/dynamic-stats.php:220
+msgid "Articles published in this period between %s and %s"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:391
+#: analytics/inc/dynamic-stats.php:236
+msgid "Article views between %s and %s"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:461
+#: analytics/inc/dynamic-stats.php:304
+msgid "down"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:461
+#: analytics/inc/dynamic-stats.php:304
+msgid "up"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:482
+#: analytics/ht-knowledge-base-analytics.php:222
+msgid "Returned Results"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:482
+#: analytics/ht-knowledge-base-analytics.php:221
+#: hkb-templates/hkb-search-ajax.php:41
+#: hkb-templates/hkb-search.php:47
+msgid "No Results"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:484
+msgid "# of Searches"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:505
+#: analytics/inc/dynamic-stats.php:340
+#: ht-knowledge-base.php:447
+msgid "View"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:505
+#: analytics/inc/dynamic-stats.php:340
+#: ht-knowledge-base.php:444
+msgid "Edit"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:547
+msgid "Search Volume"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:623
+msgid "Votes"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:633
+msgid "%s Helpful"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:637
+msgid "%s Unhelpful"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:739
+#: analytics/inc/dynamic-stats.php:631
+msgid "No Title or Deleted Article"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:754
+#: analytics/inc/dynamic-stats.php:646
+msgid "Anonymous"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:764
+#: analytics/inc/dynamic-stats.php:656
+msgid "%s ago"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:848
+#: analytics/inc/dynamic-stats.php:742
+msgid "Total KB views between %s and %s"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:850
+#: analytics/inc/dynamic-stats.php:744
+msgid "Total KB exits between %s and %s"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:852
+#: analytics/inc/dynamic-stats.php:746
+msgid "Total KB exits percentage between %s and %s"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:898
+#: analytics/inc/dynamic-stats.php:782
+msgid "Archive Exits"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:902
+#: analytics/inc/dynamic-stats.php:786
+msgid "Article Exits"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:906
+#: analytics/inc/dynamic-stats.php:790
+msgid "Category Exits"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:911
+#: analytics/inc/dynamic-stats.php:795
+msgid "Unclassified Exits"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:919
+msgid "Number of Exits"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:951
+#: analytics/inc/dynamic-stats.php:824
+msgid "Unknown term"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:999
+#: analytics/inc/dynamic-stats.php:870
+msgid "Deleted article %s"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:1053
+#: analytics/inc/dynamic-stats.php:919
+msgid "Successfully deleted feedback ID %s"
+msgstr ""
+
+#: analytics-reporting/stats-server.php:1055
+#: analytics/inc/dynamic-stats.php:921
+msgid "No feedback ID or Post ID set"
+msgstr ""
+
+#: analytics/ht-knowledge-base-analytics.php:86
+msgid "Analytics Legacy"
+msgstr ""
+
+#: analytics/ht-knowledge-base-analytics.php:100
+msgid "Looks like you are missing Heroic Knowledge Base. This plugin will not work without it, please re-download or purchase it from <a href=\"%s\">the store.</a>"
+msgstr ""
+
+#: analytics/ht-knowledge-base-analytics.php:110
+msgid "Looks like you are running and older version of the Heroic Knowledge Base plugin, upgrade your plugin for the analytics module to work correctly"
+msgstr ""
+
+#: analytics/ht-knowledge-base-analytics.php:155
+msgid "Loading analytics data... please wait. If no data appears below after a short while, something may be blocking the analytics scripts. Please disable any browser add-ons for this page and try reloading."
+msgstr ""
+
+#: analytics/ht-knowledge-base-analytics.php:171
+msgid "This page outdated, please use the new <a href=\"%s\">Analytics and Reporting page</a>, it will be removed in future versions of Heroic Knoweledge Base"
+msgstr ""
+
+#: analytics/ht-knowledge-base-analytics.php:220
+msgid "Not enough data to report on"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-articles-tab.php:5
+msgid "Article Views"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-articles-tab.php:13
+#: analytics/inc/analytics-admin-page-feedback-tab.php:38
+#: ht-knowledge-base.php:1209
+#: php/ht-knowledge-base-settings.php:487
+msgid "Article"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-articles-tab.php:16
+#: voting/php/ht-voting-backend.php:101
+msgid "User"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-articles-tab.php:19
+msgid "Duration"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-authors-tab.php:5
+msgid "Author Rankings"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-authors-tab.php:13
+#: analytics/inc/analytics-admin-page-feedback-tab.php:40
+#: php/ht-knowledge-base-settings.php:1065
+msgid "Author"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-authors-tab.php:16
+msgid "Articles Published with votes"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-authors-tab.php:19
+msgid "Score"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-dash-tab.php:8
+msgid "Knowledge Base Searches vs Transfers Overview"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-dash-tab.php:34
+#: php/ht-knowledge-base-settings.php:502
+msgid "Article Feedback"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-dash-tab.php:44
+msgid "Voted Helpful"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-dash-tab.php:52
+msgid "Voted Unhelpful"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-dash-tab.php:61
+msgid "Article Success"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-dash-tab.php:80
+#: analytics/inc/analytics-admin-page-dash-tab.php:107
+msgid "Search Effectiveness"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-dash-tab.php:98
+msgid "Failed Searches"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-exits-tab.php:8
+msgid "Transfers Split %"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-exits-tab.php:28
+msgid "Transfer Overview"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-exits-tab.php:38
+#: hkb-templates/report-template-default.php:132
+msgid "Total Views"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-exits-tab.php:55
+msgid "Transfer Percentage"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-exits-tab.php:80
+msgid "Category Transfers"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-exits-tab.php:83
+#: analytics/inc/analytics-admin-page-exits-tab.php:115
+#: php/ht-knowledge-base-edit-columns.php:148
+#: php/ht-knowledge-base-settings.php:1079
+msgid "Views"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-exits-tab.php:86
+#: analytics/inc/analytics-admin-page-exits-tab.php:118
+#: analytics/inc/analytics-admin-page.php:89
+#: php/ht-knowledge-base-settings.php:505
+msgid "Transfers"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-exits-tab.php:89
+#: analytics/inc/analytics-admin-page-exits-tab.php:121
+msgid "Transfer %"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-exits-tab.php:112
+msgid "Articles Transfers"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-feedback-tab.php:2
+msgid "Responses"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-feedback-tab.php:29
+msgid "With Feedback Only"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-feedback-tab.php:37
+#: php/ht-knowledge-base-edit-columns.php:143
+#: php/ht-knowledge-base-settings.php:1093
+#: voting/php/ht-voting-backend.php:99
+#: widgets/widget-kb-authors.php:167
+msgid "Rating"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-feedback-tab.php:39
+#: analytics/inc/analytics-admin-page.php:79
+msgid "Feedback"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-feedback-tab.php:41
+#: php/ht-knowledge-base-settings.php:649
+#: voting/php/ht-voting-backend.php:100
+#: widgets/widget-kb-articles.php:293
+msgid "Date"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-feedback-tab.php:42
+msgid "Actions"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-search-tab.php:7
+msgid "Search Overview"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-search-tab.php:27
+msgid "Searches This Period"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-search-tab.php:53
+msgid "Null Searches"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-search-tab.php:56
+#: analytics/inc/analytics-admin-page-search-tab.php:79
+msgid "Count"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page-search-tab.php:76
+msgid "Popular Searches"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:18
+msgid "All Time"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:23
+msgid "Last 12 Months"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:28
+msgid "Last 90 Days"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:33
+msgid "Last 30 Days"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:38
+msgid "Last 7 Days"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:43
+msgid "Custom Period"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:67
+msgid "Dashboard"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:73
+msgid "Articles"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:84
+#: hkb-templates/hkb-searchbox.php:17
+#: ht-knowledge-base.php:448
+#: php/ht-knowledge-base-settings.php:490
+msgid "Search"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:95
+msgid "Authors"
+msgstr ""
+
+#: analytics/inc/analytics-admin-page.php:130
+#: php/ht-knowledge-base-settings.php:585
+msgid "Version %s"
+msgstr ""
+
+#: analytics/inc/analytics-dashboard-widgets.php:22
+msgid "Knowledge Base Stats"
+msgstr ""
+
+#: analytics/inc/analytics-dashboard-widgets.php:34
+msgid "%s Published Article"
+msgid_plural "%s Published Articles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: analytics/inc/analytics-dashboard-widgets.php:47
+msgid "%s Article Category"
+msgid_plural "%s Article Categories"
+msgstr[0] ""
+msgstr[1] ""
+
+#: analytics/inc/analytics-dashboard-widgets.php:55
+msgid "%s Total Article Views"
+msgstr ""
+
+#: analytics/inc/analytics-dashboard-widgets.php:63
+msgid "%s Satisfaction Rating"
+msgstr ""
+
+#: analytics/inc/analytics-dashboard-widgets.php:70
+msgid "View Knowledge Base"
+msgstr ""
+
+#: analytics/inc/underscores-analytics-templates.php:33
+msgid "No comments"
+msgstr ""
+
+#: analytics/inc/underscores-analytics-templates.php:37
+msgid "No one has left any comments for this period, please try selecting another date range."
+msgstr ""
+
+#: analytics/inc/underscores-analytics-templates.php:73
+msgid "Remove Response"
+msgstr ""
+
+#: analytics/inc/underscores-analytics-templates.php:74
+msgid "View Article"
+msgstr ""
+
+#: analytics/inc/underscores-analytics-templates.php:75
+msgid "Edit Article"
+msgstr ""
+
+#: analytics/inc/underscores-analytics-templates.php:87
+msgid "No items to display"
+msgstr ""
+
+#: analytics/inc/underscores-analytics-templates.php:105
+msgid "Previous"
+msgstr ""
+
+#: analytics/inc/underscores-analytics-templates.php:106
+#: php/ht-knowledge-base-template-helpers.php:558
+msgid "Next"
+msgstr ""
+
+#: embed/inc/embed-page-template.php:18
+msgid "Heroic Knowledge Base Embed is not enabled for this site"
+msgstr ""
+
+#: embed/inc/embed-page-template.php:91
+#: embed/inc/embed-page.php:34
+msgid "Heroic Knowledge Base Page Embed not enabled on this site, please check settings"
+msgstr ""
+
+#: embed/inc/embed-page.php:28
+msgid "Heroic Knowledge Base Page Embed Loading"
+msgstr ""
+
+#: embed/inc/settings.php:52
+msgid "Help Assistant"
+msgstr ""
+
+#: embed/inc/settings.php:149
+msgid "Help Assistant Options"
+msgstr ""
+
+#: embed/inc/settings.php:153
+msgid "Enable Help Assistant"
+msgstr ""
+
+#: embed/inc/settings.php:155
+msgid "Show Help Assistant on this Site"
+msgstr ""
+
+#: embed/inc/settings.php:159
+msgid "Add Help Assistant to External Site"
+msgstr ""
+
+#: embed/inc/settings.php:161
+msgid "Customize Help Assistant"
+msgstr ""
+
+#: embed/inc/settings.php:163
+msgid "Main Color"
+msgstr ""
+
+#: embed/inc/settings.php:179
+msgid "You must activate your license to enable the embed functionality, please enter and activate your license from the <a href=\"%s\">Licenses and Updates section</a> now."
+msgstr ""
+
+#: embed/inc/settings.php:186
+msgid "Use the Knowledge Base Help Assistant on this or another site"
+msgstr ""
+
+#: embed/inc/settings.php:200
+msgid "Enable the knowledge base embed functionality"
+msgstr ""
+
+#: embed/inc/settings.php:216
+msgid "Show embed on this site"
+msgstr ""
+
+#: embed/inc/settings.php:237
+msgid "Enter the web address of the target knowledge base server (that site must have the embed server enabled)"
+msgstr ""
+
+#: embed/inc/settings.php:238
+msgid "Leave this setting blank to use current site"
+msgstr ""
+
+#: embed/inc/settings.php:248
+msgid "Show Snippet"
+msgstr ""
+
+#: embed/inc/settings.php:250
+msgid "Copy and paste this into the footer (eg footer.php) of the site where you wish to embed the knowledge base"
+msgstr ""
+
+#: embed/inc/settings.php:283
+msgid "Color of Help Assistant"
+msgstr ""
+
+#: exits/ht-kb-exits.php:91
+msgid "Heroic Knowledge Base Exits table does not exist, please <a href=\"%s\">Deactivate</a> then re-Activate the Heroic Knowledge Base plugin"
+msgstr ""
+
+#: exits/php/ht-kb-exits-dummy-data-creator.php:33
+msgid "Dummy Exits"
+msgstr ""
+
+#: exits/php/ht-kb-exits-dummy-data-creator.php:45
+msgid "This article"
+msgstr ""
+
+#: exits/php/ht-kb-exits-dummy-data-creator.php:46
+msgid "All articles"
+msgstr ""
+
+#: exits/php/ht-kb-exits-dummy-data-creator.php:47
+msgid "All categories"
+msgstr ""
+
+#: exits/php/ht-kb-exits-dummy-data-creator.php:48
+msgid "HKB archive"
+msgstr ""
+
+#: exits/php/ht-kb-exits-dummy-data-creator.php:51
+msgid "Add dummy exits?"
+msgstr ""
+
+#: exits/php/ht-kb-exits-dummy-data-creator.php:51
+msgid "Add Exits"
+msgstr ""
+
+#: exits/php/ht-kb-exits-dummy-data-creator.php:100
+msgid "Inserted %s dummy exits on %s"
+msgstr ""
+
+#: exits/php/ht-kb-exits-shortcodes.php:39
+#: hkb-templates/hkb-exit.php:14
+msgid "Not the solution you were looking for?"
+msgstr ""
+
+#: exits/php/ht-kb-exits-shortcodes.php:40
+msgid "Click the link below to submit a support ticket"
+msgstr ""
+
+#: exits/php/ht-kb-exits-shortcodes.php:41
+#: hkb-templates/hkb-exit.php:22
+msgid "Submit Ticket"
+msgstr ""
+
+#: exits/php/widget-kb-exits.php:36
+msgid "Knowledge Base Exit Point"
+msgstr ""
+
+#: exits/php/widget-kb-exits.php:39
+msgid "A widget for displaying an exit for the knowledge base (such as support ticket system)"
+msgstr ""
+
+#: exits/php/widget-kb-exits.php:44
+#: php/ht-knowledge-base-settings-upgrade.php:361
+#: php/ht-knowledge-base-settings-upgrade.php:411
+#: php/ht-knowledge-base-settings-upgrade.php:456
+msgid "Need Support?"
+msgstr ""
+
+#: exits/php/widget-kb-exits.php:45
+msgid "Can&#8217;t find the answer you&#8217;re looking for? Don&#8217;t worry we&#8217;re here to help!"
+msgstr ""
+
+#: exits/php/widget-kb-exits.php:46
+#: php/ht-knowledge-base-settings-upgrade.php:349
+#: php/ht-knowledge-base-settings-upgrade.php:363
+#: php/ht-knowledge-base-settings-upgrade.php:413
+#: php/ht-knowledge-base-settings-upgrade.php:458
+msgid "Contact Support"
+msgstr ""
+
+#: exits/php/widget-kb-exits.php:198
+#: php/ht-knowledge-base-settings.php:650
+#: widgets/widget-kb-articles.php:264
+#: widgets/widget-kb-articles.php:294
+#: widgets/widget-kb-authors.php:220
+#: widgets/widget-kb-search.php:103
+#: widgets/widget-kb-toc.php:167
+msgid "Title"
+msgstr ""
+
+#: exits/php/widget-kb-exits.php:203
+msgid "Text"
+msgstr ""
+
+#: exits/php/widget-kb-exits.php:208
+msgid "Button Text"
+msgstr ""
+
+#: exits/php/widget-kb-exits.php:213
+msgid "Link URL (leave blank for default Knowledge Base setting url)"
+msgstr ""
+
+#: hkb-templates/hkb-archive.php:25
+msgid "Help Topics"
+msgstr ""
+
+#: hkb-templates/hkb-content-archive.php:46
+#: hkb-templates/hkb-subcategories.php:38
+msgid "1 Article"
+msgid_plural "%s Articles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: hkb-templates/hkb-content-archive.php:70
+msgid "View all"
+msgstr ""
+
+#: hkb-templates/hkb-content-archive.php:86
+msgid "Uncategorized"
+msgstr ""
+
+#: hkb-templates/hkb-content-archive.php:106
+msgid "There are no published articles... yet"
+msgstr ""
+
+#: hkb-templates/hkb-content-taxonomy.php:54
+msgid "No articles in this category."
+msgstr ""
+
+#: hkb-templates/hkb-entry-content.php:18
+msgid "Pages:"
+msgstr ""
+
+#: hkb-templates/hkb-exit.php:18
+msgid "You can submit a ticket in our help center"
+msgstr ""
+
+#: hkb-templates/hkb-search-ajax.php:34
+msgid "Show all results"
+msgstr ""
+
+#: hkb-templates/hkb-search.php:49
+msgid "Your search for \"%s\" returned no results. Perhaps try something else?"
+msgstr ""
+
+#: hkb-templates/hkb-searchbox.php:13
+#: widgets/widget-kb-search.php:66
+msgid "Search For"
+msgstr ""
+
+#: hkb-templates/hkb-single-attachments.php:17
+msgid "Article Attachments"
+msgstr ""
+
+#: hkb-templates/hkb-single-attachments.php:22
+msgid "Attachment"
+msgstr ""
+
+#: hkb-templates/hkb-single-author.php:14
+msgid "About The Author"
+msgstr ""
+
+#: hkb-templates/hkb-single-author.php:29
+msgid "%s has not written a bio yet"
+msgstr ""
+
+#: hkb-templates/hkb-single-related.php:15
+msgid "Related Articles"
+msgstr ""
+
+#: hkb-templates/hkb-single-tags.php:11
+msgid "Tagged: "
+msgstr ""
+
+#: hkb-templates/hkb-voting-form.php:21
+#: hkb-templates/hkb-voting-form.php:22
+msgid "You must log in to vote"
+msgstr ""
+
+#: hkb-templates/hkb-voting-form.php:31
+msgid "Yes"
+msgstr ""
+
+#: hkb-templates/hkb-voting-form.php:37
+msgid "No"
+msgstr ""
+
+#: hkb-templates/hkb-voting-form.php:45
+msgid "Thanks for your feedback, add a comment here to help improve the article"
+msgstr ""
+
+#: hkb-templates/hkb-voting-form.php:51
+msgid "Send Feedback"
+msgstr ""
+
+#: hkb-templates/hkb-voting-form.php:54
+#: voting/ht-voting.php:399
+msgid "Thanks for your feedback"
+msgstr ""
+
+#: hkb-templates/hkb-voting-single.php:11
+msgid "Was this article helpful?"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:13
+#: hkb-templates/report-template-default.php:123
+msgid "Your Knowledge Base Report"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:109
+msgid "Your weekly knowledge base report."
+msgstr ""
+
+#: hkb-templates/report-template-default.php:125
+msgid "Here's how your knowledge base performed in the past week."
+msgstr ""
+
+#: hkb-templates/report-template-default.php:135
+#: hkb-templates/report-template-default.php:142
+msgid "vs previous period"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:139
+msgid "Average Rating"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:150
+msgid "Top Articles"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:154
+#: hkb-templates/report-template-default.php:171
+msgid "View More"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:167
+msgid "Highest Rated Articles"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:180
+msgid "What do you think of your new Knowledge Base report? Let us know your <a href=\"%s\">thoughts</a>"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:204
+msgid "Don't like these emails?"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:204
+msgid "Unsubscribe"
+msgstr ""
+
+#: hkb-templates/report-template-default.php:209
+msgid "Powered by Heroic Knowledge Base."
+msgstr ""
+
+#: ht-knowledge-base.php:426
+msgctxt "Post Type Singular Name"
+msgid "Article"
+msgstr ""
+
+#: ht-knowledge-base.php:427
+msgctxt "Post Type Plural Name"
+msgid "Articles"
+msgstr ""
+
+#: ht-knowledge-base.php:428
+#: php/ht-knowledge-base-settings.php:466
+msgid "Heroic KB"
+msgstr ""
+
+#: ht-knowledge-base.php:442
+#: ht-knowledge-base.php:443
+msgid "Add New"
+msgstr ""
+
+#: ht-knowledge-base.php:445
+msgid "New"
+msgstr ""
+
+#: ht-knowledge-base.php:446
+#: widgets/widget-kb-articles.php:274
+msgid "All"
+msgstr ""
+
+#: ht-knowledge-base.php:449
+msgid "No %s found"
+msgstr ""
+
+#: ht-knowledge-base.php:450
+msgid "No %s found in trash"
+msgstr ""
+
+#: ht-knowledge-base.php:502
+#: ht-knowledge-base.php:740
+#: ht-knowledge-base.php:1193
+#: ht-knowledge-base.php:2056
+#: ht-knowledge-base.php:2058
+msgid "Knowledge Base"
+msgstr ""
+
+#: ht-knowledge-base.php:515
+msgctxt "Taxonomy General Name"
+msgid "Article Categories"
+msgstr ""
+
+#: ht-knowledge-base.php:516
+msgctxt "Taxonomy Singular Name"
+msgid "Article Category"
+msgstr ""
+
+#: ht-knowledge-base.php:517
+#: php/ht-knowledge-base-settings.php:1149
+msgid "Article Categories"
+msgstr ""
+
+#: ht-knowledge-base.php:518
+msgid "All Article Categories"
+msgstr ""
+
+#: ht-knowledge-base.php:519
+msgid "Parent Article Category"
+msgstr ""
+
+#: ht-knowledge-base.php:520
+msgid "Parent Article Category:"
+msgstr ""
+
+#: ht-knowledge-base.php:521
+msgid "New Article Category"
+msgstr ""
+
+#: ht-knowledge-base.php:522
+msgid "Add New Article Category"
+msgstr ""
+
+#: ht-knowledge-base.php:523
+msgid "Edit Article Category"
+msgstr ""
+
+#: ht-knowledge-base.php:524
+msgid "Update Article Category"
+msgstr ""
+
+#: ht-knowledge-base.php:525
+msgid "Separate Article Categories with commas"
+msgstr ""
+
+#: ht-knowledge-base.php:526
+msgid "Search Article Categories"
+msgstr ""
+
+#: ht-knowledge-base.php:527
+msgid "Add or remove categories"
+msgstr ""
+
+#: ht-knowledge-base.php:528
+msgid "Choose from the most used categories"
+msgstr ""
+
+#: ht-knowledge-base.php:568
+msgid "Knowledge Base Tag"
+msgstr ""
+
+#: ht-knowledge-base.php:581
+msgctxt "Taxonomy General Name"
+msgid "Article Tags"
+msgstr ""
+
+#: ht-knowledge-base.php:582
+msgctxt "Taxonomy Singular Name"
+msgid "Article Tag"
+msgstr ""
+
+#: ht-knowledge-base.php:583
+#: php/ht-knowledge-base-settings.php:1163
+msgid "Article Tags"
+msgstr ""
+
+#: ht-knowledge-base.php:584
+msgid "All Tags"
+msgstr ""
+
+#: ht-knowledge-base.php:585
+msgid "Parent Tag"
+msgstr ""
+
+#: ht-knowledge-base.php:586
+msgid "Parent Tag:"
+msgstr ""
+
+#: ht-knowledge-base.php:587
+msgid "New Tag Name"
+msgstr ""
+
+#: ht-knowledge-base.php:588
+msgid "Add New Tag"
+msgstr ""
+
+#: ht-knowledge-base.php:589
+msgid "Edit Tag"
+msgstr ""
+
+#: ht-knowledge-base.php:590
+msgid "Update Tag"
+msgstr ""
+
+#: ht-knowledge-base.php:591
+msgid "Separate tags with commas"
+msgstr ""
+
+#: ht-knowledge-base.php:592
+msgid "Search tags"
+msgstr ""
+
+#: ht-knowledge-base.php:593
+msgid "Add or remove tags"
+msgstr ""
+
+#: ht-knowledge-base.php:594
+msgid "Choose from the most used tags"
+msgstr ""
+
+#: ht-knowledge-base.php:682
+msgid "You need upgrade your Knowledge Base database, <a href=\"%s\">Deactivate</a> then re-Activate the Heroic Knowledge Base plugin"
+msgstr ""
+
+#: ht-knowledge-base.php:745
+msgid "Untitled Article"
+msgstr ""
+
+#: ht-knowledge-base.php:863
+msgid "The Heroic Voting plugin is required to use voting features | <a href=\"%1$s\">Hide Notice</a>"
+msgstr ""
+
+#: ht-knowledge-base.php:889
+msgid "The Heroic Knowledge Base Analytics plugin is active and is no longer required | Please <a href=\"%1$s\">Deactivate the Heroic Analytics Plugin</a>"
+msgstr ""
+
+#: ht-knowledge-base.php:911
+msgid "The Heroic Knowledge Base encourages both front end and back end are served over the same protocols - either SSL (https) or plain (http) | Please <a href=\"%1$s\">Update your Site Addresses</a>"
+msgstr ""
+
+#: ht-knowledge-base.php:940
+msgid "An old version of Heroic Voting plugin was detected and deactivated, please remove the Heroic Voting plugin and ht-voting folder"
+msgstr ""
+
+#: ht-knowledge-base.php:972
+msgid "The database needs updating, please refresh this page to complete the database update"
+msgstr ""
+
+#: ht-knowledge-base.php:1012
+msgid "Heroic KB has been upgraded. Please run the <a href=\"%s\">Heroic KB Setup Assistant</a> to ensure packaged plugins are updated."
+msgstr ""
+
+#: ht-knowledge-base.php:1060
+msgid "%s Knowledge Base Archive Page"
+msgstr ""
+
+#: ht-knowledge-base.php:1229
+#: ht-knowledge-base.php:1919
+#: ht-knowledge-base.php:1921
+#: ht-knowledge-base.php:2018
+#: ht-knowledge-base.php:2020
+msgid "Search Results for %s"
+msgstr ""
+
+#: ht-knowledge-base.php:1596
+msgid "This article has no knowledge base categories set, it will appear as uncategorized"
+msgstr ""
+
+#: ht-knowledge-base.php:1628
+msgid "It looks like you have no Knowledge Base articles, you can <a href=\"%s\">add new article now</a>, or install the demo content from the <a href=\"%s\">setup assistant</a>."
+msgstr ""
+
+#: ht-knowledge-base.php:1648
+msgid "HKB_DEBUG_SCRIPTS is enabled, please turn off for production environments"
+msgstr ""
+
+#: ht-knowledge-base.php:1656
+msgid "HKB_TESTING_MODE is enabled, please turn off for production environments"
+msgstr ""
+
+#: ht-knowledge-base.php:1676
+msgid "It looks like you have no default KB Home page set, the knowledge base may not work correctly. You can <a href=\"%s\">set this now</a>, or install the demo content from the <a href=\"%s\">welcome screen</a>."
+msgstr ""
+
+#: ht-knowledge-base.php:1696
+msgid "Heroic Knowledge Base plugin needs to be used with the theme it is packaged with, please <a href=\"%s\">activate a valid HeroThemes theme</a>"
+msgstr ""
+
+#: ht-knowledge-base.php:1715
+#: php/ht-knowledge-base-settings.php:56
+msgid "Settings"
+msgstr ""
+
+#: ht-knowledge-base.php:1742
+#: setup/inc/ht-kb-welcome-setup-page.php:123
+msgid "Setup Assistant"
+msgstr ""
+
+#: ht-knowledge-base.php:1746
+msgid "Support and Documentation"
+msgstr ""
+
+#: ht-knowledge-base.php:1905
+#: ht-knowledge-base.php:1949
+#: ht-knowledge-base.php:2088
+#: ht-knowledge-base.php:2114
+msgid "View all posts in %s"
+msgstr ""
+
+#: ht-knowledge-base.php:1996
+msgid "Back to  %s"
+msgstr ""
+
+#: ht-knowledge-base.php:2046
+#: ht-knowledge-base.php:2048
+msgid "Home"
+msgstr ""
+
+#: ht-knowledge-base.php:2425
+msgid "There is no excerpt because this is a protected post."
+msgstr ""
+
+#: ht-knowledge-base.php:2517
+msgid "..."
+msgstr ""
+
+#: php/ht-knowledge-base-analytics-core.php:354
+msgid "The search analytics table does not exist or is missing columns, please deactivate and re-activate the knowledge base plugin"
+msgstr ""
+
+#: php/ht-knowledge-base-article-helpers.php:53
+msgid "Most Helpful Article"
+msgstr ""
+
+#: php/ht-knowledge-base-article-helpers.php:104
+msgid "Most Viewed Article"
+msgstr ""
+
+#: php/ht-knowledge-base-article-helpers.php:149
+msgid "Most Helpful User"
+msgstr ""
+
+#: php/ht-knowledge-base-article-meta-display.php:144
+#: php/ht-knowledge-base-edit-columns.php:117
+#: php/ht-knowledge-base-reading-time.php:175
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: php/ht-knowledge-base-article-meta-display.php:217
+msgid "Print Article"
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:38
+msgid "Article Order"
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:39
+#: php/ht-knowledge-base-article-ordering.php:75
+msgid "Article Ordering"
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:79
+#: php/ht-knowledge-base-category-ordering.php:196
+msgid "Javascript must be enabled to use this page"
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:88
+msgid "Category:"
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:107
+msgid "No articles in this category"
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:129
+#: php/ht-knowledge-base-category-ordering.php:231
+msgid "Save Order"
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:161
+msgid "Article Order updated sucessfully"
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:166
+msgid "Article Order cannot be updated"
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:190
+msgid "You must set the Knowledge Base <strong>Sort By</strong> to <strong>Custom</strong> to enable article ordering. "
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:191
+msgid "You can do this now from the <a href=\"%s\">Knowledge Base General Settings page</a>."
+msgstr ""
+
+#: php/ht-knowledge-base-article-ordering.php:204
+#: php/ht-knowledge-base-category-meta.php:197
+#: php/ht-knowledge-base-category-ordering.php:345
+msgid "Error saving orders"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:47
+#: php/ht-knowledge-base-category-meta.php:127
+msgid "Custom Link"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:50
+#: php/ht-knowledge-base-category-meta.php:132
+msgid "Set a custom link to override the category archive display (default: leave blank for category archive)"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:55
+#: php/ht-knowledge-base-category-meta.php:137
+msgid "Category Image"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:61
+msgid "attachment ID"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:64
+#: php/ht-knowledge-base-category-meta.php:150
+#: php/ht-knowledge-base-category-meta.php:203
+msgid "Choose or Upload an Image"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:65
+#: php/ht-knowledge-base-category-meta.php:151
+msgid "Remove Image"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:71
+#: php/ht-knowledge-base-category-meta.php:157
+msgid "Category Color"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:77
+#: php/ht-knowledge-base-category-meta.php:167
+msgid "Category Access"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:86
+msgid "Set who can view this knowledge base category"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:87
+#: php/ht-knowledge-base-category-meta.php:178
+msgid "Tip - Current General Knowledge Base Access is set to %s"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:152
+msgid "This will be displayed in various places in the Knowledge Base"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:177
+msgid "This will restrict access to this category"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:204
+msgid "Use this image"
+msgstr ""
+
+#: php/ht-knowledge-base-category-meta.php:206
+msgid "Knowledge Base Icon"
+msgstr ""
+
+#: php/ht-knowledge-base-category-ordering.php:108
+msgid "Show All Categories"
+msgstr ""
+
+#: php/ht-knowledge-base-category-ordering.php:146
+msgid "Order"
+msgstr ""
+
+#: php/ht-knowledge-base-category-ordering.php:171
+#: php/ht-knowledge-base-category-ordering.php:205
+msgid "Category Order"
+msgstr ""
+
+#: php/ht-knowledge-base-category-ordering.php:172
+msgid "Category Ordering"
+msgstr ""
+
+#: php/ht-knowledge-base-category-ordering.php:192
+msgid "Article Category Ordering"
+msgstr ""
+
+#: php/ht-knowledge-base-category-ordering.php:211
+msgid "Drag and drop the categories to re-order how they appear in the knowledge base archives"
+msgstr ""
+
+#: php/ht-knowledge-base-category-ordering.php:327
+msgid "Category Order updated sucessfully"
+msgstr ""
+
+#: php/ht-knowledge-base-category-ordering.php:332
+msgid "Category Order cannot be updated"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:65
+#: php/ht-knowledge-base-data-tools.php:89
+msgid "Data Tools"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:67
+msgid "Are you sure you want to clear all knowledge base analytics data now?"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:67
+msgid "Purge All Analytics Data"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:69
+msgid "Are you sure you want to clear all knowledge base search history data now?"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:69
+msgid "Purge Search Data"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:71
+msgid "Are you sure you want to clear all knowledge base voting data now?"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:71
+msgid "Purge Voting Data"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:73
+msgid "Are you sure you want to clear all knowledge base transfers data now?"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:73
+msgid "Purge Transfers Data"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:75
+msgid "Are you sure you want to clear all knowledge base view data now?"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:75
+msgid "Purge Views Data"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:77
+msgid "Are you sure you want to recalculate usefulness for all articles now?"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:77
+msgid "Recalculate Article Usefulness"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:79
+msgid "Are you sure you want to recalculate views for all articles now?"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:79
+msgid "Recalculate Article Views"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:81
+msgid "Are you sure you want to delete votes for deleted articles now?"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:81
+msgid "Delete Votes for Deleted Articles"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:83
+msgid "Are you sure you want to recalculate reading time for all articles now?"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:83
+msgid "Recalculate Reading Time"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:90
+msgid "Missing required permissions for Heroic Knowledge Base data tools management"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:174
+msgid "User missing required permissions for knowledge base data operations"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:208
+msgid "Analytics search table successfully purged"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:210
+msgid "Unable to purge analytics search table"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:213
+msgid "Analytics search table does not exist"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:221
+msgid "Analytics search atomic table successfully purged"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:223
+msgid "Unable to purge analytics search atomic table"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:226
+msgid "Analytics search atomic table does not exist"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:234
+msgid "Analytics search recent table successfully purged"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:236
+msgid "Unable to purge analytics search recent table"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:239
+msgid "Analytics search recent table does not exist"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:254
+msgid "Voting table successfully purged"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:256
+msgid "Unable to purge voting table"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:259
+#: php/ht-knowledge-base-data-tools.php:339
+msgid "Voting table does not exist"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:274
+msgid "Exits table successfully purged"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:276
+msgid "Unable to purge exits table"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:279
+msgid "Exits table does not exist"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:292
+msgid "Visits table successfully purged"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:294
+msgid "Unable to purge visits table"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:297
+msgid "Visits table does not exist"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:316
+#: php/ht-knowledge-base-data-tools.php:387
+msgid "Article views successfully updated"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:318
+msgid "View count functionality not found"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:321
+#: php/ht-knowledge-base-data-tools.php:392
+msgid "Something went wrong updating article views"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:334
+msgid "Deleted articles votes have been removed"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:336
+msgid "Nothing to clean up or unable to purge deleted articles votes"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:363
+msgid "Article usefulness successfully updated"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:365
+msgid "Voting functionality not found"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:368
+msgid "Something went wrong updating article usefulness"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:389
+msgid "Views functionality not found"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:411
+msgid "Article reading time successfully updated"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:413
+msgid "Reading time functionality not found"
+msgstr ""
+
+#: php/ht-knowledge-base-data-tools.php:416
+msgid "Something went wrong updating article reading time"
+msgstr ""
+
+#: php/ht-knowledge-base-debug-info.php:38
+msgid "Heroic Knowledge Debug Info"
+msgstr ""
+
+#: php/ht-knowledge-base-debug-info.php:39
+#: php/ht-knowledge-base-settings.php:588
+msgid "Debug"
+msgstr ""
+
+#: php/ht-knowledge-base-debug-info.php:54
+msgid "Heroic Knowledge Base Debug Info"
+msgstr ""
+
+#: php/ht-knowledge-base-debug-info.php:57
+msgid "Debug Info is now available from the <a href=\"%s\">Site Health Panel</a>."
+msgstr ""
+
+#: php/ht-knowledge-base-edit-columns.php:58
+msgid "%s person viewed this article"
+msgid_plural "%s people viewed this article"
+msgstr[0] ""
+msgstr[1] ""
+
+#: php/ht-knowledge-base-edit-columns.php:71
+msgid "%s"
+msgid_plural "%s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: php/ht-knowledge-base-edit-columns.php:101
+#: php/ht-knowledge-base-edit-columns.php:255
+msgid "%s upvotes / %s downvotes"
+msgstr ""
+
+#: php/ht-knowledge-base-edit-columns.php:138
+msgid "Attachment(s)"
+msgstr ""
+
+#: php/ht-knowledge-base-edit-columns.php:153
+#: php/ht-knowledge-base-settings.php:1135
+msgid "Reading Time"
+msgstr ""
+
+#: php/ht-knowledge-base-icons.php:63
+msgid "Select an Icon"
+msgstr ""
+
+#: php/ht-knowledge-base-live-search.php:167
+msgid "Keep typing for live search results"
+msgstr ""
+
+#: php/ht-knowledge-base-live-search.php:226
+msgid "Do not use ht_knowledge_base_activate_live_search() directly, use do_action('ht_knowledge_base_activate_live_search') instead"
+msgstr ""
+
+#: php/ht-knowledge-base-meta-boxes.php:49
+#: php/ht-knowledge-base-settings.php:141
+msgid "Article Options"
+msgstr ""
+
+#: php/ht-knowledge-base-meta-boxes.php:65
+msgid "Attachments"
+msgstr ""
+
+#: php/ht-knowledge-base-meta-boxes.php:66
+msgid "Add attachments to this article"
+msgstr ""
+
+#: php/ht-knowledge-base-meta-boxes.php:74
+msgid "Attachments in New Window"
+msgstr ""
+
+#: php/ht-knowledge-base-meta-boxes.php:75
+msgid "Open attachments in a new window"
+msgstr ""
+
+#: php/ht-knowledge-base-meta-boxes.php:122
+msgid "Article Stats"
+msgstr ""
+
+#: php/ht-knowledge-base-meta-boxes.php:134
+msgid "Views:"
+msgstr ""
+
+#: php/ht-knowledge-base-meta-boxes.php:138
+msgid "Rating:"
+msgstr ""
+
+#: php/ht-knowledge-base-meta-boxes.php:142
+msgid "Attachments:"
+msgstr ""
+
+#: php/ht-knowledge-base-reading-time.php:178
+msgid "Reading Time:"
+msgstr ""
+
+#: php/ht-knowledge-base-report-helpers.php:206
+msgid "%s%%"
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:107
+#: php/ht-knowledge-base-reports-settings.php:122
+msgid "Email Reports"
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:108
+msgid "Enable Email Reports"
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:109
+msgid "Report Recipients"
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:110
+msgid "Enable HTML Reports"
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:111
+#: php/ht-knowledge-base-reports-settings.php:223
+msgid "Preview Report"
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:165
+msgid "You must activate your license to enable the reports functionality, please enter and activate your license from the <a href=\"%s\">Licenses and Updates section</a> now."
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:180
+#: php/ht-knowledge-base-reports-settings.php:195
+#: php/ht-knowledge-base-reports-settings.php:212
+#: php/ht-knowledge-base-settings.php:629
+#: php/ht-knowledge-base-settings.php:644
+#: php/ht-knowledge-base-settings.php:667
+#: php/ht-knowledge-base-settings.php:685
+#: php/ht-knowledge-base-settings.php:699
+#: php/ht-knowledge-base-settings.php:713
+#: php/ht-knowledge-base-settings.php:743
+#: php/ht-knowledge-base-settings.php:781
+#: php/ht-knowledge-base-settings.php:796
+#: php/ht-knowledge-base-settings.php:816
+#: php/ht-knowledge-base-settings.php:831
+#: php/ht-knowledge-base-settings.php:859
+#: php/ht-knowledge-base-settings.php:874
+#: php/ht-knowledge-base-settings.php:892
+#: php/ht-knowledge-base-settings.php:906
+#: php/ht-knowledge-base-settings.php:920
+#: php/ht-knowledge-base-settings.php:943
+#: php/ht-knowledge-base-settings.php:957
+#: php/ht-knowledge-base-settings.php:971
+#: php/ht-knowledge-base-settings.php:985
+#: php/ht-knowledge-base-settings.php:999
+#: php/ht-knowledge-base-settings.php:1013
+#: php/ht-knowledge-base-settings.php:1032
+#: php/ht-knowledge-base-settings.php:1046
+#: php/ht-knowledge-base-settings.php:1060
+#: php/ht-knowledge-base-settings.php:1074
+#: php/ht-knowledge-base-settings.php:1088
+#: php/ht-knowledge-base-settings.php:1102
+#: php/ht-knowledge-base-settings.php:1116
+#: php/ht-knowledge-base-settings.php:1130
+#: php/ht-knowledge-base-settings.php:1144
+#: php/ht-knowledge-base-settings.php:1158
+#: php/ht-knowledge-base-settings.php:1172
+#: php/ht-knowledge-base-settings.php:1197
+#: php/ht-knowledge-base-settings.php:1211
+#: php/ht-knowledge-base-settings.php:1226
+#: php/ht-knowledge-base-settings.php:1240
+#: php/ht-knowledge-base-settings.php:1254
+#: php/ht-knowledge-base-settings.php:1278
+#: php/ht-knowledge-base-settings.php:1295
+#: php/ht-knowledge-base-settings.php:1310
+#: php/ht-knowledge-base-settings.php:1334
+#: php/ht-knowledge-base-settings.php:1365
+#: php/ht-knowledge-base-settings.php:1396
+#: php/ht-knowledge-base-settings.php:1426
+#: php/ht-knowledge-base-settings.php:1451
+#: php/ht-knowledge-base-settings.php:1465
+#: php/ht-knowledge-base-settings.php:1480
+#: php/ht-knowledge-base-settings.php:1500
+#: php/ht-knowledge-base-settings.php:1518
+#: php/ht-knowledge-base-settings.php:1547
+#: php/ht-knowledge-base-settings.php:1627
+#: php/ht-knowledge-base-settings.php:1657
+#: php/ht-knowledge-base-settings.php:1670
+#: php/ht-knowledge-base-settings.php:1683
+#: php/ht-knowledge-base-settings.php:1696
+#: php/ht-knowledge-base-settings.php:1719
+#: php/ht-knowledge-base-settings.php:1732
+#: php/ht-knowledge-base-settings.php:1750
+#: php/ht-knowledge-base-settings.php:1801
+msgid "-"
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:185
+msgid "Send weekly reports"
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:200
+msgid "Email Addresses of recipients, separate multiple addresses with a comma"
+msgstr ""
+
+#: php/ht-knowledge-base-reports-settings.php:217
+msgid "Enable HTML format (recommended)"
+msgstr ""
+
+#: php/ht-knowledge-base-reports.php:88
+msgid "Your Weekly Knowledge Base Report for %s"
+msgstr ""
+
+#: php/ht-knowledge-base-reports.php:127
+msgid "Heroic Knowledge Base Report Preview"
+msgstr ""
+
+#: php/ht-knowledge-base-reports.php:136
+msgid "Preview of Knowledge Base Report for %s"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:54
+msgid "Public"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:56
+msgid "Logged In"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:348
+msgid "This content is not available"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:354
+msgid "You must log in to view this article"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:413
+#: php/ht-knowledge-base-restrict-access.php:419
+msgid "Private article"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:444
+msgid "Article is not restricted, all users can view this article"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:470
+msgid "Only users that can read private posts can view an article in this category (%s)"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:478
+msgid "The user must log in to view an article in this category (%s)"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:490
+msgid "A password is required to view this article"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:495
+msgid "This is a private article, only you and editors can see it"
+msgstr ""
+
+#: php/ht-knowledge-base-restrict-access.php:501
+msgid "The entire knowledge base is hidden to non logged-in users"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:52
+msgid "Knowldge Base Data Removed"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:60
+msgid "Knowldge Base Sample Data Imported (%d Categories and %d Articles added)"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:68
+msgid "KB Import Error:"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:142
+msgid "Media JSON file %s not found"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:156
+#: php/ht-knowledge-base-sample-importer.php:275
+#: php/ht-knowledge-base-sample-importer.php:432
+#: php/ht-knowledge-base-sample-importer.php:583
+msgid "JSON format of %s is invalid"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:165
+msgid "No media found in media.json"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:284
+msgid "No categories found in ht-kb-categories.json"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:365
+msgid "Unable to locate icon %s"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:390
+msgid "Hex color invalid %s"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:441
+msgid "No articles found in ht-kb-articles.json"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:544
+msgid "Unable to add article %s"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:592
+msgid "No settings found in ht-kb-settings.json"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:639
+msgid "<h1>Sample Content</h1>"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:640
+msgid "Sample content would go here"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:690
+msgid "File does not exist"
+msgstr ""
+
+#: php/ht-knowledge-base-sample-importer.php:721
+msgid "Unable to import %s."
+msgstr ""
+
+#: php/ht-knowledge-base-settings-helpers.php:238
+msgid "Search the Knowledge Base"
+msgstr ""
+
+#: php/ht-knowledge-base-settings-helpers.php:818
+msgid "Search the knowledge base for answers"
+msgstr ""
+
+#: php/ht-knowledge-base-settings-upgrade.php:246
+msgid "%s knowledge base archive"
+msgstr ""
+
+#: php/ht-knowledge-base-settings-upgrade.php:250
+msgid "knowledge base archive"
+msgstr ""
+
+#: php/ht-knowledge-base-settings-upgrade.php:258
+msgid "This is the archive page for the %s knowledge base"
+msgstr ""
+
+#: php/ht-knowledge-base-settings-upgrade.php:286
+msgid "This is an example page where your customers could reach out to support."
+msgstr ""
+
+#: php/ht-knowledge-base-settings-upgrade.php:330
+msgid "Popular Articles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings-upgrade.php:362
+#: php/ht-knowledge-base-settings-upgrade.php:412
+#: php/ht-knowledge-base-settings-upgrade.php:457
+msgid "Can't find the answer you're looking for?"
+msgstr ""
+
+#: php/ht-knowledge-base-settings-upgrade.php:386
+#: widgets/widget-kb-categories.php:24
+#: widgets/widget-kb-categories.php:31
+msgid "Knowledge Base Categories"
+msgstr ""
+
+#: php/ht-knowledge-base-settings-upgrade.php:437
+#: widgets/widget-kb-toc.php:31
+msgid "Contents"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:55
+msgid "Heroic Knowledge Base Settings"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:64
+#: php/ht-knowledge-base-settings.php:484
+msgid "Categories & Tags"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:68
+msgid "Sort By"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:72
+msgid "Sort Order"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:76
+msgid "Number of Articles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:80
+msgid "Article Excerpts"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:85
+#: php/ht-knowledge-base-settings.php:481
+msgid "Home & General"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:89
+msgid "KB Home Page"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:93
+msgid "Header Text"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:94
+msgid "How can we help?"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:97
+msgid "Breadcrumbs"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:101
+msgid "KB Category Columns"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:105
+msgid "Display KB Category Counts"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:109
+msgid "KB Category Articles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:128
+msgid "Hide Empty Categories"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:132
+msgid "Hide Uncategorized Articles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:136
+msgid "Restrict Access"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:145
+msgid "Enable Comments"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:164
+msgid "Display Author Bio"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:168
+msgid "Display Related Articles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:223
+msgid "Search Options"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:232
+msgid "Search Focus"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:236
+msgid "Search Placeholder"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:237
+msgid "Search the Knowledge Base..."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:240
+msgid "Search Result Excerpt"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:244
+msgid "Highlight Search Query in Excerpt"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:249
+msgid "Slugs Options"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:253
+msgid "KB Article Slug"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:257
+#: php/ht-knowledge-base-site-health.php:78
+msgid "KB Category Slug"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:261
+#: php/ht-knowledge-base-site-health.php:83
+msgid "KB Tag Slug"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:266
+#: php/ht-knowledge-base-settings.php:496
+msgid "Sidebars"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:270
+msgid "KB Home Sidebar Position"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:274
+msgid "Category Sidebar Position"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:278
+msgid "Article Sidebar Position"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:282
+msgid "Sticky Article Sidebar?"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:287
+msgid "Styling Options"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:301
+msgid "KB Width"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:305
+msgid "Link Color"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:309
+msgid "Link Color (Hover)"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:313
+msgid "KB Header Styling"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:324
+msgid "KB Header Text Color"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:329
+msgid "Article Feedback Options"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:333
+msgid "Enable Feedback"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:337
+msgid "Enable Anonymous"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:341
+msgid "Upvote Feedback"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:345
+msgid "Downvote Feedback"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:351
+msgid "Transfer Options"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:355
+msgid "Default Transfer URL"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:359
+msgid "Load in new window"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:364
+msgid "License and Update Options"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:367
+msgid "License Key"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:400
+msgid "The %s knowledge base archive page has not been set, please set a valid page from the <b>General</b> section."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:440
+msgid "Slug cannot be the same as another Heroic Knowledge Base slug"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:441
+msgid "Slugs cannot be included in another Heroic Knowledge Base slug"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:442
+msgid "Slug cannot be a reserved WordPress term"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:443
+msgid "Slug cannot be the same as an existing post or page, please remove post with this slug first"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:493
+msgid "Slugs"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:499
+msgid "Styles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:508
+msgid "License and Updates"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:572
+msgid "Save Changes"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:634
+msgid "Display breadcrumbs in knowledge base"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:651
+#: php/ht-knowledge-base-settings.php:1107
+#: php/ht-knowledge-base-settings.php:1121
+msgid "Comment Count"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:652
+#: widgets/widget-kb-articles.php:296
+msgid "Random"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:653
+#: widgets/widget-kb-articles.php:297
+msgid "Modified"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:654
+#: widgets/widget-kb-articles.php:298
+msgid "Popular"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:655
+#: widgets/widget-kb-articles.php:299
+msgid "Helpful"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:656
+#: widgets/widget-kb-articles.php:300
+msgid "Custom"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:658
+msgid "Sort order for display of knowledge base articles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:672
+msgid "Ascending"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:673
+msgid "Decending"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:675
+msgid "Sort direction for display of knowledge base articles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:689
+msgid "Must be a valid number between 0 and 100"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:690
+msgid "Number of articles to display for each category or tag from taxonomy archive"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:704
+msgid "Display an excerpt of knowledge base articles in taxonomy archive"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:725
+msgid "Visibility of Knowledge Base"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:758
+msgid "&mdash; Select &mdash;"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:764
+msgid "The page to use as the %s knowledge base home page"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:766
+msgid "Edit this page"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:768
+msgid "View this page"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:786
+msgid "Header text on the knowledge base home page"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:801
+#: php/ht-knowledge-base-settings.php:880
+msgid "One"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:802
+#: php/ht-knowledge-base-settings.php:881
+msgid "Two"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:803
+msgid "Three"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:804
+msgid "Four"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:807
+msgid "Number of columns for the knowledge base home"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:821
+msgid "Display the count of articles in categories"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:836
+msgid "0"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:837
+msgid "1"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:838
+msgid "2"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:839
+msgid "3"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:840
+msgid "4"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:841
+msgid "5"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:842
+msgid "6"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:843
+msgid "7"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:844
+msgid "8"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:845
+msgid "9"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:846
+msgid "10"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:849
+msgid "Number of articles to display for each category in knowledge base home"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:864
+msgid "Display the sub-categories from knowledge base home"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:879
+#: php/ht-knowledge-base-site-health.php:222
+msgid "None"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:883
+msgid "Number of sub-categories to display in knowledge base home"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:897
+msgid "Display the articles in sub-categories from knowledge base home"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:911
+msgid "Hide empty categories in the knowledge base home"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:925
+msgid "Hide uncategorized articles in the knowledge base home"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:948
+msgid "Allow readers to comment on article"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:962
+msgid "Display the usefulness of article"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:976
+msgid "Display the view count of article"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:990
+msgid "Display the comments count of article"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1004
+msgid "Display the author bio at the end of the article"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1018
+msgid "Display related (articles that appear in the same category)"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1024
+msgid "Article meta displayed at top of article"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1037
+msgid "Publish Date"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1051
+msgid "Last Updated"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1177
+msgid "Print Button"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1202
+msgid "Display knowledge base search box on knowledge base pages"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1216
+msgid "Set the mouse focus on the knowledge base search box when page loads"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1231
+msgid "Placeholder text for the knowledge base search box"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1245
+msgid "Display an excerpt of knowledge base articles in search results"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1259
+msgid "Highlight search term in search results excerpt"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1282
+#: php/ht-knowledge-base-settings.php:1299
+#: php/ht-knowledge-base-settings.php:1314
+msgid "This slug is invalid or the same as another slug"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1283
+msgid "Defines the text slug for articles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1284
+msgid "The URL for the home page can be set by editing the permalink URL Slug for the assigned page"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1300
+msgid "Defines the text slug for knowledge base categories"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1315
+msgid "Defines the text slug for knowledge base tags"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1355
+msgid "Select the sidebar position on your kb home page."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1386
+msgid "Select the sidebar position on your category pages."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1417
+msgid "Select the sidebar position on your article pages."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1431
+msgid "Enable sticky sidebar on the article pages."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1456
+msgid "Important - use valid CSS only, you may want to <a href=\"%s\" target=\"_blank\">validate your styles</a> before saving"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1470
+msgid "Use these custom styles across entire site"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1490
+msgid "Set the width of the knowledge base."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1508
+msgid "Set the link color in the KB."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1526
+msgid "Set the link hover color in the KB."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1556
+msgid "Solid Color"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1560
+msgid "Gradient"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1564
+msgid "Image"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1578
+msgid "Direction"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1584
+msgid "Color 1"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1588
+msgid "Color 2"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1598
+msgid "Select or Upload Image"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1600
+msgid "Remove"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1609
+msgid "Set the background of the knowledge base header"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1635
+msgid "Set the text color in the KB header."
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1662
+msgid "Allow visitors to rate articles"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1675
+msgid "Allow visitors to rate articles when not logged in"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1688
+msgid "Collect feedback for up ratings"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1701
+msgid "Collect feedback for down ratings"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1724
+msgid "Default location that users will be transferred to if no URL specified in the widget"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1737
+msgid "Load transfer in a new window"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1756
+msgid "Updates of this plugin are controlled by the theme, there is nothing required in this section"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1763
+msgid "Please enter your license key below to enable support and updates, this is contained in your download email"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1767
+msgid "Unverified, Inactive or Expired - check you license status on your account at <a href=\"%s\" target=\"_blank\">HeroThemes</a>"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1774
+msgid "Valid and Active"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1807
+msgid "Managed by theme (Not required)"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1812
+msgid "Enter your Heroic Knowledge Base license key"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1839
+msgid "Home page ID is not a page"
+msgstr ""
+
+#: php/ht-knowledge-base-settings.php:1900
+msgid "Number of articles must be between 1-100"
+msgstr ""
+
+#: php/ht-knowledge-base-sidebars.php:23
+msgid "Knowledge Base Sidebar (Home)"
+msgstr ""
+
+#: php/ht-knowledge-base-sidebars.php:37
+msgid "Knowledge Base Sidebar (Categories and Tags)"
+msgstr ""
+
+#: php/ht-knowledge-base-sidebars.php:51
+msgid "Knowledge Base Sidebar (Article)"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:26
+msgid "Could not run connection test"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:31
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2637
+msgid "Version"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:36
+msgid "Build"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:41
+msgid "Support & Updates License"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:46
+msgid "HeroThemes.com connection"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:58
+msgid "Multibyte Support"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:63
+msgid "Apache Server"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:68
+msgid "Apache Mod Security"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:73
+msgid "KB CPT Slug"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:88
+msgid "KB Default Home Page ID"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:93
+msgid "KB Article Count"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:98
+msgid "KB Category Count"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:103
+msgid "KB Category Structure"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:108
+msgid "KB Theme Integration"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:130
+msgid "Can communicate with HeroThemes.com store"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:134
+msgid "Communicating with the HeroThemes is used to check for new versions and updates."
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:149
+msgid "HeroThemes.com is reachable"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:152
+msgid "Sucessfully connected to HeroThemes.com"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:157
+msgid "Could not reach HeroThemes.com"
+msgstr ""
+
+#: php/ht-knowledge-base-site-health.php:163
+msgid "Error"
+msgstr ""
+
+#. translators: 1: The IP address WordPress.org resolves to. 2: The error returned by the lookup.
+#: php/ht-knowledge-base-site-health.php:166
+msgid "Your site is unable to reach HeroThemes.com at %1$s, and returned the error: %2$s"
+msgstr ""
+
+#: php/ht-knowledge-base-template-helpers.php:552
+msgid "Prev"
+msgstr ""
+
+#: php/ht-knowledge-base-updater.php:77
+msgid "You have not entered a valid license key for automatic updates and support, be sure to do this in the <b>License and Updates</b> section now"
+msgstr ""
+
+#: php/ht-knowledge-base-views-dummy-data-creator.php:27
+msgid "Dummy Views"
+msgstr ""
+
+#: php/ht-knowledge-base-views-dummy-data-creator.php:39
+msgid "Add dummy views?"
+msgstr ""
+
+#: php/ht-knowledge-base-views-dummy-data-creator.php:39
+msgid "Add Views"
+msgstr ""
+
+#: php/ht-knowledge-base-views-dummy-data-creator.php:86
+msgid "Inserted %s dummy views on this article"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:123
+msgid "##Setup Assistant"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:160
+msgid "Setup Assistant loading.."
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:196
+msgid "The default knowledge base sample, a small example of basic structure with a few categories and articles."
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:197
+msgid "Replica of the demo knowledge base site at heroickb.herothemes.com, more detailed with realistic looking content."
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:232
+#: setup/inc/ht-kb-welcome-setup-page.php:300
+#: setup/inc/ht-kb-welcome-setup-page.php:335
+#: setup/inc/ht-kb-welcome-setup-page.php:378
+#: setup/inc/ht-kb-welcome-setup-page.php:411
+#: setup/inc/ht-kb-welcome-setup-page.php:524
+msgid "Failed Security"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:269
+msgid "Looks good, sit tight..."
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:274
+msgid "Validating license with HeroThemes, please stand by"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:277
+msgid "There is a problem with the license key, please check your HeroThemes.com account"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:318
+msgid "License deactivated successfully"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:324
+msgid "Could not deactivate license"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:418
+msgid "Missing plugin slug"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:436
+msgid "Activating Plugin"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:451
+msgid "Updating Plugin"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:466
+msgid "Installing Plugin"
+msgstr ""
+
+#: setup/inc/ht-kb-welcome-setup-page.php:476
+msgid "Success"
+msgstr ""
+
+#: setup/inc/tgm-config.php:53
+msgid "Enhance your knowledge base articles presentation with a selection of blocks"
+msgstr ""
+
+#: setup/inc/tgm-config.php:70
+msgid "Required for knowledge base integrations functionality"
+msgstr ""
+
+#: setup/inc/tgm-config.php:87
+msgid "Required for the analytics module"
+msgstr ""
+
+#: setup/inc/tgm-config.php:105
+msgid "Add a glossary block to your articles or other content"
+msgstr ""
+
+#: setup/inc/tgm-config.php:121
+msgid "Add a Table of Contents as a block to your articles"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:334
+msgid "Install Required Plugins"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:335
+msgid "Install Plugins"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:337
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:339
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:340
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#. translators: 1: plugin name(s).
+#: setup/inc/tgm/class-tgm-plugin-activation.php:341
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: setup/inc/tgm/class-tgm-plugin-activation.php:346
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: setup/inc/tgm/class-tgm-plugin-activation.php:351
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: setup/inc/tgm/class-tgm-plugin-activation.php:356
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: setup/inc/tgm/class-tgm-plugin-activation.php:361
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: setup/inc/tgm/class-tgm-plugin-activation.php:366
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:371
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:375
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:379
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:383
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:384
+#: setup/inc/tgm/class-tgm-plugin-activation.php:911
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2617
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3664
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:385
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3243
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:386
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3036
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:388
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:390
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr ""
+
+#. translators: 1: dashboard link.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:392
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:393
+msgid "Dismiss this notice"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:394
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:395
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:598
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:599
+msgid "Update Required"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:716
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:1018
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:1018
+#: setup/inc/tgm/class-tgm-plugin-activation.php:1021
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:1021
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:1205
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3032
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2066
+msgid "TGMPA v%s"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2357
+msgid "Required"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2360
+msgid "Recommended"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2376
+msgid "WordPress Repository"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2379
+msgid "External Source"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2382
+msgid "Pre-Packaged"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2399
+msgid "Not Installed"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2403
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2405
+msgid "Active"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2411
+msgid "Required Update not Available"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2414
+msgid "Requires Update"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2417
+msgid "Update recommended"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2426
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. translators: 1: number of plugins.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2472
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2476
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2480
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2484
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2566
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2574
+msgid "Installed version:"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2582
+msgid "Minimum required version:"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2594
+msgid "Available version:"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2617
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2631
+msgid "Plugin"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2632
+msgid "Source"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2633
+msgid "Type"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2638
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2687
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2692
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2698
+msgid "Activate %2$s"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2768
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2801
+msgid "Install"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2807
+msgid "Update"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2810
+msgid "Activate"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2841
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2843
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2884
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2886
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:2992
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3018
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3242
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3582
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3585
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3587
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3591
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3593
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3593
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3601
+msgid "Show Details"
+msgstr ""
+
+#. translators: 1: plugin name.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3593
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3601
+msgid "Hide Details"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3594
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3596
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3599
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3601
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3602
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: setup/inc/tgm/class-tgm-plugin-activation.php:3604
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: voting/ht-voting.php:420
+msgid "Cannot retrieve vote"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:36
+msgid "Are you sure you want to delete this vote?"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:42
+msgid "Votes and Feedback"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:102
+msgid "Comments"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:103
+msgid "Options"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:135
+msgid "Delete This Vote"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:137
+msgid "Up"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:139
+msgid "Down"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:145
+msgid "Guest"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:219
+msgid "Are you sure you want to recalculate the article usefulness, this will override any manual setting?"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:219
+msgid "Recalculate Usefulness"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:220
+msgid "Are you sure you want to delete all votes?"
+msgstr ""
+
+#: voting/php/ht-voting-backend.php:220
+msgid "Delete All Votes"
+msgstr ""
+
+#: voting/php/ht-voting-dummy-data-creator.php:31
+msgid "Dummy Votes"
+msgstr ""
+
+#: voting/php/ht-voting-dummy-data-creator.php:43
+msgid "Add dummy votes?"
+msgstr ""
+
+#: voting/php/ht-voting-dummy-data-creator.php:43
+msgid "Add Votes"
+msgstr ""
+
+#: voting/php/ht-voting-dummy-data-creator.php:116
+msgid "Inserted %s dummy votes on this article"
+msgstr ""
+
+#: voting/php/ht-voting-meta-boxes.php:39
+msgid "Voting Options"
+msgstr ""
+
+#: voting/php/ht-voting-meta-boxes.php:57
+msgid "Disable Voting"
+msgstr ""
+
+#: voting/php/ht-voting-meta-boxes.php:58
+msgid "Disable voting on this article"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:26
+#: widgets/widget-kb-articles.php:33
+msgid "Knowledge Base Articles"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:29
+msgid "A widget for displaying Knowledge Base articles"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:109
+msgid "%1$s ago"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:271
+msgid "Category"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:283
+msgid "Number of posts to show"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:290
+#: widgets/widget-kb-authors.php:234
+#: widgets/widget-kb-categories.php:192
+msgid "Sort by"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:295
+msgid "Number of comments"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:307
+msgid "Only display articles in the same category"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:316
+#: widgets/widget-kb-authors.php:248
+msgid "Reverse sort order (ascending)"
+msgstr ""
+
+#: widgets/widget-kb-articles.php:323
+msgid "Show post thumbnail"
+msgstr ""
+
+#: widgets/widget-kb-authors.php:24
+#: widgets/widget-kb-authors.php:31
+msgid "Knowledge Base Authors"
+msgstr ""
+
+#: widgets/widget-kb-authors.php:27
+msgid "A widget for displaying top Knowledge Base authors"
+msgstr ""
+
+#: widgets/widget-kb-authors.php:160
+msgid "Articles Authored:"
+msgstr ""
+
+#: widgets/widget-kb-authors.php:227
+msgid "Number of authors to show"
+msgstr ""
+
+#: widgets/widget-kb-authors.php:237
+msgid "Articles Authored"
+msgstr ""
+
+#: widgets/widget-kb-authors.php:238
+msgid "Most Helpful"
+msgstr ""
+
+#: widgets/widget-kb-authors.php:255
+msgid "Show user avatar"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:27
+msgid "A widget for displaying Knowledge Base categories"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:187
+msgid "Title:"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:195
+msgid "Name"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:196
+msgid "Number of articles"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:197
+msgid "Slug"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:198
+msgid "ID"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:199
+msgid "Custom (TL only)"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:209
+msgid "Only display subcategories of current category"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:218
+msgid "Reverse sort order"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:227
+msgid "Hide empty categories"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:236
+msgid "Display article count"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:245
+msgid "Hierarchical"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:250
+msgid "Category depth to show"
+msgstr ""
+
+#: widgets/widget-kb-categories.php:257
+msgid "Exclude category IDs"
+msgstr ""
+
+#: widgets/widget-kb-search.php:25
+#: widgets/widget-kb-search.php:32
+msgid "Knowledge Base Search"
+msgstr ""
+
+#: widgets/widget-kb-search.php:28
+msgid "A widget for displaying Knowledge Base Search"
+msgstr ""
+
+#: widgets/widget-kb-toc.php:24
+msgid "Knowledge Base Table of Contents"
+msgstr ""
+
+#: widgets/widget-kb-toc.php:27
+msgid "A widget for displaying a Table of Contents on Knowledge Base "
+msgstr ""
+
+#: widgets/widget-kb-toc.php:173
+msgid "Enable Scrollspy"
+msgstr ""

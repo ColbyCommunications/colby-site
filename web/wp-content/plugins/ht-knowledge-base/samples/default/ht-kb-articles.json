@@ -1,0 +1,84 @@
+{
+	"name": "HeroThemes Default Sample Articles",
+	"version": "1.0.0",
+	"articles": [
+		{
+			"title": "Installation Guide",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Getting Started" ],
+			"tags": [ "tips", "installation" ]
+		},
+		{
+			"title": "What You Need to Know",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Getting Started" ],
+			"tags": [ "tips" ]
+		},
+		{
+			"title": "How to Contact Support",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Getting Started" ],
+			"tags": [ "contact", "support" ]
+		},
+		{
+			"title": "How Secure is my Password?",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Account Management" ],
+			"tags": [ "password" ]
+		},
+		{
+			"title": "How do I Change my Password?",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Account Management" ],
+			"tags": [ "password", "tips", "installation" ]
+		},
+		{
+			"title": "Where can I Upload my Avatar?",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Account Management" ],
+			"tags": [ "tips", "avatar" ]
+		},
+		{
+			"title": "Where are Your Offices Located?",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Copyright and Legal" ],
+			"tags": [ "contact", "location", "about" ]
+		},
+		{
+			"title": "Our Content Policy",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Copyright and Legal" ],
+			"tags": [ "tips", "content" ]
+		},
+		{
+			"title": "Who are We?",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Copyright and Legal" ],
+			"tags": [ "about" ]
+		},
+		{
+			"title": "Another Legal Page",
+			"source": "include",
+			"include": "articles/generic-sample-article",
+			"categories": [ "Copyright and Legal" ],
+			"tags": [ "tips", "content" ]
+		},
+		{
+			"title": "Knowledge Base WordPress Plugin",
+			"source": "include",
+			"include": "articles/ht-kb-sample-info",
+			"categories": [ "Heroic Knowledge Base Plugin" ],
+			"tags": [ "tips", "kb" ]
+		}
+
+	]
+}

@@ -1,0 +1,18 @@
+{
+	"name": "HeroThemes Media Imports for demo sample",
+	"version": "1.0.0",
+	"media": [
+		{
+			"key": "wordpress-table-block-setting",
+			"source": "file",
+			"caption": "WordPress Table Block Setting",
+			"file": "wordpress-table-block-setting.png"
+		},
+		{
+			"key": "heroic-blocks-message-styles",
+			"source": "file",
+			"caption": "Heroic Blocks Message Block Styles",
+			"file": "heroic-blocks-message-styles.png"
+		}
+	]
+}

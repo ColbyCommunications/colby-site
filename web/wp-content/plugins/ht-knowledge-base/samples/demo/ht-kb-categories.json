@@ -1,0 +1,65 @@
+{
+	"name": "HeroThemes Demo Sample Categories",
+	"version": "1.0.0",
+	"categories": [
+		{
+			"name": "Account Settings",
+			"description": "Articles on managing your account including changing your email or password and deleting your account.",
+			"icon": "kb-icon-manage-account",
+			"icon_color": "#2357a1",
+			"term_order": 1
+		},
+		{
+			"name": "Getting Started",
+			"description": "Articles to get you up and running, quick and easy.",
+			"icon": "kb-icon-getting-started",
+			"icon_color": "#2357a1",
+			"term_order": 2
+		},
+		{
+			"name": "Billing & Payments",
+			"description": "Information about how we charge you for our services.",
+			"icon": "kb-icon-billing",
+			"icon_color": "#2357a1",
+			"term_order": 3
+		},
+		{
+			"name": "Copyright & Legal",
+			"description": "Important information about how we handle your privacy and data.",
+			"icon": "kb-icon-copyright-legal",
+			"icon_color": "#2357a1",
+			"term_order": 4
+		},
+		{
+			"name": "Mobile App",
+			"description": "Documentation and troubleshooting our mobile app.",
+			"icon": "kb-icon-mobile-app",
+			"icon_color": "#2357a1",
+			"term_order": 5
+		},
+		{
+			"name": "Developers",
+			"description": "Developer documentation and integration features.",
+			"icon": "kb-icon-api-access",
+			"icon_color": "#2357a1",
+			"term_order": 6
+		},
+		{
+			"name": "Customization",
+			"description": "Customize the look and feel of our product.",
+			"parent": "Developers",
+			"icon": "kb-icon-customization",
+			"icon_color": "#2357a1"
+		},
+		{
+			"name": "Integrations",
+			"description": "Integrate our product into other apps and platforms.",
+			"parent": "Developers",
+			"icon": "kb-icon-settings",
+			"icon_color": "#2357a1"
+		}
+
+		
+		
+	]
+}

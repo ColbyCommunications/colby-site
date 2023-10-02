@@ -1,0 +1,430 @@
+{
+	"name": "HeroThemes Default Sample Articles",
+	"version": "1.0.0",
+	"articles": [
+		{
+			"title": "How to Create an Account",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Account Settings" ],
+			"tags": [ "account", "getting-started" ]
+		},
+		{
+			"title": "Best Practices for Account Security",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Account Settings" ],
+			"tags": [ "tips", "security" ]
+		},
+		{
+			"title": "Close an Account",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Account Settings" ],
+			"tags": [ "end", "close" ]
+		},
+		{
+			"title": "Edit Your Profile",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Account Settings" ],
+			"tags": [ "profile", "account" ]
+		},
+		{
+			"title": "Reactivate or Deactivate an Account",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Account Settings" ],
+			"tags": [ "reactivate", "new" ]
+		},
+		{
+			"title": "Recover Your Username or Password",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Account Settings" ],
+			"tags": [ "password", "username", "password" ]
+		},
+		{
+			"title": "Export and Back Up Account Data",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Account Settings" ],
+			"tags": [ "import", "export", "backup" ]
+		},
+		{
+			"title": "Change Your Account Email Address",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Account Settings" ],
+			"tags": [ "profile", "email", "address" ]
+		},
+		{
+			"title": "How Do I Change My Email Notification Settings or Unsubscribe?",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Account Settings" ],
+			"tags": [ "subscriptions", "notifications", "unsubscribe", "remove" ]
+		},
+		{
+			"title": "Forgot Your Password?",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Account Settings" ],
+			"tags": [ "password", "management" ]
+		},
+		{
+			"title": "How Do I Change My Timezone?",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Account Settings" ],
+			"tags": [ "profile", "timezone", "time", "i18n" ]
+		},
+		{
+			"title": "Edit Your Account Privacy",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Getting Started" ],
+			"tags": [ "profile", "privacy", "account" ]
+		},
+		{
+			"title": "How to Add Tags to Your Articles",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Getting Started" ],
+			"tags": [ "tags", "articles" ]
+		},
+		{
+			"title": "Setting up Categories in Your Knowledge Base",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Getting Started" ],
+			"tags": [ "categories" ]
+		},
+		{
+			"title": "What Web Browsers Are Compatible?",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Getting Started" ],
+			"tags": [ "browser", "compatibility" ]
+		},
+		{
+			"title": "A Quick Look at the Dashboard",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Getting Started" ],
+			"tags": [ "getting-started", "dashboard" ]
+		},
+		{
+			"title": "How Do I See My Published Page?",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Getting Started" ],
+			"tags": [ "publishing" ]
+		},
+		{
+			"title": "How Can I Edit My Already Existing Page?",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Getting Started" ],
+			"tags": [ "editing", "articles" ]
+		},
+		{
+			"title": "How Does the 30 Day Money Back Guarantee Work?",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Getting Started" ],
+			"tags": [ "money-back", "guarantee" ]
+		},
+		{
+			"title": "Getting Started: A Quick Guide",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Getting Started" ],
+			"tags": [ "getting-started", "guide" ]
+		},
+		{
+			"title": "How to Enable Two-Step Verification",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Getting Started" ],
+			"tags": [ "two-factor", "security" ]
+		},
+		{
+			"title": "How Do I Get Started?",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Getting Started" ],
+			"tags": [ "getting-started" ]
+		},
+		{
+			"title": "Which Plan Is Right for Me?",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Getting Started" ],
+			"tags": [ "plans", "pricing" ]
+		},
+		{
+			"title": "How Do I Set up My Team?",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Getting Started" ],
+			"tags": [ "team", "introduction" ]
+		},
+		{
+			"title": "How Does the Referral Program Work?",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Getting Started" ],
+			"tags": [ "referral", "pricing" ]
+		},
+		{
+			"title": "Can I Reorder My Articles and Categories?",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Getting Started" ],
+			"tags": [ "ordering", "articles" ]
+		},
+		{
+			"title": "What Is the Difference Between Annual and Monthly Pricing?",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "pricing", "comparison" ]
+		},
+		{
+			"title": "What Payment Types Are Supported?",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "payments", "card" ]
+		},
+		{
+			"title": "What Is Our Refund Policy?",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "refunds", "cancel" ]
+		},
+		{
+			"title": "How Do I Redeem or Apply a Coupon or Discount Code?",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "coupon", "discount" ]
+		},
+		{
+			"title": "Do We Offer a Non-Profit Discount?",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "discount", "non-profit" ]
+		},
+		{
+			"title": "Change or Update Billing Details",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "billing", "account" ]
+		},
+		{
+			"title": "How Our Pricing Plans Work",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "pricing", "plans" ]
+		},
+		{
+			"title": "What If I Go over My Plan’s Limits?",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "plans", "limits" ]
+		},
+		{
+			"title": "What Happens If the Price Increases?",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "pricing", "payment" ]
+		},
+		{
+			"title": "How to Upgrade, Downgrade or Cancel Your Subscription",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "cancel", "account" ]
+		},
+		{
+			"title": "What Payment Types Are Supported?",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Billing & Payments" ],
+			"tags": [ "payments", "card" ]
+		},
+		{
+			"title": "Who Owns the Copyright on Uploaded Text & Images?",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Copyright & Legal" ],
+			"tags": [ "copyright", "ownership" ]
+		},
+		{
+			"title": "Our Privacy Policy",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Copyright & Legal" ],
+			"tags": [ "privacy", "procedures" ]
+		},
+		{
+			"title": "Third Party Analytics",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Copyright & Legal" ],
+			"tags": [ "analytics", "terms" ]
+		},
+		{
+			"title": "Where Are Your Offices Located?",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Copyright & Legal" ],
+			"tags": [ "office", "contact" ]
+		},
+		{
+			"title": "DMCA Notice Procedure",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Copyright & Legal" ],
+			"tags": [ "dmca", "legal" ]
+		},
+		{
+			"title": "Troubleshooting App Connection Issues",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Mobile App" ],
+			"tags": [ "connection", "network" ]
+		},
+		{
+			"title": "Our Apps for Computers, Phones & Tablets",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Mobile App" ],
+			"tags": [ "computer", "phone" ]
+		},
+		{
+			"title": "How to Install Our iOS App",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Mobile App" ],
+			"tags": [ "ios", "installation" ]
+		},
+		{
+			"title": "How to Install Our App for Windows Phone (Beta)",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Mobile App" ],
+			"tags": [ "phone", "windows" ]
+		},
+		{
+			"title": "How to Install Our Android App",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Mobile App" ],
+			"tags": [ "app", "phone" ]
+		},
+		{
+			"title": "What Are the API Limits?",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Developers" ],
+			"tags": [ "api", "limits" ]
+		},
+		{
+			"title": "Why Was My Developer Application Rejected?",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Developers" ],
+			"tags": [ "application", "developer" ]
+		},
+		{
+			"title": "How Do I Get an API Key?",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Developers" ],
+			"tags": [ "key", "api" ]
+		},
+		{
+			"title": "How to Write Extensions with Our API",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Developers" ],
+			"tags": [ "extensions", "api" ]
+		},
+		{
+			"title": "Integrations and Apps Built by the Community",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Developers" ],
+			"tags": [ "community", "app" ]
+		},
+		{
+			"title": "SDKs & Client Libraries",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Developers" ],
+			"tags": [ "sdk", "api" ]
+		},
+		{
+			"title": "Customizing the Knowledge Base",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Customization" ],
+			"tags": [ "kb", "integration" ]
+		},
+		{
+			"title": "How Long Does Customization Take?",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Customization" ],
+			"tags": [ "customization", "timescales" ]
+		},
+		{
+			"title": "How to Integrate with Testento",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Integrations" ],
+			"tags": [ "customization", "timescales" ]
+		},
+		{
+			"title": "How to Integrate with Phaita",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Integrations" ],
+			"tags": [ "customization", "timescales" ]
+		},
+		{
+			"title": "How to Integrate with Digifier",
+			"source": "include",
+			"include": "articles/sample-two",
+			"categories": [ "Integrations" ],
+			"tags": [ "customization", "timescales" ]
+		},
+		{
+			"title": "How to Integrate with Fibixo",
+			"source": "include",
+			"include": "articles/sample-three",
+			"categories": [ "Integrations" ],
+			"tags": [ "customization", "timescales" ]
+		},
+		{
+			"title": "How to Integrate with Vidmoda",
+			"source": "include",
+			"include": "articles/sample-one",
+			"categories": [ "Integrations" ],
+			"tags": [ "customization", "timescales" ]
+		}
+
+
+
+
+	]
+}

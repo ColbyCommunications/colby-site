@@ -1008,10 +1008,6 @@
           to: '/events/$1/'
           regexp: true
           code: 301
-        '^/submit-event/?$':
-          to: 'https://www.colby.edu/people/offices-directory/events/all-forms/event-request/'
-          regexp: true
-          code: 301
         '^/eventsoffice/(.*)$':
           to: '/people/offices-directory/events/'
           regexp: true

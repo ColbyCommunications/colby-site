@@ -1024,6 +1024,10 @@
           to: '/people/offices-directory/events/all-forms/event-request/'
           regexp: true
           code: 301
+        '^/submit-event/?$': 
+          to: '/people/offices-directory/events/all-forms/event-request-form/'     
+          regexp: true
+          code: 301
   # Facilities
         '^/facilities/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/facilities/$1/'
@@ -1642,10 +1646,6 @@
           code: 301
 ########## OFF SITE REDIRECTS ##########
   # Admissions
-        '^/admission/(.+)$': 
-          to: 'https://afa.colby.edu/'     
-          regexp: true
-          code: 301
         '^/admission/$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
@@ -2063,6 +2063,10 @@
           regexp: true
           code: 301
         '^/thiscolbylife/?$': 
+          to: 'https://afa.colby.edu/'     
+          regexp: true
+          code: 301
+        '^/admission/(.+)$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
           code: 301

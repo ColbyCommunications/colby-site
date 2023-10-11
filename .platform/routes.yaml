@@ -2084,7 +2084,7 @@
           regexp: true
           code: 301
         '^/waystogive/?$':
-          to: '/colbyalumni/ways-to-give/'     
+          to: 'https://alumni.colby.edu/ways-to-give/give/'     
           regexp: true
           code: 301
         '^/giving/?$': 

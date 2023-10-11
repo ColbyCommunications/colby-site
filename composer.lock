@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7290c7101bb7e7655f33cef29901c5be",
+    "content-hash": "2f26055eeaa97c12337819480fdd6c5a",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -208,7 +208,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "da1e6a54249d9241f6ab74d438a8ab0ee2c20a80"
+                "reference": "d2d73949da5de542b6daf0e8c4d7126239681ff3"
             },
             "require": {
                 "php": ">=7.1"
@@ -224,7 +224,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2023-10-06T13:34:09+00:00"
+            "time": "2023-10-06T13:57:29+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",
@@ -2257,16 +2257,16 @@
         },
         {
             "name": "publishpress/wordpress-reviews",
-            "version": "v1.1.19",
+            "version": "v1.1.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/publishpress/library-wordpress-reviews.git",
-                "reference": "028e573eb7c5da2455a7a823cabbbe5e3f89ca9c"
+                "reference": "6d0b687a66439721b0432ef1320fd818cd56309f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/publishpress/library-wordpress-reviews/zipball/028e573eb7c5da2455a7a823cabbbe5e3f89ca9c",
-                "reference": "028e573eb7c5da2455a7a823cabbbe5e3f89ca9c",
+                "url": "https://api.github.com/repos/publishpress/library-wordpress-reviews/zipball/6d0b687a66439721b0432ef1320fd818cd56309f",
+                "reference": "6d0b687a66439721b0432ef1320fd818cd56309f",
                 "shasum": ""
             },
             "require": {
@@ -2285,7 +2285,6 @@
                 "overtrue/phplint": "^2.1",
                 "phpmd/phpmd": "^2.8",
                 "publishpress/publishpress-plugin-builder": "^1.2",
-                "sebastian/phpcpd": "^5.0",
                 "squizlabs/php_codesniffer": "^3.5",
                 "wp-cli/i18n-command": "^2.2",
                 "wp-cli/wp-cli": "^2.5"
@@ -2319,9 +2318,9 @@
             ],
             "support": {
                 "issues": "https://github.com/publishpress/library-wordpress-reviews/issues",
-                "source": "https://github.com/publishpress/library-wordpress-reviews/tree/v1.1.19"
+                "source": "https://github.com/publishpress/library-wordpress-reviews/tree/v1.1.20"
             },
-            "time": "2022-06-03T13:38:53+00:00"
+            "time": "2023-10-06T17:22:31+00:00"
         },
         {
             "name": "react/promise",
@@ -6212,6 +6211,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-search-with-algolia/"
+        },
+        {
+            "name": "wpackagist-theme/twentytwenty",
+            "version": "2.2",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/twentytwenty/",
+                "reference": "2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/twentytwenty.2.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/twentytwenty/"
         }
     ],
     "packages-dev": [],

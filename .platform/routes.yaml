@@ -3148,6 +3148,10 @@
           to: '/contact-colby-college/'
           regexp: true
           code: 301
+        '^/ccc24/?$':
+          to: '/https://www.givecampus.com/wr1w57/'
+          regexp: true
+          code: 301
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

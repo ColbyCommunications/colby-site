@@ -1,5 +1,5 @@
 # The routes of the project.
-##
+###
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
@@ -3146,6 +3146,10 @@
           code: 301
         '^/contact/?$':
           to: '/contact-colby-college/'
+          regexp: true
+          code: 301
+        '^/ccc24/?$':
+          to: 'https://www.givecampus.com/wr1w57/'
           regexp: true
           code: 301
 # *ALL* www.* requests should be redirected back to primary domain

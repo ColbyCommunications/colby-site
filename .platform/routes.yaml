@@ -3148,7 +3148,7 @@
           to: '/contact-colby-college/'
           regexp: true
           code: 301
-        '^/ccc24/?$':
+        '^/ccc23/?$':
           to: 'https://www.givecampus.com/62pev4/'
           regexp: true
           code: 301

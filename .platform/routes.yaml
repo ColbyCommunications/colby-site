@@ -1008,10 +1008,6 @@
           to: '/events/$1/'
           regexp: true
           code: 301
-        '^/submit-event/?$':
-          to: 'https://www.colby.edu/people/offices-directory/events/all-forms/event-request/'
-          regexp: true
-          code: 301
         '^/eventsoffice/(.*)$':
           to: '/people/offices-directory/events/'
           regexp: true
@@ -1022,6 +1018,10 @@
           code: 301
         '^/news_events/calendar/roomrequest.cfm/?$':
           to: '/people/offices-directory/events/all-forms/event-request/'
+          regexp: true
+          code: 301
+        '^/submit-event/?$': 
+          to: '/people/offices-directory/events/all-forms/event-request-form/'     
           regexp: true
           code: 301
   # Facilities
@@ -1642,10 +1642,6 @@
           code: 301
 ########## OFF SITE REDIRECTS ##########
   # Admissions
-        '^/admission/(.+)$': 
-          to: 'https://afa.colby.edu/'     
-          regexp: true
-          code: 301
         '^/admission/$': 
           to: 'https://afa.colby.edu/'     
           regexp: true
@@ -2066,6 +2062,10 @@
           to: 'https://afa.colby.edu/'     
           regexp: true
           code: 301
+        '^/admission/(.+)$': 
+          to: 'https://afa.colby.edu/'     
+          regexp: true
+          code: 301
   # Advancement (including Alumni, DareNorthward, Truenorth, Giving, Parents, Reunion)
         '^/advancement/?$':
           to: 'https://alumni.colby.edu/'     
@@ -2084,7 +2084,7 @@
           regexp: true
           code: 301
         '^/waystogive/?$':
-          to: '/colbyalumni/ways-to-give/'     
+          to: 'https://alumni.colby.edu/ways-to-give/give/'     
           regexp: true
           code: 301
         '^/giving/?$': 
@@ -3146,6 +3146,10 @@
           code: 301
         '^/contact/?$':
           to: '/contact-colby-college/'
+          regexp: true
+          code: 301
+        '^/ccc23/?$':
+          to: 'https://www.givecampus.com/62pev4/'
           regexp: true
           code: 301
 # *ALL* www.* requests should be redirected back to primary domain

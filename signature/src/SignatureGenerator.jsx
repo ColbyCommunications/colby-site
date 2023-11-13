@@ -16,7 +16,7 @@ function App() {
 
     const [fbUrl, setFbUrl] = useState('https://www.facebook.com/colbycollege/');
     const [instaUrl, setInstaUrl] = useState('https://www.instagram.com/colbycollege/');
-    const [twitUrl, setTwitUrl] = useState('https://twitter.com/ColbyCollege/');
+    const [twitUrl, setTwitUrl] = useState('https://x.com/ColbyCollege/');
     const [liUrl, setLiUrl] = useState('https://www.linkedin.com/school/colby-college/');
     const [ytUrl, setYtUrl] = useState('https://www.youtube.com/user/colbycollege/');
     const [cnUrl, setCnUrl] = useState('https://news.colby.edu/');
@@ -252,7 +252,7 @@ function App() {
                                         checked={twitChecked === true}
                                         onChange={() => setTwitChecked(!twitChecked)}
                                     />
-                                    <label htmlFor="twit">Twitter:</label>
+                                    <label htmlFor="twit">X:</label>
                                 </span>
                                 <input
                                     id="twit"
@@ -367,10 +367,10 @@ function App() {
                                                 }}
                                             >
                                                 <img
-                                                    src="https://www.colby.edu/signature/images/colby-logo.png"
+                                                    src="https://www.colby.edu/signature/images/Colby.png"
                                                     alt="Colby"
                                                     className="logo"
-                                                    width="96px"
+                                                    height="50"
                                                     style={{
                                                         display: 'inline-block',
                                                         border: 'none',
@@ -550,8 +550,9 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src="https://www.colby.edu/signature/images/fb-white.jpg"
+                                                                                        src="https://www.colby.edu/signature/images/Facebook.png"
                                                                                         alt="Facebook"
+                                                                                        height="20"
                                                                                         style={{
                                                                                             paddingRight:
                                                                                                 '10px',
@@ -578,8 +579,9 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src="https://www.colby.edu/signature/images/insta-white.jpg"
+                                                                                        src="https://www.colby.edu/signature/images/Instagram.png"
                                                                                         alt="Instagram"
+                                                                                        height="20"
                                                                                         style={{
                                                                                             paddingRight:
                                                                                                 '10px',
@@ -606,8 +608,9 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src="https://www.colby.edu/signature/images/twit-white.jpg"
-                                                                                        alt="Twitter"
+                                                                                        src="https://www.colby.edu/signature/images/X.png"
+                                                                                        alt="X"
+                                                                                        height="20"
                                                                                         style={{
                                                                                             paddingRight:
                                                                                                 '10px',
@@ -634,8 +637,9 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src="https://www.colby.edu/signature/images/li-white.jpg"
+                                                                                        src="https://www.colby.edu/signature/images/LinedIn.png"
                                                                                         alt="LinkedIn"
+                                                                                        height="20"
                                                                                         style={{
                                                                                             paddingRight:
                                                                                                 '10px',
@@ -662,8 +666,9 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src="https://www.colby.edu/signature/images/yt-white.jpg"
+                                                                                        src="https://www.colby.edu/signature/images/YouTube.png"
                                                                                         alt="YouTube"
+                                                                                        height="20"
                                                                                         style={{
                                                                                             paddingRight:
                                                                                                 '10px',
@@ -690,8 +695,9 @@ function App() {
                                                                                     }}
                                                                                 >
                                                                                     <img
-                                                                                        src="https://www.colby.edu/signature/images/cn-white.jpg"
+                                                                                        src="https://www.colby.edu/signature/images/ColbyNews.png"
                                                                                         alt="Colby News"
+                                                                                        height="20"
                                                                                         style={{
                                                                                             paddingRight:
                                                                                                 '10px',
@@ -850,19 +856,18 @@ function App() {
                                 </div>
                                 <div
                                     className="footer-icon"
-                                    onClick={() =>
-                                        (window.location = 'https://twitter.com/ColbyCollege')
-                                    }
+                                    onClick={() => (window.location = 'https://x.com/ColbyCollege')}
                                 >
                                     <svg
-                                        height="22"
                                         width="22"
+                                        height="22"
+                                        viewBox="0 0 1200 1227"
+                                        fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 400 324"
                                     >
                                         <path
-                                            fill="#fff"
-                                            d="M126,324c150.36,0,232.63-124.69,232.63-232.64,0-3.5,0-7-.16-10.52a166.49,166.49,0,0,0,40.82-42.41,165.81,165.81,0,0,1-47,12.91,82.23,82.23,0,0,0,36-45.28,162.73,162.73,0,0,1-52,19.77,81.78,81.78,0,0,0-141.43,56,90.69,90.69,0,0,0,2.07,18.65A232.19,232.19,0,0,1,28.4,15,82.09,82.09,0,0,0,53.76,124.21a82.87,82.87,0,0,1-37-10.2v1.11a81.93,81.93,0,0,0,65.54,80.2,82.39,82.39,0,0,1-36.84,1.44,81.75,81.75,0,0,0,76.38,56.76A164,164,0,0,1,20.27,288.6,158.72,158.72,0,0,1,.82,287.49,232.58,232.58,0,0,0,126,324"
+                                            d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
+                                            fill="white"
                                         />
                                     </svg>
                                 </div>

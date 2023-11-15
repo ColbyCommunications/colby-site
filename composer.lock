@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d612c86e8e46a5362dd90c71cf74bc8b",
+    "content-hash": "0bbb3a6435339eb7253642914dd143aa",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -204,11 +204,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "dev-big-merge",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "3f24f67cbfbe34a9b175f72c8364127994f4cb4f"
+                "reference": "4fe0c7a362564c63d53dfbd39b5e522cab891ef4"
             },
             "require": {
                 "php": ">=7.1"
@@ -224,7 +224,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2023-11-14T20:55:34+00:00"
+            "time": "2023-11-15T12:13:37+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",
@@ -6235,7 +6235,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "colbycommunications/colby-college-theme": 20,
         "colbycommunications/presspermit-pro": 10
     },
     "prefer-stable": false,

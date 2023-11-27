@@ -707,7 +707,7 @@
           code: 301
   # CTL
         '^/ctl/?$':
-          to: '/people/offices-directory/center-for-teaching-and-learning/'
+          to: '/center-for-teaching-and-learning/'
           regexp: true
           code: 301
         '^/ctl/\d{4}/\d{2}/\d{2}/(.+)/?$':
@@ -715,7 +715,7 @@
           regexp: true
           code: 301
         '^/ctl/(.*)$':
-          to: '/people/offices-directory/center-for-teaching-and-learning/'
+          to: '/center-for-teaching-and-learning/'
           regexp: true
           code: 301
   # Center for the Arts and Humanities

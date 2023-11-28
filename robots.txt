@@ -22,7 +22,7 @@ Disallow: /xmlrpc.php
 Disallow: /search/
 Disallow: /tag/
 
-## Worker pages
+# Worker pages
 Disallow: /chemistry/NMR/*
 Disallow: /chemistry/OChem/*
 Disallow: /chemistry/PChem/*

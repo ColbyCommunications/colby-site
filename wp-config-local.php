@@ -14,6 +14,7 @@ if ( 'ON' === getenv( 'LANDO' ) ) {
 	define( 'WP_DEBUG', false );
 	define( 'WP_DEBUG_LOG', false );
 	define( 'WP_DEBUG_SCREEN', false );
+	define( 'ALGOLIA_INDEX_NAME_PREFIX', 'local_colbyedu_' );
 
 	//now we need to set up our salts. this is local so this shouldnt be as crucial to have truly unique keys
 	$strHash = getenv( 'PHP_SHA256' );

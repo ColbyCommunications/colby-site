@@ -718,6 +718,10 @@
           to: '/center-for-teaching-and-learning/'
           regexp: true
           code: 301
+        '^/people/offices-directory/center-for-teaching-and-learning/$':
+          to: '/center-for-teaching-and-learning/'
+          regexp: true
+          code: 301
   # Center for the Arts and Humanities
         '^/people/offices-directory/center-for-the-arts-and-humanities/?$':
           to: 'https://cah.colby.edu/'
@@ -2985,6 +2989,10 @@
           regexp: true
           code: 301
         '^/halloran/?$':
+          to: '/halloran-lab-for-entrepreneurship/'
+          regexp: true
+          code: 301
+        '^/people/offices-directory/halloran-lab-for-entrepreneurship/?$':
           to: '/halloran-lab-for-entrepreneurship/'
           regexp: true
           code: 301

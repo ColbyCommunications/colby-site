@@ -62,7 +62,12 @@ if ( false !== $strRelationships = getenv( 'PLATFORM_RELATIONSHIPS' ) ) {
 	define( 'DB_HOST', $relationships['database'][0]['host'] );
 	define( 'DB_CHARSET', 'utf8' );
 	define( 'DB_COLLATE', '' );
-	define( 'ALGOLIA_INDEX_NAME_PREFIX', 'prod_colbyedu_' );
+
+	if ( 'master' == getenv( 'PLATFORM_BRANCH' ) ) {
+		define( 'ALGOLIA_INDEX_NAME_PREFIX', 'prod_colbyedu_' );
+	} else {
+		define( 'ALGOLIA_INDEX_NAME_PREFIX', 'platform_colbyedu_' );
+	}
 
 	//we need routes for both multi and standard
 	$aryRoutes = array();//assume we dont have it

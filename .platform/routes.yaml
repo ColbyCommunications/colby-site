@@ -3172,6 +3172,10 @@
           to: 'https://alumni.colby.edu/give-to-colby-cye23-ca/'
           regexp: true
           code: 301
+        '^(?i)/CYE23/?$':
+          to: 'https://alumni.colby.edu/give-to-colby-cye23-ca/'
+          regexp: true
+          code: 301
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

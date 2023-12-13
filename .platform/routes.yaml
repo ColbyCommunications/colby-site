@@ -325,6 +325,10 @@
           to: '/geology/$1/'
           regexp: true
           code: 301
+        '^/geology/?$':
+          to: '/academics/departments-and-programs/geology/'
+          regexp: true
+          code: 301
   # German and Russian
         '^/germanandrussian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'

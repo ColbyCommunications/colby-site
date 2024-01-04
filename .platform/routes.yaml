@@ -2802,12 +2802,8 @@
           to: 'https://soblu50.colby.edu/'
           regexp: true
           code: 301
-  # Trustees
+  # Trustees Form
         '^/trustees/?$':
-          to: '/people/offices-directory/office-of-the-president/trustees/'
-          regexp: true
-          code: 301
-        '^/trustees/honorary-degree-nomination/?$':
           to: '/people/offices-directory/office-of-the-president/trustees/honorary-degree-nomination/'
           regexp: true
           code: 301

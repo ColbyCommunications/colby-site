@@ -2984,8 +2984,12 @@
           to: 'https://www.givecampus.com/wglvk2'
           regexp: true
           code: 301
+        '^/halloran-lab-for-entrepreneurship/subscribe/?$':
+          to: '/halloran-lab-for-entrepreneurship/newsletter/'
+          regexp: true
+          code: 301
         '^/halloranlab/?(.*)$':
-          to: 'https://halloranlab.colby.edu/'
+          to: '/halloran-lab-for-entrepreneurship/'
           regexp: true
           code: 301
         '^/halloran/?$':

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "49800abc15659e3e195df6bdfd59b621",
+    "content-hash": "a960e19a3ca23ac9121237d291f6f5dd",
     "packages": [
         {
             "name": "alledia/edd-sl-plugin-updater",
@@ -5818,15 +5818,15 @@
         },
         {
             "name": "wpackagist-plugin/capability-manager-enhanced",
-            "version": "2.3.2",
+            "version": "2.11.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/capability-manager-enhanced/",
-                "reference": "tags/2.3.2"
+                "reference": "tags/2.11.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/capability-manager-enhanced.2.3.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/capability-manager-enhanced.2.11.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -5926,15 +5926,15 @@
         },
         {
             "name": "wpackagist-plugin/press-permit-core",
-            "version": "3.9.3",
+            "version": "3.11.5",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/press-permit-core/",
-                "reference": "tags/3.9.3"
+                "reference": "tags/3.11.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/press-permit-core.3.9.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/press-permit-core.3.11.5.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -5962,15 +5962,15 @@
         },
         {
             "name": "wpackagist-plugin/regenerate-thumbnails",
-            "version": "3.1.5",
+            "version": "3.1.6",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/regenerate-thumbnails/",
-                "reference": "tags/3.1.5"
+                "reference": "tags/3.1.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/regenerate-thumbnails.3.1.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/regenerate-thumbnails.3.1.6.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6088,15 +6088,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "20.8",
+            "version": "21.9.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/20.8"
+                "reference": "tags/21.9.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.20.8.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.21.9.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6106,15 +6106,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-nested-pages",
-            "version": "3.2.3",
+            "version": "3.2.7",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wp-nested-pages/",
-                "reference": "tags/3.2.3"
+                "reference": "tags/3.2.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-nested-pages.3.2.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/wp-nested-pages.3.2.7.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

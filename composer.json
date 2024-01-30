@@ -19,7 +19,7 @@
         "vlucas/phpdotenv": "^5.4",
         "wpackagist-plugin/press-permit-core": "3.11.5",
         "wpackagist-plugin/user-switching": "1.7.2",
-        "colbycommunications/presspermit-pro": "^3.8.2-beta",
+        "colbycommunications/presspermit-pro": "4.0.14",
         "wpackagist-plugin/disable-comments": "2.4.5",
         "wpackagist-plugin/advanced-gutenberg": "3.2.1",
         "wpackagist-plugin/term-management-tools": "2.0.1",
@@ -34,7 +34,7 @@
         "wpackagist-plugin/tinymce-advanced": "5.9.2",
         "wpackagist-plugin/wordpress-seo": "21.9.1",
         "wpackagist-plugin/disable-everything": "0.4.0",
-        "wpackagist-plugin/tablepress": "2.2.4"
+        "wpackagist-plugin/tablepress": "2.2.5"
     },
     "authors": [
         {

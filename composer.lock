@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b40333c0b42059cb66aa15f48cb40a24",
+    "content-hash": "b09814238195446c0606df9ccaa95953",
     "packages": [
         {
             "name": "colbycommunications/advanced-custom-fields-pro",
@@ -199,16 +199,16 @@
         },
         {
             "name": "colbycommunications/gravityforms",
-            "version": "2.6.9",
+            "version": "2.8.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/gravityforms.git",
-                "reference": "5c7d6734f9c84b1ebf04678d07ce6596aa287abf"
+                "reference": "77fc60988aa9b98fec0e0042311889152a3fb9bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-5c7d6734f9c84b1ebf04678d07ce6596aa287abf-zip-e161a5.zip",
-                "reference": "5c7d6734f9c84b1ebf04678d07ce6596aa287abf"
+                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-77fc60988aa9b98fec0e0042311889152a3fb9bc-zip-adf492.zip",
+                "reference": "77fc60988aa9b98fec0e0042311889152a3fb9bc"
             },
             "type": "wordpress-plugin",
             "authors": [
@@ -222,7 +222,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2023-01-16T20:20:31+00:00"
+            "time": "2024-01-30T20:50:31+00:00"
         },
         {
             "name": "colbycommunications/presspermit-pro",

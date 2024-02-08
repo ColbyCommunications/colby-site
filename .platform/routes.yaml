@@ -2231,11 +2231,6 @@
           to: 'https://cah.colby.edu'
           regexp: true
           code: 301
-  # Commencement
-        '^/commencement/?$':
-          to: 'https://commencement.colby.edu'
-          regexp: true
-          code: 301
   # Davis Connects
         '^/careercenter/?$': 
           to: '/davisconnects'     

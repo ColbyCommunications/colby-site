@@ -2,7 +2,7 @@
 
 ## How to Use This Repo as a Template
 
-1. Click "Use this Template" button.
+1. Click "Use this Template" button
 2. Create it in the Colby Communications organization under the naming convention `[sitename]-site`
 3. Clone on local machine
 4. Add [sitename] to the following files, replacing placeholder text:

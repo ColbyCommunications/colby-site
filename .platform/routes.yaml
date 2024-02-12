@@ -1484,7 +1484,6 @@
           to: '/academics/departments-and-programs/economics/'
           regexp: true
           code: 301
-
   # Education
         '^/dept/educ/?$':
           to: '/academics/departments-and-programs/education/'
@@ -2207,8 +2206,12 @@
           to: 'https://darenorthward.colby.edu/give/'
           regexp: true
           code: 301
-        '^TB22/?$':
+        '^/TB22/?$':
           to: 'https://darenorthward.colby.edu/give/'
+          regexp: true
+          code: 301
+        '^/trueblue/?$':
+          to: 'https://www.givecampus.com/schools/ColbyCollege/true-blue-24-challenge/'
           regexp: true
           code: 301
   # Athletics
@@ -2925,6 +2928,10 @@
           code: 301
         '^/downtown/?$':
           to: 'https://news.colby.edu/story/the-revitalization-of-downtown-waterville/'
+          regexp: true
+          code: 301
+        '^/econ-abroad/?$':
+          to: 'https:/academics/departments-and-programs/economics/study-abroad/'
           regexp: true
           code: 301
         '^/economicimpactreport/?$':

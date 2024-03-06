@@ -2139,7 +2139,7 @@
           regexp: true
           code: 301
         '^/give/?$': 
-          to: 'https://www.givecampus.com/schools/ColbyCollege/true-blue-24-challenge'     
+          to: 'https://alumni.colby.edu/give/'     
           regexp: true
           code: 301
         '^/colbyalumni/clubs/?$': 

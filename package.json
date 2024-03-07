@@ -6,7 +6,11 @@
 	"license": "None",
 	"dependencies": {
 		"algoliasearch": "^4.13.1",
+		"csv-writer": "^1.6.0",
 		"lodash": "^4.17.21",
 		"superagent": "7.0.2"
+	},
+	"devDependencies": {
+		"csv-parse": "^5.5.3"
 	}
 }

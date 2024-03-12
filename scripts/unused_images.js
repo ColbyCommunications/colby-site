@@ -17,7 +17,7 @@ const csvWriter = createCsvWriter({
     let csvData = [];
 
     await fs
-        .createReadStream('./used_images-3-4-24.csv')
+        .createReadStream('./used_images-3-11-24.csv')
         .pipe(parse({ delimiter: ',', from_line: 2, relax_quotes: true }))
         .on('data', async (row) => {
             // save locally

@@ -755,6 +755,10 @@
           regexp: true
           code: 301
   # Dining Services
+        '^/dining/?$':
+          to: 'https://colby.cafebonappetit.com/'
+          regexp: true
+          code: 301
         '^/people/offices-directory/dining-services/?$':
           to: 'https://colby.cafebonappetit.com/'
           regexp: true
@@ -1484,7 +1488,6 @@
           to: '/academics/departments-and-programs/economics/'
           regexp: true
           code: 301
-
   # Education
         '^/dept/educ/?$':
           to: '/academics/departments-and-programs/education/'
@@ -2207,8 +2210,12 @@
           to: 'https://darenorthward.colby.edu/give/'
           regexp: true
           code: 301
-        '^TB22/?$':
+        '^/TB22/?$':
           to: 'https://darenorthward.colby.edu/give/'
+          regexp: true
+          code: 301
+        '^/trueblue/?$':
+          to: 'https://www.givecampus.com/schools/ColbyCollege/true-blue-24-challenge/'
           regexp: true
           code: 301
   # Athletics
@@ -2229,11 +2236,6 @@
   # CAH
         '^/centerartshumanities/?(.*)$':
           to: 'https://cah.colby.edu'
-          regexp: true
-          code: 301
-  # Commencement
-        '^/commencement/?$':
-          to: 'https://commencement.colby.edu'
           regexp: true
           code: 301
   # Davis Connects
@@ -2932,6 +2934,10 @@
           to: 'https://news.colby.edu/story/the-revitalization-of-downtown-waterville/'
           regexp: true
           code: 301
+        '^/econ-abroad/?$':
+          to: '/academics/departments-and-programs/economics/study-abroad/'
+          regexp: true
+          code: 301
         '^/economicimpactreport/?$':
           to: 'http://www.colby.edu/people/offices-directory/office-of-the-president/reports/economic-impact-report/'
           regexp: true
@@ -3172,8 +3178,28 @@
           to: 'https://alumni.colby.edu/give-to-colby-cye23-ca/'
           regexp: true
           code: 301
+        '^/ambassador/?$':
+          to: 'https://alumni.colby.edu/give-to-colby-ambassador/'
+          regexp: true
+          code: 301
+        '^/seniorfamily/?$':
+          to: 'https://www.givecampus.com/znz359'
+          regexp: true
+          code: 301
         '^(?i)/CYE23/?$':
           to: 'https://alumni.colby.edu/give-to-colby-cye23-ca/'
+          regexp: true
+          code: 301
+        '^(?i)/TrueBlue24/?$':
+          to: 'https://alumni.colby.edu/give-to-colby-ambassador/'
+          regexp: true
+          code: 301
+        '^(?i)/TB24/?$':
+          to: 'https://www.givecampus.com/dk9oiu/'
+          regexp: true
+          code: 301
+        '^/muleworks/?$':
+          to: 'https://web.colby.edu/muleworks/'
           regexp: true
           code: 301
 # *ALL* www.* requests should be redirected back to primary domain

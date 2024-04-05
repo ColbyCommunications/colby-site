@@ -21,6 +21,7 @@ Disallow: /wp-register.php
 Disallow: /xmlrpc.php
 Disallow: /search/
 Disallow: /tag/
+Disallow: /reload/*
 
 # Worker pages
 Disallow: /chemistry/NMR/*

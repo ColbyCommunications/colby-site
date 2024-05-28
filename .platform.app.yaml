@@ -69,5 +69,5 @@ variables:
 # crons: !include project/platform/crons.yaml
 
 resources: 
-    base_memory: 256
-    memory_ratio: 384
+    base_memory: 128
+    memory_ratio: 256

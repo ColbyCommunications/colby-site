@@ -9,7 +9,7 @@ define( 'PLATFORM_VARIABLES', json_decode( $_ENV['PLATFORM_VARS'], true ) );
 
 // Set host values
 $site_scheme      = 'http';
-$site_host        = 'localhost';
+$site_host        = 'colby.lndo.site';
 $strDomainRequest = 'SERVER_NAME';
 
 if ( isset( $_SERVER['HTTP_HOST'] ) ) {

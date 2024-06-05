@@ -2906,10 +2906,6 @@
           to: '/academics/research/colby-undergraduate-summer-research-retreat/'
           regexp: true
           code: 301
-        '^/cussr/?$':
-          to: '/academics/research/colby-undergraduate-summer-research-retreat/'
-          regexp: true
-          code: 301
         '^/dept/span/?$':
           to: '/academics/departments-and-programs/spanish/'
           regexp: true

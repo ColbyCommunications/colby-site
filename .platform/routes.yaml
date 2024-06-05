@@ -2906,8 +2906,12 @@
           to: '/academics/research/colby-undergraduate-summer-research-retreat/'
           regexp: true
           code: 301
-        '^/diningservices/?$':
-          to: 'http://colby.cafebonappetit.com/'
+        '^/cussr/?$':
+          to: '/academics/research/colby-undergraduate-summer-research-retreat/'
+          regexp: true
+          code: 301
+        '^/dept/span/?$':
+          to: '/academics/departments-and-programs/spanish/'
           regexp: true
           code: 301
         '^/diningservices/catering/?$':

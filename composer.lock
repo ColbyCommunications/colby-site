@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "917dec2a53596d35066de9afb8781d12",
+    "content-hash": "f0b4ff578e762a75a5f007b54ba2390c",
     "packages": [
         {
             "name": "colbycommunications/advanced-custom-fields-pro",
@@ -5808,6 +5808,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/capability-manager-enhanced/"
+        },
+        {
+            "name": "wpackagist-plugin/cf-images",
+            "version": "1.8.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/cf-images/",
+                "reference": "tags/1.8.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/cf-images.1.8.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/cf-images/"
         },
         {
             "name": "wpackagist-plugin/cloudflare",

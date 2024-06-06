@@ -34,7 +34,8 @@
         "wpackagist-plugin/tinymce-advanced": "5.9.2",
         "wpackagist-plugin/wordpress-seo": "21.9.1",
         "wpackagist-plugin/disable-everything": "0.4.0",
-        "wpackagist-plugin/tablepress": "2.2.5"
+        "wpackagist-plugin/tablepress": "2.2.5",
+        "wpackagist-plugin/cf-images": "1.8.0"
     },
     "authors": [
         {

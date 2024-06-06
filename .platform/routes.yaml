@@ -2745,8 +2745,8 @@
           to: '/academics/research/colby-undergraduate-summer-research-retreat/'
           regexp: true
           code: 301
-        '^/diningservices/?$':
-          to: 'http://colby.cafebonappetit.com/'
+        '^/dept/span/?$':
+          to: '/academics/departments-and-programs/spanish/'
           regexp: true
           code: 301
         '^/diningservices/catering/?$':
@@ -3039,6 +3039,10 @@
           code: 301
         '^/muleworks/?$':
           to: 'https://web.colby.edu/muleworks/'
+          regexp: true
+          code: 301
+        '^/family27/?$':
+          to: 'https://alumni.colby.edu/family27/'
           regexp: true
           code: 301
 # *ALL* www.* requests should be redirected back to primary domain

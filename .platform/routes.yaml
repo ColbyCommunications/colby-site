@@ -699,6 +699,11 @@
           to: 'https://bookstore.colby.edu/'
           regexp: true
           code: 301
+  # Bucklab
+        '^/people/offices-directory/buck-lab-for-climate-and-environment/?$':
+          to: 'buck-lab-for-climate-and-environment/'
+          regexp: true
+          code: 301
   # Campus Life
         '^/people/offices-directory/campus-life/?$':
           to: 'https://life.colby.edu/'

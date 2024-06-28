@@ -74,6 +74,10 @@
           regexp: true
           code: 301
   # American Studies
+        '^/american-studies/?$':
+          to: '/academics/departments-and-programs/american-studies/'
+          regexp: true
+          code: 301
         '^/americanstudies/(.*)$':
           to: '/academics/departments-and-programs/american-studies/'
           regexp: true
@@ -87,6 +91,10 @@
           regexp: true
           code: 301
   # Anthropology
+        '^/anthropology/?$':
+          to: '/academics/departments-and-programs/anthropology/'
+          regexp: true
+          code: 301
         '^/anthro/(.*)$':
           to: '/academics/departments-and-programs/anthropology/'
           regexp: true
@@ -100,6 +108,10 @@
           regexp: true
           code: 301
   # Art
+        '^/art/?$':
+          to: '/academics/departments-and-programs/art/'
+          regexp: true
+          code: 301
         '^/artdept/(.*)$':
           to: '/academics/departments-and-programs/art/'
           regexp: true
@@ -1321,6 +1333,10 @@
           regexp: true
           code: 301
         '^/sfs/(.*)$':
+          to: '/people/offices-directory/student-financial-services/'
+          regexp: true
+          code: 301
+        '^/student-financial-services/?$':
           to: '/people/offices-directory/student-financial-services/'
           regexp: true
           code: 301

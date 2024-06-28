@@ -152,7 +152,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "66d1d951a3442611c781c0254bf34d4e657af544"
+                "reference": "59c69c300a288bf4fbe771b9c7024954de25502e"
             },
             "require": {
                 "php": ">=7.1"
@@ -168,7 +168,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2024-06-27T17:06:22+00:00"
+            "time": "2024-06-28T12:16:07+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",
@@ -2402,16 +2402,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.40",
+            "version": "v5.4.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "aa73115c0c24220b523625bfcfa655d7d73662dd"
+                "reference": "6473d441a913cb997123b59ff2dbe3d1cf9e11ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/aa73115c0c24220b523625bfcfa655d7d73662dd",
-                "reference": "aa73115c0c24220b523625bfcfa655d7d73662dd",
+                "url": "https://api.github.com/repos/symfony/console/zipball/6473d441a913cb997123b59ff2dbe3d1cf9e11ba",
+                "reference": "6473d441a913cb997123b59ff2dbe3d1cf9e11ba",
                 "shasum": ""
             },
             "require": {
@@ -2481,7 +2481,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v5.4.40"
+                "source": "https://github.com/symfony/console/tree/v5.4.41"
             },
             "funding": [
                 {
@@ -2497,7 +2497,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:33:22+00:00"
+            "time": "2024-06-28T07:48:55+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

@@ -1983,7 +1983,7 @@
           regexp: true
           code: 301
         '^/give/?$': 
-          to: 'https://www.givecampus.com/l2ttfj'   
+          to: 'https://www.givecampus.com/give/'   
           regexp: true
           code: 301
         '^/colbyalumni/clubs/?$': 

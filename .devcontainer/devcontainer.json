@@ -1,0 +1,64 @@
+{
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.suggestSelection": "first",
+                "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+                "terminal.integrated.shell.osx": "/bin/zsh",
+                "editor.formatOnPaste": true,
+                "editor.formatOnSave": true,
+                "editor.tabSize": 4,
+                "eslint.format.enable": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "prettier.ignorePath": "~/.prettierignore",
+                "editor.largeFileOptimizations": false,
+                "php.format.codeStyle": "Wordpress",
+                "[php]": {
+                    "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
+                },
+                "[python]": {
+                    "editor.formatOnType": true
+                },
+                "[json]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "workbench.editor.limit.excludeDirty": true,
+                "prettier.printWidth": 100,
+                "prettier.tabWidth": 4,
+                "prettier.singleQuote": true,
+                "prettier.vueIndentScriptAndStyle": true,
+                "diffEditor.ignoreTrimWhitespace": false,
+                "typescript.suggestionActions.enabled": false,
+                "terminal.integrated.scrollback": 3000,
+                "terminal.integrated.defaultProfile.osx": "zsh",
+                "editor.stickyScroll.enabled": false,
+                "settingsSync.ignoredSettings": [],
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 3000,
+                "emmet.triggerExpansionOnTab": true,
+                "emmet.includeLanguages": {
+                    "html": "html",
+                    "javascript": "javascriptreact",
+                    "twig": "twig",
+                    "vue": "html",
+                    "typescript": "typescriptreact"
+                }
+            },
+            "extensions": [
+                "octref.vetur",
+                "github.copilot",
+                "github.copilot-chat",
+                "browserstackcom.browserstack-vscode",
+                "esbenp.prettier-vscode",
+                "GitHub.github-vscode-theme",
+                "whatwedo.twig",
+                "Syler.sass-indented",
+                "jock.svg",
+                "DEVSENSE.phptools-vscode",
+                "dbaeumer.vscode-eslint",
+                "formulahendry.auto-complete-tag"
+            ]
+        }
+    }
+}
+

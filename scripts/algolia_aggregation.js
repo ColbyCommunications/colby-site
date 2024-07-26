@@ -145,6 +145,16 @@ async function main() {
         objectID: 'davisconnects-1',
     });
 
+    finishedResults.push({
+        post_title: 'Jan Plan Options',
+        cleaned_title: 'Jan Plan Options',
+        content:
+            'Jan Plan is an exploratory term in January that gives students opportunities to choose among hundreds of different academic experiences. It’s a time for focused study, for interning, or for conducting research. Students are required to complete three Jan Plans, but 90% of students elect to do all four. ',
+        permalink: 'https://davisconnects.colby.edu/resources/jan-plan-options/',
+        originIndexLabel: 'DavisConnects',
+        objectID: 'davisconnects-2',
+    });
+
     await aggregatedIndex
         .saveObjects(finishedResults, { autoGenerateObjectIDIfNotExist: true })
         .wait();

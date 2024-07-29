@@ -4,7 +4,7 @@
     "type": "project",
     "require": {
         "johnpbloch/wordpress-core-installer": "^2.0",
-        "johnpbloch/wordpress-core": "6.4.2",
+        "johnpbloch/wordpress-core": "6.5.5",
         "wpackagist-plugin/capability-manager-enhanced": "2.11.1",
         "wpackagist-plugin/header-footer": "3.2.7",
         "wpackagist-plugin/duplicate-post": "4.5",
@@ -29,7 +29,7 @@
         "colbycommunications/gravityforms": "2.8.2",
         "phpseclib/phpseclib": "~3.0",
         "wpackagist-plugin/regenerate-thumbnails": "3.1.6",
-        "wpackagist-plugin/timber-library": "1.23.0",
+        "timber/timber": "^1.0",
         "wpackagist-plugin/wp-nested-pages": "3.2.7",
         "wpackagist-plugin/tinymce-advanced": "5.9.2",
         "wpackagist-plugin/wordpress-seo": "21.9.1",

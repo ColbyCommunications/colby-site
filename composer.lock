@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9a27aa70354aa255426c7c9eac6c1d6",
+    "content-hash": "5e6e5fda5c50ae0baa331f4ba2cb472d",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -6533,15 +6533,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-search-with-algolia",
-            "version": "2.7.0",
+            "version": "2.8.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wp-search-with-algolia/",
-                "reference": "tags/2.7.0"
+                "reference": "tags/2.8.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-search-with-algolia.2.7.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/wp-search-with-algolia.2.8.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6560,5 +6560,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

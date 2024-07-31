@@ -15,7 +15,7 @@
         "psy/psysh": "^0.10.4",
         "colbycommunications/colby-college-theme": "dev-dev",
         "colbycommunications/colby-ticket": "1.0.1",
-        "wpackagist-plugin/wp-search-with-algolia": "2.7.0",
+        "wpackagist-plugin/wp-search-with-algolia": "2.8.1",
         "vlucas/phpdotenv": "^5.4",
         "wpackagist-plugin/press-permit-core": "3.11.5",
         "wpackagist-plugin/user-switching": "1.7.2",

@@ -1,0 +1,1 @@
+[14-Aug-2024 13:45:17 UTC] PHP Warning:  Attempt to read property "object_id" on bool in /app/web/wp-content/mu-plugins/wordpress-seo/src/integrations/admin/admin-columns-cache-integration.php on line 112

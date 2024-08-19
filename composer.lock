@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cf5369b539cdcd6a77e536ad60e1886",
+    "content-hash": "002349eb33a44def5a4ec8a2f5eddb43",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -68,16 +68,16 @@
         },
         {
             "name": "colbycommunications/advanced-custom-fields-pro",
-            "version": "6.2.5",
+            "version": "6.3.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/advanced-custom-fields-pro.git",
-                "reference": "32fc0f3563b19ea36795ae5ac659123b8954d288"
+                "reference": "826147ab675cb25c368b57f8dfbe674e77d1691c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/advanced-custom-fields-pro/colbycommunications-advanced-custom-fields-pro-32fc0f3563b19ea36795ae5ac659123b8954d288-zip-c02d1d.zip",
-                "reference": "32fc0f3563b19ea36795ae5ac659123b8954d288"
+                "url": "https://satis.colby.edu/dist/colbycommunications/advanced-custom-fields-pro/colbycommunications-advanced-custom-fields-pro-826147ab675cb25c368b57f8dfbe674e77d1691c-zip-238581.zip",
+                "reference": "826147ab675cb25c368b57f8dfbe674e77d1691c"
             },
             "type": "wordpress-plugin",
             "authors": [
@@ -91,20 +91,20 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2024-01-26T19:20:16+00:00"
+            "time": "2024-07-08T15:43:33+00:00"
         },
         {
             "name": "colbycommunications/capabilities-pro",
-            "version": "2.12.0",
+            "version": "2.13.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/capabilities-pro.git",
-                "reference": "27826de064cbfc615593a399a98d0b790cd6b623"
+                "reference": "d5473e219e73b3b97c85a904289360091b7d8ec4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/capabilities-pro/colbycommunications-capabilities-pro-27826de064cbfc615593a399a98d0b790cd6b623-zip-636692.zip",
-                "reference": "27826de064cbfc615593a399a98d0b790cd6b623"
+                "url": "https://satis.colby.edu/dist/colbycommunications/capabilities-pro/colbycommunications-capabilities-pro-d5473e219e73b3b97c85a904289360091b7d8ec4-zip-365307.zip",
+                "reference": "d5473e219e73b3b97c85a904289360091b7d8ec4"
             },
             "require": {
                 "php": ">=7.2.5"
@@ -204,7 +204,7 @@
                     "email": "help@publishpress.com"
                 }
             ],
-            "time": "2024-01-25T16:56:23+00:00"
+            "time": "2024-07-08T16:13:40+00:00"
         },
         {
             "name": "colbycommunications/colby-college-theme",
@@ -259,16 +259,16 @@
         },
         {
             "name": "colbycommunications/gravityforms",
-            "version": "2.8.2",
+            "version": "2.8.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/gravityforms.git",
-                "reference": "77fc60988aa9b98fec0e0042311889152a3fb9bc"
+                "reference": "383498a580b7594161e8c9d947a3e1f4a315d1af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-77fc60988aa9b98fec0e0042311889152a3fb9bc-zip-adf492.zip",
-                "reference": "77fc60988aa9b98fec0e0042311889152a3fb9bc"
+                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-383498a580b7594161e8c9d947a3e1f4a315d1af-zip-961aff.zip",
+                "reference": "383498a580b7594161e8c9d947a3e1f4a315d1af"
             },
             "type": "wordpress-plugin",
             "authors": [
@@ -282,7 +282,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2024-01-30T20:50:31+00:00"
+            "time": "2024-07-03T17:51:32+00:00"
         },
         {
             "name": "colbycommunications/presspermit-pro",
@@ -6205,15 +6205,15 @@
         },
         {
             "name": "wpackagist-plugin/advanced-gutenberg",
-            "version": "3.2.1",
+            "version": "3.2.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/advanced-gutenberg/",
-                "reference": "tags/3.2.1"
+                "reference": "tags/3.2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-gutenberg.3.2.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/advanced-gutenberg.3.2.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6259,15 +6259,15 @@
         },
         {
             "name": "wpackagist-plugin/cloudflare",
-            "version": "4.12.4",
+            "version": "4.12.8",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/cloudflare/",
-                "reference": "tags/4.12.4"
+                "reference": "tags/4.12.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/cloudflare.4.12.4.zip"
+                "url": "https://downloads.wordpress.org/plugin/cloudflare.4.12.8.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6277,15 +6277,15 @@
         },
         {
             "name": "wpackagist-plugin/disable-comments",
-            "version": "2.4.5",
+            "version": "2.4.6",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/disable-comments/",
-                "reference": "tags/2.4.5"
+                "reference": "tags/2.4.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/disable-comments.2.4.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/disable-comments.2.4.6.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6295,15 +6295,15 @@
         },
         {
             "name": "wpackagist-plugin/disable-everything",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/disable-everything/",
-                "reference": "tags/0.4.0"
+                "reference": "tags/0.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/disable-everything.0.4.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/disable-everything.0.4.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6403,15 +6403,15 @@
         },
         {
             "name": "wpackagist-plugin/tablepress",
-            "version": "2.2.5",
+            "version": "2.4.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/tablepress/",
-                "reference": "tags/2.2.5"
+                "reference": "tags/2.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tablepress.2.2.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/tablepress.2.4.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -6457,15 +6457,15 @@
         },
         {
             "name": "wpackagist-plugin/user-switching",
-            "version": "1.7.2",
+            "version": "1.8.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/user-switching/",
-                "reference": "tags/1.7.2"
+                "reference": "tags/1.8.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/user-switching.1.7.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/user-switching.1.8.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

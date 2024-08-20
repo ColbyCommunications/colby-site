@@ -5,8 +5,7 @@
     "require": {
         "johnpbloch/wordpress-core-installer": "^2.0",
         "johnpbloch/wordpress-core": "6.5.5",
-        "wpackagist-plugin/capability-manager-enhanced": "2.11.1",
-        "wpackagist-plugin/header-footer": "3.2.7",
+        "wpackagist-plugin/header-footer": "3.2.8",
         "wpackagist-plugin/duplicate-post": "4.5",
         "wpackagist-plugin/cloudflare": "4.12.8",
         "wpackagist-plugin/public-post-preview": "2.10.0",
@@ -17,7 +16,6 @@
         "colbycommunications/colby-ticket": "1.0.1",
         "wpackagist-plugin/wp-search-with-algolia": "2.8.1",
         "vlucas/phpdotenv": "^5.4",
-        "wpackagist-plugin/press-permit-core": "3.11.5",
         "wpackagist-plugin/user-switching": "1.8.0",
         "colbycommunications/presspermit-pro": "4.0.14",
         "wpackagist-plugin/disable-comments": "2.4.6",
@@ -32,7 +30,7 @@
         "timber/timber": "^1.0",
         "wpackagist-plugin/wp-nested-pages": "3.2.8",
         "wpackagist-plugin/tinymce-advanced": "5.9.2",
-        "wpackagist-plugin/wordpress-seo": "21.9.1",
+        "wpackagist-plugin/wordpress-seo": "23.3",
         "wpackagist-plugin/disable-everything": "0.4.1",
         "wpackagist-plugin/tablepress": "2.4.1",
         "wpackagist-plugin/cf-images": "1.8.0"

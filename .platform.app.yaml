@@ -1,5 +1,5 @@
 # This file describes an application. You can have multiple applications
-# in the same project..
+# in the same project.
 
 # The name of this app. Must be unique within a project.
 name: app
@@ -63,11 +63,11 @@ variables:
   env: !include project/platform/variables.env.yaml
   php:
     upload_max_filesize: 128M
-    memory_limit: 1G
+    memory_limit: 256M
 
 # The configuration of scheduled execution.
 # crons: !include project/platform/crons.yaml
 
 resources: 
-    base_memory: 256
+    base_memory: 128
     memory_ratio: 256

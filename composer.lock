@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0eeeb932cd5056dccdf361be9c44b0ef",
+    "content-hash": "537a52aa14fa3877d81b00d32d315fa2",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -208,11 +208,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "2.7.0",
+            "version": "2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "8b847ca30f430614dd6df8624d2f6cf168ca8b32"
+                "reference": "22f0e8644749852890559201b92853d4c9eda17a"
             },
             "require": {
                 "php": ">=7.1"
@@ -228,7 +228,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2024-08-27T11:10:39+00:00"
+            "time": "2024-08-27T14:28:48+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",
@@ -6535,5 +6535,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

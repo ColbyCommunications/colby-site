@@ -1,0 +1,96 @@
+{
+    "name": "Debian",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Debian version: bullseye, buster, stretch
+		// Use bullseye or stretch on local arm64/Apple Silicon.
+		"args": { "VARIANT": "bullseye" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+
+	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"features": {
+		"docker-in-docker": "latest",
+		"lando/lando-dev-container-feature/landodevcontainer": "latest",
+	},
+
+    "postCreateCommand": "mkdir -p ~/.lando/cache && cp -f /workspaces/colby-site/.devcontainer/config.yml ~/.lando/config.yml && lando start && node ./scripts/lando_generate-env.js",
+
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.suggestSelection": "first",
+                "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+                "terminal.integrated.shell.osx": "/bin/zsh",
+                "editor.formatOnPaste": true,
+                "editor.formatOnSave": true,
+                "editor.tabSize": 4,
+                "eslint.format.enable": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "prettier.ignorePath": "~/.prettierignore",
+                "editor.largeFileOptimizations": false,
+                "php.format.codeStyle": "Wordpress",
+                "[php]": {
+                    "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
+                },
+                "[python]": {
+                    "editor.formatOnType": true
+                },
+                "[json]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "workbench.editor.limit.excludeDirty": true,
+                "prettier.printWidth": 100,
+                "prettier.tabWidth": 4,
+                "prettier.singleQuote": true,
+                "prettier.vueIndentScriptAndStyle": true,
+                "diffEditor.ignoreTrimWhitespace": false,
+                "typescript.suggestionActions.enabled": false,
+                "terminal.integrated.scrollback": 3000,
+                "terminal.integrated.defaultProfile.osx": "zsh",
+                "editor.stickyScroll.enabled": false,
+                "settingsSync.ignoredSettings": [],
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 3000,
+                "emmet.triggerExpansionOnTab": true,
+                "emmet.includeLanguages": {
+                    "html": "html",
+                    "javascript": "javascriptreact",
+                    "twig": "twig",
+                    "vue": "html",
+                    "typescript": "typescriptreact"
+                }
+            },
+            "extensions": [
+                "octref.vetur",
+                "github.copilot",
+                "github.copilot-chat",
+                "browserstackcom.browserstack-vscode",
+                "esbenp.prettier-vscode",
+                "GitHub.github-vscode-theme",
+                "whatwedo.twig",
+                "Syler.sass-indented",
+                "jock.svg",
+                "DEVSENSE.phptools-vscode",
+                "dbaeumer.vscode-eslint",
+                "formulahendry.auto-complete-tag"
+            ]
+        }
+    }
+}
+

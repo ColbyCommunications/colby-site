@@ -70,6 +70,22 @@ const scrollToBottom = require('scroll-to-bottomjs');
             resolve();
         }, 3000);
     });
+    
+    // Post 1
+    const testPost = await browser.newPage();
+    await testPost.goto(
+        'https://www.dev-54ta5gq-ouiqvb5juucvu.us-4.platformsh.site/halloran-lab/news/jonathan-godbout-08-entrepreneur-in-residence-eir/'
+    );
+    await new Promise(function (resolve) {
+        setTimeout(async function () {
+            await testPage4.evaluate(scrollToBottom, scrollOptions);
+
+            await percySnapshot(testPage4, 'Snapshot of offices page', {
+                percyCSS: `.relatedSection { display:none; } .highlightsSection { display: none; } .read-time { display: none; } .wp-block-embed-youtube { .display: none; }`,
+            });
+            resolve();
+        }, 3000);
+    });
 
     await browser.close();
 })();

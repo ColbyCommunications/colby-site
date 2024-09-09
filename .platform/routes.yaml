@@ -2053,6 +2053,10 @@
           to: 'https://afa.colby.edu/explore-colby/'     
           regexp: true
           code: 301
+        '^(?i)/EXPLORECOLBY/?$':
+          to: 'https://afa.colby.edu/explore-colby/'     
+          regexp: true
+          code: 301
   # Advancement (including Alumni, DareNorthward, Truenorth, Giving, Parents, Reunion)
         '^/advancement/?$':
           to: 'https://alumni.colby.edu/'     

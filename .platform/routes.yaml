@@ -1263,7 +1263,7 @@
           to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/student-opportunities/'
           regexp: true
           code: 301
-        '^/grants/(.*)$':
+        '^/grants(.*)$':
           to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/'
           regexp: true
           code: 301

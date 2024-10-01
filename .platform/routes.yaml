@@ -2662,6 +2662,10 @@
           to: 'https://lunderinstitute.colby.edu'
           regexp: true
           code: 301
+        '^/people/offices-directory/lunder-institute-for-american-art/?$':
+          to: 'https://lunderinstitute.colby.edu'
+          regexp: true
+          code: 301
   # Lyons Arts Lab
         '^/people/offices-directory/lyons-arts-lab/?$':
           to: 'https://arts.colby.edu/lyons-arts-lab/'

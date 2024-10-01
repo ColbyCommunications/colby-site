@@ -1244,11 +1244,11 @@
           code: 301
   # Grants
         '^/people/offices-directory/grants-and-sponsored-programs/?$':
-          to: 'https://www.colby.edu/foundation-relations-and-sponsored-programs/'
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/'
           regexp: true
           code: 301
         '^/people/offices-directory/foundation-relations-and-sponsored-programs/?$':
-          to: 'https://www.colby.edu/foundation-relations-and-sponsored-programs/'
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/'
           regexp: true
           code: 301
         '^/grants/about-us/personnel/?$':

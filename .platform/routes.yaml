@@ -1244,7 +1244,31 @@
           code: 301
   # Grants
         '^/people/offices-directory/grants-and-sponsored-programs/?$':
-          to: 'https://www.colby.edu/grants/'
+          to: 'https://www.colby.edu/foundation-relations-and-sponsored-programs/'
+          regexp: true
+          code: 301
+        '^/people/offices-directory/foundation-relations-and-sponsored-programs/?$':
+          to: 'https://www.colby.edu/foundation-relations-and-sponsored-programs/'
+          regexp: true
+          code: 301
+        '^/grants/about-us/personnel/?$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/meet-the-team/'
+          regexp: true
+          code: 301
+        '^/grants/about-us/services-and-resources/?$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/proposal-development-and-resources/'
+          regexp: true
+          code: 301
+        '^/grants/faculty/?$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/faculty-grant-administration-and-resources/'
+          regexp: true
+          code: 301
+        '^/grants/students/?$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/student-opportunities/'
+          regexp: true
+          code: 301
+        '^/grants/(.*)$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/'
           regexp: true
           code: 301
   # Health and Counseling Services

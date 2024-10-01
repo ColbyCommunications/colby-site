@@ -2242,6 +2242,11 @@
           to: 'https://cah.colby.edu'
           regexp: true
           code: 301
+  # Colby Arts
+        '^/people/offices-directory/colby-arts/?$':
+          to: 'https://arts.colby.edu/'
+          regexp: true
+          code: 301
   # Davis Connects
         '^/careercenter/?$': 
           to: '/davisconnects'     
@@ -2643,6 +2648,11 @@
           to: 'https://life.colby.edu/what-to-do/first-year-experience/coot/'
           regexp: true
           code: 301
+  # Linde Packman Lab for Biosciences Innovation
+        '^/people/offices-directory/linde-packman-lab-for-biosciences-innovation/?$':
+          to: 'https://web.colby.edu/linde-packman-lab/linde-packman-lab-for-biosciences-innovation/'
+          regexp: true
+          code: 301
   # Lunder Institute
         '^/lunderinstitute/(.+)/?$':
           to: 'https://lunderinstitute.colby.edu/$1/'
@@ -2650,6 +2660,11 @@
           code: 301
         '^/lunderinstitute/?$':
           to: 'https://lunderinstitute.colby.edu'
+          regexp: true
+          code: 301
+  # Lyons Arts Lab
+        '^/people/offices-directory/lyons-arts-lab/?$':
+          to: 'https://arts.colby.edu/lyons-arts-lab/'
           regexp: true
           code: 301
   # Museum/Museum Exhibits

@@ -3,6 +3,9 @@ name: Fix Bios Workflow
 
 on:
   workflow_dispatch:  # Only allow manual triggering
+  push:
+    branches:
+      - 'dev'
 
 jobs:
   run-fix-bios-script:

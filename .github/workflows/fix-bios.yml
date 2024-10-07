@@ -1,0 +1,25 @@
+# .github/workflows/fix-bios.yml
+name: Fix Bios Workflow
+
+on:
+  workflow_dispatch:  # Only allow manual triggering
+
+jobs:
+  run-fix-bios-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      - name: Install PHP dependencies
+        run: composer install --no-progress --no-suggest
+        working-directory: ./
+
+      - name: Run the fix_bios.php script
+        run: php scripts/fix_bios.php

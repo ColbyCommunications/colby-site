@@ -1510,23 +1510,23 @@
           code: 301
   # January Program
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/january-program/$1/'
+          to: '/academics/january-program/$1/'
           regexp: true
           code: 301
         '^/januaryprogram/(.*)$':
-          to: '/academics/departments-and-programs/january-program/'
+          to: '/academics/january-program/'
           regexp: true
           code: 301
         '^/januaryprogram/?$':
-          to: '/academics/departments-and-programs/january-program/'
+          to: '/academics/january-program/'
           regexp: true
           code: 301
         '^/janplan/?$':
-          to: '/academics/departments-and-programs/january-program/'
+          to: '/academics/january-program/'
           regexp: true
           code: 301
-        '^/janplanphotocontest$': 
-          to: '/januaryprogram/offcampus/jan-plan-photo-contest/'     
+        '^/academics/departments-and-programs/january-program/?$': 
+          to: '/academics/january-program/'
           regexp: true
           code: 301
   # Green Colby

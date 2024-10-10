@@ -1178,11 +1178,6 @@
           to: '/people/offices-directory/facilities/'
           regexp: true
           code: 301
-  # Farnham Writers' Center
-        '^/people/offices-directory/farnham-writers-center/?$':
-          to: 'https://web.colby.edu/writers-center/'
-          regexp: true
-          code: 301
   # Financial Planning
         '^/financialplanning/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/financial-planning/$1/'

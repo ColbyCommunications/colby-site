@@ -22,6 +22,7 @@ $result = $conn->query($bio_query);
 // process rows
 $rows = [];
 while($row = $result->fetch_row()) {
+    var_dump($row);
     $rows[] = $row;
 }
 

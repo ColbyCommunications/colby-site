@@ -27,7 +27,7 @@ while($row = $result->fetch_row()) {
 
 // apply fix
 foreach ($rows as $r) {
-    $new_bio = preg_replace('/href="[”]{1,}(.+?)[”]{1,}"/', 'href="$1"', $r[1]);
+    $new_bio = preg_replace('/href="[”|″]{1,}(.+?)[”|″]{1,}"/', 'href="$1"', $r[1]);
     $result = $conn->query("UPDATE wp_postmeta SET meta_value ='".$conn->real_escape_string($new_bio)."' WHERE meta_id = ".$r[0]);
 }
 

@@ -16,19 +16,18 @@ if ($conn->connect_error) {
 }
 
 // get affected bios
-$bio_query = "SELECT meta_id, meta_value from wp_postmeta WHERE meta_value REGEXP 'href=\"[“]'";
+$bio_query = "SELECT meta_id, meta_value from wp_postmeta WHERE meta_value REGEXP 'href=\"[”db]'";
 $result = $conn->query($bio_query);
 
 // process rows
 $rows = [];
 while($row = $result->fetch_row()) {
-    var_dump($row);
     $rows[] = $row;
 }
 
 // apply fix
 foreach ($rows as $r) {
-    $new_bio = preg_replace('/href="[”|″]{1,}(.+?)[”|″]{1,}"/', 'href="$1"', $r[1]);
+    $new_bio = preg_replace('/href="[”|″]{0,}(.+?)[”|″]{1,}"/', 'href="$1"', $r[1]);
     $result = $conn->query("UPDATE wp_postmeta SET meta_value ='".$conn->real_escape_string($new_bio)."' WHERE meta_id = ".$r[0]);
 }
 

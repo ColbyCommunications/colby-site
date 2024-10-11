@@ -16,5 +16,5 @@ fixBios:
   spec: '*/15 * * * *'
   cmd: |
     if [ "$PLATFORM_BRANCH" = dev ]; then
-        php scripts/fix_bios2.php
+        php scripts/fix_bios.php
     fi

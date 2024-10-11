@@ -1,10 +1,10 @@
 <?php
 
-$host = "127.0.0.1"; //change to prod
-$username = "wordpress"; //change to prod
-$password = "wordpress"; //change to prod
-$database = "wordpress"; //change to prod
-$port = 64361; //change to prod
+$host = "database.internal"; //change to prod
+$username = "user"; //change to prod
+$password = ""; //change to prod
+$database = "main"; //change to prod
+$port = 3306; //change to prod
 
 
 // Create connection

@@ -1,6 +1,6 @@
 {
     "name": "colbycommunications/colby-site",
-    "description": "Configuration project for the colby.edu site",
+    "description": "Configuration project for the colby.edu website",
     "type": "project",
     "require": {
         "johnpbloch/wordpress-core-installer": "^2.0",

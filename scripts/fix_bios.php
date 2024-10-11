@@ -1,33 +1,37 @@
 <?php
 
-// Define the query to select affected bios
-$bio_query = "SELECT meta_id, meta_value FROM wp_postmeta WHERE meta_value REGEXP 'href=\"[“]'";
+$host = "127.0.0.1"; //change to prod
+$username = "wordpress"; //change to prod
+$password = "wordpress"; //change to prod
+$database = "wordpress"; //change to prod
+$port = 64361; //change to prod
 
-// Execute the query using the MySQL command line
-$output = shell_exec("mysql -h database.internal -P 3306 -u user main -e \"$bio_query\"");
 
-// Check if there are results
-if ($output) {
-    // Split the output into rows
-    $rows = explode("\n", trim($output));
-    array_shift($rows); // Remove the header row
+// Create connection
+$conn = new mysqli($host, $username, $password, $database, $port);
 
-    // Process each row
-    foreach ($rows as $row) {
-        $fields = explode("\t", $row);
-        $meta_id = $fields[0];
-        $meta_value = $fields[1];
-
-        // Apply the fix to the bio
-        $new_bio = preg_replace('/href="[”]{1,}(.+?)[”]{1,}"/', 'href="$1"', $meta_value);
-
-        echo $new_bio;
-        // Update the row using MySQL command line
-        // $update_query = "UPDATE wp_postmeta SET meta_value = '".addslashes($new_bio)."' WHERE meta_id = $meta_id";
-        // shell_exec("mysql -h database.internal -P 3306 -u user main -e \"$update_query\"");
-    }
-} else {
-    echo "No rows matched the query.";
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+// get affected bios
+$bio_query = "SELECT meta_id, meta_value from wp_postmeta WHERE meta_value REGEXP 'href=\"[”db]'";
+$result = $conn->query($bio_query);
+
+// process rows
+$rows = [];
+while($row = $result->fetch_row()) {
+    var_dump($row);
+    $rows[] = $row;
+}
+
+// apply fix
+foreach ($rows as $r) {
+    $new_bio = preg_replace('/href="[”|″]{0,}(.+?)[”|″]{1,}"/', 'href="$1"', $r[1]);
+    $result = $conn->query("UPDATE wp_postmeta SET meta_value ='".$conn->real_escape_string($new_bio)."' WHERE meta_id = ".$r[0]);
+}
+
+$conn->close();
 
 ?>

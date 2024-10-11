@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 }
 
 // get affected bios
-$bio_query = "SELECT meta_id, meta_value from wp_postmeta WHERE meta_value REGEXP 'href=\"[“]'";
+$bio_query = "SELECT meta_id, meta_value from wp_postmeta WHERE meta_value REGEXP 'href=\"[”]'";
 $result = $conn->query($bio_query);
 
 // process rows

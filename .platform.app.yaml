@@ -66,7 +66,7 @@ variables:
     memory_limit: 256M
 
 # The configuration of scheduled execution.
-# crons: !include project/platform/crons.yaml
+crons: !include project/platform/crons.yaml
 
 resources: 
     base_memory: 128

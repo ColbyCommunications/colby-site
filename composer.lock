@@ -212,7 +212,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "1cad5c52cf4f57c86ed62c1c3e6af520ef7733c0"
+                "reference": "00c4600afbe80bb159ecd8656e2599d1fa325931"
             },
             "require": {
                 "php": ">=7.1"
@@ -228,7 +228,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2024-10-29T15:14:02+00:00"
+            "time": "2024-10-29T15:27:24+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -489,16 +489,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.8.1",
+            "version": "2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "e52b8672276cf436670cdd6bd5de4353740e83b2"
+                "reference": "6e543d03187c882ea1c6ba43add2467754427803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/e52b8672276cf436670cdd6bd5de4353740e83b2",
-                "reference": "e52b8672276cf436670cdd6bd5de4353740e83b2",
+                "url": "https://api.github.com/repos/composer/composer/zipball/6e543d03187c882ea1c6ba43add2467754427803",
+                "reference": "6e543d03187c882ea1c6ba43add2467754427803",
                 "shasum": ""
             },
             "require": {
@@ -583,7 +583,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.8.1"
+                "source": "https://github.com/composer/composer/tree/2.8.2"
             },
             "funding": [
                 {
@@ -599,7 +599,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-10-04T09:31:01+00:00"
+            "time": "2024-10-29T15:12:11+00:00"
         },
         {
             "name": "composer/installers",

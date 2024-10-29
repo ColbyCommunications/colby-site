@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "672397d7b4cf2dede1d8bcecb5d9bbda",
+    "content-hash": "5bc9632071e624e603508ec39c0d4049",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -212,7 +212,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "3bb7dc8ce199ffb76fbc596bc76f128c3322f33c"
+                "reference": "ed2db596c36adc592d0e0b4f62d5fdabfb83d284"
             },
             "require": {
                 "php": ">=7.1"
@@ -228,7 +228,34 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2024-10-28T17:33:57+00:00"
+            "time": "2024-10-29T14:19:10+00:00"
+        },
+        {
+            "name": "colbycommunications/colby-its-status",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:ColbyCommunications/colby-its-status.git",
+                "reference": "3daecb2ebb0612c2694a28c89f11eb4a26047a0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://satis.colby.edu/dist/colbycommunications/colby-its-status/colbycommunications-colby-its-status-3daecb2ebb0612c2694a28c89f11eb4a26047a0c-zip-0ac631.zip",
+                "reference": "3daecb2ebb0612c2694a28c89f11eb4a26047a0c"
+            },
+            "type": "wordpress-plugin",
+            "authors": [
+                {
+                    "name": "Brandon Waltz",
+                    "email": "brandon.waltz@colby.edu"
+                }
+            ],
+            "description": "ColbyITS plugin",
+            "homepage": "https://github.com/colbycommunications/colby-its-status",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2024-10-28T16:18:28+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",

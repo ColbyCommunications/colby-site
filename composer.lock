@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff76fdee9feffba4bcb1fba6331de641",
+    "content-hash": "4cedc33a50988dc54db331b9fe709ea1",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -229,6 +229,33 @@
                 "wordpress"
             ],
             "time": "2024-10-30T12:17:36+00:00"
+        },
+        {
+            "name": "colbycommunications/colby-its-status",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:ColbyCommunications/colby-its-status.git",
+                "reference": "3daecb2ebb0612c2694a28c89f11eb4a26047a0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://satis.colby.edu/dist/colbycommunications/colby-its-status/colbycommunications-colby-its-status-3daecb2ebb0612c2694a28c89f11eb4a26047a0c-zip-0ac631.zip",
+                "reference": "3daecb2ebb0612c2694a28c89f11eb4a26047a0c"
+            },
+            "type": "wordpress-plugin",
+            "authors": [
+                {
+                    "name": "Brandon Waltz",
+                    "email": "brandon.waltz@colby.edu"
+                }
+            ],
+            "description": "ColbyITS plugin",
+            "homepage": "https://github.com/colbycommunications/colby-its-status",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2024-10-28T16:18:28+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",

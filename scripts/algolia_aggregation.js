@@ -59,6 +59,22 @@ async function main() {
                     hits = hits.concat(batch);
                 },
             });
+        } else if (indicies[k].indexName === 'davisconnects_pages') {
+            await index.browseObjects({
+                query: '',
+                attributesToRetrieve: ['title', 'content', 'url'],
+                batch: (batch) => {
+                    hits = hits.concat(batch);
+                },
+            });
+        } else if (indicies[k].indexName === 'davisconnects_articles') {
+            await index.browseObjects({
+                query: '',
+                attributesToRetrieve: ['title', 'content', 'url'],
+                batch: (batch) => {
+                    hits = hits.concat(batch);
+                },
+            });
         } else {
             await index.browseObjects({
                 query: '',
@@ -116,6 +132,34 @@ async function main() {
                     originIndexLabel: indicies[k].label,
                     objectID: indicies[k].indexName + '-' + i,
                 };
+            } else if (indicies[k].indexName === 'davisconnects_pages') {
+                if (hits[i].title) {
+                    cleanedTitle = hits[i].title
+                        .replace(/<\/?[^>]+(>|$)/g, '')
+                        .replace(' – Colby College | DavisConnects', '');
+                }
+                result = {
+                    post_title: hits[i].title,
+                    cleaned_title: cleanedTitle,
+                    content: hits[i].description,
+                    permalink: hits[i].url,
+                    originIndexLabel: indicies[k].label,
+                    objectID: indicies[k].indexName + '-' + i,
+                };
+            } else if (indicies[k].indexName === 'davisconnects_articles') {
+                if (hits[i].title) {
+                    cleanedTitle = hits[i].title
+                        .replace(/<\/?[^>]+(>|$)/g, '')
+                        .replace(' – Colby College | DavisConnects', '');
+                }
+                result = {
+                    post_title: hits[i].title,
+                    cleaned_title: cleanedTitle,
+                    content: hits[i].description,
+                    permalink: hits[i].url,
+                    originIndexLabel: indicies[k].label,
+                    objectID: indicies[k].indexName + '-' + i,
+                };
             } else {
                 if (hits[i].post_title !== '_healthcheck') {
                     let cleanedTitle = null;
@@ -134,26 +178,6 @@ async function main() {
             finishedResults.push(result);
         }
     }
-
-    finishedResults.push({
-        post_title: 'DavisConnects',
-        cleaned_title: 'DavisConnects',
-        content:
-            'DavisConnects redefines the college career center. DavisConnects is dedicated to your success—however you define it, on campus and off, before and after you graduate. To help you define and orient to your “true north,” our team focuses on three key priorities: We deliver transformative experiences, provide specialized advising, and foster world-class connections. This threefold commitment allows you to explore life-changing opportunities while you test and refine your interests. We’re committed to your successful launch into your field of choice…but our goals are even more ambitious! The ultimate outcome of the DavisConnects program is your lifelong capacity to determine your own distinctive path.',
-        permalink: 'https://davisconnects.colby.edu/',
-        originIndexLabel: 'DavisConnects',
-        objectID: 'davisconnects-1',
-    });
-
-    finishedResults.push({
-        post_title: 'Jan Plan Options',
-        cleaned_title: 'Jan Plan Options',
-        content:
-            'Jan Plan is an exploratory term in January that gives students opportunities to choose among hundreds of different academic experiences. It’s a time for focused study, for interning, or for conducting research. Students are required to complete three Jan Plans, but 90% of students elect to do all four. ',
-        permalink: 'https://davisconnects.colby.edu/resources/jan-plan-options/',
-        originIndexLabel: 'DavisConnects',
-        objectID: 'davisconnects-2',
-    });
 
     await aggregatedIndex
         .saveObjects(finishedResults, { autoGenerateObjectIDIfNotExist: true })

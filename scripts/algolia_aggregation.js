@@ -141,7 +141,7 @@ async function main() {
                 result = {
                     post_title: hits[i].title,
                     cleaned_title: cleanedTitle,
-                    content: hits[i].description,
+                    content: hits[i].content,
                     permalink: hits[i].url,
                     originIndexLabel: indicies[k].label,
                     objectID: indicies[k].indexName + '-' + i,
@@ -155,7 +155,7 @@ async function main() {
                 result = {
                     post_title: hits[i].title,
                     cleaned_title: cleanedTitle,
-                    content: hits[i].description,
+                    content: hits[i].content,
                     permalink: hits[i].url,
                     originIndexLabel: indicies[k].label,
                     objectID: indicies[k].indexName + '-' + i,

@@ -2333,8 +2333,8 @@
           to: '/halloran-lab-for-entrepreneurship/newsletter/'
           regexp: true
           code: 301
-        '^/halloranlab/(.+)$':
-          to: '/halloran-lab-for-entrepreneurship/news/$1/'
+        '^/halloranlab/?(.*)$':
+          to: '/halloran-lab-for-entrepreneurship/'
           regexp: true
           code: 301
         '^/halloran/?$':
@@ -2343,6 +2343,10 @@
           code: 301
         '^/people/offices-directory/halloran-lab-for-entrepreneurship/?$':
           to: '/halloran-lab-for-entrepreneurship/'
+          regexp: true
+          code: 301
+        '^/halloran-lab/(.+)$':
+          to: '/halloran-lab-for-entrepreneurship/news/$1/'
           regexp: true
           code: 301
   # Jewish Life

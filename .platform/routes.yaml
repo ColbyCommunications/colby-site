@@ -2328,6 +2328,23 @@
           to: 'https://goldfarbcenter.colby.edu/events/flagship-events/elijah-parish-lovejoy-award-for-courage-in-journalism/'
           regexp: true
           code: 301
+  # Halloran Lab
+        '^/halloran-lab-for-entrepreneurship/subscribe/?$':
+          to: '/halloran-lab-for-entrepreneurship/newsletter/'
+          regexp: true
+          code: 301
+        '^/halloranlab/(.+)$':
+          to: '/halloran-lab-for-entrepreneurship/news/$1/'
+          regexp: true
+          code: 301
+        '^/halloran/?$':
+          to: '/halloran-lab-for-entrepreneurship/'
+          regexp: true
+          code: 301
+        '^/people/offices-directory/halloran-lab-for-entrepreneurship/?$':
+          to: '/halloran-lab-for-entrepreneurship/'
+          regexp: true
+          code: 301
   # Jewish Life
         '^/jewishlife/(.*)$':
           to: 'https://jewishlife.colby.edu/'
@@ -3006,22 +3023,6 @@
           code: 301
         '(?i)^/HailColbyHail/?$':
           to: 'https://www.givecampus.com/wglvk2'
-          regexp: true
-          code: 301
-        '^/halloran-lab-for-entrepreneurship/subscribe/?$':
-          to: '/halloran-lab-for-entrepreneurship/newsletter/'
-          regexp: true
-          code: 301
-        '^/halloranlab/?(.*)$':
-          to: '/halloran-lab-for-entrepreneurship/'
-          regexp: true
-          code: 301
-        '^/halloran/?$':
-          to: '/halloran-lab-for-entrepreneurship/'
-          regexp: true
-          code: 301
-        '^/people/offices-directory/halloran-lab-for-entrepreneurship/?$':
-          to: '/halloran-lab-for-entrepreneurship/'
           regexp: true
           code: 301
         '^/harold-alfond-foundation-announcement/?$':

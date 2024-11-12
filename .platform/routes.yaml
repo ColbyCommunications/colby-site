@@ -2345,6 +2345,30 @@
           to: '/halloran-lab-for-entrepreneurship/'
           regexp: true
           code: 301
+        '^/halloran-lab/bob-martin-advisor-in-residence-air/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab/graham-powis-advisor-in-residence-air/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab/jen-millard-entrepreneur-in-residence-eir/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab/josh-kim-entrepreneur-in-residence-eir/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab-for-entrepreneurship/people/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab-for-entrepreneurship/meet-our-team/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
         '^/halloran-lab/(.+)$':
           to: '/halloran-lab-for-entrepreneurship/news/$1/'
           regexp: true

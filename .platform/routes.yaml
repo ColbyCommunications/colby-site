@@ -2198,7 +2198,7 @@
           regexp: true
           code: 301
         '^/pledgepayment/?$':
-          to: 'https://darenorthward.colby.edu/give-pledge/'
+          to: 'https://alumni.colby.edu/pledgepayment'
           regexp: true
           code: 301
         '^/specialgift/?$':

@@ -2369,6 +2369,10 @@
           to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
           regexp: true
           code: 301
+        '^/halloran-lab-for-entrepreneurship/academics-2/?$':
+          to: '/halloran-lab-for-entrepreneurship/academics/'
+          regexp: true
+          code: 301
         '^/halloran-lab/(.+)$':
           to: '/halloran-lab-for-entrepreneurship/news/$1/'
           regexp: true

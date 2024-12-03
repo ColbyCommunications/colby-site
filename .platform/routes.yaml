@@ -137,6 +137,10 @@
           to: '/biology/$1/'
           regexp: true
           code: 301
+        '^/biology/?$':
+          to: '/academics/departments-and-programs/biology/'
+          regexp: true
+          code: 301
   # Chemistry
         '^/chem/(.*)$':
           to: '/academics/departments-and-programs/chemistry/'
@@ -148,6 +152,10 @@
           code: 301
         '^/chem/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/chemistry/$1/'
+          regexp: true
+          code: 301
+        '^/chemistry/?$':
+          to: '/academics/departments-and-programs/chemistry/'
           regexp: true
           code: 301
         '^/chemistry/ch242s14/?$':
@@ -171,7 +179,15 @@
           to: '/cinema-studies/$1/'
           regexp: true
           code: 301
+        '^/cinema-studies/?$':
+          to: '/academics/departments-and-programs/cinema-studies/'
+          regexp: true
+          code: 301
   # Classics
+        '^/classics/?$':
+          to: '/academics/departments-and-programs/classics/'
+          regexp: true
+          code: 301
         '^/classicsdept/(.*)$':
           to: '/academics/departments-and-programs/classics/'
           regexp: true
@@ -197,6 +213,10 @@
           to: '/computer-science/$1/'
           regexp: true
           code: 301
+        '^/computer-science/?$':
+          to: '/academics/departments-and-programs/computer-science/'
+          regexp: true
+          code: 301
   # Creative Writing
         '^/cwriting/(.*)$':
           to: '/academics/departments-and-programs/creative-writing/'
@@ -214,6 +234,10 @@
           to: '/academics/departments-and-programs/creative-writing/'
           regexp: true
           code: 301
+        '^/creative-writing/?$':
+          to: '/academics/departments-and-programs/creative-writing/'
+          regexp: true
+          code: 301
   # East Asian Studies
         '^/eastasianstudies/(.*)$':
           to: '/academics/departments-and-programs/east-asian-studies/'
@@ -225,6 +249,10 @@
           code: 301
         '^/eastasianstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/east-asian-studies/$1/'
+          regexp: true
+          code: 301
+        '^/east-asian-studies/?$':
+          to: '/academics/departments-and-programs/east-asian-studies/'
           regexp: true
           code: 301
   # Economics
@@ -262,6 +290,10 @@
           regexp: true
           code: 301
   # English
+        '^/english/?$':
+          to: '/academics/departments-and-programs/english/'
+          regexp: true
+          code: 301
         '^/englishdept/(.*)$':
           to: '/academics/departments-and-programs/english/'
           regexp: true
@@ -285,6 +317,10 @@
           code: 301
         '^/environmentalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/environmental-studies/$1/'
+          regexp: true
+          code: 301
+        '^/environmental-studies/?$':
+          to: '/academics/departments-and-programs/environmental-studies/'
           regexp: true
           code: 301
   # French and Italian
@@ -329,6 +365,10 @@
           regexp: true
           code: 301
   # Geology
+        '^/geology/?$':
+          to: '/academics/departments-and-programs/geology/'
+          regexp: true
+          code: 301
         '^/geologydept/(.*)$':
           to: '/academics/departments-and-programs/geology/'
           regexp: true
@@ -339,10 +379,6 @@
           code: 301
         '^/geologydept/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/geology/$1/'
-          regexp: true
-          code: 301
-        '^/geology/?$':
-          to: '/academics/departments-and-programs/geology/'
           regexp: true
           code: 301
   # German and Russian
@@ -382,6 +418,10 @@
           to: '/academics/departments-and-programs/german-and-russian/'
           regexp: true
           code: 301
+        '^/german-and-russian/?$':
+          to: '/academics/departments-and-programs/german-and-russian/'
+          regexp: true
+          code: 301
   # Global Studies
         '^/globalstudies/(.*)$':
           to: '/academics/departments-and-programs/global-studies/'
@@ -393,6 +433,10 @@
           code: 301
         '^/globalstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/global-studies/$1/'
+          regexp: true
+          code: 301
+        '^/global-studies/?$':
+          to: '/academics/departments-and-programs/global-studies/'
           regexp: true
           code: 301
   # Government
@@ -434,6 +478,10 @@
           to: '/independent-major/$1/'
           regexp: true
           code: 301
+        '^/independent-major/?$':
+          to: '/academics/departments-and-programs/independent-major/'
+          regexp: true
+          code: 301
         '^/independentstudy/?$':
           to: '/academics/departments-and-programs/independent-major/'
           regexp: true
@@ -463,6 +511,10 @@
           to: '/integrated-studies/$1/'
           regexp: true
           code: 301
+        '^/integrated-studies/?$':
+          to: '/academics/departments-and-programs/integrated-studies/'
+          regexp: true
+          code: 301
   # Jewish Studies
         '^/jewishstudies/(.*)$':
           to: '/academics/departments-and-programs/jewish-studies/'
@@ -474,6 +526,10 @@
           code: 301
         '^/jewishstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/jewish-studies/$1/'
+          regexp: true
+          code: 301
+        '^/jewish-studies/?$':
+          to: '/academics/departments-and-programs/jewish-studies/'
           regexp: true
           code: 301
   # Latin American Studies
@@ -489,6 +545,10 @@
           to: '/latin-american-studies/$1/'
           regexp: true
           code: 301
+        '^/latin-american-studies/?$':
+          to: '/academics/departments-and-programs/latin-american-studies/'
+          regexp: true
+          code: 301
   # Mathematics
         '^/math/(.*)$':
           to: '/academics/departments-and-programs/mathematics/'
@@ -502,7 +562,15 @@
           to: '/mathematics/$1/'
           regexp: true
           code: 301
+        '^/mathematics/?$':
+          to: '/academics/departments-and-programs/mathematics/'
+          regexp: true
+          code: 301
   # Music
+        '^/music/?$':
+          to: '/academics/departments-and-programs/music/'
+          regexp: true
+          code: 301
         '^/musicdept/(.*)$':
           to: '/academics/departments-and-programs/music/'
           regexp: true
@@ -524,6 +592,10 @@
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
           code: 301
+        '^/performance-theater-and-dance/?$':
+          to: '/academics/departments-and-programs/performance-theater-and-dance/'
+          regexp: true
+          code: 301
         '^/theater/?$':
           to: '/academics/departments-and-programs/performance-theater-and-dance/'
           regexp: true
@@ -541,6 +613,10 @@
           regexp: true
           code: 301
   # Philosophy
+        '^/philosophy/?$':
+          to: '/academics/departments-and-programs/philosophy/'
+          regexp: true
+          code: 301
         '^/philosophydept/(.*)$':
           to: '/academics/departments-and-programs/philosophy/'
           regexp: true
@@ -574,7 +650,15 @@
           to: '/physics-and-astronomy/$1/'
           regexp: true
           code: 301
+        '^/physics-and-astronomy/?$':
+          to: '/academics/departments-and-programs/physics-and-astronomy/'
+          regexp: true
+          code: 301
   # Psychology
+        '^/academics/departments-and-programs/psychology/irb/?$':
+          to: '/people/offices-directory/office-of-the-provost/resources/'
+          regexp: true
+          code: 301
         '^/psychologylabs/memory/?$':
           to: 'https://web.colby.edu/memoryandlanguagelab/'
           regexp: true
@@ -591,6 +675,10 @@
           to: '/psychology/$1/'
           regexp: true
           code: 301
+        '^/psychology/?$':
+          to: '/academics/departments-and-programs/psychology/'
+          regexp: true
+          code: 301
   # Religious Studies
         '^/religiousstudies/(.*)$':
           to: '/academics/departments-and-programs/religious-studies/'
@@ -604,7 +692,15 @@
           to: '/religious-studies/$1/'
           regexp: true
           code: 301
+        '^/religious-studies/?$':
+          to: '/academics/departments-and-programs/religious-studies/'
+          regexp: true
+          code: 301
   # Science, Technology, and Society
+        '^/science-technology-and-society/?$':
+          to: '/academics/departments-and-programs/science-technology-and-society/'
+          regexp: true
+          code: 301
         '^/sts/?$':
           to: '/academics/departments-and-programs/science-technology-and-society/'
           regexp: true
@@ -622,6 +718,10 @@
           regexp: true
           code: 301
   # Sociology
+        '^/sociology/?$':
+          to: '/academics/departments-and-programs/sociology/'
+          regexp: true
+          code: 301
         '^/sociologydept/(.*)$':
           to: '/academics/departments-and-programs/sociology/'
           regexp: true
@@ -635,6 +735,10 @@
           regexp: true
           code: 301
   # Spanish
+        '^/spanish/?$':
+          to: '/academics/departments-and-programs/spanish/'
+          regexp: true
+          code: 301
         '^/spanisgdept/(.*)$':
           to: '/academics/departments-and-programs/spanish/'
           regexp: true
@@ -673,6 +777,10 @@
           to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
           regexp: true
           code: 301
+        '^/womens-gender-and-sexuality-studies/?$':
+          to: '/academics/departments-and-programs/womens-gender-and-sexuality-studies/'
+          regexp: true
+          code: 301
   # Writing Department
         '^/writing-program/?$':
           to: '/academics/departments-and-programs/writing-department/'
@@ -692,6 +800,10 @@
           code: 301
         '^/writingdepartment/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/writing-department/$1/'
+          regexp: true
+          code: 301
+        '^/writing-department/?$':
+          to: '/academics/departments-and-programs/writing-department/'
           regexp: true
           code: 301
 ########## OFFICES ##########
@@ -1066,9 +1178,8 @@
           to: '/people/offices-directory/facilities/'
           regexp: true
           code: 301
-  # Farnham Writers' Center
-        '^/people/offices-directory/farnham-writers-center/?$':
-          to: 'https://web.colby.edu/writers-center/'
+        '^/facilities/?$':
+          to: '/people/offices-directory/facilities/'
           regexp: true
           code: 301
   # Financial Planning
@@ -1132,7 +1243,27 @@
           code: 301
   # Grants
         '^/people/offices-directory/grants-and-sponsored-programs/?$':
-          to: 'https://www.colby.edu/grants/'
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/'
+          regexp: true
+          code: 301
+        '^/grants/about-us/personnel/?$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/meet-the-team/'
+          regexp: true
+          code: 301
+        '^/grants/about-us/services-and-resources/?$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/proposal-development-and-resources/'
+          regexp: true
+          code: 301
+        '^/grants/faculty/?$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/faculty-grant-administration-and-resources/'
+          regexp: true
+          code: 301
+        '^/grants/students/?$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/student-opportunities/'
+          regexp: true
+          code: 301
+        '^/grants(.*)$':
+          to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/'
           regexp: true
           code: 301
   # Health and Counseling Services
@@ -1378,23 +1509,23 @@
           code: 301
   # January Program
         '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/january-program/$1/'
+          to: '/academics/january-program/$1/'
           regexp: true
           code: 301
         '^/januaryprogram/(.*)$':
-          to: '/academics/departments-and-programs/january-program/'
+          to: '/academics/january-program/'
           regexp: true
           code: 301
         '^/januaryprogram/?$':
-          to: '/academics/departments-and-programs/january-program/'
+          to: '/academics/january-program/'
           regexp: true
           code: 301
         '^/janplan/?$':
-          to: '/academics/departments-and-programs/january-program/'
+          to: '/academics/january-program/'
           regexp: true
           code: 301
-        '^/janplanphotocontest$': 
-          to: '/januaryprogram/offcampus/jan-plan-photo-contest/'     
+        '^/academics/departments-and-programs/january-program/?$': 
+          to: '/academics/january-program/'
           regexp: true
           code: 301
   # Green Colby
@@ -1941,6 +2072,14 @@
           to: 'https://afa.colby.edu/'     
           regexp: true
           code: 301
+        '^/explorecolby/?$': 
+          to: 'https://afa.colby.edu/explore-colby/'     
+          regexp: true
+          code: 301
+        '^(?i)/EXPLORECOLBY/?$':
+          to: 'https://afa.colby.edu/explore-colby/'     
+          regexp: true
+          code: 301
   # Advancement (including Alumni, DareNorthward, Truenorth, Giving, Parents, Reunion)
         '^/advancement/?$':
           to: 'https://alumni.colby.edu/'     
@@ -2100,6 +2239,11 @@
   # CAH
         '^/centerartshumanities/?(.*)$':
           to: 'https://cah.colby.edu'
+          regexp: true
+          code: 301
+  # Colby Arts
+        '^/people/offices-directory/colby-arts/?$':
+          to: 'https://arts.colby.edu/'
           regexp: true
           code: 301
   # Davis Connects
@@ -2503,6 +2647,11 @@
           to: 'https://life.colby.edu/what-to-do/first-year-experience/coot/'
           regexp: true
           code: 301
+  # Linde Packman Lab for Biosciences Innovation
+        '^/people/offices-directory/linde-packman-lab-for-biosciences-innovation/?$':
+          to: 'https://web.colby.edu/linde-packman-lab/linde-packman-lab-for-biosciences-innovation/'
+          regexp: true
+          code: 301
   # Lunder Institute
         '^/lunderinstitute/(.+)/?$':
           to: 'https://lunderinstitute.colby.edu/$1/'
@@ -2510,6 +2659,15 @@
           code: 301
         '^/lunderinstitute/?$':
           to: 'https://lunderinstitute.colby.edu'
+          regexp: true
+          code: 301
+        '^/people/offices-directory/lunder-institute-for-american-art/?$':
+          to: 'https://lunderinstitute.colby.edu'
+          regexp: true
+          code: 301
+  # Lyons Arts Lab
+        '^/people/offices-directory/lyons-arts-lab/?$':
+          to: 'https://arts.colby.edu/lyons-arts-lab/'
           regexp: true
           code: 301
   # Museum/Museum Exhibits

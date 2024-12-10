@@ -2198,7 +2198,7 @@
           regexp: true
           code: 301
         '^/pledgepayment/?$':
-          to: 'https://darenorthward.colby.edu/give-pledge/'
+          to: 'https://alumni.colby.edu/pledgepayment'
           regexp: true
           code: 301
         '^/specialgift/?$':
@@ -2326,6 +2326,55 @@
           code: 301
         '^/lovejoyaward/?$':
           to: 'https://goldfarbcenter.colby.edu/events/flagship-events/elijah-parish-lovejoy-award-for-courage-in-journalism/'
+          regexp: true
+          code: 301
+  # Halloran Lab
+        '^/halloran-lab-for-entrepreneurship/subscribe/?$':
+          to: '/halloran-lab-for-entrepreneurship/newsletter/'
+          regexp: true
+          code: 301
+        '^/halloranlab/?(.*)$':
+          to: '/halloran-lab-for-entrepreneurship/'
+          regexp: true
+          code: 301
+        '^/halloran/?$':
+          to: '/halloran-lab-for-entrepreneurship/'
+          regexp: true
+          code: 301
+        '^/people/offices-directory/halloran-lab-for-entrepreneurship/?$':
+          to: '/halloran-lab-for-entrepreneurship/'
+          regexp: true
+          code: 301
+        '^/halloran-lab/bob-martin-advisor-in-residence-air/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab/graham-powis-advisor-in-residence-air/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab/jen-millard-entrepreneur-in-residence-eir/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab/josh-kim-entrepreneur-in-residence-eir/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab-for-entrepreneurship/people/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab-for-entrepreneurship/meet-our-team/?$':
+          to: '/halloran-lab-for-entrepreneurship/meet-our-team-2/'
+          regexp: true
+          code: 301
+        '^/halloran-lab-for-entrepreneurship/academics-2/?$':
+          to: '/halloran-lab-for-entrepreneurship/academics/'
+          regexp: true
+          code: 301
+        '^/halloran-lab/(.+)$':
+          to: '/halloran-lab-for-entrepreneurship/news/$1/'
           regexp: true
           code: 301
   # Jewish Life
@@ -2645,11 +2694,6 @@
           code: 301
         '^/studentlife/coot-outdoor-healthy-active-living/?$':
           to: 'https://life.colby.edu/what-to-do/first-year-experience/coot/'
-          regexp: true
-          code: 301
-  # Linde Packman Lab for Biosciences Innovation
-        '^/people/offices-directory/linde-packman-lab-for-biosciences-innovation/?$':
-          to: 'https://web.colby.edu/linde-packman-lab/linde-packman-lab-for-biosciences-innovation/'
           regexp: true
           code: 301
   # Lunder Institute
@@ -3006,22 +3050,6 @@
           code: 301
         '(?i)^/HailColbyHail/?$':
           to: 'https://www.givecampus.com/wglvk2'
-          regexp: true
-          code: 301
-        '^/halloran-lab-for-entrepreneurship/subscribe/?$':
-          to: '/halloran-lab-for-entrepreneurship/newsletter/'
-          regexp: true
-          code: 301
-        '^/halloranlab/?(.*)$':
-          to: '/halloran-lab-for-entrepreneurship/'
-          regexp: true
-          code: 301
-        '^/halloran/?$':
-          to: '/halloran-lab-for-entrepreneurship/'
-          regexp: true
-          code: 301
-        '^/people/offices-directory/halloran-lab-for-entrepreneurship/?$':
-          to: '/halloran-lab-for-entrepreneurship/'
           regexp: true
           code: 301
         '^/harold-alfond-foundation-announcement/?$':

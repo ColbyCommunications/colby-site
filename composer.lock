@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a55eb3747641afd353ac3357eb84df64",
+    "content-hash": "2eb025626d5eec030718bf2de40d1acb",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -208,11 +208,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "2.11.1",
+            "version": "2.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "458c096c373e4d7a3e7b4c35c4770b61aec966da"
+                "reference": "0d73416d07837e4814b5aa70f2dafa968ca1c95e"
             },
             "require": {
                 "php": ">=7.1"
@@ -228,7 +228,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2024-12-03T16:20:40+00:00"
+            "time": "2024-12-10T15:16:55+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -3050,8 +3050,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {

@@ -24,6 +24,7 @@
         "colbycommunications/capabilities-pro": "2.13.0",
         "wpackagist-plugin/wordpress-importer": "0.8.2",
         "wpackagist-plugin/wp-all-import": "3.7.9",
+        "colbycommunications/wp-all-export-pro": "1.9.2",
         "colbycommunications/advanced-custom-fields-pro": "6.3.3",
         "colbycommunications/gravityforms": "2.8.13",
         "colbycommunications/colby-its-status": "1.0.0",

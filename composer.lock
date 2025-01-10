@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07964c7cb4afd32350d4f477263f4131",
+    "content-hash": "d0843a25f332b0a8095509cf2766079f",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -335,6 +335,33 @@
                 "wordpress"
             ],
             "time": "2024-01-30T20:23:21+00:00"
+        },
+        {
+            "name": "colbycommunications/wp-all-export-pro",
+            "version": "1.9.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:ColbyCommunications/wp-all-export-pro.git",
+                "reference": "457a1ccf0587b16b24d47dd04cda538e3053573e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://satis.colby.edu/dist/colbycommunications/wp-all-export-pro/colbycommunications-wp-all-export-pro-457a1ccf0587b16b24d47dd04cda538e3053573e-zip-561a45.zip",
+                "reference": "457a1ccf0587b16b24d47dd04cda538e3053573e"
+            },
+            "type": "wordpress-plugin",
+            "authors": [
+                {
+                    "name": "Brandon Waltz",
+                    "email": "brandon.waltz@colby.edu"
+                }
+            ],
+            "description": "WP All Export Pro plugin",
+            "homepage": "https://github.com/colbycommunications/wp-all-export-pro",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2025-01-02T17:51:33+00:00"
         },
         {
             "name": "composer/ca-bundle",

@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import Alert from './components/Alert';
 import { FormattedInput } from '@buttercup/react-formatted-input';
+import { logos } from './logoPaths';
 import './assets/styles/SignatureGenerator.css';
 
 function App() {
@@ -28,6 +29,23 @@ function App() {
     const [liChecked, setLiChecked] = useState(true);
     const [ytChecked, setYtChecked] = useState(true);
     const [cnChecked, setCnChecked] = useState(true);
+
+    const [logoSelectOption, setLogoSelectOption] = useState('colby');
+    const [selectedLogo, setSelectedLogo] = useState(logos[0]); // Set colby logo as default
+    const [selectedLogoURL, setSelectedLogoURL] = useState(logos[0]); // Set colby.edu url as default
+
+    const handleLogoChange = (event) => {
+        let value = event.target.value;
+        setLogoSelectOption(value);
+
+        const foundItem = logos.find((logo) => logo.name === value);
+
+        if (foundItem) {
+            setSelectedLogo(foundItem);
+        } else {
+            setSelectedLogo(logos[0].image);
+        }
+    };
 
     const [alert, setAlert] = useState('false');
 
@@ -65,7 +83,7 @@ function App() {
                             <header>
                                 <h1>
                                     Colby Email Signature Generator{' '}
-                                    <span className="version">v4</span>
+                                    <span className="version">v5</span>
                                 </h1>
                             </header>
                             <div>
@@ -143,6 +161,31 @@ function App() {
                             placeholder="Communications"
                             onChange={(e) => setDepartment(e.target.value)}
                         ></input>
+                        <label htmlFor="logo">Logo Variant:</label>
+                        <select
+                            id="logo"
+                            className="gen-input"
+                            onChange={handleLogoChange}
+                            defaultValue={'colby'}
+                        >
+                            <option value="colby">Colby &#40;Standard&#41;</option>
+                            <option value="buckLab">Buck Lab</option>
+                            <option value="jewishLife">Center for Small Town Jewish Life</option>
+                            <option value="ctl">Center for Teaching and Learning</option>
+                            <option value="cah">Center for Arts and Humanities</option>
+                            <option value="colbyArts">Colby Arts</option>
+                            <option value="colbyAthletics">Colby Athletics</option>
+                            <option value="museum">Colby Museum</option>
+                            <option value="davisAI">Davis AI Institute</option>
+                            <option value="davisConnects">Davis Connects</option>
+                            <option value="franhamWC">Farnham Writers' Center</option>
+                            <option value="goldfarb">Goldfarb Center</option>
+                            <option value="halloran">Halloran Lab</option>
+                            <option value="lindePackman">Linde Packman Lab</option>
+                            <option value="lunder">Lunder Institute</option>
+                            <option value="lyons">Lyons Arts Lab</option>
+                            <option value="oak">Oak Instituite</option>
+                        </select>
                         <label htmlFor="phone">Phone Number:</label>
                         <FormattedInput
                             className="formatted-input gen-input"
@@ -356,7 +399,7 @@ function App() {
                                             className="logo-cell"
                                         >
                                             <a
-                                                href="https://www.colby.edu"
+                                                href={selectedLogoURL}
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 style={{
@@ -367,14 +410,14 @@ function App() {
                                                 }}
                                             >
                                                 <img
-                                                    src="https://www.colby.edu/signature/images/Colby.png"
+                                                    src={selectedLogo.image}
                                                     alt="Colby"
                                                     className="logo"
-                                                    height="50"
+                                                    height={selectedLogo.height}
+                                                    width={selectedLogo.width}
                                                     style={{
                                                         display: 'inline-block',
                                                         border: 'none',
-                                                        minWidth: '96px',
                                                     }}
                                                 />
                                             </a>

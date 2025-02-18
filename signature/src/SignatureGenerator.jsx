@@ -31,8 +31,7 @@ function App() {
     const [cnChecked, setCnChecked] = useState(true);
 
     const [logoSelectOption, setLogoSelectOption] = useState('colby');
-    const [selectedLogo, setSelectedLogo] = useState(logos[0]); // Set colby logo as default
-    const [selectedLogoURL, setSelectedLogoURL] = useState(logos[0]); // Set colby.edu url as default
+    const [selectedLogo, setSelectedLogo] = useState(logos[0]);
 
     const handleLogoChange = (event) => {
         let value = event.target.value;
@@ -43,7 +42,7 @@ function App() {
         if (foundItem) {
             setSelectedLogo(foundItem);
         } else {
-            setSelectedLogo(logos[0].image);
+            setSelectedLogo(logos[0]);
         }
     };
 
@@ -168,7 +167,7 @@ function App() {
                             onChange={handleLogoChange}
                             defaultValue={'colby'}
                         >
-                            <option value="colby">Colby &#40;Standard&#41;</option>
+                            <option value="colby">Colby &#40;Default&#41;</option>
                             <option value="buckLab">Buck Lab</option>
                             <option value="jewishLife">Center for Small Town Jewish Life</option>
                             <option value="ctl">Center for Teaching and Learning</option>
@@ -178,7 +177,7 @@ function App() {
                             <option value="museum">Colby Museum</option>
                             <option value="davisAI">Davis AI Institute</option>
                             <option value="davisConnects">Davis Connects</option>
-                            <option value="franhamWC">Farnham Writers' Center</option>
+                            <option value="farnhamWC">Farnham Writers' Center</option>
                             <option value="goldfarb">Goldfarb Center</option>
                             <option value="halloran">Halloran Lab</option>
                             <option value="lindePackman">Linde Packman Lab</option>
@@ -399,7 +398,7 @@ function App() {
                                             className="logo-cell"
                                         >
                                             <a
-                                                href={selectedLogoURL}
+                                                href={selectedLogo.url}
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 style={{
@@ -430,7 +429,9 @@ function App() {
                                                 style={{
                                                     borderCollapse: 'collapse',
                                                     border: 'none',
-                                                    marginTop: '12px',
+                                                    marginTop: selectedLogo.offset
+                                                        ? selectedLogo.offset
+                                                        : '0px',
                                                 }}
                                             >
                                                 <tbody

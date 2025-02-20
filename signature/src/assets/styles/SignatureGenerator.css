@@ -131,7 +131,7 @@ header {
 }
 
 aside {
-    width: 40%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -198,7 +198,7 @@ footer .footer-container .footer-container-inner {
 }
 
 .display-container {
-    width: 60%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -232,7 +232,10 @@ footer .footer-container .footer-container-inner {
     }
 
     aside {
-        width: 60%;
+        width: 40%;
+    }
+    .display-container {
+        width: 40%;
     }
 
     footer .footer-container .footer-container-inner {

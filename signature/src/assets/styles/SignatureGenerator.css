@@ -198,7 +198,7 @@ footer .footer-container .footer-container-inner {
 }
 
 .display-container {
-    width: 100%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -206,7 +206,8 @@ footer .footer-container .footer-container-inner {
 }
 
 .display-container-inner {
-    margin: 1.25rem 0;
+    overflow: scroll;
+    /* margin: 1.25rem 0;
     padding: 1.25rem 0;
     overflow-x: auto;
     width: 100%;
@@ -216,7 +217,7 @@ footer .footer-container .footer-container-inner {
     justify-content: center;
     align-items: center;
     background-color: white;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); */
 }
 
 .gen-input,

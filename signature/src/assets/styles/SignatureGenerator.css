@@ -206,7 +206,7 @@ footer .footer-container .footer-container-inner {
 }
 
 .display-container-inner {
-    overflow: scroll;
+    overflow: auto;
     /* margin: 1.25rem 0;
     padding: 1.25rem 0;
     overflow-x: auto;

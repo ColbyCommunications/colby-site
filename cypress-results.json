@@ -1,0 +1,175 @@
+{
+  "browserName": "chrome",
+  "browserPath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "browserVersion": "133.0.6943.55",
+  "config": {
+    "defaultCommandTimeout": 10000,
+    "projectRoot": "/Users/bkwaltz/platform_sites/projects/colby-site",
+    "projectName": "colby-site",
+    "configFile": "cypress.config.js",
+    "isTextTerminal": true,
+    "reporter": "json",
+    "animationDistanceThreshold": 5,
+    "arch": "arm64",
+    "baseUrl": null,
+    "blockHosts": null,
+    "chromeWebSecurity": true,
+    "clientCertificates": [],
+    "defaultBrowser": null,
+    "downloadsFolder": "/Users/bkwaltz/platform_sites/projects/colby-site/cypress/downloads",
+    "env": {
+      "url": "https://web.colby.edu/lrctestsite/listening-materials/chinese-virtual-classroom/business-chinese-for-success/"
+    },
+    "execTimeout": 60000,
+    "experimentalCspAllowList": false,
+    "experimentalInteractiveRunEvents": false,
+    "experimentalRunAllSpecs": false,
+    "experimentalMemoryManagement": false,
+    "experimentalModifyObstructiveThirdPartyCode": false,
+    "injectDocumentDomain": false,
+    "experimentalOriginDependencies": false,
+    "experimentalSourceRewriting": false,
+    "experimentalSingleTabRunMode": false,
+    "experimentalStudio": false,
+    "experimentalWebKitSupport": false,
+    "fileServerFolder": "/Users/bkwaltz/platform_sites/projects/colby-site",
+    "fixturesFolder": "/Users/bkwaltz/platform_sites/projects/colby-site/cypress/fixtures",
+    "excludeSpecPattern": "*.hot-update.js",
+    "includeShadowDom": false,
+    "justInTimeCompile": true,
+    "keystrokeDelay": 0,
+    "modifyObstructiveCode": true,
+    "numTestsKeptInMemory": 0,
+    "platform": "darwin",
+    "pageLoadTimeout": 60000,
+    "port": 57539,
+    "projectId": null,
+    "redirectionLimit": 20,
+    "reporterOptions": null,
+    "requestTimeout": 5000,
+    "resolvedNodePath": "/Users/bkwaltz/.nvm/versions/node/v18.17.1/bin/node",
+    "resolvedNodeVersion": "18.17.1",
+    "responseTimeout": 30000,
+    "retries": {
+      "runMode": 0,
+      "openMode": 0
+    },
+    "screenshotOnRunFailure": true,
+    "screenshotsFolder": "/Users/bkwaltz/platform_sites/projects/colby-site/cypress/screenshots",
+    "slowTestThreshold": 10000,
+    "scrollBehavior": "top",
+    "supportFile": "/Users/bkwaltz/platform_sites/projects/colby-site/cypress/support/e2e.js",
+    "taskTimeout": 60000,
+    "testIsolation": true,
+    "trashAssetsBeforeRuns": true,
+    "userAgent": null,
+    "video": false,
+    "videoCompression": false,
+    "videosFolder": "/Users/bkwaltz/platform_sites/projects/colby-site/cypress/videos",
+    "viewportHeight": 660,
+    "viewportWidth": 1000,
+    "waitForAnimations": true,
+    "watchForFileChanges": false,
+    "specPattern": "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
+    "browsers": [
+      {
+        "channel": "stable",
+        "displayName": "Chrome",
+        "family": "chromium",
+        "majorVersion": "133",
+        "name": "chrome",
+        "path": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "version": "133.0.6943.55"
+      },
+      {
+        "channel": "stable",
+        "displayName": "Firefox",
+        "family": "firefox",
+        "majorVersion": "134",
+        "name": "firefox",
+        "path": "/Applications/Firefox.app/Contents/MacOS/firefox",
+        "version": "134.0.1"
+      },
+      {
+        "channel": "stable",
+        "displayName": "Electron",
+        "family": "chromium",
+        "majorVersion": 130,
+        "name": "electron",
+        "path": "",
+        "version": "130.0.6723.137"
+      }
+    ],
+    "cypressBinaryRoot": "/Users/bkwaltz/Library/Caches/Cypress/14.0.3/Cypress.app/Contents/Resources/app",
+    "hosts": null,
+    "isInteractive": true,
+    "version": "14.0.3",
+    "testingType": "e2e",
+    "browser": null,
+    "cypressInternalEnv": "production"
+  },
+  "cypressVersion": "14.0.3",
+  "endedTestsAt": "2025-02-17T20:37:05.579Z",
+  "osName": "darwin",
+  "osVersion": "22.3.0",
+  "runs": [
+    {
+      "error": null,
+      "reporter": "json",
+      "reporterStats": {
+        "suites": 1,
+        "tests": 1,
+        "passes": 1,
+        "pending": 0,
+        "failures": 0,
+        "start": "2025-02-17T20:37:01.952Z",
+        "end": "2025-02-17T20:37:05.583Z",
+        "duration": 3631
+      },
+      "screenshots": [],
+      "spec": {
+        "absolute": "/Users/bkwaltz/platform_sites/projects/colby-site/cypress/e2e/lrc/lrc.cy.js",
+        "fileExtension": ".js",
+        "fileName": "lrc",
+        "name": "lrc.cy.js",
+        "relative": "cypress/e2e/lrc/lrc.cy.js"
+      },
+      "stats": {
+        "duration": 3634,
+        "endedAt": "2025-02-17T20:37:05.579Z",
+        "failures": 0,
+        "passes": 1,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2025-02-17T20:37:01.945Z",
+        "suites": 1,
+        "tests": 1
+      },
+      "tests": [
+        {
+          "attempts": [
+            {
+              "state": "passed"
+            }
+          ],
+          "displayError": null,
+          "duration": 1427,
+          "state": "passed",
+          "title": [
+            "tests for https://web.colby.edu/lrctestsite/listening-materials/chinese-virtual-classroom/business-chinese-for-success/",
+            "has accordion content"
+          ]
+        }
+      ],
+      "video": null
+    }
+  ],
+  "startedTestsAt": "2025-02-17T20:37:01.945Z",
+  "totalDuration": 3634,
+  "totalFailed": 0,
+  "totalPassed": 1,
+  "totalPending": 0,
+  "totalSkipped": 0,
+  "totalSuites": 1,
+  "totalTests": 1
+}

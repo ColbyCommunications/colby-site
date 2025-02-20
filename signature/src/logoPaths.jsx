@@ -45,6 +45,7 @@ export const logos = [
         url: 'https://arts.colby.edu/',
         height: 'auto',
         width: '100px',
+        offset: '-6px',
     },
     {
         name: 'colbyAthletics',
@@ -52,6 +53,7 @@ export const logos = [
         url: 'https://colbyathletics.com/',
         height: 'auto',
         width: '100px',
+        offset: '-6px',
     },
     {
         name: 'museum',
@@ -74,7 +76,8 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/davis_connects.png',
         url: 'https://davisconnects.colby.edu/',
         height: 'auto',
-        width: '100px',
+        width: '120px',
+        offset: '-6px',
     },
     {
         name: 'farnhamWC',
@@ -129,6 +132,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/oak.png',
         url: 'https://oakinstitute.colby.edu/',
         height: 'auto',
-        width: '150px',
+        width: '120px',
+        offset: '-6px',
     },
 ];

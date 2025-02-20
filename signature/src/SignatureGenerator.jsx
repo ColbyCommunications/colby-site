@@ -374,401 +374,456 @@ function App() {
                     </form>
                 </aside>
                 <div className="display-container">
-                    <div className="display-container-inner">
-                        <div>
-                            <table
-                                ref={tableRef}
-                                role="presentation"
-                                cellSpacing="0"
-                                cellPadding="0"
-                                border="0"
-                                tabIndex={0}
-                                style={{
-                                    borderCollapse: 'collapse',
-                                    border: 'none',
-                                }}
-                            >
-                                <tbody style={{ border: 'none' }}>
-                                    <tr style={{ border: 'none' }}>
-                                        <td
-                                            style={{
-                                                verticalAlign: 'top',
-                                                border: 'none',
-                                            }}
-                                            className="logo-cell"
-                                        >
-                                            <a
-                                                href={selectedLogo.url}
-                                                target="_blank"
-                                                rel="noreferrer"
+                    <div
+                        style={{
+                            width: '100%',
+                            backgroundColor: 'white',
+                            display: 'flex',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <div className="display-container-inner">
+                            <div>
+                                <table
+                                    ref={tableRef}
+                                    role="presentation"
+                                    cellSpacing="0"
+                                    cellPadding="0"
+                                    border="0"
+                                    tabIndex={0}
+                                    style={{
+                                        borderCollapse: 'collapse',
+                                        border: 'none',
+                                    }}
+                                >
+                                    <tbody style={{ border: 'none' }}>
+                                        <tr style={{ border: 'none' }}>
+                                            <td
                                                 style={{
+                                                    verticalAlign: 'top',
                                                     border: 'none',
-                                                    display: 'flex',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'flex-start',
                                                 }}
+                                                className="logo-cell"
                                             >
-                                                <img
-                                                    src={selectedLogo.image}
-                                                    alt="Colby"
-                                                    className="logo"
-                                                    height={selectedLogo.height}
-                                                    width={selectedLogo.width}
+                                                <a
+                                                    href={selectedLogo.url}
+                                                    target="_blank"
+                                                    rel="noreferrer"
                                                     style={{
-                                                        display: 'inline-block',
                                                         border: 'none',
+                                                        display: 'flex',
+                                                        justifyContent: 'center',
+                                                        alignItems: 'flex-start',
                                                     }}
-                                                />
-                                            </a>
-                                        </td>
-                                        <td style={{ border: 'none' }}>
-                                            <table
-                                                cellSpacing="0"
-                                                cellPadding="0"
-                                                border="0"
-                                                style={{
-                                                    borderCollapse: 'collapse',
-                                                    border: 'none',
-                                                    marginTop: selectedLogo.offset
-                                                        ? selectedLogo.offset
-                                                        : '0px',
-                                                }}
-                                            >
-                                                <tbody
-                                                    className="signature-container"
-                                                    style={{ border: 'none' }}
                                                 >
-                                                    <tr style={{ border: 'none' }}>
-                                                        <td style={{ border: 'none' }}>
-                                                            <table
-                                                                cellSpacing="0"
-                                                                cellPadding="0"
-                                                                border="0"
-                                                                style={{
-                                                                    borderCollapse: 'collapse',
-                                                                    border: 'none',
-                                                                    marginLeft: '15px',
-                                                                }}
-                                                            >
-                                                                <tbody>
-                                                                    <tr style={{ border: 'none' }}>
-                                                                        <td
-                                                                            className="name-output"
+                                                    <img
+                                                        src={selectedLogo.image}
+                                                        alt="Colby"
+                                                        className="logo"
+                                                        height={selectedLogo.height}
+                                                        width={selectedLogo.width}
+                                                        style={{
+                                                            display: 'inline-block',
+                                                            border: 'none',
+                                                        }}
+                                                    />
+                                                </a>
+                                            </td>
+                                            <td style={{ border: 'none' }}>
+                                                <table
+                                                    cellSpacing="0"
+                                                    cellPadding="0"
+                                                    border="0"
+                                                    style={{
+                                                        borderCollapse: 'collapse',
+                                                        border: 'none',
+                                                        marginTop: selectedLogo.offset
+                                                            ? selectedLogo.offset
+                                                            : '0px',
+                                                    }}
+                                                >
+                                                    <tbody
+                                                        className="signature-container"
+                                                        style={{ border: 'none' }}
+                                                    >
+                                                        <tr style={{ border: 'none' }}>
+                                                            <td style={{ border: 'none' }}>
+                                                                <table
+                                                                    cellSpacing="0"
+                                                                    cellPadding="0"
+                                                                    border="0"
+                                                                    style={{
+                                                                        borderCollapse: 'collapse',
+                                                                        border: 'none',
+                                                                        marginLeft: '15px',
+                                                                    }}
+                                                                >
+                                                                    <tbody>
+                                                                        <tr
                                                                             style={{
                                                                                 border: 'none',
                                                                             }}
                                                                         >
-                                                                            <p
+                                                                            <td
+                                                                                className="name-output"
                                                                                 style={{
                                                                                     border: 'none',
-                                                                                    whiteSpace:
-                                                                                        'nowrap',
-                                                                                    marginRight:
-                                                                                        '1rem',
                                                                                 }}
-                                                                                className="output bold"
                                                                             >
-                                                                                {name}
-                                                                            </p>
-                                                                        </td>
-                                                                        <td
-                                                                            style={{
-                                                                                border: 'none',
-                                                                            }}
-                                                                        >
-                                                                            {showPn === true ? (
                                                                                 <p
                                                                                     style={{
                                                                                         border: 'none',
                                                                                         whiteSpace:
                                                                                             'nowrap',
+                                                                                        marginRight:
+                                                                                            '1rem',
                                                                                     }}
                                                                                     className="output bold"
-                                                                                >{`(${pronouns1}/${pronouns2})`}</p>
+                                                                                >
+                                                                                    {name}
+                                                                                </p>
+                                                                            </td>
+                                                                            <td
+                                                                                style={{
+                                                                                    border: 'none',
+                                                                                }}
+                                                                            >
+                                                                                {showPn === true ? (
+                                                                                    <p
+                                                                                        style={{
+                                                                                            border: 'none',
+                                                                                            whiteSpace:
+                                                                                                'nowrap',
+                                                                                        }}
+                                                                                        className="output bold"
+                                                                                    >{`(${pronouns1}/${pronouns2})`}</p>
+                                                                                ) : (
+                                                                                    ''
+                                                                                )}
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style={{ border: 'none' }}>
+                                                            <td style={{ border: 'none' }}>
+                                                                <p
+                                                                    className="output bold"
+                                                                    style={{
+                                                                        border: 'none',
+                                                                        // whiteSpace: 'nowrap',
+                                                                        marginLeft: '15px',
+                                                                    }}
+                                                                >
+                                                                    {title}
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style={{ border: 'none' }}>
+                                                            <td style={{ border: 'none' }}>
+                                                                <p
+                                                                    className="output"
+                                                                    style={{
+                                                                        border: 'none',
+                                                                        whiteSpace: 'nowrap',
+                                                                        marginLeft: '15px',
+                                                                    }}
+                                                                >
+                                                                    {department}
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style={{ border: 'none' }}>
+                                                            <td style={{ border: 'none' }}>
+                                                                <p
+                                                                    className="output"
+                                                                    style={{
+                                                                        border: 'none',
+                                                                        whiteSpace: 'nowrap',
+                                                                        marginLeft: '15px',
+                                                                    }}
+                                                                >
+                                                                    {phoneValue}
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style={{ border: 'none' }}>
+                                                            <td style={{ border: 'none' }}>
+                                                                <p
+                                                                    className="output"
+                                                                    style={{
+                                                                        border: 'none',
+                                                                        whiteSpace: 'nowrap',
+                                                                        marginLeft: '15px',
+                                                                    }}
+                                                                >
+                                                                    {address1}
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr style={{ border: 'none' }}>
+                                                            <td style={{ border: 'none' }}>
+                                                                <p
+                                                                    className="output"
+                                                                    style={{
+                                                                        border: 'none',
+                                                                        whiteSpace: 'nowrap',
+                                                                        marginLeft: '15px',
+                                                                    }}
+                                                                >
+                                                                    {address2}
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr
+                                                            style={{
+                                                                border: 'none',
+                                                            }}
+                                                        >
+                                                            <td style={{ border: 'none' }}>
+                                                                <table
+                                                                    style={{
+                                                                        marginTop: '14px',
+                                                                        marginLeft: '15px',
+                                                                        whiteSpace: 'nowrap',
+                                                                    }}
+                                                                >
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            {selectedLogo.name !==
+                                                                            'colby' ? (
+                                                                                <td
+                                                                                    style={{
+                                                                                        border: 'none',
+                                                                                    }}
+                                                                                >
+                                                                                    <a
+                                                                                        href={
+                                                                                            logos[1]
+                                                                                                .url
+                                                                                        }
+                                                                                        target="_blank"
+                                                                                        rel="noreferrer"
+                                                                                        style={{
+                                                                                            border: 'none',
+                                                                                        }}
+                                                                                    >
+                                                                                        <img
+                                                                                            src={
+                                                                                                logos[0]
+                                                                                                    .image
+                                                                                            }
+                                                                                            alt="Colby"
+                                                                                            height="30"
+                                                                                            style={{
+                                                                                                paddingRight:
+                                                                                                    '10px',
+                                                                                                float: 'left',
+                                                                                            }}
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
                                                                             ) : (
                                                                                 ''
                                                                             )}
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style={{ border: 'none' }}>
-                                                        <td style={{ border: 'none' }}>
-                                                            <p
-                                                                className="output bold"
-                                                                style={{
-                                                                    border: 'none',
-                                                                    // whiteSpace: 'nowrap',
-                                                                    marginLeft: '15px',
-                                                                }}
-                                                            >
-                                                                {title}
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style={{ border: 'none' }}>
-                                                        <td style={{ border: 'none' }}>
-                                                            <p
-                                                                className="output"
-                                                                style={{
-                                                                    border: 'none',
-                                                                    whiteSpace: 'nowrap',
-                                                                    marginLeft: '15px',
-                                                                }}
-                                                            >
-                                                                {department}
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style={{ border: 'none' }}>
-                                                        <td style={{ border: 'none' }}>
-                                                            <p
-                                                                className="output"
-                                                                style={{
-                                                                    border: 'none',
-                                                                    whiteSpace: 'nowrap',
-                                                                    marginLeft: '15px',
-                                                                }}
-                                                            >
-                                                                {phoneValue}
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style={{ border: 'none' }}>
-                                                        <td style={{ border: 'none' }}>
-                                                            <p
-                                                                className="output"
-                                                                style={{
-                                                                    border: 'none',
-                                                                    whiteSpace: 'nowrap',
-                                                                    marginLeft: '15px',
-                                                                }}
-                                                            >
-                                                                {address1}
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style={{ border: 'none' }}>
-                                                        <td style={{ border: 'none' }}>
-                                                            <p
-                                                                className="output"
-                                                                style={{
-                                                                    border: 'none',
-                                                                    whiteSpace: 'nowrap',
-                                                                    marginLeft: '15px',
-                                                                }}
-                                                            >
-                                                                {address2}
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr
-                                                        style={{
-                                                            border: 'none',
-                                                        }}
-                                                    >
-                                                        <td style={{ border: 'none' }}>
-                                                            <table
-                                                                style={{
-                                                                    marginTop: '14px',
-                                                                    marginLeft: '15px',
-                                                                    whiteSpace: 'nowrap',
-                                                                }}
-                                                            >
-                                                                <tbody>
-                                                                    <tr>
-                                                                        {fbChecked === true ? (
-                                                                            <td
-                                                                                style={{
-                                                                                    border: 'none',
-                                                                                }}
-                                                                            >
-                                                                                <a
-                                                                                    href={fbUrl}
-                                                                                    target="_blank"
-                                                                                    rel="noreferrer"
+                                                                            {fbChecked === true ? (
+                                                                                <td
                                                                                     style={{
                                                                                         border: 'none',
                                                                                     }}
                                                                                 >
-                                                                                    <img
-                                                                                        src="https://www.colby.edu/signature/images/Facebook.png"
-                                                                                        alt="Facebook"
-                                                                                        height="20"
+                                                                                    <a
+                                                                                        href={fbUrl}
+                                                                                        target="_blank"
+                                                                                        rel="noreferrer"
                                                                                         style={{
-                                                                                            paddingRight:
-                                                                                                '10px',
-                                                                                            float: 'left',
+                                                                                            border: 'none',
                                                                                         }}
-                                                                                    />
-                                                                                </a>
-                                                                            </td>
-                                                                        ) : (
-                                                                            ''
-                                                                        )}
-                                                                        {instaChecked === true ? (
-                                                                            <td
-                                                                                style={{
-                                                                                    border: 'none',
-                                                                                }}
-                                                                            >
-                                                                                <a
-                                                                                    href={instaUrl}
-                                                                                    target="_blank"
-                                                                                    rel="noreferrer"
+                                                                                    >
+                                                                                        <img
+                                                                                            src="https://www.colby.edu/signature/images/Facebook.png"
+                                                                                            alt="Facebook"
+                                                                                            height="20"
+                                                                                            style={{
+                                                                                                paddingRight:
+                                                                                                    '10px',
+                                                                                                float: 'left',
+                                                                                            }}
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                            ) : (
+                                                                                ''
+                                                                            )}
+                                                                            {instaChecked ===
+                                                                            true ? (
+                                                                                <td
                                                                                     style={{
                                                                                         border: 'none',
                                                                                     }}
                                                                                 >
-                                                                                    <img
-                                                                                        src="https://www.colby.edu/signature/images/Instagram.png"
-                                                                                        alt="Instagram"
-                                                                                        height="20"
+                                                                                    <a
+                                                                                        href={
+                                                                                            instaUrl
+                                                                                        }
+                                                                                        target="_blank"
+                                                                                        rel="noreferrer"
                                                                                         style={{
-                                                                                            paddingRight:
-                                                                                                '10px',
-                                                                                            float: 'left',
+                                                                                            border: 'none',
                                                                                         }}
-                                                                                    />
-                                                                                </a>
-                                                                            </td>
-                                                                        ) : (
-                                                                            ''
-                                                                        )}
-                                                                        {twitChecked === true ? (
-                                                                            <td
-                                                                                style={{
-                                                                                    border: 'none',
-                                                                                }}
-                                                                            >
-                                                                                <a
-                                                                                    href={twitUrl}
-                                                                                    target="_blank"
-                                                                                    rel="noreferrer"
+                                                                                    >
+                                                                                        <img
+                                                                                            src="https://www.colby.edu/signature/images/Instagram.png"
+                                                                                            alt="Instagram"
+                                                                                            height="20"
+                                                                                            style={{
+                                                                                                paddingRight:
+                                                                                                    '10px',
+                                                                                                float: 'left',
+                                                                                            }}
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                            ) : (
+                                                                                ''
+                                                                            )}
+                                                                            {twitChecked ===
+                                                                            true ? (
+                                                                                <td
                                                                                     style={{
                                                                                         border: 'none',
                                                                                     }}
                                                                                 >
-                                                                                    <img
-                                                                                        src="https://www.colby.edu/signature/images/X.png"
-                                                                                        alt="X"
-                                                                                        height="20"
+                                                                                    <a
+                                                                                        href={
+                                                                                            twitUrl
+                                                                                        }
+                                                                                        target="_blank"
+                                                                                        rel="noreferrer"
                                                                                         style={{
-                                                                                            paddingRight:
-                                                                                                '10px',
-                                                                                            float: 'left',
+                                                                                            border: 'none',
                                                                                         }}
-                                                                                    />
-                                                                                </a>
-                                                                            </td>
-                                                                        ) : (
-                                                                            ''
-                                                                        )}
-                                                                        {liChecked === true ? (
-                                                                            <td
-                                                                                style={{
-                                                                                    border: 'none',
-                                                                                }}
-                                                                            >
-                                                                                <a
-                                                                                    href={liUrl}
-                                                                                    target="_blank"
-                                                                                    rel="noreferrer"
+                                                                                    >
+                                                                                        <img
+                                                                                            src="https://www.colby.edu/signature/images/X.png"
+                                                                                            alt="X"
+                                                                                            height="20"
+                                                                                            style={{
+                                                                                                paddingRight:
+                                                                                                    '10px',
+                                                                                                float: 'left',
+                                                                                            }}
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                            ) : (
+                                                                                ''
+                                                                            )}
+                                                                            {liChecked === true ? (
+                                                                                <td
                                                                                     style={{
                                                                                         border: 'none',
                                                                                     }}
                                                                                 >
-                                                                                    <img
-                                                                                        src="https://www.colby.edu/signature/images/LinedIn.png"
-                                                                                        alt="LinkedIn"
-                                                                                        height="20"
+                                                                                    <a
+                                                                                        href={liUrl}
+                                                                                        target="_blank"
+                                                                                        rel="noreferrer"
                                                                                         style={{
-                                                                                            paddingRight:
-                                                                                                '10px',
-                                                                                            float: 'left',
+                                                                                            border: 'none',
                                                                                         }}
-                                                                                    />
-                                                                                </a>
-                                                                            </td>
-                                                                        ) : (
-                                                                            ''
-                                                                        )}
-                                                                        {ytChecked === true ? (
-                                                                            <td
-                                                                                style={{
-                                                                                    border: 'none',
-                                                                                }}
-                                                                            >
-                                                                                <a
-                                                                                    href={ytUrl}
-                                                                                    target="_blank"
-                                                                                    rel="noreferrer"
+                                                                                    >
+                                                                                        <img
+                                                                                            src="https://www.colby.edu/signature/images/LinedIn.png"
+                                                                                            alt="LinkedIn"
+                                                                                            height="20"
+                                                                                            style={{
+                                                                                                paddingRight:
+                                                                                                    '10px',
+                                                                                                float: 'left',
+                                                                                            }}
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                            ) : (
+                                                                                ''
+                                                                            )}
+                                                                            {ytChecked === true ? (
+                                                                                <td
                                                                                     style={{
                                                                                         border: 'none',
                                                                                     }}
                                                                                 >
-                                                                                    <img
-                                                                                        src="https://www.colby.edu/signature/images/YouTube.png"
-                                                                                        alt="YouTube"
-                                                                                        height="20"
+                                                                                    <a
+                                                                                        href={ytUrl}
+                                                                                        target="_blank"
+                                                                                        rel="noreferrer"
                                                                                         style={{
-                                                                                            paddingRight:
-                                                                                                '10px',
-                                                                                            float: 'left',
+                                                                                            border: 'none',
                                                                                         }}
-                                                                                    />
-                                                                                </a>
-                                                                            </td>
-                                                                        ) : (
-                                                                            ''
-                                                                        )}
-                                                                        {cnChecked === true ? (
-                                                                            <td
-                                                                                style={{
-                                                                                    border: 'none',
-                                                                                }}
-                                                                            >
-                                                                                <a
-                                                                                    href={cnUrl}
-                                                                                    target="_blank"
-                                                                                    rel="noreferrer"
+                                                                                    >
+                                                                                        <img
+                                                                                            src="https://www.colby.edu/signature/images/YouTube.png"
+                                                                                            alt="YouTube"
+                                                                                            height="20"
+                                                                                            style={{
+                                                                                                paddingRight:
+                                                                                                    '10px',
+                                                                                                float: 'left',
+                                                                                            }}
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                            ) : (
+                                                                                ''
+                                                                            )}
+                                                                            {cnChecked === true ? (
+                                                                                <td
                                                                                     style={{
                                                                                         border: 'none',
                                                                                     }}
                                                                                 >
-                                                                                    <img
-                                                                                        src="https://www.colby.edu/signature/images/ColbyNews.png"
-                                                                                        alt="Colby News"
-                                                                                        height="20"
+                                                                                    <a
+                                                                                        href={cnUrl}
+                                                                                        target="_blank"
+                                                                                        rel="noreferrer"
                                                                                         style={{
-                                                                                            paddingRight:
-                                                                                                '10px',
-                                                                                            float: 'left',
+                                                                                            border: 'none',
                                                                                         }}
-                                                                                    />
-                                                                                </a>
-                                                                            </td>
-                                                                        ) : (
-                                                                            ''
-                                                                        )}
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="copy-container">
-                            <button type="button" className="copy" onClick={copy}>
-                                Copy
-                            </button>
+                                                                                    >
+                                                                                        <img
+                                                                                            src="https://www.colby.edu/signature/images/ColbyNews.png"
+                                                                                            alt="Colby News"
+                                                                                            height="20"
+                                                                                            style={{
+                                                                                                paddingRight:
+                                                                                                    '10px',
+                                                                                                float: 'left',
+                                                                                            }}
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                            ) : (
+                                                                                ''
+                                                                            )}
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div className="copy-container">
+                                <button type="button" className="copy" onClick={copy}>
+                                    Copy
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

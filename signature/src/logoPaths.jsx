@@ -8,6 +8,14 @@ export const logos = [
         offset: '12px',
     },
     {
+        name: 'colbyBlack',
+        image: './images/colby_black.png',
+        url: 'https://www.colby.edu',
+        height: 'auto',
+        width: '96px',
+        offset: '12px',
+    },
+    {
         name: 'buckLab',
         image: 'https://www.colby.edu/signature/images/buck_lab.png',
         url: 'https://www.colby.edu/buck-lab-for-climate-and-environment/',

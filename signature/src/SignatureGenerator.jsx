@@ -376,6 +376,7 @@ function App() {
                 <div className="display-container">
                     <div
                         style={{
+                            padding: '2rem 0',
                             width: '100%',
                             backgroundColor: 'white',
                             display: 'flex',
@@ -402,6 +403,10 @@ function App() {
                                                 style={{
                                                     verticalAlign: 'top',
                                                     border: 'none',
+                                                    padding:
+                                                        selectedLogo.name == 'colby'
+                                                            ? '0'
+                                                            : '6px 0 0 0',
                                                 }}
                                                 className="logo-cell"
                                             >
@@ -429,7 +434,15 @@ function App() {
                                                     />
                                                 </a>
                                             </td>
-                                            <td style={{ border: 'none' }}>
+                                            <td
+                                                style={{
+                                                    border: 'none',
+                                                    padding:
+                                                        selectedLogo.name == 'colby'
+                                                            ? '0'
+                                                            : '6px 0 0 0',
+                                                }}
+                                            >
                                                 <table
                                                     cellSpacing="0"
                                                     cellPadding="0"

@@ -108,7 +108,6 @@ label {
 
 .copy:hover {
     cursor: pointer;
-    transform: scale(1.1);
     background-color: black;
 }
 
@@ -133,6 +132,8 @@ header {
 
 aside {
     width: 100%;
+    height: 100vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;

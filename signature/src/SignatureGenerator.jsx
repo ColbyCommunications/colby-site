@@ -22,13 +22,12 @@ function App() {
     const [ytUrl, setYtUrl] = useState('https://www.youtube.com/user/colbycollege/');
     const [cnUrl, setCnUrl] = useState('https://news.colby.edu/');
 
-    const [showSocial, setShowSocial] = useState(false);
     const [fbChecked, setFbChecked] = useState(true);
     const [twitChecked, setTwitChecked] = useState(true);
     const [instaChecked, setInstaChecked] = useState(true);
     const [liChecked, setLiChecked] = useState(true);
     const [ytChecked, setYtChecked] = useState(true);
-    const [cnChecked, setCnChecked] = useState(true);
+    const [cnChecked, setCnChecked] = useState(false);
 
     const [logoSelectOption, setLogoSelectOption] = useState('colby');
     const [selectedLogo, setSelectedLogo] = useState(logos[0]);
@@ -109,6 +108,31 @@ function App() {
                                 </ul>
                             </div>
                         </article>
+                        <label htmlFor="logo">Logo:</label>
+                        <select
+                            id="logo"
+                            className="gen-input"
+                            onChange={handleLogoChange}
+                            defaultValue={'colby'}
+                        >
+                            <option value="colby">Colby &#40;Default&#41;</option>
+                            <option value="buckLab">Buck Lab</option>
+                            <option value="jewishLife">Center for Small Town Jewish Life</option>
+                            <option value="ctl">Center for Teaching and Learning</option>
+                            <option value="cah">Center for Arts and Humanities</option>
+                            <option value="colbyArts">Colby Arts</option>
+                            <option value="colbyAthletics">Colby Athletics</option>
+                            <option value="museum">Colby Museum</option>
+                            <option value="davisAI">Davis AI Institute</option>
+                            <option value="davisConnects">Davis Connects</option>
+                            <option value="farnhamWC">Farnham Writers' Center</option>
+                            <option value="goldfarb">Goldfarb Center</option>
+                            <option value="halloran">Halloran Lab</option>
+                            <option value="lindePackman">Linde Packman Lab</option>
+                            <option value="lunder">Lunder Institute</option>
+                            <option value="lyons">Lyons Arts Lab</option>
+                            <option value="oak">Oak Instituite</option>
+                        </select>
                         <label htmlFor="name">Name:</label>
                         <input
                             className="gen-input"
@@ -160,31 +184,6 @@ function App() {
                             placeholder="Communications"
                             onChange={(e) => setDepartment(e.target.value)}
                         ></input>
-                        <label htmlFor="logo">Logo Variant:</label>
-                        <select
-                            id="logo"
-                            className="gen-input"
-                            onChange={handleLogoChange}
-                            defaultValue={'colby'}
-                        >
-                            <option value="colby">Colby &#40;Default&#41;</option>
-                            <option value="buckLab">Buck Lab</option>
-                            <option value="jewishLife">Center for Small Town Jewish Life</option>
-                            <option value="ctl">Center for Teaching and Learning</option>
-                            <option value="cah">Center for Arts and Humanities</option>
-                            <option value="colbyArts">Colby Arts</option>
-                            <option value="colbyAthletics">Colby Athletics</option>
-                            <option value="museum">Colby Museum</option>
-                            <option value="davisAI">Davis AI Institute</option>
-                            <option value="davisConnects">Davis Connects</option>
-                            <option value="farnhamWC">Farnham Writers' Center</option>
-                            <option value="goldfarb">Goldfarb Center</option>
-                            <option value="halloran">Halloran Lab</option>
-                            <option value="lindePackman">Linde Packman Lab</option>
-                            <option value="lunder">Lunder Institute</option>
-                            <option value="lyons">Lyons Arts Lab</option>
-                            <option value="oak">Oak Instituite</option>
-                        </select>
                         <label htmlFor="phone">Phone Number:</label>
                         <FormattedInput
                             className="formatted-input gen-input"
@@ -212,10 +211,9 @@ function App() {
                             onChange={(e) => setAddress2(e.target.value)}
                         ></input>
                         <div
-                            onClick={() => setShowSocial(!showSocial)}
                             style={{
                                 width: '100%',
-                                margin: '1rem 0',
+                                margin: '1rem 0 0 0',
                                 display: 'flex',
                                 flexDirection: 'row',
                                 justifyContent: 'start',
@@ -224,153 +222,146 @@ function App() {
                             }}
                         >
                             <label className="social-label">Social icons</label>
-                            {showSocial === true ? (
-                                <span className="material-icons-sharp arrow">expand_more</span>
-                            ) : (
-                                <span className="material-icons-sharp arrow">navigate_next</span>
-                            )}
                         </div>
 
-                        {showSocial && (
-                            <form style={{ paddingBottom: '1.5rem' }}>
-                                <span
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'start',
-                                        alignItems: 'center',
-                                    }}
-                                >
-                                    <input
-                                        style={{ width: 'auto', marginRight: '0.75rem' }}
-                                        type="checkbox"
-                                        checked={fbChecked}
-                                        onChange={() => setFbChecked(!fbChecked)}
-                                    />
-                                    <label htmlFor="fb">Facebook:</label>
-                                </span>
+                        <form style={{ paddingBottom: '1.5rem' }}>
+                            <span
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'start',
+                                    alignItems: 'center',
+                                }}
+                            >
                                 <input
-                                    id="fb"
-                                    className="social-input gen-input"
-                                    type="text"
-                                    disabled={fbChecked === false}
-                                    defaultValue={fbUrl}
-                                    onChange={(e) => setFbUrl(e.target.value)}
-                                ></input>
+                                    style={{ width: 'auto', marginRight: '0.75rem' }}
+                                    type="checkbox"
+                                    checked={fbChecked}
+                                    onChange={() => setFbChecked(!fbChecked)}
+                                />
+                                <label htmlFor="fb">Facebook:</label>
+                            </span>
+                            <input
+                                id="fb"
+                                className="social-input gen-input"
+                                type="text"
+                                disabled={fbChecked === false}
+                                defaultValue={fbUrl}
+                                onChange={(e) => setFbUrl(e.target.value)}
+                            ></input>
 
-                                <span
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'start',
-                                        alignItems: 'center',
-                                    }}
-                                >
-                                    <input
-                                        style={{ width: 'auto', marginRight: '0.75rem' }}
-                                        type="checkbox"
-                                        checked={instaChecked === true}
-                                        onChange={() => setInstaChecked(!instaChecked)}
-                                    />
-                                    <label htmlFor="insta">Instagram:</label>
-                                </span>
+                            <span
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'start',
+                                    alignItems: 'center',
+                                }}
+                            >
                                 <input
-                                    id="insta"
-                                    className="social-input gen-input"
-                                    type="text"
-                                    disabled={instaChecked === false}
-                                    defaultValue={instaUrl}
-                                    onChange={(e) => setInstaUrl(e.target.value)}
-                                ></input>
+                                    style={{ width: 'auto', marginRight: '0.75rem' }}
+                                    type="checkbox"
+                                    checked={instaChecked === true}
+                                    onChange={() => setInstaChecked(!instaChecked)}
+                                />
+                                <label htmlFor="insta">Instagram:</label>
+                            </span>
+                            <input
+                                id="insta"
+                                className="social-input gen-input"
+                                type="text"
+                                disabled={instaChecked === false}
+                                defaultValue={instaUrl}
+                                onChange={(e) => setInstaUrl(e.target.value)}
+                            ></input>
 
-                                <span
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'start',
-                                        alignItems: 'center',
-                                    }}
-                                >
-                                    <input
-                                        style={{ width: 'auto', marginRight: '0.75rem' }}
-                                        type="checkbox"
-                                        checked={twitChecked === true}
-                                        onChange={() => setTwitChecked(!twitChecked)}
-                                    />
-                                    <label htmlFor="twit">X:</label>
-                                </span>
+                            <span
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'start',
+                                    alignItems: 'center',
+                                }}
+                            >
                                 <input
-                                    id="twit"
-                                    className="social-input gen-input"
-                                    type="text"
-                                    disabled={twitChecked === false}
-                                    defaultValue={twitUrl}
-                                    onChange={(e) => setTwitUrl(e.target.value)}
-                                ></input>
+                                    style={{ width: 'auto', marginRight: '0.75rem' }}
+                                    type="checkbox"
+                                    checked={twitChecked === true}
+                                    onChange={() => setTwitChecked(!twitChecked)}
+                                />
+                                <label htmlFor="twit">X:</label>
+                            </span>
+                            <input
+                                id="twit"
+                                className="social-input gen-input"
+                                type="text"
+                                disabled={twitChecked === false}
+                                defaultValue={twitUrl}
+                                onChange={(e) => setTwitUrl(e.target.value)}
+                            ></input>
 
-                                <span
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'start',
-                                        alignItems: 'center',
-                                    }}
-                                >
-                                    <input
-                                        style={{ width: 'auto', marginRight: '0.75rem' }}
-                                        type="checkbox"
-                                        checked={liChecked === true}
-                                        onChange={() => setLiChecked(!liChecked)}
-                                    />
-                                    <label htmlFor="li">LinkedIn:</label>
-                                </span>
+                            <span
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'start',
+                                    alignItems: 'center',
+                                }}
+                            >
                                 <input
-                                    id="li"
-                                    className="social-input gen-input"
-                                    type="text"
-                                    disabled={liChecked === false}
-                                    defaultValue={liUrl}
-                                    onChange={(e) => setLiUrl(e.target.value)}
-                                ></input>
+                                    style={{ width: 'auto', marginRight: '0.75rem' }}
+                                    type="checkbox"
+                                    checked={liChecked === true}
+                                    onChange={() => setLiChecked(!liChecked)}
+                                />
+                                <label htmlFor="li">LinkedIn:</label>
+                            </span>
+                            <input
+                                id="li"
+                                className="social-input gen-input"
+                                type="text"
+                                disabled={liChecked === false}
+                                defaultValue={liUrl}
+                                onChange={(e) => setLiUrl(e.target.value)}
+                            ></input>
 
-                                <span
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'start',
-                                        alignItems: 'center',
-                                    }}
-                                >
-                                    <input
-                                        style={{ width: 'auto', marginRight: '0.75rem' }}
-                                        type="checkbox"
-                                        checked={ytChecked === true}
-                                        onChange={() => setYtChecked(!ytChecked)}
-                                    />
-                                    <label htmlFor="yt">YouTube:</label>
-                                </span>
+                            <span
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'start',
+                                    alignItems: 'center',
+                                }}
+                            >
                                 <input
-                                    id="yt"
-                                    className="social-input gen-input"
-                                    type="text"
-                                    disabled={ytChecked === false}
-                                    defaultValue={ytUrl}
-                                    onChange={(e) => setYtUrl(e.target.value)}
-                                ></input>
+                                    style={{ width: 'auto', marginRight: '0.75rem' }}
+                                    type="checkbox"
+                                    checked={ytChecked === true}
+                                    onChange={() => setYtChecked(!ytChecked)}
+                                />
+                                <label htmlFor="yt">YouTube:</label>
+                            </span>
+                            <input
+                                id="yt"
+                                className="social-input gen-input"
+                                type="text"
+                                disabled={ytChecked === false}
+                                defaultValue={ytUrl}
+                                onChange={(e) => setYtUrl(e.target.value)}
+                            ></input>
 
-                                <span
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'start',
-                                        alignItems: 'center',
-                                    }}
-                                >
-                                    <input
-                                        id="cn"
-                                        style={{ width: 'auto', marginRight: '0.75rem' }}
-                                        type="checkbox"
-                                        checked={cnChecked === true}
-                                        onChange={() => setCnChecked(!cnChecked)}
-                                    />
-                                    <label htmlFor="cn">Colby News</label>
-                                </span>
-                            </form>
-                        )}
+                            <span
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'start',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <input
+                                    id="cn"
+                                    style={{ width: 'auto', marginRight: '0.75rem' }}
+                                    type="checkbox"
+                                    checked={cnChecked === true}
+                                    onChange={() => setCnChecked(!cnChecked)}
+                                />
+                                <label htmlFor="cn">Colby News</label>
+                            </span>
+                        </form>
                     </form>
                 </aside>
                 <div className="display-container">
@@ -624,7 +615,7 @@ function App() {
                                                                                     >
                                                                                         <img
                                                                                             src={
-                                                                                                logos[0]
+                                                                                                logos[1]
                                                                                                     .image
                                                                                             }
                                                                                             alt="Colby"

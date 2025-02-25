@@ -88,21 +88,31 @@ function App() {
                                 <ul>
                                     <li>
                                         <p>
-                                            Use the fields below to input your information. The
-                                            preview will change as you type.
+                                            Email signatures should include your name, job title,
+                                            department, phone number, and address in the formats
+                                            included in the email generator. Use the fields below to
+                                            input your information. The preview will change as you
+                                            type.
                                         </p>
                                     </li>
                                     <li>
                                         <p>
-                                            Once everything looks good, use the copy button to copy
-                                            the signature to your clipboard.
+                                            Once you've input your information, use the "Copy"
+                                            button to copy the signature to your clipboard.
                                         </p>
                                     </li>
                                     <li>
                                         <p>
-                                            Paste your new signature into the signature box in Gmail
-                                            settings (Gmail &rarr; Settings &rarr; General &rarr;
-                                            Signature)
+                                            Paste your new signature into the "Signature" section in
+                                            your Gmail settings (Gmail &rarr; Settings &rarr;
+                                            General &rarr; Signature).
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Do not add anything additional to the email signature,
+                                            including but not limited to, vCards, quotations, or
+                                            images.
                                         </p>
                                     </li>
                                 </ul>

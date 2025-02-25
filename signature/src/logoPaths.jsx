@@ -9,7 +9,7 @@ export const logos = [
     },
     {
         name: 'colbyBlack',
-        image: './images/colby_black.png',
+        image: 'https://www.colby.edu/signature/images/colby_black.png',
         url: 'https://www.colby.edu',
         height: 'auto',
         width: '96px',

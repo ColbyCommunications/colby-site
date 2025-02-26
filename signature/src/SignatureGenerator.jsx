@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Alert from './components/Alert';
 import { FormattedInput } from '@buttercup/react-formatted-input';
 import { logos } from './logoPaths';
@@ -27,7 +27,7 @@ function App() {
     const [instaChecked, setInstaChecked] = useState(true);
     const [liChecked, setLiChecked] = useState(true);
     const [ytChecked, setYtChecked] = useState(true);
-    const [cnChecked, setCnChecked] = useState(false);
+    const [cnChecked, setCnChecked] = useState(true);
 
     const [logoSelectOption, setLogoSelectOption] = useState('colby');
     const [selectedLogo, setSelectedLogo] = useState(logos[0]);
@@ -44,6 +44,14 @@ function App() {
             setSelectedLogo(logos[0]);
         }
     };
+
+    useEffect(() => {
+        if (selectedLogo?.name === 'colby') {
+            setCnChecked(true);
+        } else {
+            setCnChecked(false);
+        }
+    }, [selectedLogo]);
 
     const [alert, setAlert] = useState('false');
 

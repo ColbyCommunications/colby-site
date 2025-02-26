@@ -4,7 +4,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/Colby.png',
         url: 'https://www.colby.edu',
         height: 'auto',
-        width: '96px',
+        width: '96',
         offset: '12px',
     },
     {
@@ -12,7 +12,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/colby_black.png',
         url: 'https://www.colby.edu',
         height: 'auto',
-        width: '96px',
+        width: '96',
         offset: '12px',
     },
     {
@@ -20,7 +20,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/buck_lab.png',
         url: 'https://www.colby.edu/buck-lab-for-climate-and-environment/',
         height: 'auto',
-        width: '100px',
+        width: '100',
         offset: '-6px',
     },
     {
@@ -28,7 +28,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/jewish_life.png',
         url: 'https://jewishlife.colby.edu/',
         height: 'auto',
-        width: '100px',
+        width: '100',
         offset: '-6px',
     },
     {
@@ -36,7 +36,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/ctl.png',
         url: 'https://www.colby.edu/center-for-teaching-and-learning/',
         height: 'auto',
-        width: '100px',
+        width: '100',
         offset: '-6px',
     },
     {
@@ -44,7 +44,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/cah.png',
         url: 'https://cah.colby.edu/',
         height: 'auto',
-        width: '100px',
+        width: '100',
         offset: '-6px',
     },
     {
@@ -52,7 +52,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/colby_arts.png',
         url: 'https://arts.colby.edu/',
         height: 'auto',
-        width: '100px',
+        width: '100',
         offset: '-6px',
     },
     {
@@ -60,7 +60,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/colby_athletics.png',
         url: 'https://colbyathletics.com/',
         height: 'auto',
-        width: '100px',
+        width: '100',
         offset: '-6px',
     },
     {
@@ -68,7 +68,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/museum.png',
         url: 'https://museum.colby.edu/',
         height: 'auto',
-        width: '100px',
+        width: '100',
         offset: '-6px',
     },
     {
@@ -76,7 +76,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/davis_ai.png',
         url: 'https://davisinstituteai.colby.edu/',
         height: 'auto',
-        width: '100px',
+        width: '100',
         offset: '-6px',
     },
     {
@@ -84,7 +84,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/davis_connects.png',
         url: 'https://davisconnects.colby.edu/',
         height: 'auto',
-        width: '120px',
+        width: '120',
         offset: '-6px',
     },
     {
@@ -92,7 +92,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/farnham_wc.png',
         url: 'https://www.colby.edu/people/offices-directory/farnham-writers-center/',
         height: 'auto',
-        width: '100px',
+        width: '100',
         offset: '-6px',
     },
     {
@@ -100,7 +100,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/goldfarb.png',
         url: 'https://goldfarbcenter.colby.edu/',
         height: 'auto',
-        width: '120px',
+        width: '120',
         offset: '-6px',
     },
     {
@@ -108,7 +108,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/halloran.png',
         url: 'https://www.colby.edu/halloran-lab-for-entrepreneurship/',
         height: 'auto',
-        width: '120px',
+        width: '120',
         offset: '-6px',
     },
     {
@@ -116,7 +116,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/linde_packman.png',
         url: 'https://www.colby.edu/people/offices-directory/linde-packman-lab-for-biosciences-innovation/',
         height: 'auto',
-        width: '150px',
+        width: '150',
         offset: '-6px',
     },
     {
@@ -124,7 +124,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/lunder.png',
         url: 'https://lunderinstitute.colby.edu/',
         height: 'auto',
-        width: '120px',
+        width: '120',
         offset: '-6px',
     },
     {
@@ -132,7 +132,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/lyons.png',
         url: 'https://arts.colby.edu/lyons-arts-lab/',
         height: 'auto',
-        width: '120px',
+        width: '120',
         offset: '-6px',
     },
     {
@@ -140,7 +140,7 @@ export const logos = [
         image: 'https://www.colby.edu/signature/images/oak.png',
         url: 'https://oakinstitute.colby.edu/',
         height: 'auto',
-        width: '120px',
+        width: '120',
         offset: '-6px',
     },
 ];

@@ -102,20 +102,26 @@ function App() {
                         ></input>
                         <label htmlFor="pronouns">Pronouns:</label>
                         <div style={{ width: '100%' }}>
+                            {/* Hidden label for checkbox */}
                             <input
-                                style={{ marginRight: '0.75rem', padding: '0', width: 'auto' }}
+                                id="enable-pronouns"
                                 type="checkbox"
+                                style={{ marginRight: '0.75rem', padding: '0', width: 'auto' }}
                                 onChange={() => setShowPn(!showPn)}
-                            ></input>
+                                aria-label="Enable pronouns"
+                                aria-controls="pronouns pronouns2"
+                                aria-checked={showPn}
+                            />
+
                             <input
                                 style={{ marginRight: '0.25rem', width: '50px' }}
                                 type="text"
                                 id="pronouns"
                                 className="gen-input"
                                 placeholder="He"
-                                disabled={showPn === false}
+                                disabled={!showPn}
                                 onChange={(e) => setPronouns1(e.target.value)}
-                            ></input>
+                            />
                             <span style={{ color: 'white' }}>/</span>
                             <input
                                 style={{ marginLeft: '0.25rem', width: '50px' }}
@@ -123,9 +129,9 @@ function App() {
                                 id="pronouns2"
                                 className="gen-input"
                                 placeholder="Him"
-                                disabled={showPn === false}
+                                disabled={!showPn}
                                 onChange={(e) => setPronouns2(e.target.value)}
-                            ></input>
+                            />
                         </div>
                         <label htmlFor="title">Title:</label>
                         <input

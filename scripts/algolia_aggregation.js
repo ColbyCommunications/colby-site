@@ -184,7 +184,7 @@ async function main() {
         post_title: 'Workday Student Resources',
         cleaned_title: 'Workday Student Resources',
         content:
-            'Need Help with Workday Student? Learn more at upcoming info sessions and trainings -- see our training page or view or FAQs.',
+            'Need Help with Workday Student? Learn more at upcoming info sessions and trainings -- see our training page or view our FAQs.',
         permalink: 'https://sites.google.com/colby.edu/workday-student-resources/',
         originIndexLabel: 'Workday Student',
         objectID: 'workdaystudent-1',

@@ -1795,11 +1795,6 @@
           to: '/academics/january-program/'
           regexp: true
           code: 301
-  # Lyons Arts Lab
-        '^/lyons/?$':
-          to: '/lyons-arts-lab/'
-          regexp: true
-          code: 301
   # Office of the President
         '^/office-of-the-president/?$':
           to: '/people/offices-directory/office-of-the-president/'
@@ -2974,6 +2969,10 @@
           regexp: true
           code: 301
   # Lyons Arts Lab
+        '^/lyons/?$':
+          to: 'https://arts.colby.edu/lyons-arts-lab/'
+          regexp: true
+          code: 301
         '^/people/offices-directory/lyons-arts-lab/?$':
           to: 'https://arts.colby.edu/lyons-arts-lab/'
           regexp: true

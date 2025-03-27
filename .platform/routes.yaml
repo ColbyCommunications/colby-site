@@ -1569,6 +1569,11 @@
           to: 'https://libraries.colby.edu/'
           regexp: true
           code: 301
+  # Linde Packman Lab for Biosciences Innovation
+        '^/lindepackman/?$':
+          to: '/people/offices-directory/linde-packman-lab-for-biosciences-innovation/'
+          regexp: true
+          code: 301
   # Mail Services
         '^/mailservices/?$':
           to: '/people/offices-directory/mail-services/'
@@ -1734,19 +1739,6 @@
           regexp: true
           code: 301
 ########## MISC. ROOT LEVEL SITES ##########
-  # Visitors
-        '^/visitors/(.*)$':
-          to: '/visit/'
-          regexp: true
-          code: 301
-        '^/visitors/$':
-          to: '/visit/'
-          regexp: true
-          code: 301
-        '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/visit/'
-          regexp: true
-          code: 301
   # Academic Integrity
         '^/academicintegrity/?$':
           to: '/academic-integrity/'
@@ -1754,6 +1746,32 @@
           code: 301
         '^/academicintegrity/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/academic-integrity/'
+          regexp: true
+          code: 301
+  # Buck Lab
+        '^/buck/?$':
+          to: 'buck-lab-for-climate-and-environment/'
+          regexp: true
+          code: 301
+  # Green Colby
+        '^/green/(.*)$':
+          to: '/green-colby/'
+          regexp: true
+          code: 301
+        '^/green/?$':
+          to: '/green-colby/'
+          regexp: true
+          code: 301
+        '^/greencolby/(.*)$':
+          to: '/green-colby/'
+          regexp: true
+          code: 301
+        '^/greencolby/?$':
+          to: '/green-colby/'
+          regexp: true
+          code: 301
+        '^/green/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/green-colby/$1/'
           regexp: true
           code: 301
   # January Program
@@ -1777,25 +1795,9 @@
           to: '/academics/january-program/'
           regexp: true
           code: 301
-  # Green Colby
-        '^/green/(.*)$':
-          to: '/green-colby/'
-          regexp: true
-          code: 301
-        '^/green/?$':
-          to: '/green-colby/'
-          regexp: true
-          code: 301
-        '^/greencolby/(.*)$':
-          to: '/green-colby/'
-          regexp: true
-          code: 301
-        '^/greencolby/?$':
-          to: '/green-colby/'
-          regexp: true
-          code: 301
-        '^/green/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/green-colby/$1/'
+  # Lyons Arts Lab
+        '^/lyons/?$':
+          to: '/lyons-arts-lab/'
           regexp: true
           code: 301
   # Office of the President
@@ -1830,6 +1832,19 @@
           code: 301
         '^/provost/(.*)$':
           to: '/people/offices-directory/office-of-the-provost/'
+          regexp: true
+          code: 301
+  # Visitors
+        '^/visitors/(.*)$':
+          to: '/visit/'
+          regexp: true
+          code: 301
+        '^/visitors/$':
+          to: '/visit/'
+          regexp: true
+          code: 301
+        '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/visit/'
           regexp: true
           code: 301
 ########## MISC ACADEMIC SITES ##########

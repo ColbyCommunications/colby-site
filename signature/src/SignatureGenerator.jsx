@@ -48,8 +48,18 @@ function App() {
     useEffect(() => {
         if (selectedLogo?.name === 'colby') {
             setCnChecked(true);
+            setFbChecked(true);
+            setInstaChecked(true);
+            setTwitChecked(true);
+            setLiChecked(true);
+            setYtChecked(true);
         } else {
             setCnChecked(false);
+            setFbChecked(false);
+            setInstaChecked(false);
+            setTwitChecked(false);
+            setLiChecked(false);
+            setYtChecked(false);
         }
     }, [selectedLogo]);
 
@@ -121,6 +131,13 @@ function App() {
                                             Do not add anything additional to the email signature,
                                             including but not limited to, vCards, quotations, or
                                             images.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Social media links should only point to accounts
+                                            affiliated with the College, not personal social media
+                                            accounts.
                                         </p>
                                     </li>
                                 </ul>

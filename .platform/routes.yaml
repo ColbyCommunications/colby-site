@@ -807,6 +807,55 @@
           regexp: true
           code: 301
 ########## OFFICES ##########
+  # ACITS
+        '^/acits/screencloud/?$':
+          to: 'https://wd5.myworkday.com/colby/learning/course/1d3b811e21cf01006b94d5d0de230000?type=9882927d138b100019b928e75843018d&record=c28ae1095e33100152649277dc630000'
+          regexp: true
+          code: 301
+        '^/arc/home/current-software-used-in-natural-sciences/mestrenova/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/natural-science-software/'
+          regexp: true
+          code: 301
+        '^/arc/home/current-software-used-in-natural-sciences/matlab-research-only/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/natural-science-software/'
+          regexp: true
+          code: 301
+        '^/arc/home/current-software-used-in-natural-sciences/geneious/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/natural-science-software/'
+          regexp: true
+          code: 301
+        '^/arc/home/current-software-used-in-natural-sciences/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/natural-science-software/'
+          regexp: true
+          code: 301
+        '^/arc/faq/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/faq/'
+          regexp: true
+          code: 301
+        '^/arc/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/'
+          regexp: true
+          code: 301
+        '^/acits-gis/?$':
+          to: '/people/offices-directory/academic-technology-services/geographic-information-systems/'
+          regexp: true
+          code: 301
+        '^/acits/video-production/?$':
+          to: '/people/offices-directory/academic-technology-services/video-production/'
+          regexp: true
+          code: 301
+        '^/acits/fileserverfolder/?$':
+          to: '/people/offices-directory/academic-technology-services/forms/'
+          regexp: true
+          code: 301
+        '^/acits/category/accessibility/?$':
+          to: '/people/offices-directory/academic-technology-services/accessibility/'
+          regexp: true
+          code: 301
+        '^/acits/?$':
+          to: '/people/offices-directory/academic-technology-services/'
+          regexp: true
+          code: 301
   # Admissions
         '^/people/offices-directory/admissions-and-financial-aid/?$':
           to: 'https://afa.colby.edu'

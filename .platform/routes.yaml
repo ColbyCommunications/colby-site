@@ -1621,8 +1621,12 @@
           to: 'https://web.colby.edu/lrclibrary/listening-materials/$1'
           regexp: true
           code: 301
-        '^/new-lrc/lrc-index-page/virtual-lab/$':
+        '^/new-lrc/lrc-index-page/virtual-lab/?$':
           to: 'https://web.colby.edu/lrclibrary/listening-materials/'
+          regexp: true
+          code: 301
+        '^/lrc/?$':
+          to: '/people/offices-directory/language-resource-center/'
           regexp: true
           code: 301
   # Libraries

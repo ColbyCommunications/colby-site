@@ -1609,8 +1609,20 @@
           regexp: true
           code: 301
   # Language Resource Center
-        '^/people/offices-directory/language-resource-center/?$':
-          to: 'https://www.colby.edu/lrc/'
+        '^/lrc/lrc-index-page/listening_materials/(.+)$':
+          to: 'https://web.colby.edu/lrclibrary/listening-materials/$1'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/listening_materials/$':
+          to: 'https://web.colby.edu/lrclibrary/listening-materials/'
+          regexp: true
+          code: 301
+        '^/new-lrc/lrc-index-page/virtual-lab/(.+)$':
+          to: 'https://web.colby.edu/lrclibrary/listening-materials/$1'
+          regexp: true
+          code: 301
+        '^/new-lrc/lrc-index-page/virtual-lab/$':
+          to: 'https://web.colby.edu/lrclibrary/listening-materials/'
           regexp: true
           code: 301
   # Libraries

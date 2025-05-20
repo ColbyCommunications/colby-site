@@ -808,6 +808,10 @@
           code: 301
 ########## OFFICES ##########
   # ACITS
+        '^/acits/posters/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/poster-project-formatting-and-submission-form/'
+          regexp: true
+          code: 301
         '^/acits/screencloud/?$':
           to: 'https://wd5.myworkday.com/colby/learning/course/1d3b811e21cf01006b94d5d0de230000?type=9882927d138b100019b928e75843018d&record=c28ae1095e33100152649277dc630000'
           regexp: true
@@ -1633,6 +1637,10 @@
           to: 'https://web.colby.edu/lrclibrary/listening-materials/'
           regexp: true
           code: 301
+        '^/lrc/lrc-index-page/resources/(.+)/?$':
+          to: '/people/offices-directory/language-resource-center/language-resources/'
+          regexp: true
+          code: 301
         '^/lrc/lrc-index-page/resources/?$':
           to: '/people/offices-directory/language-resource-center/language-resources/'
           regexp: true
@@ -1645,6 +1653,10 @@
           to: '/people/offices-directory/language-resource-center/for-students/'
           regexp: true
           code: 301
+        '^/lrc/lrc-index-page/services-for-students/?$':
+          to: '/people/offices-directory/language-resource-center/for-students/'
+          regexp: true
+          code: 301
         '^/lrc/lrc-index-page/foreign-languages-online-tv-channels/?$':
           to: '/people/offices-directory/language-resource-center/live-tv/'
           regexp: true
@@ -1653,7 +1665,15 @@
           to: '/people/offices-directory/language-resource-center/for-faculty/'
           regexp: true
           code: 301
+        '^/lrc/services-for-faculty/?$':
+          to: '/people/offices-directory/language-resource-center/for-faculty/'
+          regexp: true
+          code: 301
         '^/lrc/technology-tools/?$':
+          to: '/people/offices-directory/language-resource-center/technology-tools/'
+          regexp: true
+          code: 301
+        '^lrc/lrc-index-page/new-technology-tools/?$':
           to: '/people/offices-directory/language-resource-center/technology-tools/'
           regexp: true
           code: 301
@@ -1689,8 +1709,24 @@
           to: '/people/offices-directory/language-resource-center/instructional-media-center/the-sound-recording-booth/'
           regexp: true
           code: 301
+        '^/lrc/soundbooth-test/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/the-sound-recording-booth/'
+          regexp: true
+          code: 301
+        '^/lrc/reservation-of-the-sound-booth-in-lovejoy-406/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/the-sound-recording-booth/'
+          regexp: true
+          code: 301
         '^/lrc/lrc-index-page/resources/self-directed-study/rosetta-stone/?$':
           to: '/people/offices-directory/language-resource-center/learn-a-language-on-your-own/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/contact-us/?$':
+          to: '/people/offices-directory/language-resource-center/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/help/?$':
+          to: '/people/offices-directory/language-resource-center/'
           regexp: true
           code: 301
         '^/lrc/?$':

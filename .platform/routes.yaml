@@ -1729,6 +1729,10 @@
           to: '/people/offices-directory/language-resource-center/'
           regexp: true
           code: 301
+        '^/lrc/lrc-index-page/lrc-reservation/?$':
+          to: '/people/offices-directory/language-resource-center/lrc-reservation/'
+          regexp: true
+          code: 301
         '^/lrc/?$':
           to: '/people/offices-directory/language-resource-center/'
           regexp: true

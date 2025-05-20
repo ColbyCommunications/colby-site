@@ -844,6 +844,14 @@
           to: '/people/offices-directory/academic-technology-services/video-production/'
           regexp: true
           code: 301
+        '^/acits/video-production/obs/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/one-button-studio/'
+          regexp: true
+          code: 301
+        '^/acits/video-production/sound-booth/?$':
+          to: '/language-resource-center/instructional-media-center/the-sound-recording-booth/'
+          regexp: true
+          code: 301
         '^/acits/fileserverfolder/?$':
           to: '/people/offices-directory/academic-technology-services/forms/'
           regexp: true
@@ -1623,6 +1631,66 @@
           code: 301
         '^/new-lrc/lrc-index-page/virtual-lab/?$':
           to: 'https://web.colby.edu/lrclibrary/listening-materials/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/resources/?$':
+          to: '/people/offices-directory/language-resource-center/language-resources/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/lab-assistants/?$':
+          to: '/people/offices-directory/language-resource-center/lab-assistants/'
+          regexp: true
+          code: 301
+        '^/lrc/services-for-students/?$':
+          to: '/people/offices-directory/language-resource-center/for-students/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/foreign-languages-online-tv-channels/?$':
+          to: '/people/offices-directory/language-resource-center/live-tv/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/faculty-services/?$':
+          to: '/people/offices-directory/language-resource-center/for-faculty/'
+          regexp: true
+          code: 301
+        '^/lrc/technology-tools/?$':
+          to: '/people/offices-directory/language-resource-center/technology-tools/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/poster-guidelines/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/poster-guidelines/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/poster-project-formatting-and-submission-form/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/poster-project-formatting-and-submission-form/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/one-button-studio/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/one-button-studio/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/lrc-project-request-form/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/lrc-project-request-form/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/imc-reservation/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/imc-reservation/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/tutorials/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/tutorials/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/the-sound-recording-booth/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/the-sound-recording-booth/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/resources/self-directed-study/rosetta-stone/?$':
+          to: '/people/offices-directory/language-resource-center/learn-a-language-on-your-own/'
           regexp: true
           code: 301
         '^/lrc/?$':

@@ -659,6 +659,10 @@
           to: '/people/offices-directory/office-of-the-provost/resources/'
           regexp: true
           code: 301
+        '^/psych/cognitive-development-lab/?$':
+          to: '/academics/departments-and-programs/psychology/research-opportunities/cognitive-development-lab/'
+          regexp: true
+          code: 301
         '^/psychologylabs/memory/?$':
           to: 'https://web.colby.edu/memoryandlanguagelab/'
           regexp: true

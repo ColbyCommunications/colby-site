@@ -3691,6 +3691,10 @@
           to: 'https://magazine.colby.edu/issue/vol-112-issue-1/#inmemoriam'
           regexp: true
           code: 301
+        '^/employeebenefits/?$':
+          to: '/people/offices-directory/human-resources/benefits/'
+          regexp: true
+          code: 301
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

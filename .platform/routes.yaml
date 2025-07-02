@@ -953,10 +953,10 @@
           regexp: true
           code: 301
   # Dining Services
-        '^/dining/?$':
-          to: 'https://colby.cafebonappetit.com/'
-          regexp: true
-          code: 301
+        # '^/dining/?$':
+        #   to: 'https://colby.cafebonappetit.com/'
+        #   regexp: true
+        #   code: 301
         '^/people/offices-directory/dining-services/?$':
           to: 'https://colby.cafebonappetit.com/'
           regexp: true

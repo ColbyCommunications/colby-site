@@ -1277,6 +1277,10 @@
           regexp: true
           code: 301
   # General Counsel
+        '^/policy-library/?$':
+          to: '/people/offices-directory/general-counsel/colby-policy-library/'
+          regexp: true
+          code: 301
         '^/generalcounsel/?$':
           to: '/people/offices-directory/general-counsel/'
           regexp: true

@@ -812,6 +812,10 @@
           code: 301
 ########## OFFICES ##########
   # ACITS
+        '^/acits/classrooms/?$':
+          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/Requests/ServiceDet?ID=55250'
+          regexp: true
+          code: 301
         '^/acits/posters/?$':
           to: '/people/offices-directory/language-resource-center/instructional-media-center/poster-project-formatting-and-submission-form/'
           regexp: true

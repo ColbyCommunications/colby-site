@@ -143,4 +143,12 @@ export const logos = [
         width: '120',
         offset: '-6px',
     },
+    {
+        name: 'publicPolicy',
+        image: 'https://www.colby.edu/signature/images/public_policy.png',
+        url: 'https://www.colby.edu/people/offices-directory/public-policy-lab/',
+        height: 'auto',
+        width: '120',
+        offset: '-6px',
+    },
 ];

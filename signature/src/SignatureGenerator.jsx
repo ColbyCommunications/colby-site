@@ -168,6 +168,7 @@ function App() {
                             <option value="lunderVertical">Lunder Institute (Vertical)</option>
                             <option value="lyons">Lyons Arts Lab</option>
                             <option value="oak">Oak Instituite</option>
+                            <option value="publicPolicy">Public Policy Lab</option>
                         </select>
                         <label htmlFor="name">Name:</label>
                         <input

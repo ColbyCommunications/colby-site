@@ -137,7 +137,7 @@ export const logos = [
     },
     {
         name: 'oak',
-        image: 'https://www.colby.edu/signature/images/oak.png',
+        image: 'https://www.colby.edu/signature/images/oak2.png',
         url: 'https://oakinstitute.colby.edu/',
         height: 'auto',
         width: '120',

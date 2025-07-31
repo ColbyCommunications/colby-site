@@ -1619,10 +1619,6 @@
           to: '/people/offices-directory/information-technology-services/staff-listing/'
           regexp: true
           code: 301
-        '^/its/(.*)$':
-          to: '/people/offices-directory/information-technology-services/'
-          regexp: true
-          code: 301
         '^/its/?$':
           to: '/people/offices-directory/information-technology-services/'
           regexp: true

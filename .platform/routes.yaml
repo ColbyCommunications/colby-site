@@ -1623,6 +1623,14 @@
           to: '/people/offices-directory/information-technology-services/'
           regexp: true
           code: 301
+        '^/its/?$':
+          to: '/people/offices-directory/information-technology-services/'
+          regexp: true
+          code: 301
+        '^/its/(.*)$':
+          to: '/people/offices-directory/information-technology-services/'
+          regexp: true
+          code: 301
   # Institutional Research
         '^/institutionalresearch/?$':
           to: '/people/offices-directory/institutional-research/'

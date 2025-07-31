@@ -1615,6 +1615,14 @@
           to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=143564'
           regexp: true
           code: 301
+        '^/its/staff/?$':
+          to: '/people/offices-directory/information-technology-services/staff-listing/'
+          regexp: true
+          code: 301
+        '^/its/(.*)$':
+          to: '/people/offices-directory/information-technology-services/'
+          regexp: true
+          code: 301
   # Institutional Research
         '^/institutionalresearch/?$':
           to: '/people/offices-directory/institutional-research/'

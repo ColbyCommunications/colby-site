@@ -1785,6 +1785,10 @@
           to: 'https://museum.colby.edu/'
           regexp: true
           code: 301
+        '^/museum/lunder/?$':
+          to: 'https://museum.colby.edu//learn/publications/whistler-and-the-world-the-lunder-collection-of-james-mcneill-whistler'
+          regexp: true
+          code: 301
   # Off-Campus Study
         '^/people/offices-directory/off-campus-study/?$':
           to: 'https://life.colby.edu/offcampus/'

@@ -165,7 +165,9 @@ function App() {
                             <option value="halloran">Halloran Lab</option>
                             <option value="lindePackman">Linde Packman Lab</option>
                             <option value="lunder">Lunder Institute</option>
-                            <option value="lunderVertical">Lunder Institute (Vertical)</option>
+                            <option value="lunderVertical">
+                                Lunder Institute/Colby Museum Combo
+                            </option>
                             <option value="lyons">Lyons Arts Lab</option>
                             <option value="oak">Oak Instituite</option>
                             <option value="publicPolicy">Public Policy Lab</option>

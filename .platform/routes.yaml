@@ -1608,7 +1608,7 @@
           code: 301
   # ITS
         '^/printersetup/?$':
-          to: 'https://www.colby.edu/its/printer-setup'
+          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=81029'
           regexp: true
           code: 301
         '^/mfpsetup/?$':

@@ -381,6 +381,18 @@
           to: '/geology/$1/'
           regexp: true
           code: 301
+        '^/academics/course-catalogue/department-and-program-requirements/geology-requirements/?$':
+          to: '/academics/course-catalogue/department-and-program-requirements/earth-sciences-requirements/'
+          regexp: true
+          code: 301
+        '^/academics/departments-and-programs/geology/(.*)$':
+          to: '/academics/departments-and-programs/earth-sciences/$1/'
+          regexp: true
+          code: 301
+        '^/academics/departments-and-programs/geology/$':
+          to: '/academics/departments-and-programs/earth-sciences/'
+          regexp: true
+          code: 301
   # German and Russian
         '^/germanandrussian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'

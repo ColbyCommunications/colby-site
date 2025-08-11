@@ -1289,6 +1289,10 @@
           regexp: true
           code: 301
   # General Counsel
+        '^/people/offices-directory/general-counsel/a-legal-perspective-on-generative-ai-use-at-colby/?$':
+          to: '/wp-content/uploads/2025/08/GC-AI-Guidance-Document-12.pdf'
+          regexp: true
+          code: 301
         '^/policy-library/?$':
           to: '/people/offices-directory/general-counsel/colby-policy-library/'
           regexp: true

@@ -2004,6 +2004,14 @@
           regexp: true
           code: 301
   # Office of the President
+        '^/people/offices-directory/office-of-the-president/reports/?$':
+          to: '/people/offices-directory/office-of-the-president/economic-impact-reports/'
+          regexp: true
+          code: 301
+        '^/people/offices-directory/office-of-the-president/economic-impact-report/?$':
+          to: '/people/offices-directory/office-of-the-president/2025-economic-impact-report/'
+          regexp: true
+          code: 301
         '^/office-of-the-president/?$':
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true

@@ -2009,7 +2009,7 @@
           regexp: true
           code: 301
         '^/people/offices-directory/office-of-the-president/reports/economic-impact-report/?$':
-          to: '/people/offices-directory/office-of-the-president/2025-economic-impact-report/'
+          to: '/people/offices-directory/office-of-the-president/economic-impact-reports/2025-economic-impact-report/'
           regexp: true
           code: 301
         '^/office-of-the-president/?$':

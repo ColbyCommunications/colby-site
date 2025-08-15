@@ -1290,7 +1290,7 @@
           code: 301
   # General Counsel
         '^/people/offices-directory/general-counsel/a-legal-perspective-on-generative-ai-use-at-colby/?$':
-          to: '/wp-content/uploads/2025/08/GC-AI-Guidance-Document-14.pdf'
+          to: '/wp-content/uploads/2025/08/GC-AI-Guidance-Document-15.pdf'
           regexp: true
           code: 301
         '^/policy-library/?$':
@@ -2009,7 +2009,7 @@
           regexp: true
           code: 301
         '^/people/offices-directory/office-of-the-president/economic-impact-reports/?$':
-          to: '/people/offices-directory/office-of-the-president/2025-economic-impact-report/'
+          to: '/people/offices-directory/office-of-the-president/2025-economic-impact-report/'  
           regexp: true
           code: 301
         '^/people/offices-directory/office-of-the-president/reports/economic-impact-report/?$':

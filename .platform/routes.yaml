@@ -969,12 +969,12 @@
           regexp: true
           code: 301
   # Dining Services
-        # '^/dining/?$':
-        #   to: 'https://colby.cafebonappetit.com/'
-        #   regexp: true
-        #   code: 301
+        '^/dining/?$':
+          to: 'https://colby.nutrislice.com/'
+          regexp: true
+          code: 301
         '^/people/offices-directory/dining-services/?$':
-          to: 'https://colby.cafebonappetit.com/'
+          to: 'https://colby.nutrislice.com/'
           regexp: true
           code: 301
   # Editorial Style Guide
@@ -3456,11 +3456,11 @@
           regexp: true
           code: 301
         '^/diningservices/catering/?$':
-          to: 'http://colby.cafebonappetit.com/catering/'
+          to: 'https://colby.nutrislice.com/'
           regexp: true
           code: 301
         '^/diningservices/(.*)':
-          to: 'http://colby.cafebonappetit.com/'
+          to: 'https://colby.nutrislice.com/'
           regexp: true
           code: 301
         '^/directory/?$':

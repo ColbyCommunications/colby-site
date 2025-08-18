@@ -1326,10 +1326,6 @@
           regexp: true
           code: 301
   # Goldfarb Center for Public Affairs
-        '^/people/offices-directory/goldfarb-center-for-public-affairs/?$':
-          to: 'https://goldfarbcenter.colby.edu/'
-          regexp: true
-          code: 301
   # Grants
         '^/people/offices-directory/grants-and-sponsored-programs/?$':
           to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/'
@@ -2800,7 +2796,7 @@
           code: 301
   # Goldfarb
         '^/goldfarb/?$':
-          to: 'https://goldfarbcenter.colby.edu/'
+          to: '/people/offices-directory/goldfarb-center-for-public-affairs/'
           regexp: true
           code: 301
         '^/lovejoy/?$':

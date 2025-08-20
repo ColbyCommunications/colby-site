@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db053254beeef083d8336f0700c13a50",
+    "content-hash": "9104bd9ea916ceb69b28ec61313256b7",
     "packages": [
         {
             "name": "colbycommunications/advanced-custom-fields-pro",
@@ -148,11 +148,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "3.3.2",
+            "version": "3.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "7d1de7bf25f5d9d8e8f8a8126b4f9d6d52548ad6"
+                "reference": "388e1c0e339f71a034d64f4c8c733074fc9392be"
             },
             "require": {
                 "php": ">=7.1"
@@ -168,7 +168,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2025-06-04T19:02:47+00:00"
+            "time": "2025-08-20T21:27:28+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",

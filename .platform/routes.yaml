@@ -381,6 +381,18 @@
           to: '/geology/$1/'
           regexp: true
           code: 301
+        '^/academics/course-catalogue/department-and-program-requirements/geology-requirements/?$':
+          to: '/academics/course-catalogue/department-and-program-requirements/earth-sciences-requirements/'
+          regexp: true
+          code: 301
+        '^/academics/departments-and-programs/geology/(.*)$':
+          to: '/academics/departments-and-programs/earth-sciences/$1/'
+          regexp: true
+          code: 301
+        '^/academics/departments-and-programs/geology/$':
+          to: '/academics/departments-and-programs/earth-sciences/'
+          regexp: true
+          code: 301
   # German and Russian
         '^/germanandrussian/?$':
           to: '/academics/departments-and-programs/german-and-russian/'
@@ -659,6 +671,10 @@
           to: '/people/offices-directory/office-of-the-provost/resources/'
           regexp: true
           code: 301
+        '^/psych/cognitive-development-lab/?$':
+          to: '/academics/departments-and-programs/psychology/research-opportunities/cognitive-development-lab/'
+          regexp: true
+          code: 301
         '^/psychologylabs/memory/?$':
           to: 'https://web.colby.edu/memoryandlanguagelab/'
           regexp: true
@@ -807,6 +823,71 @@
           regexp: true
           code: 301
 ########## OFFICES ##########
+  # ACITS
+        '^/acits/classrooms/?$':
+          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/Requests/ServiceDet?ID=55250'
+          regexp: true
+          code: 301
+        '^/acits/posters/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/poster-project-formatting-and-submission-form/'
+          regexp: true
+          code: 301
+        '^/acits/screencloud/?$':
+          to: 'https://wd5.myworkday.com/colby/learning/course/1d3b811e21cf01006b94d5d0de230000?type=9882927d138b100019b928e75843018d&record=c28ae1095e33100152649277dc630000'
+          regexp: true
+          code: 301
+        '^/arc/home/current-software-used-in-natural-sciences/mestrenova/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/natural-science-software/'
+          regexp: true
+          code: 301
+        '^/arc/home/current-software-used-in-natural-sciences/matlab-research-only/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/natural-science-software/'
+          regexp: true
+          code: 301
+        '^/arc/home/current-software-used-in-natural-sciences/geneious/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/natural-science-software/'
+          regexp: true
+          code: 301
+        '^/arc/home/current-software-used-in-natural-sciences/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/natural-science-software/'
+          regexp: true
+          code: 301
+        '^/arc/faq/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/faq/'
+          regexp: true
+          code: 301
+        '^/arc/?$':
+          to: '/people/offices-directory/academic-technology-services/advanced-research-computing/'
+          regexp: true
+          code: 301
+        '^/acits-gis/?$':
+          to: '/people/offices-directory/academic-technology-services/geographic-information-systems/'
+          regexp: true
+          code: 301
+        '^/acits/video-production/?$':
+          to: '/people/offices-directory/academic-technology-services/video-production/'
+          regexp: true
+          code: 301
+        '^/acits/video-production/obs/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/one-button-studio/'
+          regexp: true
+          code: 301
+        '^/acits/video-production/sound-booth/?$':
+          to: '/language-resource-center/instructional-media-center/the-sound-recording-booth/'
+          regexp: true
+          code: 301
+        '^/acits/fileserverfolder/?$':
+          to: '/people/offices-directory/academic-technology-services/forms/'
+          regexp: true
+          code: 301
+        '^/acits/category/accessibility/?$':
+          to: '/people/offices-directory/academic-technology-services/accessibility/'
+          regexp: true
+          code: 301
+        '^/acits/?$':
+          to: '/people/offices-directory/academic-technology-services/'
+          regexp: true
+          code: 301
   # Admissions
         '^/people/offices-directory/admissions-and-financial-aid/?$':
           to: 'https://afa.colby.edu'
@@ -889,11 +970,11 @@
           code: 301
   # Dining Services
         '^/dining/?$':
-          to: 'https://colby.cafebonappetit.com/'
+          to: 'https://colby.nutrislice.com/'
           regexp: true
           code: 301
         '^/people/offices-directory/dining-services/?$':
-          to: 'https://colby.cafebonappetit.com/'
+          to: 'https://colby.nutrislice.com/'
           regexp: true
           code: 301
   # Editorial Style Guide
@@ -1208,6 +1289,14 @@
           regexp: true
           code: 301
   # General Counsel
+        '^/people/offices-directory/general-counsel/a-legal-perspective-on-generative-ai-use-at-colby/?$':
+          to: '/wp-content/uploads/2025/08/GC-AI-Guidance-Document-16.pdf'
+          regexp: true
+          code: 301
+        '^/policy-library/?$':
+          to: '/people/offices-directory/general-counsel/colby-policy-library/'
+          regexp: true
+          code: 301
         '^/generalcounsel/?$':
           to: '/people/offices-directory/general-counsel/'
           regexp: true
@@ -1237,10 +1326,6 @@
           regexp: true
           code: 301
   # Goldfarb Center for Public Affairs
-        '^/people/offices-directory/goldfarb-center-for-public-affairs/?$':
-          to: 'https://goldfarbcenter.colby.edu/'
-          regexp: true
-          code: 301
   # Grants
         '^/people/offices-directory/grants-and-sponsored-programs/?$':
           to: 'https://www.colby.edu/people/offices-directory/foundation-relations-and-sponsored-programs/'
@@ -1534,16 +1619,24 @@
           regexp: true
           code: 301
   # ITS
-        '^/people/offices-directory/information-technology-services/?$':
-          to: 'https://www.colby.edu/its/'
-          regexp: true
-          code: 301
         '^/printersetup/?$':
-          to: 'https://www.colby.edu/its/printer-setup'
+          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=81029'
           regexp: true
           code: 301
         '^/mfpsetup/?$':
           to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=143564'
+          regexp: true
+          code: 301
+        '^/its/staff/?$':
+          to: '/people/offices-directory/information-technology-services/staff-listing/'
+          regexp: true
+          code: 301
+        '^/its/?$':
+          to: '/people/offices-directory/information-technology-services/'
+          regexp: true
+          code: 301
+        '^/its/(.*)$':
+          to: '/people/offices-directory/information-technology-services/'
           regexp: true
           code: 301
   # Institutional Research
@@ -1560,13 +1653,130 @@
           regexp: true
           code: 301
   # Language Resource Center
-        '^/people/offices-directory/language-resource-center/?$':
-          to: 'https://www.colby.edu/lrc/'
+        '^/lrc/lrc-index-page/listening_materials/(.+)$':
+          to: 'https://web.colby.edu/lrclibrary/listening-materials/$1'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/listening_materials/$':
+          to: 'https://web.colby.edu/lrclibrary/listening-materials/'
+          regexp: true
+          code: 301
+        '^/new-lrc/lrc-index-page/virtual-lab/(.+)$':
+          to: 'https://web.colby.edu/lrclibrary/listening-materials/$1'
+          regexp: true
+          code: 301
+        '^/new-lrc/lrc-index-page/virtual-lab/?$':
+          to: 'https://web.colby.edu/lrclibrary/listening-materials/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/resources/(.+)/?$':
+          to: '/people/offices-directory/language-resource-center/language-resources/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/resources/?$':
+          to: '/people/offices-directory/language-resource-center/language-resources/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/lab-assistants/?$':
+          to: '/people/offices-directory/language-resource-center/lab-assistants/'
+          regexp: true
+          code: 301
+        '^/lrc/services-for-students/?$':
+          to: '/people/offices-directory/language-resource-center/for-students/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/services-for-students/?$':
+          to: '/people/offices-directory/language-resource-center/for-students/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/foreign-languages-online-tv-channels/?$':
+          to: '/people/offices-directory/language-resource-center/live-tv/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/faculty-services/?$':
+          to: '/people/offices-directory/language-resource-center/for-faculty/'
+          regexp: true
+          code: 301
+        '^/lrc/services-for-faculty/?$':
+          to: '/people/offices-directory/language-resource-center/for-faculty/'
+          regexp: true
+          code: 301
+        '^/lrc/technology-tools/?$':
+          to: '/people/offices-directory/language-resource-center/technology-tools/'
+          regexp: true
+          code: 301
+        '^lrc/lrc-index-page/new-technology-tools/?$':
+          to: '/people/offices-directory/language-resource-center/technology-tools/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/poster-guidelines/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/poster-guidelines/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/poster-project-formatting-and-submission-form/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/poster-project-formatting-and-submission-form/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/one-button-studio/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/one-button-studio/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/lrc-project-request-form/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/lrc-project-request-form/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/imc-reservation/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/imc-reservation/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/tutorials/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/tutorials/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/imc-index-page/the-sound-recording-booth/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/the-sound-recording-booth/'
+          regexp: true
+          code: 301
+        '^/lrc/soundbooth-test/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/the-sound-recording-booth/'
+          regexp: true
+          code: 301
+        '^/lrc/reservation-of-the-sound-booth-in-lovejoy-406/?$':
+          to: '/people/offices-directory/language-resource-center/instructional-media-center/the-sound-recording-booth/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/resources/self-directed-study/rosetta-stone/?$':
+          to: '/people/offices-directory/language-resource-center/learn-a-language-on-your-own/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/contact-us/?$':
+          to: '/people/offices-directory/language-resource-center/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/help/?$':
+          to: '/people/offices-directory/language-resource-center/'
+          regexp: true
+          code: 301
+        '^/lrc/lrc-index-page/lrc-reservation/?$':
+          to: '/people/offices-directory/language-resource-center/lrc-reservation/'
+          regexp: true
+          code: 301
+        '^/lrc/?$':
+          to: '/people/offices-directory/language-resource-center/'
           regexp: true
           code: 301
   # Libraries
         '^/people/offices-directory/libraries/?$':
           to: 'https://libraries.colby.edu/'
+          regexp: true
+          code: 301
+  # Linde Packman Lab for Biosciences Innovation
+        '^/lindepackman/?$':
+          to: '/people/offices-directory/linde-packman-lab-for-biosciences-innovation/'
           regexp: true
           code: 301
   # Mail Services
@@ -1587,9 +1797,8 @@
           to: 'https://museum.colby.edu/'
           regexp: true
           code: 301
-  # Oak Institute
-        '^/people/offices-directory/oak-institute-for-human-rights/?$':
-          to: 'https://oakinstitute.colby.edu/'
+        '^/museum/lunder/?$':
+          to: 'https://museum.colby.edu/learn/publications/whistler-and-the-world-the-lunder-collection-of-james-mcneill-whistler'
           regexp: true
           code: 301
   # Off-Campus Study
@@ -1734,19 +1943,6 @@
           regexp: true
           code: 301
 ########## MISC. ROOT LEVEL SITES ##########
-  # Visitors
-        '^/visitors/(.*)$':
-          to: '/visit/'
-          regexp: true
-          code: 301
-        '^/visitors/$':
-          to: '/visit/'
-          regexp: true
-          code: 301
-        '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/visit/'
-          regexp: true
-          code: 301
   # Academic Integrity
         '^/academicintegrity/?$':
           to: '/academic-integrity/'
@@ -1756,25 +1952,9 @@
           to: '/academic-integrity/'
           regexp: true
           code: 301
-  # January Program
-        '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
-          to: '/academics/january-program/$1/'
-          regexp: true
-          code: 301
-        '^/januaryprogram/(.*)$':
-          to: '/academics/january-program/'
-          regexp: true
-          code: 301
-        '^/januaryprogram/?$':
-          to: '/academics/january-program/'
-          regexp: true
-          code: 301
-        '^/janplan/?$':
-          to: '/academics/january-program/'
-          regexp: true
-          code: 301
-        '^/academics/departments-and-programs/january-program/?$': 
-          to: '/academics/january-program/'
+  # Buck Lab
+        '^/buck/?$':
+          to: 'buck-lab-for-climate-and-environment/'
           regexp: true
           code: 301
   # Green Colby
@@ -1798,7 +1978,44 @@
           to: '/green-colby/$1/'
           regexp: true
           code: 301
+  # January Program
+        '^/januaryprogram/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/academics/january-program/$1/'
+          regexp: true
+          code: 301
+        '^/januaryprogram/(.*)$':
+          to: '/academics/january-program/'
+          regexp: true
+          code: 301
+        '^/januaryprogram/?$':
+          to: '/academics/january-program/'
+          regexp: true
+          code: 301
+        '^/janplan/?$':
+          to: '/academics/january-program/'
+          regexp: true
+          code: 301
+        '^/academics/departments-and-programs/january-program/?$': 
+          to: '/academics/january-program/'
+          regexp: true
+          code: 301
   # Office of the President
+        '^/people/offices-directory/office-of-the-president/reports/?$':
+          to: '/people/offices-directory/office-of-the-president/2025-economic-impact-report/'
+          regexp: true
+          code: 301
+        '^/people/offices-directory/office-of-the-president/economic-impact-reports/?$':
+          to: '/people/offices-directory/office-of-the-president/2025-economic-impact-report/'  
+          regexp: true
+          code: 301
+        '^/people/offices-directory/office-of-the-president/reports/economic-impact-report/?$':
+          to: '/people/offices-directory/office-of-the-president/economic-impact-reports/2025-economic-impact-report/'
+          regexp: true
+          code: 301
+        '^/people/offices-directory/office-of-the-president/economic-impact-reports/2025-economic-impact-report/?$':
+          to: '/people/offices-directory/office-of-the-president/2025-economic-impact-report/'
+          regexp: true
+          code: 301
         '^/office-of-the-president/?$':
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
@@ -1830,6 +2047,19 @@
           code: 301
         '^/provost/(.*)$':
           to: '/people/offices-directory/office-of-the-provost/'
+          regexp: true
+          code: 301
+  # Visitors
+        '^/visitors/(.*)$':
+          to: '/visit/'
+          regexp: true
+          code: 301
+        '^/visitors/$':
+          to: '/visit/'
+          regexp: true
+          code: 301
+        '^/visitors/\d{4}/\d{2}/\d{2}/(.+)/?$':
+          to: '/visit/'
           regexp: true
           code: 301
 ########## MISC ACADEMIC SITES ##########
@@ -2566,7 +2796,7 @@
           code: 301
   # Goldfarb
         '^/goldfarb/?$':
-          to: 'https://goldfarbcenter.colby.edu/'
+          to: '/people/offices-directory/goldfarb-center-for-public-affairs/'
           regexp: true
           code: 301
         '^/lovejoy/?$':
@@ -2959,6 +3189,10 @@
           regexp: true
           code: 301
   # Lyons Arts Lab
+        '^/lyons/?$':
+          to: 'https://arts.colby.edu/lyons-arts-lab/'
+          regexp: true
+          code: 301
         '^/people/offices-directory/lyons-arts-lab/?$':
           to: 'https://arts.colby.edu/lyons-arts-lab/'
           regexp: true
@@ -3222,11 +3456,11 @@
           regexp: true
           code: 301
         '^/diningservices/catering/?$':
-          to: 'http://colby.cafebonappetit.com/catering/'
+          to: 'https://colby.nutrislice.com/'
           regexp: true
           code: 301
         '^/diningservices/(.*)':
-          to: 'http://colby.cafebonappetit.com/'
+          to: 'https://colby.nutrislice.com/'
           regexp: true
           code: 301
         '^/directory/?$':
@@ -3499,6 +3733,14 @@
           code: 301
         '^/family27/?$':
           to: 'https://alumni.colby.edu/family27/'
+          regexp: true
+          code: 301
+        '^/obits/?$':
+          to: 'https://magazine.colby.edu/issue/vol-112-issue-1/#inmemoriam'
+          regexp: true
+          code: 301
+        '^/employeebenefits/?$':
+          to: '/people/offices-directory/human-resources/benefits/'
           regexp: true
           code: 301
 # *ALL* www.* requests should be redirected back to primary domain

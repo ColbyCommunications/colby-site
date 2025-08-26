@@ -165,8 +165,12 @@ function App() {
                             <option value="halloran">Halloran Lab</option>
                             <option value="lindePackman">Linde Packman Lab</option>
                             <option value="lunder">Lunder Institute</option>
+                            <option value="lunderVertical">
+                                Lunder Institute/Colby Museum Combo
+                            </option>
                             <option value="lyons">Lyons Arts Lab</option>
                             <option value="oak">Oak Instituite</option>
+                            <option value="publicPolicy">Public Policy Lab</option>
                         </select>
                         <label htmlFor="name">Name:</label>
                         <input
@@ -636,42 +640,6 @@ function App() {
                                                                 >
                                                                     <tbody>
                                                                         <tr>
-                                                                            {selectedLogo.name !==
-                                                                            'colby' ? (
-                                                                                <td
-                                                                                    style={{
-                                                                                        border: 'none',
-                                                                                    }}
-                                                                                >
-                                                                                    <a
-                                                                                        href={
-                                                                                            logos[1]
-                                                                                                .url
-                                                                                        }
-                                                                                        target="_blank"
-                                                                                        rel="noreferrer"
-                                                                                        style={{
-                                                                                            border: 'none',
-                                                                                        }}
-                                                                                    >
-                                                                                        <img
-                                                                                            src={
-                                                                                                logos[1]
-                                                                                                    .image
-                                                                                            }
-                                                                                            alt="Colby"
-                                                                                            height="30"
-                                                                                            style={{
-                                                                                                paddingRight:
-                                                                                                    '10px',
-                                                                                                float: 'left',
-                                                                                            }}
-                                                                                        />
-                                                                                    </a>
-                                                                                </td>
-                                                                            ) : (
-                                                                                ''
-                                                                            )}
                                                                             {fbChecked === true ? (
                                                                                 <td
                                                                                     style={{

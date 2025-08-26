@@ -8,16 +8,8 @@ export const logos = [
         offset: '12px',
     },
     {
-        name: 'colbyBlack',
-        image: 'https://www.colby.edu/signature/images/colby_black.png',
-        url: 'https://www.colby.edu',
-        height: 'auto',
-        width: '96',
-        offset: '12px',
-    },
-    {
         name: 'buckLab',
-        image: 'https://www.colby.edu/signature/images/buck_lab.png',
+        image: 'https://www.colby.edu/signature/images/buck_lab2.png',
         url: 'https://www.colby.edu/buck-lab-for-climate-and-environment/',
         height: 'auto',
         width: '100',
@@ -25,7 +17,7 @@ export const logos = [
     },
     {
         name: 'jewishLife',
-        image: 'https://www.colby.edu/signature/images/jewish_life.png',
+        image: 'https://www.colby.edu/signature/images/jewish_life2.png',
         url: 'https://jewishlife.colby.edu/',
         height: 'auto',
         width: '100',
@@ -33,7 +25,7 @@ export const logos = [
     },
     {
         name: 'ctl',
-        image: 'https://www.colby.edu/signature/images/ctl.png',
+        image: 'https://www.colby.edu/signature/images/ctl2.png',
         url: 'https://www.colby.edu/center-for-teaching-and-learning/',
         height: 'auto',
         width: '100',
@@ -41,7 +33,7 @@ export const logos = [
     },
     {
         name: 'cah',
-        image: 'https://www.colby.edu/signature/images/cah.png',
+        image: 'https://www.colby.edu/signature/images/cah2.png',
         url: 'https://cah.colby.edu/',
         height: 'auto',
         width: '100',
@@ -65,7 +57,7 @@ export const logos = [
     },
     {
         name: 'museum',
-        image: 'https://www.colby.edu/signature/images/museum.png',
+        image: 'https://www.colby.edu/signature/images/museum2.png',
         url: 'https://museum.colby.edu/',
         height: 'auto',
         width: '100',
@@ -73,7 +65,7 @@ export const logos = [
     },
     {
         name: 'davisAI',
-        image: 'https://www.colby.edu/signature/images/davis_ai.png',
+        image: 'https://www.colby.edu/signature/images/davis_ai2.png',
         url: 'https://davisinstituteai.colby.edu/',
         height: 'auto',
         width: '100',
@@ -81,7 +73,7 @@ export const logos = [
     },
     {
         name: 'davisConnects',
-        image: 'https://www.colby.edu/signature/images/davis_connects.png',
+        image: 'https://www.colby.edu/signature/images/davis_connects2.png',
         url: 'https://davisconnects.colby.edu/',
         height: 'auto',
         width: '120',
@@ -89,7 +81,7 @@ export const logos = [
     },
     {
         name: 'farnhamWC',
-        image: 'https://www.colby.edu/signature/images/farnham_wc.png',
+        image: 'https://www.colby.edu/signature/images/farnham_wc2.png',
         url: 'https://www.colby.edu/people/offices-directory/farnham-writers-center/',
         height: 'auto',
         width: '100',
@@ -97,7 +89,7 @@ export const logos = [
     },
     {
         name: 'goldfarb',
-        image: 'https://www.colby.edu/signature/images/goldfarb.png',
+        image: 'https://www.colby.edu/signature/images/goldfarb2.png',
         url: 'https://goldfarbcenter.colby.edu/',
         height: 'auto',
         width: '120',
@@ -105,7 +97,7 @@ export const logos = [
     },
     {
         name: 'halloran',
-        image: 'https://www.colby.edu/signature/images/halloran.png',
+        image: 'https://www.colby.edu/signature/images/halloran2.png',
         url: 'https://www.colby.edu/halloran-lab-for-entrepreneurship/',
         height: 'auto',
         width: '120',
@@ -113,7 +105,7 @@ export const logos = [
     },
     {
         name: 'lindePackman',
-        image: 'https://www.colby.edu/signature/images/linde_packman.png',
+        image: 'https://www.colby.edu/signature/images/linde_packman2.png',
         url: 'https://www.colby.edu/people/offices-directory/linde-packman-lab-for-biosciences-innovation/',
         height: 'auto',
         width: '150',
@@ -121,15 +113,23 @@ export const logos = [
     },
     {
         name: 'lunder',
-        image: 'https://www.colby.edu/signature/images/lunder.png',
+        image: 'https://www.colby.edu/signature/images/lunder2.png',
         url: 'https://lunderinstitute.colby.edu/',
         height: 'auto',
         width: '120',
         offset: '-6px',
     },
     {
+        name: 'lunderVertical',
+        image: 'https://www.colby.edu/signature/images/lunder_vertical.png',
+        url: 'https://lunderinstitute.colby.edu/',
+        height: 'auto',
+        width: '100',
+        offset: '-6px',
+    },
+    {
         name: 'lyons',
-        image: 'https://www.colby.edu/signature/images/lyons.png',
+        image: 'https://www.colby.edu/signature/images/lyons2.png',
         url: 'https://arts.colby.edu/lyons-arts-lab/',
         height: 'auto',
         width: '120',
@@ -137,8 +137,16 @@ export const logos = [
     },
     {
         name: 'oak',
-        image: 'https://www.colby.edu/signature/images/oak.png',
+        image: 'https://www.colby.edu/signature/images/oak2.png',
         url: 'https://oakinstitute.colby.edu/',
+        height: 'auto',
+        width: '120',
+        offset: '-6px',
+    },
+    {
+        name: 'publicPolicy',
+        image: 'https://www.colby.edu/signature/images/public_policy.png',
+        url: 'https://www.colby.edu/people/offices-directory/public-policy-lab/',
         height: 'auto',
         width: '120',
         offset: '-6px',

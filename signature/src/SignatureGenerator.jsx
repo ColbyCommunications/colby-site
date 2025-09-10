@@ -422,7 +422,6 @@ function App() {
                                     type="checkbox"
                                     checked={BPTWChecked === true}
                                     onChange={() => setBPTWChecked(!BPTWChecked)}
-                                    disabled={selectedLogo.name == 'colby' ? false : true}
                                 />
                                 <label htmlFor="bptw">Best Places to Work in Maine</label>
                             </span>
@@ -848,16 +847,22 @@ function App() {
                                                         {BPTWChecked === true ? (
                                                             <tr
                                                                 style={{
-                                                                    height: '3rem',
-                                                                    display: 'flex',
-                                                                    justifyContent: 'start',
-                                                                    alignItems: 'end',
+                                                                    display: 'block',
                                                                     paddingLeft: '15px',
                                                                 }}
                                                             >
                                                                 <td
                                                                     style={{
                                                                         border: 'none',
+                                                                        paddingTop:
+                                                                            fbChecked ||
+                                                                            instaChecked ||
+                                                                            twitChecked ||
+                                                                            liChecked ||
+                                                                            ytChecked ||
+                                                                            cnChecked
+                                                                                ? '1rem'
+                                                                                : undefined,
                                                                     }}
                                                                 >
                                                                     <img

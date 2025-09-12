@@ -166,6 +166,7 @@ function App() {
                             <option value="farnhamWC">Farnham Writers' Center</option>
                             <option value="goldfarb">Goldfarb Center</option>
                             <option value="halloran">Halloran Lab</option>
+                            <option value="libraries">Libraries</option>
                             <option value="lindePackman">Linde Packman Lab</option>
                             <option value="lunder">Lunder Institute</option>
                             <option value="lunderVertical">

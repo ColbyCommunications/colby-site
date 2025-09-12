@@ -104,6 +104,14 @@ export const logos = [
         offset: '-6px',
     },
     {
+        name: 'libraries',
+        image: 'images/libraries.png',
+        url: 'https://libraries.colby.edu/',
+        height: 'auto',
+        width: '150',
+        offset: '-6px',
+    },
+    {
         name: 'lindePackman',
         image: 'https://www.colby.edu/signature/images/linde_packman2.png',
         url: 'https://www.colby.edu/people/offices-directory/linde-packman-lab-for-biosciences-innovation/',

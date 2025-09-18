@@ -122,7 +122,7 @@ export const logos = [
     {
         name: 'lunder',
         image: 'https://www.colby.edu/signature/images/lunder2.png',
-        url: 'https://lunderinstitute.colby.edu/',
+        url: 'https://museum.colby.edu/lunder-institute',
         height: 'auto',
         width: '120',
         offset: '-6px',
@@ -130,7 +130,7 @@ export const logos = [
     {
         name: 'lunderVertical',
         image: 'https://www.colby.edu/signature/images/lunder_vertical.png',
-        url: 'https://lunderinstitute.colby.edu/',
+        url: 'https://museum.colby.edu/',
         height: 'auto',
         width: '100',
         offset: '-6px',

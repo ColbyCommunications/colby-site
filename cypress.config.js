@@ -6,6 +6,10 @@ module.exports = defineConfig({
 
     e2e: {
         setupNodeEvents(on, config) {
+            // Map shell environment variables into Cypress.env
+            if (process.env.BLOCK_NAME) config.env.BLOCK_NAME = process.env.BLOCK_NAME;
+            if (process.env.TEMPLATE) config.env.TEMPLATE = process.env.TEMPLATE;
+
             // Registering the saveShortcodeResults task
             on('task', {
                 saveShortcodeResults(pagesWithShortcodes) {

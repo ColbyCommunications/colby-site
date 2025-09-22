@@ -5,7 +5,9 @@
     "author": "",
     "license": "None",
     "scripts": {
-        "cypress": "cypress run --browser chrome"
+        "cypress": "cypress run --browser chrome",
+        "test:blocks:local": "NODE_ENV=local node scripts/run-block-test.js",
+        "test:blocks:prod": "NODE_ENV=prod node scripts/run-block-test.js"
     },
     "dependencies": {
         "algoliasearch": "^4.13.1",

@@ -1,4 +1,4 @@
-// TO RUN: BLOCK_NAME="Article Grid" TEMPLATE="Page with Sidebar" npm run test:blocks
+// BLOCK_NAME="Article Grid" TEMPLATE="Page with Sidebar" npm run test:blocks:local
 
 const fs = require('fs');
 const path = require('path');

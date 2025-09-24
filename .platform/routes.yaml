@@ -1620,7 +1620,7 @@
           code: 301
   # ITS
         '^/printersetup/?$':
-          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=81029'
+          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=156268'
           regexp: true
           code: 301
         '^/mfpsetup/?$':

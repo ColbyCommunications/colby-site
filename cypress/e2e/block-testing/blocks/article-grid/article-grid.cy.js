@@ -13,8 +13,11 @@ import {
 
 // First configuration
 describe('Article Grid Block', () => {
-    it('Adds the first block configuration', () => {
+    beforeEach(() => {
         cy.loginToWordPress();
+    });
+
+    it('Adds the first block configuration - internal posts, rectangle images, american studies', () => {
         cy.setupPage();
         cy.addBlock();
 
@@ -29,8 +32,8 @@ describe('Article Grid Block', () => {
         cy.publishPage();
     });
 
-    it('Verifies that the block was added successfully', () => {
-        cy.visit('https://colby.lndo.site/block-testing-for-article-grid/');
+    it('Verifies that the block was added successfully - internal posts, rectangle images, american studies', () => {
+        cy.visit('/block-testing-for-article-grid/');
 
         validateBlockName();
         cy.wait(1000);
@@ -40,9 +43,8 @@ describe('Article Grid Block', () => {
     });
 
     // Second configuration
-    it('Adds the second block configuration', () => {
-        cy.loginToWordPress();
-        cy.visit('https://colby.lndo.site/block-testing-for-article-grid/');
+    it('Adds the second block configuration - internal posts, unlimited posts, anthropology', () => {
+        cy.visit('/block-testing-for-article-grid/');
         cy.editPage();
         cy.addBlock();
 
@@ -57,8 +59,8 @@ describe('Article Grid Block', () => {
         cy.savePage();
     });
 
-    it('Verifies that the block was added successfully', () => {
-        cy.visit('https://colby.lndo.site/block-testing-for-article-grid/');
+    it('Verifies that the block was added successfully - internal posts, unlimited posts, anthropology', () => {
+        cy.visit('/block-testing-for-article-grid/');
 
         validateBlockName();
         cy.wait(1000);
@@ -68,9 +70,8 @@ describe('Article Grid Block', () => {
     });
 
     // Third configuration
-    it('Adds the third block configuration', () => {
-        cy.loginToWordPress();
-        cy.visit('https://colby.lndo.site/block-testing-for-article-grid/');
+    it('Adds the third block configuration - internal posts, 12 posts, art', () => {
+        cy.visit('/block-testing-for-article-grid/');
         cy.editPage();
         cy.addBlock();
 
@@ -86,13 +87,15 @@ describe('Article Grid Block', () => {
         cy.savePage();
     });
 
-    it('Verifies that the block was added successfully', () => {
-        cy.visit('https://colby.lndo.site/block-testing-for-article-grid/');
+    it('Verifies that the block was added successfully - internal posts, 12 posts, art', () => {
+        cy.visit('/block-testing-for-article-grid/');
 
         validateBlockName();
         cy.wait(5000);
 
         validatePostCount(12);
         cy.wait(1000);
+        cy.editPage();
+        cy.deletePage();
     });
 });

@@ -1,22 +1,22 @@
 // cypress/support/commands.js
 
 Cypress.Commands.add('loginToWordPress', () => {
-    const wpAdminUrl = Cypress.env('WP_URL');
-    const username = Cypress.env('WP_USERNAME');
-    const password = Cypress.env('WP_PASSWORD');
+    cy.session('wordpress-admin', () => {
+        const username = Cypress.env('WP_USERNAME');
+        const password = Cypress.env('WP_PASSWORD');
 
-    cy.visit(wpAdminUrl);
-    cy.get('#user_login').clear({ force: true }).click().type(username);
-    cy.get('#user_pass').clear({ force: true }).click().type(password);
-    cy.get('#wp-submit').click();
+        cy.visit('/wp/wp-admin/');
+        cy.get('#user_login').clear({ force: true }).click().type(username);
+        cy.get('#user_pass').clear({ force: true }).click().type(password);
+        cy.get('#wp-submit').click();
+    });
 });
 
 Cypress.Commands.add('setupPage', () => {
-    const wpAdminUrl = Cypress.env('WP_URL');
     const blockName = Cypress.env('BLOCK_NAME');
     const template = Cypress.env('TEMPLATE');
 
-    cy.visit(`${wpAdminUrl}/post-new.php?post_type=page`);
+    cy.visit(`/wp/wp-admin/post-new.php?post_type=page`);
 
     cy.url().should('include', 'post-new.php?post_type=page');
 
@@ -120,4 +120,20 @@ Cypress.Commands.add('savePage', () => {
         });
 
     cy.wait(3000);
+});
+
+Cypress.Commands.add('deletePage', () => {
+    // Click the Save button
+    cy.get('button.editor-post-trash').should('be.visible').click({ force: true });
+
+    // Wait for the snackbar and click "View Page"
+    cy.get('div.components-modal__content', { timeout: 10000 })
+        .should('be.visible')
+        .within(() => {
+            cy.get('button.components-button.is-next-40px-default-size.is-primary')
+                .should('be.visible')
+                .click({ force: true });
+        });
+
+    cy.wait(10000);
 });

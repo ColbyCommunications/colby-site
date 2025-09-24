@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
+const { spawnSync, execSync } = require('child_process');
 
 const blockName = process.env.BLOCK_NAME;
 const template = process.env.TEMPLATE;
@@ -55,8 +55,13 @@ if (process.env.NODE_ENV == 'local') {
         specFile,
         '--env',
         `BLOCK_NAME=${blockName},TEMPLATE=${template}`,
+        '--config',
+        `baseUrl=https://colby.lndo.site`,
     ];
 } else {
+    let site = execSync('~/.platformsh/bin/platform environment:info edge_hostname');
+    let siteFull = `https://${site}`;
+
     args = [
         'cypress',
         'run',
@@ -66,6 +71,8 @@ if (process.env.NODE_ENV == 'local') {
         specFile,
         '--env',
         `BLOCK_NAME=${blockName},TEMPLATE=${template}`,
+        '--config',
+        `baseUrl=${siteFull}`,
     ];
 }
 

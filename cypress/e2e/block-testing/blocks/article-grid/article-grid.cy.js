@@ -96,6 +96,6 @@ describe('Article Grid Block', () => {
         validatePostCount(12);
         cy.wait(1000);
         cy.editPage();
-        cy.deletePage();
+        //cy.deletePage();
     });
 });

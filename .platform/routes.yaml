@@ -2020,6 +2020,10 @@
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
           code: 301
+        '^/president/fei/?$':
+          to: '/people/offices-directory/general-counsel/colby-policy-library/statement-of-principles-of-freedom-of-inquiry-and-expression/'
+          regexp: true
+          code: 301
         '^/president/(.*)$':
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
@@ -2030,10 +2034,6 @@
           code: 301
         '^/president/\d{4}/\d{2}/\d{2}/(.+)/?$':
           to: '/office-of-the-president/$1/'
-          regexp: true
-          code: 301
-        '^/president/fei/?$':
-          to: '/people/offices-directory/general-counsel/colby-policy-library/statement-of-principles-of-freedom-of-inquiry-and-expression/'
           regexp: true
           code: 301
   # Office of the Provost

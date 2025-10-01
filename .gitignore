@@ -42,3 +42,6 @@ yarn-error.log
 
 # Sage
 web/wp-content/cache
+
+#Cypress
+cypress.env.json

@@ -2020,6 +2020,10 @@
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true
           code: 301
+        '^/president/fei/?$':
+          to: '/people/offices-directory/general-counsel/colby-policy-library/statement-of-principles-of-freedom-of-inquiry-and-expression/'
+          regexp: true
+          code: 301
         '^/president/(.*)$':
           to: '/people/offices-directory/office-of-the-president/'
           regexp: true

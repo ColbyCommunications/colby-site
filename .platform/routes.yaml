@@ -970,11 +970,11 @@
           code: 301
   # Dining Services
         '^/dining/?$':
-          to: 'https://colby.nutrislice.com/'
+          to: 'https://colbydining.nutrislice.com/'
           regexp: true
           code: 301
         '^/people/offices-directory/dining-services/?$':
-          to: 'https://colby.nutrislice.com/'
+          to: 'https://colbydining.nutrislice.com/'
           regexp: true
           code: 301
   # Editorial Style Guide
@@ -3456,11 +3456,11 @@
           regexp: true
           code: 301
         '^/diningservices/catering/?$':
-          to: 'https://colby.nutrislice.com/'
+          to: 'https://colbydining.nutrislice.com/'
           regexp: true
           code: 301
         '^/diningservices/(.*)':
-          to: 'https://colby.nutrislice.com/'
+          to: 'https://colbydining.nutrislice.com/'
           regexp: true
           code: 301
         '^/directory/?$':

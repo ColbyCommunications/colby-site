@@ -1,0 +1,10 @@
+algoliasearch>=4,<5
+python-dotenv
+openai
+agno
+memory_profiler
+nltk
+pandas
+fastapi
+uvicorn
+httpx

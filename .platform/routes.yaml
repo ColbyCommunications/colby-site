@@ -55,6 +55,20 @@
         '^/wp-admin/(.*)':
           to: "/wp/wp-admin/$1"
           regexp: true
+
+########## CHATBOT API ##########
+"https://www.{default}/chatbot-api":
+    type: upstream
+    upstream: "chatbot-api:http"
+    cache:
+        enabled: false
+
+"https://{default}/chatbot-api":
+    type: upstream
+    upstream: "chatbot-api:http"
+    cache:
+        enabled: false
+
 ########## ACADEMIC DEPARTMENTS ##########
   # African-American Studies
         '^/african-american/?$':

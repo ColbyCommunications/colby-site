@@ -1,0 +1,48 @@
+# Chatbot API Application Configuration
+name: chatbot-api
+
+# Python runtime
+type: python:3.11
+
+# Application size
+size: S
+
+# Build configuration
+hooks:
+  build: |
+    pip install --upgrade pip
+    pip install -r requirements.txt
+
+# Web server configuration
+web:
+  commands:
+    start: "uvicorn api:app --host 0.0.0.0 --port $PORT --workers 2"
+  
+  locations:
+    /:
+      passthru: true
+      allow: false
+
+# Disk space for temporary files
+disk: 512
+
+# Mounts for writable directories
+mounts:
+  'tmp':
+    source: local
+    source_path: tmp
+
+# Environment variables
+# Secrets (ALGOLIA_APP_ID, ALGOLIA_API_KEY, OPENAI_API_KEY) set via Platform.sh portal
+variables:
+  env:
+    # Python/Uvicorn settings
+    PYTHONUNBUFFERED: "1"
+    # CORS configuration
+    CORS_ORIGINS: "*"
+
+# Resources allocation
+resources:
+  base_memory: 128
+  memory_ratio: 256
+

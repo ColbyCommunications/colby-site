@@ -1619,6 +1619,10 @@
           regexp: true
           code: 301
   # ITS
+        '^/its/venuelookup/?$':
+          to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/Requests/ServiceDet?ID=33229'
+          regexp: true
+          code: 301
         '^/printersetup/?$':
           to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=156268'
           regexp: true

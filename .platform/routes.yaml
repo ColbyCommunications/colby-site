@@ -3504,6 +3504,18 @@
           regexp: true
           code: 301
 
+########## CHATBOT API ##########
+"https://www.{default}/chatbot-api":
+    type: upstream
+    upstream: "chatbot-api:http"
+    cache:
+        enabled: false
+
+"https://{default}/chatbot-api":
+    type: upstream
+    upstream: "chatbot-api:http"
+    cache:
+        enabled: false
 
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":

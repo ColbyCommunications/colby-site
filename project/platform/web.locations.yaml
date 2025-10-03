@@ -76,3 +76,10 @@
 "/signature-assets":
   root: 'signature/dist/signature-assets'
   allow: true
+
+  "/chatbot-api":
+  root: 'chatbot-api'
+  allow: true
+  scripts: true
+  index:
+    - api.py

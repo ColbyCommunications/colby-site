@@ -56,18 +56,6 @@
           to: "/wp/wp-admin/$1"
           regexp: true
 
-########## CHATBOT API ##########
-"https://www.{default}/chatbot-api":
-    type: upstream
-    upstream: "chatbot-api:http"
-    cache:
-        enabled: false
-
-"https://{default}/chatbot-api":
-    type: upstream
-    upstream: "chatbot-api:http"
-    cache:
-        enabled: false
 
 ########## ACADEMIC DEPARTMENTS ##########
   # African-American Studies
@@ -3515,6 +3503,20 @@
           to: 'https://alumni.colby.edu/family27/'
           regexp: true
           code: 301
+
+########## CHATBOT API ##########
+"https://www.{default}/chatbot-api":
+    type: upstream
+    upstream: "chatbot-api:http"
+    cache:
+        enabled: false
+
+"https://{default}/chatbot-api":
+    type: upstream
+    upstream: "chatbot-api:http"
+    cache:
+        enabled: false
+
 # *ALL* www.* requests should be redirected back to primary domain
 "https://{all}/":
     type: redirect

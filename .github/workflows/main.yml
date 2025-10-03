@@ -39,7 +39,11 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
+<<<<<<< HEAD:.github/workflows/main.yml
           node-version: '16.x'
+=======
+          node-version: '20.x'
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35:.github-off/workflows/main.yml
           registry-url: 'https://npm.pkg.github.com'
         
       - name: Spin up environment
@@ -66,7 +70,11 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
+<<<<<<< HEAD:.github/workflows/main.yml
           node-version: '16.x'
+=======
+          node-version: '20.x'
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35:.github-off/workflows/main.yml
           registry-url: 'https://npm.pkg.github.com'
       - run: npm install
         env:
@@ -110,7 +118,11 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
+<<<<<<< HEAD:.github/workflows/main.yml
           node-version: '16.x'
+=======
+          node-version: '20.x'
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35:.github-off/workflows/main.yml
           registry-url: 'https://npm.pkg.github.com'
       - run: npm install
         env:
@@ -140,7 +152,11 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
+<<<<<<< HEAD:.github/workflows/main.yml
           node-version: '16.x'
+=======
+          node-version: '20.x'
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35:.github-off/workflows/main.yml
           registry-url: 'https://npm.pkg.github.com'
       - name: Clone Pages
         run: |

@@ -45,6 +45,7 @@
         enabled: false
 
         # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+<<<<<<< HEAD
         cookies: ['/^SS?ESS/', '/^wordpress_/', '/^wp-settings/', '/^wp-postpass_/', 'ColbyDirectorySAMLSession', 'ColbyDirectorySAMLAuthToken', 'colby_directory_id']
     redirects:
       expires: 1d
@@ -994,6 +995,12 @@
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/abbreviations/'
           regexp: true
           code: 301
+=======
+        cookies: ['/^SS?ESS/', '/^wordpress_/', '/^wp-settings/', '/^wp-postpass_/']
+    redirects:
+      expires: 1d
+      paths: !include ../project/site_specific/platform/routes.yaml
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35
 
         '^/communicationsoffice/styles/academic-divisions-departments-and-programs-and-administrative-offices-and-departments/?$':
           to: 'https://identity.colby.edu/design-elements/editorial-style-guide/capitalization/'
@@ -3750,4 +3757,8 @@
 # All vanity domain requests should be redirected to primary domain
 "https://{default}/":
   type: redirect
+<<<<<<< HEAD
   to: "https://www.{default}/"
+=======
+  to: "https://{default}/"
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35

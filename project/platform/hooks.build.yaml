@@ -21,15 +21,29 @@ curl -sS https://platform.sh/cli/installer | php
 ################################
 ###          NODE           ###
 ###############################
+<<<<<<< HEAD
+=======
+unset NPM_CONFIG_PREFIX
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | dash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm current
+nvm install 20.10.0
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35
 
 # Install the version specified in the .nvmrc file
 n auto
 
+<<<<<<< HEAD
 # Reset the location hash to recognize the newly installed version
 hash -r 
+=======
+unset NPM_CONFIG_PREFIX
+nvm use 20.10.0
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35
 
 # run npm install in all colby dependencies
-./scripts/dependencies-run-install-build.sh
+./project/site_specific/scripts/dependencies-run-install-build.sh
 
 # generate .env
 node ./scripts/platform_generate-env.js

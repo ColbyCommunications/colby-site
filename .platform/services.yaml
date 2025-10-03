@@ -5,4 +5,8 @@
 
 mysqldb:
     type: mysql:10.2
+<<<<<<< HEAD
     disk: 2000
+=======
+    disk: !include ../project/site_specific/platform/mysql.disk.yaml
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35

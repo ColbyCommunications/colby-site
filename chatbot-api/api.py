@@ -70,6 +70,10 @@ assistant: Agent = create_assistant()
 agent_os: AgentOS = create_agent_os(assistant)
 app = agent_os.get_app()
 
+# Configure root_path for Platform.sh routing
+# This tells FastAPI that all routes are prefixed with /chatbot-api
+app.root_path = "/chatbot-api"
+
 # Setup CORS
 config = get_agent_config()
 setup_cors(app, config["cors_origins"])

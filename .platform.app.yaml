@@ -6,11 +6,8 @@ name: app
 
 # The runtime the application uses.
 type: "php:8.3"
-<<<<<<< HEAD
 
 size: M
-=======
->>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35
 
 # Configuration of the build of the application.
 build:
@@ -24,11 +21,7 @@ relationships:
   database: "mysqldb:mysql"
 
 # The size of the persistent disk of the application (in MB).
-<<<<<<< HEAD
-disk: 20000
-=======
 disk: !include project/site_specific/platform/app.disk.yaml
->>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35
 
 # The mounts that will be performed when the package is deployed.
 mounts:
@@ -38,11 +31,8 @@ mounts:
   "/web/.well-known/pki-validation":
     source: local
     source_path: web
-<<<<<<< HEAD
   "/web/wp-content/scripting": "shared:files/scripting"
   "/web/wp-content/directory_data": "shared:files/directory_data"
-=======
->>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35
   "/web/wp-content/themes/colby-college-theme/simplesaml": "shared:files/simplesaml"
 
 # The configuration of app when it is exposed to the web.
@@ -71,10 +61,7 @@ hooks:
 
 variables:
   env: !include project/platform/variables.env.yaml
-<<<<<<< HEAD
-  php:
-    upload_max_filesize: 128M
-    memory_limit: 256M
+  php: !include project/site_specific/platform/app.php.yaml
 
 # The configuration of scheduled execution.
 crons: !include project/platform/crons.yaml
@@ -82,6 +69,3 @@ crons: !include project/platform/crons.yaml
 resources: 
     base_memory: 128
     memory_ratio: 256
-=======
-  php: !include project/site_specific/platform/app.php.yaml
->>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35

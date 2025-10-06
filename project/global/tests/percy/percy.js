@@ -4,7 +4,7 @@ const scrollToBottom = require('scroll-to-bottomjs');
 const { execSync } = require('child_process');
 
 let site = execSync('~/.platformsh/bin/platform environment:info edge_hostname');
-let siteFull = `https://${site}`;
+let siteFull = `https://www.${site}`;
 
 (async () => {
     const browser = await puppeteer.launch({

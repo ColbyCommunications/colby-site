@@ -1,9 +1,8 @@
-
 const { defineConfig } = require('cypress');
 
 const { execSync } = require('child_process');
 let site = execSync('~/.platformsh/bin/platform environment:info edge_hostname');
-let siteFull = `https://${site}`;
+let siteFull = `https://www.${site}`;
 
 module.exports = defineConfig({
     defaultCommandTimeout: 10000,
@@ -13,4 +12,3 @@ module.exports = defineConfig({
         specPattern: ['project/site_specific/tests/cypress/*', 'project/global/tests/cypress/*'],
     },
 });
-

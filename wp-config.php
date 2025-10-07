@@ -1,6 +1,7 @@
 <?php
 
-require_once( 'vendor/autoload.php' );
+
+require_once 'vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable( __DIR__ );
 $dotenv->load();
@@ -63,11 +64,15 @@ if ( false !== $strRelationships = getenv( 'PLATFORM_RELATIONSHIPS' ) ) {
 	define( 'DB_CHARSET', 'utf8' );
 	define( 'DB_COLLATE', '' );
 
-	if ( 'master' == getenv( 'PLATFORM_BRANCH' ) ) {
-		define( 'ALGOLIA_INDEX_NAME_PREFIX', 'prod_colbyedu_' );
-	} else {
-		define( 'ALGOLIA_INDEX_NAME_PREFIX', 'platform_colbyedu_' );
-	}
+    if (file_exists(dirname(__FILE__) . '/project/site_specific/config/wp-config-site.php')) {
+        include dirname(__FILE__) . '/project/site_specific/config/wp-config-site.php';
+    }
+
+    //we need routes for both multi and standard
+    $aryRoutes = array();//assume we dont have it
+    if (false !== $strRoutes = getenv('PLATFORM_ROUTES')) {
+        $aryRoutes = json_decode(base64_decode($strRoutes), true);
+    }
 
 	//we need routes for both multi and standard
 	$aryRoutes = array();//assume we dont have it
@@ -189,15 +194,6 @@ define( 'FS_METHOD', 'direct' );
 // prefix.
 $table_prefix = 'wp_';
 
-/**
- * some plugins require constants be added to the wp-config.php file. Since this file is not changeable on a site-by-site
- * basis, will include a secondary file that is site-editable, allowing for additional constants or overriding of any
- * variables that have already been set (e.g. $table_prefix)
- */
-
-if ( file_exists( dirname( __FILE__ ) . '/wp-config-extras.php' ) ) {
-	include dirname( __FILE__ ) . '/wp-config-extras.php';
-}
 
 // Default PHP settings.
 ini_set( 'session.gc_probability', 1 );

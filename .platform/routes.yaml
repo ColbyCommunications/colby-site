@@ -24,5 +24,5 @@
 # All vanity domain requests should be redirected to primary domain
 "https://{default}/":
   type: redirect
-  to: "https://{default}/"
+  to: "https://www.{default}/"
   

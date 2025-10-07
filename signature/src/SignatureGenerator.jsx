@@ -124,9 +124,11 @@ function App() {
                                     </li>
                                     <li>
                                         <p>
-                                            Paste your new signature into the "Signature" section in
-                                            your Gmail settings (Gmail &rarr; Settings &rarr;
-                                            General &rarr; Signature).
+                                            Navigate to the Signature section of Gmail (Gmail &rarr;
+                                            Settings &rarr; General &rarr; Signature). Click "Create
+                                            new" and paste your new signature into the new signature
+                                            field. Once created, select your new signature under
+                                            "Signature defaults."
                                         </p>
                                     </li>
                                     <li>
@@ -166,6 +168,7 @@ function App() {
                             <option value="farnhamWC">Farnham Writers' Center</option>
                             <option value="goldfarb">Goldfarb Center</option>
                             <option value="halloran">Halloran Lab</option>
+                            <option value="libraries">Libraries</option>
                             <option value="lindePackman">Linde Packman Lab</option>
                             <option value="lunder">Lunder Institute</option>
                             <option value="lunderVertical">

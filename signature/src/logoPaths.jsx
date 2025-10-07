@@ -104,6 +104,14 @@ export const logos = [
         offset: '-6px',
     },
     {
+        name: 'libraries',
+        image: 'images/libraries.png',
+        url: 'https://libraries.colby.edu/',
+        height: 'auto',
+        width: '150',
+        offset: '-6px',
+    },
+    {
         name: 'lindePackman',
         image: 'https://www.colby.edu/signature/images/linde_packman2.png',
         url: 'https://www.colby.edu/people/offices-directory/linde-packman-lab-for-biosciences-innovation/',
@@ -114,7 +122,7 @@ export const logos = [
     {
         name: 'lunder',
         image: 'https://www.colby.edu/signature/images/lunder2.png',
-        url: 'https://lunderinstitute.colby.edu/',
+        url: 'https://museum.colby.edu/lunder-institute',
         height: 'auto',
         width: '120',
         offset: '-6px',
@@ -122,7 +130,7 @@ export const logos = [
     {
         name: 'lunderVertical',
         image: 'https://www.colby.edu/signature/images/lunder_vertical.png',
-        url: 'https://lunderinstitute.colby.edu/',
+        url: 'https://museum.colby.edu/',
         height: 'auto',
         width: '100',
         offset: '-6px',

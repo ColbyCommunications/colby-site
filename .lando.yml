@@ -1,10 +1,6 @@
 # Change the name property to the name of your project. Suggestions is to use the name of your project in Platform,
 # which is also the name/slug of your repository on gitlab
-<<<<<<< HEAD
 name: colby
-=======
-name: platform-wp-starter
->>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35
 recipe: wordpress
 config:
     webroot: web

@@ -1332,11 +1332,11 @@
   regexp: true
   code: 301
 '^/lovejoy/?$':
-  to: 'https://goldfarbcenter.colby.edu/events/flagship-events/elijah-parish-lovejoy-award-for-courage-in-journalism/'
+  to: '/people/offices-directory/goldfarb-center-for-public-affairs/events/lovejoy-award-for-courage-in-journalism/'
   regexp: true
   code: 301
 '^/lovejoyaward/?$':
-  to: 'https://goldfarbcenter.colby.edu/events/flagship-events/elijah-parish-lovejoy-award-for-courage-in-journalism/'
+  to: '/people/offices-directory/goldfarb-center-for-public-affairs/events/lovejoy-award-for-courage-in-journalism/'
   regexp: true
   code: 301
 

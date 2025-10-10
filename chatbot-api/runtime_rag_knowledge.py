@@ -2,59 +2,24 @@ from __future__ import annotations
 
 import os
 import sys
-import json
 import asyncio
-from typing import List, Dict, Any, Optional
-from typing import Set
+from typing import List, Dict, Any, Optional, Set
 
 from dotenv import load_dotenv
 from algoliasearch.search.client import SearchClient
-from pydantic import BaseModel, Field
+
+# QDrant for vector search
+from qdrant_client import AsyncQdrantClient
+import openai
 
 # Modern Agno imports
 from agno.agent import Agent
 from agno.tools import tool
 from agno.models.openai import OpenAIChat
 
-# Thinking/trace tools (required to always show thinking tools)
-from agno.tools.reasoning import ReasoningTools  # type: ignore
-
-
-class ColbyRAGResponse(BaseModel):
-    """
-    Structured response model for Colby RAG Assistant.
-    
-    This enforces that the agent always searches the knowledge base
-    and clearly indicates when it doesn't have reliable information.
-    All responses must include proper citations.
-    """
-    answer: str = Field(
-        ..., 
-        description=(
-            "The complete answer to the user's question with a '## Sources' section at the end. "
-            "If information was found, answer naturally then add:\n\n## Sources\n1. [Title](URL)\n2. [Title](URL)\n"
-            "If no reliable information found, this must be: 'I don't know - I could not find reliable information about this in the Colby College knowledge base.'"
-        )
-    )
-    found_information: bool = Field(
-        ..., 
-        description="True if reliable information was found in the knowledge base, False otherwise"
-    )
-    sources_used: List[str] = Field(
-        default_factory=list,
-        description="List of source URLs that were used to answer the question. Must match URLs in the answer's Sources section. Empty if no information found."
-    )
-    search_performed: bool = Field(
-        default=True,
-        description="Always True - confirms that knowledge base was searched"
-    )
-
 
 def _load_stopwords() -> Set[str]:
-    """Load English stopwords using NLTK, with safe fallback to a static set.
-
-    Returns a lowercase set of stopwords.
-    """
+    """Load English stopwords using NLTK with fallback."""
     # Static fallback set (previous behavior)
     fallback: Set[str] = {
         'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he', 'in', 'is', 'it',
@@ -89,12 +54,7 @@ def _load_stopwords() -> Set[str]:
 STOP_WORDS: Set[str] = _load_stopwords()
 
 def filter_stop_words(keywords: List[str]) -> List[str]:
-    """Remove stop words and very short tokens using NLTK stopwords.
-
-    - Uses NLTK English stopwords if available; falls back to static list.
-    - Keeps original casing in the returned keywords.
-    - Filters tokens of length <= 2 after stripping.
-    """
+    """Remove stop words and tokens with length <= 2."""
     filtered: List[str] = []
     for word in keywords:
         word_stripped = word.strip()
@@ -116,16 +76,63 @@ def _first_present(d: Dict[str, Any], keys: List[str], default: Any = "") -> Any
             return d[k]
     return default
 
-async def search_algolia_individual_keywords(keywords: List[str], max_hits: int = 3) -> List[Dict[str, Any]]:
-    """Search Algolia with individual keywords, not merged together."""
+
+async def keyword_search(query: str, num_results: int = 5) -> str:
+    """
+    This tool only accepts exact keyword matching.
+    
+    This tool is only useful for specific name and exact phrases.
+
+    Search the Colby College knowledge base using keyword matching.
+    
+    Args:
+        query: The search query with keywords to find (e.g., "financial aid deadlines")
+        num_results: Number of results to return (default: 5, max: 10)
+    
+    Returns:
+        Formatted search results with titles, URLs, and content snippets
+    """
+    # Limit num_results
+    num_results = min(num_results, 3)
+    
+    # Extract and filter keywords
+    raw_keywords = [word.strip() for word in query.split() if len(word.strip()) > 1]
+    keywords = filter_stop_words(raw_keywords)
+    
+    if not keywords:
+        return "No valid keywords found in query. Please provide meaningful search terms."
+    
+    # Run keyword search (now directly awaitable)
+    search_results = await search_algolia(keywords[:5], num_results)
+    
+    if not search_results:
+        return "No results found for the given keywords. Try different or broader search terms."
+    
+    # Format results for the agent
+    formatted_output = f"Found {len(search_results)} keyword search results:\n\n"
+    
+    for i, hit in enumerate(search_results, 1):
+        title = _first_present(hit, ["post_title", "title"], "Untitled")
+        url = _first_present(hit, ["permalink", "url"], "No URL")
+        content = hit.get("content") or hit.get("body") or hit.get("excerpt", "")
+        
+        # Truncate content to avoid overwhelming the agent
+        content_preview = content[:500] + "..." if len(content) > 500 else content
+        
+        formatted_output += f"{i}. **{title}**\n"
+        formatted_output += f"   URL: {url}\n"
+        formatted_output += f"   Content: {content_preview}\n\n"
+    
+    return formatted_output
+
+async def search_algolia(keywords: List[str], max_hits: int = 5) -> List[Dict[str, Any]]:
+    """Search Algolia with individual keywords using batched search."""
     app_id = os.environ["ALGOLIA_APP_ID"]
     api_key = os.environ["ALGOLIA_API_KEY"]
     index_name = os.environ.get("ALGOLIA_INDEX_NAME", "prod_colbyedu_aggregated")
 
     # Filter stop words
     filtered_keywords = filter_stop_words(keywords)
-    # print(f"Original keywords: {keywords}")
-    # print(f"Filtered keywords (no stop words): {filtered_keywords}")
     
     if not filtered_keywords:
         return []
@@ -134,7 +141,6 @@ async def search_algolia_individual_keywords(keywords: List[str], max_hits: int 
     all_results = []
     async with SearchClient(app_id, api_key) as client:
         try:
-            # print(f"Searching batched keywords: {filtered_keywords}")
             resp = await client.search({
                 "requests": [
                     {
@@ -159,7 +165,6 @@ async def search_algolia_individual_keywords(keywords: List[str], max_hits: int 
 
             try:
                 data = resp.model_dump()
-                # print(f"Data keys: {data.keys()}")
             except AttributeError:
                 data = resp.dict()
 
@@ -184,18 +189,103 @@ async def search_algolia_individual_keywords(keywords: List[str], max_hits: int 
             or result.get("permalink")
             or result.get("url")
         )
-        # print(f"Object ID: {obj_id}")
         if obj_id and obj_id not in seen_ids:
             seen_ids.add(obj_id)
             unique_results.append(result)
     
-    # print(f"Total unique results: {len(unique_results)}")
     return unique_results[:max_hits]
 
 
-async def search_algolia(keywords: List[str], max_hits: int = 5) -> List[Dict[str, Any]]:
-    """Search Algolia with individual keywords."""
-    return await search_algolia_individual_keywords(keywords, max_hits)
+async def search_qdrant_vector(query: str, max_hits: int = 10) -> List[Dict[str, Any]]:
+    """
+    This tool uses semantic/vector similarity search to find relevant information.
+    
+    This tool is useful for conceptual queries, general questions, and natural language search.
+    Use this when you need to find information based on meaning rather than exact keywords.
+
+    Search the Colby College knowledge base using AI-powered semantic search.
+    
+    Args:
+        query: Natural language query to search for (e.g., "What are the dining options on campus?")
+        max_hits: Maximum number of results to return (default: 10)
+    
+    Returns:
+        List of relevant documents with titles, URLs, content, and similarity scores
+    """
+    # Get Qdrant configuration from environment
+    qdrant_url = os.environ.get("QDRANT_URL")
+    qdrant_api_key = os.environ.get("QDRANT_API_KEY")
+    collection_name = os.environ.get("QDRANT_COLLECTION_NAME", "colby_knowledge")
+    openai_api_key = os.environ.get("OPENAI_API_KEY")
+    embedding_model = os.environ.get("EMBEDDING_MODEL", "text-embedding-3-small")
+    
+    if not all([qdrant_url, qdrant_api_key, openai_api_key]):
+        print("⚠️ Qdrant or OpenAI credentials missing, skipping vector search")
+        return []
+    
+    # print(f"🔢 Vector Search: Generating embedding with {embedding_model}...")
+    
+    openai_client = None
+    qdrant_client = None
+    
+    try:
+        # Generate query embedding using context manager
+        async with openai.AsyncOpenAI(api_key=openai_api_key) as openai_client:
+            response = await openai_client.embeddings.create(
+                model=embedding_model,
+                input=query
+            )
+            query_vector = response.data[0].embedding
+        
+        # Search Qdrant using query points API
+        qdrant_client = AsyncQdrantClient(
+            url=qdrant_url,
+            api_key=qdrant_api_key,
+            timeout=30
+        )
+        
+        try:
+            # Perform vector search using query points
+            # print(f"🔍 Vector Search: Querying Qdrant collection '{collection_name}' (limit={max_hits})...")
+            search_result = await qdrant_client.query_points(
+                collection_name=collection_name,
+                query=query_vector,
+                limit=max_hits,
+                with_payload=True,
+            )
+            
+            # print(f"✅ Vector Search: Found {len(search_result.points)} results")
+            
+            # Format results to match Algolia structure
+            formatted_results = []
+            for point in search_result.points:
+                payload = point.payload
+                formatted_results.append({
+                    "objectID": payload.get("objectID", ""),
+                    "post_title": payload.get("title", ""),
+                    "title": payload.get("title", ""),
+                    "content": payload.get("content", ""),
+                    "permalink": payload.get("url", ""),
+                    "url": payload.get("url", ""),
+                    "originIndexLabel": payload.get("source", "Vector Search"),
+                    "_score": point.score,
+                    "_search_type": "vector",
+                    "chunk_index": payload.get("chunk_index", 0),
+                    "total_chunks": payload.get("total_chunks", 1),
+                })
+            
+            return formatted_results
+        finally:
+            # Ensure Qdrant client is properly closed
+            if qdrant_client:
+                try:
+                    await qdrant_client.close()
+                except Exception:
+                    pass  # Ignore errors during cleanup
+        
+    except Exception as e:
+        print(f"Error during Qdrant vector search: {str(e)}")
+        return []
 
 
 def retriever(
@@ -205,35 +295,50 @@ def retriever(
     **kwargs
 ) -> Optional[list[dict]]:
     """
-    Custom retriever function to search Algolia for relevant documents.
-    Embeds source URLs directly in content for LLM visibility.
+    Custom retriever function to search the vector database for relevant documents.
+    
+    Performs semantic vector search using embeddings. For exact keyword matching,
+    the agent can use the keyword_search tool instead.
+    
+    Note: This is a synchronous wrapper around the async search_qdrant_vector function
+    because the Agno Agent framework expects a synchronous knowledge_retriever.
     """
     try:
-        raw_keywords = [word.strip() for word in query.split() if len(word.strip()) > 1]
-        keywords = filter_stop_words(raw_keywords)
+        if num_documents is None:
+            num_documents = 5
         
-        if not keywords:
-            return []
-        
-        import asyncio
-        import concurrent.futures
-        
+        # Run async search in sync context
         try:
+            # Check if we're already in an event loop
             loop = asyncio.get_running_loop()
-            def run_search():
+            # We're in an async context, need to run in a thread with a new loop
+            import concurrent.futures
+            
+            def run_in_new_loop():
                 new_loop = asyncio.new_event_loop()
                 asyncio.set_event_loop(new_loop)
                 try:
-                    return new_loop.run_until_complete(search_algolia(keywords[:5], num_documents))
+                    return new_loop.run_until_complete(search_qdrant_vector(query, num_documents))
                 finally:
                     new_loop.close()
             
             with concurrent.futures.ThreadPoolExecutor() as executor:
-                future = executor.submit(run_search)
+                future = executor.submit(run_in_new_loop)
                 search_results = future.result(timeout=30)
         except RuntimeError:
-            search_results = asyncio.run(search_algolia(keywords[:5], num_documents))
+            # No event loop running, safe to use asyncio.run
+            search_results = asyncio.run(search_qdrant_vector(query, num_documents))
         
+        if not search_results:
+            print("⚠️  No vector results found")
+            return []
+        
+        for i, doc in enumerate(search_results[:5], 1):
+            title = doc.get("title", doc.get("post_title", "Untitled"))[:60]
+            url = doc.get("url", doc.get("permalink", "No URL"))[:70]
+            score = doc.get("_score", 0)
+        
+        # Format results for the agent
         formatted_results = []
         for hit in search_results[:num_documents]:
             content = hit.get("content") or hit.get("body") or hit.get("excerpt", "")
@@ -250,7 +355,7 @@ def retriever(
                 "content": content_with_source,
                 "title": title,
                 "url": url,
-                "source": _first_present(hit, ["originIndexLabel", "origin_index_label"], "Unknown"),
+                "source": _first_present(hit, ["originIndexLabel", "origin_index_label"], "Vector Search"),
                 "id": _first_present(hit, ["objectID", "objectId", "object_id", "permalink", "url"], ""),
             }
             formatted_results.append(doc)
@@ -258,22 +363,16 @@ def retriever(
         return formatted_results
         
     except Exception as e:
-        print(f"Error during Algolia search: {str(e)}")
+        print(f"Error during vector search: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return None
 
 
 def build_agent() -> Any:
-    """
-    Build and configure the RAG agent.
-    
-    Configuration via environment variables:
-    - OPENAI_MODEL: Model to use (default: gpt-4o)
-    - AGENT_SHOW_TOOL_CALLS: Show tool calls (default: false)
-    - AGENT_STREAM_INTERMEDIATE: Stream intermediate steps (default: false)
-    """
+    """Build and configure the RAG agent with environment-based settings."""
     model_id = os.environ.get("OPENAI_MODEL", "gpt-4o")
-    show_tool_calls = os.environ.get("AGENT_SHOW_TOOL_CALLS", "false").lower() == "true"
-    stream_intermediate = os.environ.get("AGENT_STREAM_INTERMEDIATE", "false").lower() == "true"
+    from agno.tools.reasoning import ReasoningTools
 
     base_kwargs = dict(
         model=OpenAIChat(id=model_id),
@@ -281,31 +380,26 @@ def build_agent() -> Any:
             "You are a Colby College knowledge base assistant. "
             "You can ONLY provide information from the knowledge base. "
             "If information is not in the knowledge base, say you don't know. "
-            "Do not provide an answer if you cannot cite a URL for each fact in your response from the knowledge base. [1][URL] [2][URL] [3][URL]..."
-            "Current academic year: 2025-2026."
+            "Do not provide an answer if you cannot cite a URL for each fact in your response from the knowledge base."   
+            "Every query must call all available tools to craft a complete answer."        
         ),
         markdown=True,
         knowledge_retriever=retriever,
         search_knowledge=True,
         add_knowledge_to_context=True,
+        tools=[
+            keyword_search, 
+            search_qdrant_vector, 
+            ReasoningTools()],
     )
 
     instructions = [
-        "You are a Colby College knowledge base assistant.",
         "ONLY answer using information from retrieved documents.",
-        "Each document has [SOURCE: Title - URL] markers - extract and cite these URLs.",
-        "",
-        "RESPONSE FORMAT:",
-        "1. Answer the question",
-        "2. End with: ## Sources\\n1. [Title](URL)\\n2. [Title](URL)",
-        "",
-        "If no information found: 'I don't know - I could not find reliable information about this in the Colby College knowledge base.'",
+        "Extract and cite source URLs in the answer. Embed them in the answer as words being hyperlinked.",
     ]
 
     advanced_kwargs = dict(
         instructions=instructions,
-        show_tool_calls=show_tool_calls,
-        stream_intermediate_steps=stream_intermediate,
     )
 
     try:
@@ -316,14 +410,10 @@ def build_agent() -> Any:
 
 
 async def run_agent_with_message(user_message: str):
-    """Wrapper function for running the agent - used by performance evaluation."""
+    """Run agent with a message - used for performance evaluation."""
     agent = build_agent()
     try:
-        # Stream model output; reveal reasoning/tool traces when supported
-        try:
-            response = await agent.arun(user_message)
-        except TypeError:
-            response = await agent.arun(user_message)
+        response = await agent.arun(user_message)
         return response
     except Exception as e:
         print(f"Agent execution error: {e}")
@@ -343,10 +433,9 @@ async def main():
             sys.exit(1)
         agent = build_agent()
         try:
-            try:
-                await agent.aprint_response(user_message, stream=True, show_reasoning=True)
-            except TypeError:
-                await agent.aprint_response(user_message, stream=True)
+            await agent.aprint_response(user_message, stream=True)
+        except TypeError:
+            await agent.aprint_response(user_message, stream=True)
         except Exception as e:
             print(f"Agent execution error: {e}")
             sys.exit(1)
@@ -365,14 +454,14 @@ async def main():
     agent = build_agent()
 
     # Ensure output column exists
-    if "rag_response" not in df.columns:
-        df["rag_response"] = ""
+    if "vector_results" not in df.columns:
+        df["vector_results"] = ""
 
     from tqdm import tqdm
     for idx, row in tqdm(df.iterrows(), total=len(df), desc="Processing rows"):
         user_message = str(row.get("nl_queries", "")).strip()
         if not user_message:
-            df.at[idx, "rag_response"] = ""
+            df.at[idx, "vector_results"] = ""
             try:
                 df.to_csv(csv_path, index=False)
             except Exception as e:
@@ -390,17 +479,12 @@ async def main():
             text = f"ERROR: {e}"
 
         # Save result for this row and write CSV immediately
-        df.at[idx, "rag_response"] = text
+        df.at[idx, "vector_results"] = text
         try:
             df.to_csv(csv_path, index=False)
         except Exception as e:
             print(f"Failed to write CSV at row {idx}: {e}")
 
 
-
-
 if __name__ == "__main__":
     asyncio.run(main())
-    
-
-

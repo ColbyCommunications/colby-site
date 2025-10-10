@@ -46,3 +46,12 @@ resources:
   base_memory: 128
   memory_ratio: 256
 
+# Cron jobs
+crons:
+  update_vectordb:
+    # Run daily at 4:00 AM EST (9:00 AM UTC)
+    # Note: During EDT (daylight saving), this will run at 5:00 AM EDT
+    spec: '0 9 * * *'
+    commands:
+      start: 'python update_vector_db.py'
+

@@ -8,3 +8,6 @@ pandas
 fastapi
 uvicorn
 httpx
+qdrant-client[fastembed]
+tiktoken
+fastembed

@@ -10,15 +10,13 @@ from fastapi.responses import StreamingResponse
 
 from agno.os import AgentOS
 from agno.agent import Agent
-from agno.models.openai import OpenAIChat
 from fastapi.middleware.cors import CORSMiddleware
 
 # Use the agent defined in runtime_rag_knowledge
-from runtime_rag_knowledge import build_agent, ColbyRAGResponse
+from runtime_rag_knowledge import build_agent
 
 # Load environment variables early
 load_dotenv()
-
 
 def get_agent_config() -> dict:
     """Get agent configuration from environment variables."""
@@ -88,40 +86,24 @@ class AskResponse(BaseModel):
     """Response model containing the assistant's answer."""
     content: str = Field(..., description="The assistant's response content")
     agent_id: str = Field(..., description="The ID of the agent that processed the request")
-    found_information: Optional[bool] = Field(None, description="Whether information was found (only present with structured output)")
-    sources_used: Optional[list[str]] = Field(None, description="Source URLs used (only present with structured output)")
-    search_performed: Optional[bool] = Field(None, description="Whether search was performed (only present with structured output)")
 
 
-def extract_content(response) -> dict:
+def extract_content(response) -> str:
     """Extract content from agent response."""
-    result = {
-        "content": "",
-        "found_information": None,
-        "sources_used": None,
-        "search_performed": None,
-    }
-    
     if response is None:
-        result["content"] = ""
-    elif isinstance(response, ColbyRAGResponse):
-        result["content"] = response.answer
-        result["found_information"] = response.found_information
-        result["sources_used"] = response.sources_used
-        result["search_performed"] = response.search_performed
+        return ""
     elif hasattr(response, "content"):
-        result["content"] = str(response.content)
+        return str(response.content)
     else:
-        result["content"] = str(response)
-    
-    return result
+        return str(response)
 
 
 def should_filter_content(content: str) -> bool:
-    """Filter out knowledge base tool completion messages."""
+    """Filter out tool call completion messages."""
     if not isinstance(content, str):
         return False
-    return "search_knowledge_base(" in content and "completed in" in content
+    # Filter out any tool call completion messages (e.g., "function_name(...) completed in X.XXXs.")
+    return "completed in" in content and "(" in content
 
 
 @app.post("/ask", response_model=AskResponse)
@@ -132,13 +114,10 @@ async def ask(req: AskRequest) -> AskResponse:
     """
     try:
         response = await assistant.arun(req.message)
-        extracted = extract_content(response)
+        content = extract_content(response)
         return AskResponse(
-            content=extracted["content"],
+            content=content,
             agent_id=assistant.id,
-            found_information=extracted["found_information"],
-            sources_used=extracted["sources_used"],
-            search_performed=extracted["search_performed"],
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Agent execution error: {str(e)}")

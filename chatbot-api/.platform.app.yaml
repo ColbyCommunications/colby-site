@@ -5,7 +5,7 @@ name: chatbot-api
 type: python:3.11
 
 # Application size
-size: S
+size: M
 
 # Build configuration
 hooks:

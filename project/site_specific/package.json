@@ -4,7 +4,9 @@
     "description": "",
     "author": "",
     "license": "None",
-    "dependencies": {},
+    "dependencies": {
+        "algoliasearch": "^4.13.1"
+    },
     "devDependencies": {},
     "scripts": {}
 }

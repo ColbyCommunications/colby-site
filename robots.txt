@@ -99,5 +99,16 @@ Disallow: /grants/faculty/*
 Disallow: /grants/recent-grants/*
 Disallow: /acits/remote-teaching-and-learning-consultation-request/
 
+# Files
+Disallow: *.pdf
+Disallow: *.doc
+Disallow: *.docx
+Disallow: *.ppt
+Disallow: *.pptx
+Disallow: *.mp3
+Disallow: *.mp4
+Disallow: *.mov
+Disallow: *.mpeg
+
 Sitemap: https://www.colby.edu/sitemap_index.xml
 Sitemap: https://news.colby.edu/news-sitemap.xml

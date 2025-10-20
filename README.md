@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 # Colby.edu Platform Site
+=======
+# Colby Starter Theme
+
+This project provides a starter kit for Colby College WordPress projects (forked from University of Missouri) hosted on Platform.sh. It is built using Composer, via the popular <a href="https://github.com/johnpbloch/wordpress">johnpbloch/wordpress</a> script..
+>>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35
 
 ## How to Use This Repo as a Template
 
@@ -50,6 +56,20 @@ When setting up the site for the first time inside platform, the root user shoul
 `platform sql < [dump].sql` - replaces current Platform.sh database data with a local dump file
 
 ## Change Log
+
+### 3.0.3
+
+-   Updates GH actions versions for Node v12 warnings
+
+### 3.0.2
+
+-   Adds support for post passwords
+
+### 3.0.1
+
+-   Some codebase cleanup
+-   Adds phpcs.xml
+-   Cleans up composer.json a little bit
 
 ### 3.0.0
 

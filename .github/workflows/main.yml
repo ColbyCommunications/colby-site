@@ -39,7 +39,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'
         
       - name: Spin up environment
@@ -66,7 +66,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'
       - run: npm install
         env:
@@ -110,7 +110,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'
       - run: npm install
         env:
@@ -140,7 +140,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'
       - name: Clone Pages
         run: |

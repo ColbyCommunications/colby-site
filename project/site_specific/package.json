@@ -1,0 +1,12 @@
+{
+    "name": "@colbycommunications/site",
+    "version": "1.0.0",
+    "description": "",
+    "author": "",
+    "license": "None",
+    "dependencies": {
+        "algoliasearch": "^4.13.1"
+    },
+    "devDependencies": {},
+    "scripts": {}
+}

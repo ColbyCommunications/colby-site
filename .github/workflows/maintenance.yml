@@ -1,27 +1,23 @@
-name: Percy
+name: Run Maintenance
 on:
-  workflow_dispatch:
   workflow_call:
-  schedule:
-    - cron: "0 0 * * 1"
 env:
+  CYPRESS_ENV_JSON: ${{ secrets.CYPRESS_ENV_JSON }}
   PLATFORMSH_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
-  PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_PROJECT_ID }}
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   WEBMASTER_GITHUB_ACTIONS_TOKEN: ${{ secrets.WEBMASTER_GITHUB_ACTIONS_TOKEN }}
+  PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_PROJECT_ID }}
 jobs:
-  run_percy:
+  percy:
+    uses: ./.github/workflows/percy.yml
+    secrets: inherit
+  cypress:
     runs-on: ubuntu-latest
-    env: 
-      PERCY_PARALLEL_TOTAL: 2
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install Psh CLI
         run: |
           curl -sS https://platform.sh/cli/installer | php
           ~/.platformsh/bin/platform project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
-
       - name: Load certificate
         run: ~/.platformsh/bin/platform ssh-cert:load -y -vv
 
@@ -33,13 +29,14 @@ jobs:
             ssh-keyscan $ip; \
           done 2>/dev/null >> ~/.ssh/known_hosts
           cat ~/.ssh/known_hosts
+
+      - name: Generate cypress.env.json from secret
+        run: echo '${{ secrets.CYPRESS_ENV_JSON }}' > cypress.env.json
       - name: Setup node
         uses: actions/setup-node@v2
         with:
           node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'
-      - run: ~/.platformsh/bin/platform redeploy -y
       - run: npm install
-      - name: Set Up Chrome
-        uses: browser-actions/setup-chrome@v1
-      - run: npx percy exec -- node project/site_specific/tests/percy/percy.js && npx percy exec -- node project/global/tests/percy/percy.js
+      - name: Run Cypress Tests
+        run: npm run tests

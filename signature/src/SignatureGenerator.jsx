@@ -28,6 +28,7 @@ function App() {
     const [liChecked, setLiChecked] = useState(true);
     const [ytChecked, setYtChecked] = useState(true);
     const [cnChecked, setCnChecked] = useState(true);
+    const [BPTWChecked, setBPTWChecked] = useState(true);
 
     const [logoSelectOption, setLogoSelectOption] = useState('colby');
     const [selectedLogo, setSelectedLogo] = useState(logos[0]);
@@ -53,6 +54,7 @@ function App() {
             setTwitChecked(true);
             setLiChecked(true);
             setYtChecked(true);
+            setBPTWChecked(false);
         } else {
             setCnChecked(false);
             setFbChecked(false);
@@ -60,6 +62,7 @@ function App() {
             setTwitChecked(false);
             setLiChecked(false);
             setYtChecked(false);
+            setBPTWChecked(false);
         }
     }, [selectedLogo]);
 
@@ -121,9 +124,11 @@ function App() {
                                     </li>
                                     <li>
                                         <p>
-                                            Paste your new signature into the "Signature" section in
-                                            your Gmail settings (Gmail &rarr; Settings &rarr;
-                                            General &rarr; Signature).
+                                            Navigate to the Signature section of Gmail (Gmail &rarr;
+                                            Settings &rarr; General &rarr; Signature). Click "Create
+                                            new" and paste your new signature into the new signature
+                                            field. Once created, select your new signature under
+                                            "Signature defaults."
                                         </p>
                                     </li>
                                     <li>
@@ -163,6 +168,7 @@ function App() {
                             <option value="farnhamWC">Farnham Writers' Center</option>
                             <option value="goldfarb">Goldfarb Center</option>
                             <option value="halloran">Halloran Lab</option>
+                            <option value="libraries">Libraries</option>
                             <option value="lindePackman">Linde Packman Lab</option>
                             <option value="lunder">Lunder Institute</option>
                             <option value="lunderVertical">
@@ -405,6 +411,22 @@ function App() {
                                     onChange={() => setCnChecked(!cnChecked)}
                                 />
                                 <label htmlFor="cn">Colby News</label>
+                            </span>
+                            <span
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'start',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <input
+                                    id="bptw"
+                                    style={{ width: 'auto', marginRight: '0.75rem' }}
+                                    type="checkbox"
+                                    checked={BPTWChecked === true}
+                                    onChange={() => setBPTWChecked(!BPTWChecked)}
+                                />
+                                <label htmlFor="bptw">Best Places to Work in Maine</label>
                             </span>
                         </form>
                     </form>
@@ -825,6 +847,37 @@ function App() {
                                                                 </table>
                                                             </td>
                                                         </tr>
+                                                        {BPTWChecked === true ? (
+                                                            <tr
+                                                                style={{
+                                                                    display: 'block',
+                                                                    paddingLeft: '15px',
+                                                                }}
+                                                            >
+                                                                <td
+                                                                    style={{
+                                                                        border: 'none',
+                                                                        paddingTop:
+                                                                            fbChecked ||
+                                                                            instaChecked ||
+                                                                            twitChecked ||
+                                                                            liChecked ||
+                                                                            ytChecked ||
+                                                                            cnChecked
+                                                                                ? '1rem'
+                                                                                : undefined,
+                                                                    }}
+                                                                >
+                                                                    <img
+                                                                        src="https://www.colby.edu/signature/images/BPTW_ME_2025.png"
+                                                                        alt="Best Places to Work in Maine 2025"
+                                                                        height="25"
+                                                                    />
+                                                                </td>
+                                                            </tr>
+                                                        ) : (
+                                                            ''
+                                                        )}
                                                     </tbody>
                                                 </table>
                                             </td>

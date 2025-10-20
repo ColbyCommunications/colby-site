@@ -2154,6 +2154,12 @@
   to: '/academics/phi-beta-kappa/'
   regexp: true
   code: 301
+  
+# Public Policy Lab
+'^/people/offices-directory/public-policy-lab/?$':
+  to: '/people/offices-directory/bram-public-policy-lab/'
+  regexp: true
+  code: 301
 
 # Research
 '^/research/$':

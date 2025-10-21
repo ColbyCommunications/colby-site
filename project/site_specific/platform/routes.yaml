@@ -1636,6 +1636,10 @@
   code: 301
 
 # ITS
+'^/its/campus-telephone-upgrade/?$':
+  to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=150522'
+  regexp: true
+  code: 301
 '^/its/venuelookup/?$':
   to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/Requests/ServiceDet?ID=33229'
   regexp: true

@@ -226,12 +226,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/colby-college-theme-inertia.git",
-                "reference": "2b125bb6b7f662de07d801ccfc728eb1f286e536"
+                "reference": "e30ed8c0b9976acaa68d7219a065fc227ef746f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ColbyCommunications/colby-college-theme-inertia/zipball/2b125bb6b7f662de07d801ccfc728eb1f286e536",
-                "reference": "2b125bb6b7f662de07d801ccfc728eb1f286e536",
+                "url": "https://api.github.com/repos/ColbyCommunications/colby-college-theme-inertia/zipball/e30ed8c0b9976acaa68d7219a065fc227ef746f0",
+                "reference": "e30ed8c0b9976acaa68d7219a065fc227ef746f0",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +254,7 @@
                 "source": "https://github.com/ColbyCommunications/colby-college-theme-inertia/tree/master",
                 "issues": "https://github.com/ColbyCommunications/colby-college-theme-inertia/issues"
             },
-            "time": "2025-10-21T16:13:56+00:00"
+            "time": "2025-10-21T16:18:51+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",

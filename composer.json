@@ -19,6 +19,7 @@
         "wpackagist-plugin/wp-search-with-algolia": "2.10.1",
         "vlucas/phpdotenv": "^5.4",
         "colbycommunications/colby-college-theme": "3.4.6",
+        "colbycommunications/colby-college-theme-inertia": "dev-master",
         "timber/timber": "2.3.1",
         "wpackagist-plugin/regenerate-thumbnails": "3.1.6",
         "wpackagist-plugin/disable-comments": "2.5.2",
@@ -32,6 +33,7 @@
         "wpackagist-plugin/tinymce-advanced": "5.9.2",
         "wpackagist-plugin/disable-everything": "0.4.1"
     },
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Morty Mule",
@@ -50,6 +52,10 @@
         {
             "type": "git",
             "url": "https://github.com/ColbyCommunications/colby-college-theme"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia.git"
         }
     ],
     "extra": {

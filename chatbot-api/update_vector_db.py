@@ -19,7 +19,16 @@ import gc
 from typing import List, Dict, Any, Iterable
 from dotenv import load_dotenv
 from qdrant_client.async_qdrant_client import AsyncQdrantClient
-from qdrant_client.models import Distance, VectorParams, PointStruct
+from qdrant_client.models import (
+    Distance, 
+    VectorParams, 
+    PointStruct,
+    OptimizersConfigDiff,
+    HnswConfigDiff,
+    PayloadSchemaType,
+    TextIndexParams,
+    TokenizerType,
+)
 import openai
 import tiktoken
 import asyncio
@@ -223,7 +232,7 @@ class EmbedLimiter:
 
 
 async def recreate_qdrant_collection(client: AsyncQdrantClient):
-    """Delete and recreate QDrant collection from scratch."""
+    """Delete and recreate QDrant collection from scratch with everything in RAM."""
     print(f"Recreating QDrant collection: {COLLECTION_NAME}")
     
     try:
@@ -236,7 +245,49 @@ async def recreate_qdrant_collection(client: AsyncQdrantClient):
         collection_name=COLLECTION_NAME,
         vectors_config=VectorParams(
             size=EMBEDDING_DIMS,
-            distance=Distance.COSINE
+            distance=Distance.COSINE,
+            on_disk=False,  # Keep vectors in RAM
+        ),
+        hnsw_config=HnswConfigDiff(
+            on_disk=False,  # Keep HNSW index in RAM
+        ),
+        optimizers_config=OptimizersConfigDiff(
+            default_segment_number=2,
+            max_segment_size=5000000,
+        ),
+        on_disk_payload=False,  # Keep payloads in RAM (critical!)
+    )
+    
+    # Create payload indexes for faster filtering
+    print("📊 Creating payload indexes...")
+    await client.create_payload_index(
+        collection_name=COLLECTION_NAME,
+        field_name="objectID",
+        field_schema=PayloadSchemaType.KEYWORD
+    )
+    await client.create_payload_index(
+        collection_name=COLLECTION_NAME,
+        field_name="source",
+        field_schema=PayloadSchemaType.KEYWORD
+    )
+    await client.create_payload_index(
+        collection_name=COLLECTION_NAME,
+        field_name="url",
+        field_schema=PayloadSchemaType.KEYWORD
+    )
+    await client.create_payload_index(
+        collection_name=COLLECTION_NAME,
+        field_name="chunk_index",
+        field_schema=PayloadSchemaType.INTEGER
+    )
+    await client.create_payload_index(
+        collection_name=COLLECTION_NAME,
+        field_name="title",
+        field_schema=TextIndexParams(
+            type="text",
+            tokenizer=TokenizerType.WORD,
+            min_token_len=2,
+            max_token_len=20,
         )
     )
     print("✅ Collection created successfully")
@@ -478,7 +529,7 @@ async def main():
 
     collection_info = await qdrant_client.get_collection(collection_name=COLLECTION_NAME)
     print("\n" + "=" * 60)
-    print("✅ Rebuild Complete (streaming)")
+    print("✅ Rebuild Complete - EVERYTHING IN RAM")
     print("=" * 60)
     print(f"Collection: {COLLECTION_NAME}")
     print(f"Total vectors: {collection_info.points_count}")

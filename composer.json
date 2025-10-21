@@ -54,8 +54,8 @@
             "url": "https://github.com/ColbyCommunications/colby-college-theme"
         },
         {
-            "type": "vcs",
-            "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia.git"
+            "type": "git",
+            "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia"
         }
     ],
     "extra": {

@@ -4,6 +4,8 @@ import os
 import sys
 import asyncio
 from typing import List, Dict, Any, Optional, Set
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 from algoliasearch.search.client import SearchClient
@@ -371,13 +373,21 @@ def retriever(
 
 def build_agent() -> Any:
     """Build and configure the RAG agent with environment-based settings."""
-    model_id = os.environ.get("OPENAI_MODEL", "gpt-4o")
+    model_id = os.environ.get("OPENAI_MODEL")
     from agno.tools.reasoning import ReasoningTools
+
+    # Get current date/time in EST timezone
+    est_tz = ZoneInfo("America/New_York")
+    current_time = datetime.now(est_tz)
+    formatted_date = current_time.strftime("%I:%M%p, %b %d, %Y").lower().replace(" 0", " ")
+    # Result format: "1:13am, Oct 21, 2025"
 
     base_kwargs = dict(
         model=OpenAIChat(id=model_id),
         description=(
             "You are a Colby College knowledge base assistant. "
+            f"Today's date is {formatted_date} (EST). You must use this date to answer questions about deadlines, events, and other time-sensitive information."
+            "You must call keyword_search and search_qdrant_vector parallelly in multiple threads to craft a complete answer."        
             "You can ONLY provide information from the knowledge base. "
             "If information is not in the knowledge base, say you don't know. "
             "Do not provide an answer if you cannot cite a URL for each fact in your response from the knowledge base."   

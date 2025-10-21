@@ -12,7 +12,7 @@ services:
   node:
     type: node:20
     overrides:
-      working_dir: /app/web/wp-content/themes/colby-college-inertia
+      working_dir: /app/web/wp-content/themes/colby-college-theme-inertia
     ports:
       - 5173
     environment:

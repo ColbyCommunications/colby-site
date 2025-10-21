@@ -3808,3 +3808,7 @@
   to: '/people/offices-directory/human-resources/benefits/'
   regexp: true
   code: 301
+'^/scheduling/?$':
+  to: '/people/offices-directory/events/all-forms/event-request-form/'
+  regexp: true
+  code: 301

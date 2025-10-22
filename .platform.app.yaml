@@ -46,8 +46,7 @@ runtime:
 dependencies:
   php:
     composer/composer: "^2"
-  nodejs:
-    version: "22"
+  nodejs: "22"
 
 # The hooks that will be performed when the package is deployed.
 hooks:

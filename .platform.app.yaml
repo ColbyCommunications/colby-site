@@ -48,7 +48,6 @@ dependencies:
     composer/composer: "^2"
   nodejs:
     version: "22.20.0"
-  yarn: "*"
 
 # The hooks that will be performed when the package is deployed.
 hooks:

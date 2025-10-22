@@ -47,8 +47,8 @@ dependencies:
   php:
     composer/composer: "^2"
   nodejs:
-    n: "*"
-    yarn: "*"
+    version: "22.20.0"
+  yarn: "*"
 
 # The hooks that will be performed when the package is deployed.
 hooks:

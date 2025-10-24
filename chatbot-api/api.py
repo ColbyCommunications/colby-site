@@ -151,6 +151,7 @@ async def _stream_agent_response(message: str, request: Request) -> AsyncIterato
             
             yield f"data: {json.dumps({'content': content})}\n\n"
                     
+    except InputCheckError as e:
         # Return the standard rejection message as a normal response
         yield f"data: {json.dumps({'content': STANDARD_REJECTION_MESSAGE})}\n\n"
     except Exception as e:

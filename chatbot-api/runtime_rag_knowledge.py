@@ -19,6 +19,9 @@ from agno.agent import Agent
 from agno.tools import tool
 from agno.models.openai import OpenAIChat
 
+from agno.guardrails import PromptInjectionGuardrail
+prompt_injection_guardrail = PromptInjectionGuardrail()
+from input_validation_pre_hook import colby_query_validation
 
 def _load_stopwords() -> Set[str]:
     """Load English stopwords using NLTK with fallback."""
@@ -262,20 +265,57 @@ async def search_qdrant_vector(query: str, max_hits: int = 10) -> List[Dict[str,
             formatted_results = []
             for point in search_result.points:
                 payload = point.payload
+                url = payload.get("url", "")
+                
+                # Calculate URL depth penalty: decrease score by 0.1 for each '/'
+                # This prioritizes URLs closer to the main domain
+                url_depth_penalty = url.count('/') * 0.1
+                adjusted_score = point.score - url_depth_penalty
+                
+                # Score boosting URLs:
+                score_boosting_urls = {
+                    "life.colby.edu": 0.3,
+                    "afa.colby.edu": 0.3,
+                    "news.colby.edu": -0.3,
+                    "alumni.colby.edu": 0.1,
+                }
+
+                # If the above strings are in the URL, add the score boost
+                url_match_boost_score = 0
+                for key, value in score_boosting_urls.items():
+                    if key in url:
+                        adjusted_score += value
+                        url_match_boost_score += value
+
+                # If a URL does not have colby.edu:
+                if "colby.edu" not in url:
+                    adjusted_score -= 1.0
+
                 formatted_results.append({
                     "objectID": payload.get("objectID", ""),
                     "post_title": payload.get("title", ""),
                     "title": payload.get("title", ""),
                     "content": payload.get("content", ""),
-                    "permalink": payload.get("url", ""),
-                    "url": payload.get("url", ""),
+                    "permalink": url,
+                    "url": url,
                     "originIndexLabel": payload.get("source", "Vector Search"),
-                    "_score": point.score,
+                    "_score": adjusted_score,
+                    "_original_score": point.score,
+                    "_url_depth_penalty": url_depth_penalty,
+                    "_url_match_boost_score": url_match_boost_score,
                     "_search_type": "vector",
                     "chunk_index": payload.get("chunk_index", 0),
                     "total_chunks": payload.get("total_chunks", 1),
                 })
             
+            # Sort results by adjusted score (highest first) to prioritize main domain pages
+            formatted_results.sort(key=lambda x: x["_score"], reverse=True)
+
+            # Debug: Dump formatted vector search results to a JSON file
+            # import json
+            # with open("formatted_results.json", "w") as f:
+            #     json.dump(formatted_results, f, indent=4)
+
             return formatted_results
         finally:
             # Ensure Qdrant client is properly closed
@@ -293,7 +333,7 @@ async def search_qdrant_vector(query: str, max_hits: int = 10) -> List[Dict[str,
 def retriever(
     query: str, 
     agent: Optional[Agent] = None, 
-    num_documents: int = 5, 
+    num_documents: int = 10, 
     **kwargs
 ) -> Optional[list[dict]]:
     """
@@ -307,7 +347,7 @@ def retriever(
     """
     try:
         if num_documents is None:
-            num_documents = 5
+            num_documents = 10
         
         # Run async search in sync context
         try:
@@ -389,7 +429,8 @@ def build_agent() -> Any:
             f"Today's date is {formatted_date} (EST). You must use this date to answer questions about deadlines, events, and other time-sensitive information."
             "You must call keyword_search and search_qdrant_vector parallelly in multiple threads to craft a complete answer."        
             "You can ONLY provide information from the knowledge base. "
-            "If information is not in the knowledge base, say you don't know. "
+            "If information is not in the knowledge base, say the standard rejection message."
+            "Standard rejection message: 'This question falls outside of my knowledge of Colby College information. Please re-ask your question within a Colby context.'"
             "Do not provide an answer if you cannot cite a URL for each fact in your response from the knowledge base."   
             "Every query must call all available tools to craft a complete answer."        
         ),
@@ -401,11 +442,14 @@ def build_agent() -> Any:
             keyword_search, 
             search_qdrant_vector, 
             ReasoningTools()],
+        pre_hooks=[prompt_injection_guardrail, colby_query_validation],
+
     )
 
     instructions = [
         "ONLY answer using information from retrieved documents.",
         "Extract and cite source URLs in the answer. Embed them in the answer as words being hyperlinked.",
+        "Standard rejection message: 'This question falls outside of my knowledge of Colby College information. Please re-ask your question within a Colby context.'"
     ]
 
     advanced_kwargs = dict(

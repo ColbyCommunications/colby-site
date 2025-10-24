@@ -51,3 +51,12 @@ htmlcov/
 tmp/
 *.tmp
 
+# Cloudflare Pages
+cloudflare_pages/
+test_sessions/
+wrangler/
+.wrangler/
+.dev.vars
+.mf/
+worker-configuration.d.ts
+**test**

@@ -10,10 +10,12 @@ from fastapi.responses import StreamingResponse
 
 from agno.os import AgentOS
 from agno.agent import Agent
+from agno.exceptions import InputCheckError
 from fastapi.middleware.cors import CORSMiddleware
 
 # Use the agent defined in runtime_rag_knowledge
 from runtime_rag_knowledge import build_agent
+from input_validation_pre_hook import STANDARD_REJECTION_MESSAGE
 
 # Load environment variables early
 load_dotenv()
@@ -119,6 +121,12 @@ async def ask(req: AskRequest) -> AskResponse:
             content=content,
             agent_id=assistant.id,
         )
+    except InputCheckError as e:
+        # Return the standard rejection message as a normal response
+        return AskResponse(
+            content=STANDARD_REJECTION_MESSAGE,
+            agent_id=assistant.id,
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Agent execution error: {str(e)}")
 
@@ -143,6 +151,8 @@ async def _stream_agent_response(message: str, request: Request) -> AsyncIterato
             
             yield f"data: {json.dumps({'content': content})}\n\n"
                     
+        # Return the standard rejection message as a normal response
+        yield f"data: {json.dumps({'content': STANDARD_REJECTION_MESSAGE})}\n\n"
     except Exception as e:
         yield f"data: {json.dumps({'error': f'Streaming error: {str(e)}'})}\n\n"
 

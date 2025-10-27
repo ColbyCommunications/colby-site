@@ -448,7 +448,24 @@ def build_agent() -> Any:
 
     instructions = [
         "ONLY answer using information from retrieved documents.",
-        "Extract and cite source URLs in the answer. Embed them in the answer as words being hyperlinked.",
+        "CRITICAL: NEVER display raw URLs. ALL links MUST use markdown format: [descriptive text](URL)",
+        "The descriptive text should be meaningful - use page titles, section names, or relevant keywords.",
+        "When citing specific facts or quotes, create Text Fragment links to highlight the exact text on the source page.",
+        "Text Fragment link format: Add '#:~:text=' followed by the URL-encoded text snippet to the end of URLs.",
+        "Use SHORT, UNIQUE phrases (3-8 words) from the retrieved content that are likely plain text, NOT links/buttons.",
+        "Avoid using phone numbers, email addresses, or other text that's likely a hyperlink on the page.",
+        "Instead, use the SURROUNDING CONTEXT TEXT to create the fragment.",
+        "URL-encode the fragment: spaces=%20, colons=%3A, commas=%2C, etc.",
+        "Examples of GOOD link formatting:",
+        "  - [financial aid deadlines](https://example.com/page#:~:text=application%20deadline%20is%20January%2015)",
+        "  - [campus safety contacts](https://example.com/page#:~:text=Non-emergency%20phone%20number)",
+        "  - [ColbyCard information](https://example.com/page#:~:text=add%20funds%20to%20your%20card)",
+        "Examples of BAD formatting:",
+        "  - https://example.com/page#:~:text=... (naked URL - NEVER do this)",
+        "  - Campus Cash Program#:~:text=... (partial URL without markdown - NEVER do this)",
+        "  - [207-859-5530](https://example.com/page#:~:text=207-859-5530) (phone numbers likely fail as fragments)",
+        "If the text is likely a link (phone, email, URL), use surrounding context words instead.",
+        "If unsure about text fragment, just link to the page: [descriptive title](https://example.com/page)",
         "Standard rejection message: 'This question falls outside of my knowledge of Colby College information. Please re-ask your question within a Colby context.'"
     ]
 

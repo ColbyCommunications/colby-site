@@ -1,83 +1,86 @@
 // BLOCK_NAME="Article Grid" TEMPLATE="Page with Sidebar" npm run test:blocks:local
 
-const fs = require('fs');
 const path = require('path');
 const { spawnSync, execSync } = require('child_process');
 
-const blockName = process.env.BLOCK_NAME;
-const template = process.env.TEMPLATE;
-
-if (!blockName || !template) {
-    console.error(
-        'Missing env vars. Usage: BLOCK_NAME="Article Grid" TEMPLATE="Page with Sidebar" npm run test:blocks'
-    );
-    process.exit(1);
+function getArgs() {
+    const args = {};
+    process.argv.slice(2, process.argv.length).forEach((arg) => {
+        // long arg
+        if (arg.slice(0, 2) === '--') {
+            const longArg = arg.split('=');
+            const longArgFlag = longArg[0].slice(2, longArg[0].length);
+            const longArgValue = longArg.length > 1 ? longArg[1] : true;
+            args[longArgFlag] = longArgValue;
+        }
+        // flags
+        else if (arg[0] === '-') {
+            const flags = arg.slice(1, arg.length).split('');
+            flags.forEach((flag) => {
+                args[flag] = true;
+            });
+        }
+    });
+    return args;
 }
 
-// Path to Cypress blocks folder
-const blocksDir = path.join('cypress', 'e2e', 'block-testing', 'blocks');
+// get args
+const args = getArgs();
 
-// Slug helper: e.g. "Article Grid" -> "article-grid"
-function slugify(s) {
-    return String(s)
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^\w-]/g, '');
+let spec = '*all*';
+if (args.blocks) {
+    spec = args.blocks;
 }
 
-const blockSlug = slugify(blockName);
-
-// The spec file now lives inside the block's folder
-const blockSpecPath = path.join(blocksDir, blockSlug, `${blockSlug}.cy.js`);
-
-if (!fs.existsSync(blockSpecPath)) {
-    console.error(`No block found with the name of '${blockName}'`);
-    process.exit(2);
+let template = 'default';
+if (args.template) {
+    template = args.template;
 }
 
-// Resolve absolute path for Cypress
-const specFile = path.resolve(blockSpecPath);
+console.log(`\nRunning spec: ${spec} with template: ${template}`);
 
-console.log(`\nRunning spec: ${specFile}`);
-console.log(`BLOCK_NAME=${blockName}, TEMPLATE=${template}\n`);
-
-let args = [];
+let cyArgs = [];
 
 if (process.env.NODE_ENV == 'local') {
-    args = [
+    cyArgs = [
         'cypress',
         'run',
         '--headed',
         '--browser',
         'chrome',
-        '--spec',
-        specFile,
-        '--env',
-        `BLOCK_NAME=${blockName},TEMPLATE=${template}`,
-        '--config',
-        `baseUrl=https://colby.lndo.site`,
+        '--config-file',
+        `${path.join('project', 'site_specific', 'config', 'cypress', 'cypress.config.blocks.js')}`,
     ];
 } else {
     let site = execSync('~/.platformsh/bin/platform environment:info edge_hostname');
     let siteFull = `https://${site}`;
 
-    args = [
+    cyArgs = [
         'cypress',
         'run',
         '--browser',
         'chrome',
-        '--spec',
-        specFile,
-        '--env',
-        `BLOCK_NAME=${blockName},TEMPLATE=${template}`,
-        '--config',
-        `baseUrl=${siteFull}`,
+        '--config-file',
+        `${path.join('project', 'site_specific', 'config', 'cypress', 'cypress.config.js')}`,
     ];
 }
 
+if (spec && spec !== '*all*') {
+    let blocks = spec.split(',');
+    cyArgs.push('--spec');
+    for (let i = 0; i < blocks.length; i++) {
+        cyArgs.push(
+            `project/site_specific/tests/cypress/block-testing/blocks/${blocks[i]}/${blocks[i]}.${template}.cy.js`
+        );
+    }
+}
+
+if (args.deletePage) {
+    cyArgs = cyArgs.concat(['--env', 'DELETEPAGE=true']);
+}
+
 // Run Cypress
-const result = spawnSync('npx', args, { stdio: 'inherit' });
+const result = spawnSync('npx', cyArgs, { stdio: 'inherit' });
 
 if (result.error) {
     console.error('Failed to launch Cypress:', result.error);

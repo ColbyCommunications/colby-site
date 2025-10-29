@@ -1,57 +1,3 @@
-// addBlock function
-export function addBlock(blockName = 'Article Grid') {
-    // Open the block drawer
-    cy.get('button[aria-label="Toggle block inserter"]').click();
-    cy.wait(1000);
-
-    // Search and click on the block
-    cy.get('input[placeholder="Search"].components-input-control__input').click().type(blockName);
-    cy.wait(1000);
-
-    cy.contains('.block-editor-block-types-list__item-title span', blockName)
-        .closest('button')
-        .click({ force: true });
-    cy.wait(1000);
-
-    // Close the block drawer
-    cy.get('button[aria-label="Close block inserter"]').click();
-
-    // Grab the most recently added block
-    cy.get('.wp-block[data-type="acf/article-grid"]').last().as('currentBlock');
-
-    return this; // allow chaining
-}
-
-// Publishes the page
-export function publishPage() {
-    // Click the first "Publish" button to open the panel
-    cy.get('button.editor-post-publish-panel__toggle').should('be.visible').click({ force: true });
-
-    cy.wait(5000);
-
-    // Click the second "Publish" button to confirm
-    cy.get(
-        'button.components-button.editor-post-publish-button.editor-post-publish-button__button.is-primary.is-compact'
-    )
-        .should('be.visible')
-        .click({ force: true });
-
-    cy.wait(5000);
-
-    // Wait for the "Post published" notice
-    // Wait for the snackbar to appear
-    cy.get('div.components-snackbar', { timeout: 10000 })
-        .should('be.visible')
-        .within(() => {
-            // Click the "View Page" link inside the snackbar
-            cy.get('a.components-button.components-snackbar__action.is-tertiary')
-                .should('be.visible')
-                .click({ force: true });
-        });
-
-    cy.wait(5000);
-}
-
 // Sets the display posts method
 export function setDisplayPostsMethod(method = 'internal') {
     cy.get('@currentBlock').within(() => {
@@ -137,7 +83,7 @@ export function setPostLimit(limit = -1) {
 }
 
 // matches the expected block name (passed in via CLI or manually)
-export function validateBlockName(expectedName = Cypress.env('BLOCK_NAME')) {
+export function validateBlockName(expectedName) {
     if (!expectedName) {
         throw new Error('validateBlockName requires a block name (CLI: BLOCK_NAME="..." )');
     }

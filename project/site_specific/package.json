@@ -5,8 +5,15 @@
     "author": "",
     "license": "None",
     "dependencies": {
-        "algoliasearch": "^4.13.1"
+        "algoliasearch": "^4.13.1",
+        "csv-writer": "^1.6.0"
     },
-    "devDependencies": {},
-    "scripts": {}
+    "devDependencies": {
+        "csv-parse": "^5.5.3",
+        "xml2js": "^0.6.2"
+    },
+    "scripts": {
+        "test:blocks:local": "NODE_ENV=local node scripts/run-block-test.js",
+        "test:blocks:prod": "NODE_ENV=prod node scripts/run-block-test.js"
+    }
 }

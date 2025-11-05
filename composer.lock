@@ -157,7 +157,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "b076d933c3ffa90087abcc9de0f0704f464be729"
+                "reference": "b6b760523de50d6ba3ca606ee6bccb27ba1bc31e"
             },
             "require": {
                 "php": ">=7.1"
@@ -173,7 +173,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2025-11-04T17:37:30+00:00"
+            "time": "2025-11-05T17:52:52+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",

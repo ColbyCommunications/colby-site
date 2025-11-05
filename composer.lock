@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "a5f8a54d1285e74ebaa6d617366b95baf5b328b6"
+                "reference": "f766729cc3f95dec0def2260c3b9d30e0e1413ec"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -244,7 +244,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2025-11-04T19:36:29+00:00"
+            "time": "2025-11-05T15:10:54+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -2523,12 +2523,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "633c6fdfb2eac90041c2de30ad1ccff95a671f66"
+                "reference": "581d9d4dbd0159d3e960b4786edd0640820d0d09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/633c6fdfb2eac90041c2de30ad1ccff95a671f66",
-                "reference": "633c6fdfb2eac90041c2de30ad1ccff95a671f66",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/581d9d4dbd0159d3e960b4786edd0640820d0d09",
+                "reference": "581d9d4dbd0159d3e960b4786edd0640820d0d09",
                 "shasum": ""
             },
             "require": {
@@ -2585,7 +2585,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-12T20:20:59+00:00"
+            "time": "2025-11-05T14:29:59+00:00"
         },
         {
             "name": "symfony/finder",
@@ -2593,12 +2593,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "38665c9607ce1fd17beaab3ea5d68e87ac5ed385"
+                "reference": "340b9ed7320570f319028a2cbec46d40535e94bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/38665c9607ce1fd17beaab3ea5d68e87ac5ed385",
-                "reference": "38665c9607ce1fd17beaab3ea5d68e87ac5ed385",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/340b9ed7320570f319028a2cbec46d40535e94bd",
+                "reference": "340b9ed7320570f319028a2cbec46d40535e94bd",
                 "shasum": ""
             },
             "require": {
@@ -2653,7 +2653,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-10-15T18:49:39+00:00"
+            "time": "2025-11-05T05:42:40+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -5900,12 +5900,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli-bundle.git",
-                "reference": "d1a0dba8f6d0aa5e916c15d446d5e321e1294f87"
+                "reference": "a4d2636cdf2b9645aedd8b8c6a6b54628ee33794"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/d1a0dba8f6d0aa5e916c15d446d5e321e1294f87",
-                "reference": "d1a0dba8f6d0aa5e916c15d446d5e321e1294f87",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/a4d2636cdf2b9645aedd8b8c6a6b54628ee33794",
+                "reference": "a4d2636cdf2b9645aedd8b8c6a6b54628ee33794",
                 "shasum": ""
             },
             "require": {
@@ -5966,7 +5966,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli-bundle/issues",
                 "source": "https://github.com/wp-cli/wp-cli-bundle"
             },
-            "time": "2025-10-27T19:15:07+00:00"
+            "time": "2025-11-05T04:42:49+00:00"
         },
         {
             "name": "wp-cli/wp-config-transformer",

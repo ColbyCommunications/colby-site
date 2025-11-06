@@ -1636,6 +1636,10 @@
   code: 301
 
 # ITS
+'^/its/campus-telephone-upgrade/?$':
+  to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=150522'
+  regexp: true
+  code: 301
 '^/its/venuelookup/?$':
   to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/Requests/ServiceDet?ID=33229'
   regexp: true
@@ -2152,6 +2156,12 @@
   code: 301
 '^/phibetakappa/(.*)$':
   to: '/academics/phi-beta-kappa/'
+  regexp: true
+  code: 301
+  
+# Public Policy Lab
+'^/people/offices-directory/public-policy-lab/?$':
+  to: '/people/offices-directory/bram-public-policy-lab/'
   regexp: true
   code: 301
 
@@ -3800,5 +3810,9 @@
   code: 301
 '^/employeebenefits/?$':
   to: '/people/offices-directory/human-resources/benefits/'
+  regexp: true
+  code: 301
+'^/scheduling/?$':
+  to: '/people/offices-directory/events/all-forms/event-request-form/'
   regexp: true
   code: 301

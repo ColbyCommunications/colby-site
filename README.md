@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-# Colby.edu Platform Site
-=======
 # Colby Starter Theme
 
 This project provides a starter kit for Colby College WordPress projects (forked from University of Missouri) hosted on Platform.sh. It is built using Composer, via the popular <a href="https://github.com/johnpbloch/wordpress">johnpbloch/wordpress</a> script..
->>>>>>> 82e0edde410a5c06b5004614c5c3d74729cc8d35
 
 ## How to Use This Repo as a Template
 

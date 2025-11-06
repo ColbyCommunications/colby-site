@@ -39,4 +39,4 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
       - run: npm install
       - name: Run Cypress Tests
-        run: npm run tests
+        run: npm run tests;npm run test:blocks:prod -- --template=page-with-sidebar --deletePage

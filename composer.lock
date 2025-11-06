@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "75a685e4bfde62215e4a644723d566ee941715a7"
+                "reference": "cd85db1f5e8d5ed1bd2e1665ceb108d87cfbf46d"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -244,7 +244,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2025-11-05T15:19:42+00:00"
+            "time": "2025-11-06T19:01:29+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -360,12 +360,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "96a9896f1a7d418fc78c0c7b2a3757664f80e7fc"
+                "reference": "1905981ee626e6f852448b7aaa978f8666c5bc54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/96a9896f1a7d418fc78c0c7b2a3757664f80e7fc",
-                "reference": "96a9896f1a7d418fc78c0c7b2a3757664f80e7fc",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/1905981ee626e6f852448b7aaa978f8666c5bc54",
+                "reference": "1905981ee626e6f852448b7aaa978f8666c5bc54",
                 "shasum": ""
             },
             "require": {
@@ -425,7 +425,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-09-17T07:10:22+00:00"
+            "time": "2025-11-06T11:46:17+00:00"
         },
         {
             "name": "composer/class-map-generator",
@@ -503,12 +503,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "8851f9df3a9d16a38e27e33002678daaefc0cc30"
+                "reference": "0ebd62af0bfdac99b229704f158c9f88e60a19f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/8851f9df3a9d16a38e27e33002678daaefc0cc30",
-                "reference": "8851f9df3a9d16a38e27e33002678daaefc0cc30",
+                "url": "https://api.github.com/repos/composer/composer/zipball/0ebd62af0bfdac99b229704f158c9f88e60a19f2",
+                "reference": "0ebd62af0bfdac99b229704f158c9f88e60a19f2",
                 "shasum": ""
             },
             "require": {
@@ -608,7 +608,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-10-31T14:10:24+00:00"
+            "time": "2025-11-06T16:42:48+00:00"
         },
         {
             "name": "composer/installers",

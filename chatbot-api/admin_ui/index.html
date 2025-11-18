@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <title>Colby Chatbot Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Use an absolute path so this works regardless of the current URL or root_path. -->
-    <link rel="stylesheet" href="/admin/static/dashboard.css" />
+    <!-- Use a path relative to /admin so it works with or without a root_path prefix (e.g. /chatbot-api). -->
+    <link rel="stylesheet" href="static/dashboard.css" />
   </head>
   <body>
     <div class="page">
@@ -99,8 +99,8 @@
       </div>
     </div>
 
-    <!-- Absolute path to ensure the JS is found even when served behind a prefix. -->
-    <script type="module" src="/admin/static/dashboard.js"></script>
+    <!-- Relative path so /chatbot-api/admin/dashboard resolves to /chatbot-api/admin/static/... -->
+    <script type="module" src="static/dashboard.js"></script>
   </body>
 </html>
 

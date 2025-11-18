@@ -44,6 +44,8 @@
   async function loadRejectionMessage() {
     rejectionStatus.textContent = 'Loading...';
     rejectionStatus.className = 'status';
+    rejectionTextarea.classList.add('skeleton-input');
+    rejectionTextarea.disabled = true;
     try {
       const resp = await fetch('./messages/standard_rejection_message', {
         headers: getAdminHeaders(),
@@ -61,6 +63,9 @@
       rejectionTextarea.value = '';
       rejectionStatus.textContent = 'Failed to load message.';
       rejectionStatus.className = 'status error';
+    } finally {
+      rejectionTextarea.classList.remove('skeleton-input');
+      rejectionTextarea.disabled = false;
     }
   }
 
@@ -106,6 +111,26 @@
       .sort((a, b) => (a.position || 0) - (b.position || 0))
       .map((i) => i.content || '')
       .join('\n');
+  }
+
+  function setAgentFormLoading(isLoading) {
+    const targets = [
+      agentKeyInput,
+      agentNameInput,
+      agentModelIdInput,
+      agentDescriptionInput,
+      agentInstructionsInput,
+    ];
+    targets.forEach((el) => {
+      if (!el) return;
+      if (isLoading) {
+        el.classList.add('skeleton-input');
+        el.disabled = true;
+      } else {
+        el.classList.remove('skeleton-input');
+        el.disabled = false;
+      }
+    });
   }
 
   function populateAgentForm(agent) {
@@ -156,9 +181,39 @@
     agentsRelationshipsEl.innerHTML = html;
   }
 
-  async function loadAgents() {
-    agentStatus.textContent = 'Loading agents...';
-    agentStatus.className = 'status';
+  function renderAgentsSkeletonTable() {
+    const rows = Array.from({ length: 3 })
+      .map(
+        () => `
+        <tr>
+          <td><div class="skeleton-line" style="width:70%;"></div></td>
+          <td><div class="skeleton-line" style="width:80%;"></div></td>
+          <td><div class="skeleton-line" style="width:40%;"></div></td>
+          <td><div class="skeleton-line" style="width:25%;"></div></td>
+        </tr>
+      `,
+      )
+      .join('');
+
+    return `
+      <table>
+        <thead>
+          <tr><th>Agent key</th><th>Name</th><th>Model</th><th># Instructions</th></tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    `;
+  }
+
+  async function loadAgents(preserveStatus) {
+    if (!preserveStatus) {
+      agentStatus.textContent = 'Loading agents...';
+      agentStatus.className = 'status';
+      agentsTableContainer.innerHTML = renderAgentsSkeletonTable();
+      setAgentFormLoading(true);
+    }
     try {
       const resp = await fetch('./agents', {
         headers: getAdminHeaders(),
@@ -175,8 +230,11 @@
         if (agentsRelationshipsEl) {
           agentsRelationshipsEl.textContent = '';
         }
-        agentStatus.textContent = '';
-        agentStatus.className = 'status';
+        if (!preserveStatus) {
+          agentStatus.textContent = '';
+          agentStatus.className = 'status';
+          setAgentFormLoading(false);
+        }
         return;
       }
       updateAgentsRelationships(agents);
@@ -234,12 +292,18 @@
         rowToSelect.classList.add('selected');
         populateAgentForm(agents[indexToSelect]);
       }
-      agentStatus.textContent = '';
-      agentStatus.className = 'status';
+      if (!preserveStatus) {
+        agentStatus.textContent = '';
+        agentStatus.className = 'status';
+        setAgentFormLoading(false);
+      }
     } catch (err) {
       agentsTableContainer.innerHTML = '<div class="status error">Failed to load agents.</div>';
-      agentStatus.textContent = 'Failed to load agents.';
-      agentStatus.className = 'status error';
+      if (!preserveStatus) {
+        agentStatus.textContent = 'Failed to load agents.';
+        agentStatus.className = 'status error';
+        setAgentFormLoading(false);
+      }
     }
   }
 
@@ -304,7 +368,7 @@
       populateAgentForm(saved);
       agentStatus.textContent = 'Saved.';
       agentStatus.className = 'status success';
-      await loadAgents();
+      await loadAgents(true);
     } catch (err) {
       agentStatus.textContent = 'Failed to save agent.';
       agentStatus.className = 'status error';
@@ -320,7 +384,7 @@
   // --- Initial load ---
   (function bootstrap() {
     setGlobalStatus('Loading configuration from /admin API...', '');
-    Promise.all([loadRejectionMessage(), loadAgents()])
+    Promise.all([loadRejectionMessage(), loadAgents(false)])
       .then(function () {
         setGlobalStatus('Configuration loaded.', 'success');
       })

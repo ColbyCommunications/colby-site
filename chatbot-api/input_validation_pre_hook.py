@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 
 from config_db import get_app_message, load_agent_config
+from query_logging import add_log_part, mark_blocked_by
 from validation_search_context import build_validation_payload
 
 # Default rejection message used if the database is unavailable or unconfigured.
@@ -220,8 +221,28 @@ def colby_query_validation(run_input: RunInput) -> None:
 
     result = validation_result.content
 
+    # Log this validation step (whether it blocks or not).
+    try:
+        add_log_part(
+            stage="validation_primary",
+            model_id=model_id,
+            agent_name=name,
+            using_db_config=using_db_config,
+            result={
+                "user_query": user_query,
+                "is_legitimate_colby_query": bool(result.is_legitimate_colby_query),
+                "reasoning": result.reasoning,
+                "validator": "validation_primary",
+            },
+            blocked=not result.is_legitimate_colby_query,
+        )
+    except Exception:
+        # Logging must never break validation.
+        pass
+
     # Block if not a legitimate Colby College query
     if not result.is_legitimate_colby_query:
+        mark_blocked_by("validation_primary")
         raise InputCheckError(rejection_message)
 
 
@@ -300,6 +321,26 @@ def colby_blacklist_validation(run_input: RunInput) -> None:
 
     result = validation_result.content
 
+    # Log this blacklist validation step (whether it blocks or not).
+    try:
+        add_log_part(
+            stage="validation_blacklist",
+            model_id=model_id,
+            agent_name=name,
+            using_db_config=using_db_config,
+            result={
+                "user_query": user_query,
+                "is_legitimate_colby_query": bool(result.is_legitimate_colby_query),
+                "reasoning": result.reasoning,
+                "validator": "validation_blacklist",
+            },
+            blocked=not result.is_legitimate_colby_query,
+        )
+    except Exception:
+        # Logging must never break validation.
+        pass
+
     # Block if query matches a blacklist pattern
     if not result.is_legitimate_colby_query:
+        mark_blocked_by("validation_blacklist")
         raise InputCheckError(rejection_message)

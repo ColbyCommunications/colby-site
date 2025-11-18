@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Colby Chatbot Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="static/dashboard.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header style="margin-bottom: 18px;">
+        <div
+          style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;"
+        >
+          <div>
+            <h1>Chatbot Admin</h1>
+            <div class="subheading">
+              Jump to recent responses or adjust agent configuration and prompts.
+            </div>
+          </div>
+          <div style="text-align:right;min-width:180px;">
+            <div class="badge-pill">
+              <span
+                style="width:7px;height:7px;border-radius:999px;background:#22c55e;"
+              ></span>
+              <span>Connected to config DB</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="row home-cards-row">
+        <div class="col">
+          <div class="card home-card">
+            <h2>Responses</h2>
+            <p class="inline-muted" style="margin-bottom:10px;">
+              Inspect user queries, model responses, and validator decisions. Quickly add
+              queries to the blacklist.
+            </p>
+            <button onclick="window.location.href='./responses'">
+              <span>Open responses</span>
+            </button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card home-card">
+            <h2>Configuration</h2>
+            <p class="inline-muted" style="margin-bottom:10px;">
+              Manage runtime models, agent prompts, and the standard rejection message.
+            </p>
+            <button onclick="window.location.href='./dashboard'">
+              <span>Open configuration</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Colby Chatbot Responses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="static/dashboard.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header style="margin-bottom: 18px;">
+        <div
+          style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;"
+        >
+          <div>
+            <h1>Responses</h1>
+            <div class="subheading">
+              View recent user questions, answers, and model decisions. Use search and
+              date filters to narrow down.
+            </div>
+          </div>
+          <div style="text-align:right;min-width:220px;">
+            <div class="badge-pill" style="margin-bottom:6px;cursor:pointer;" onclick="window.location.href='./'">
+              <span>&larr;</span>
+              <strong>Back to Admin</strong>
+            </div>
+          </div>
+        </div>
+        <div id="responsesGlobalStatus" class="status"></div>
+      </header>
+
+      <div class="card">
+        <div
+          class="field-row"
+          style="flex-wrap:wrap;align-items:flex-end;gap:10px;margin-bottom:10px;"
+        >
+          <div style="min-width:220px;">
+            <label for="responsesSearchInput">Search</label>
+            <input
+              id="responsesSearchInput"
+              type="text"
+              placeholder="Search question or answer..."
+            />
+          </div>
+          <div style="min-width:160px;">
+            <label for="responsesStatusFilter">Status</label>
+            <select id="responsesStatusFilter" class="range-select">
+              <option value="">All</option>
+              <option value="answered">Answered</option>
+              <option value="blocked">Blocked</option>
+              <option value="error">Error</option>
+            </select>
+          </div>
+          <div style="min-width:200px;">
+            <label for="responsesRange">Date range</label>
+            <select id="responsesRange" class="range-select">
+              <option value="today">Today</option>
+              <option value="7d">Last 7 days</option>
+              <option value="30d">Last 30 days</option>
+              <option value="all">All time</option>
+              <option value="custom">Custom range…</option>
+            </select>
+          </div>
+          <div style="display:flex;gap:6px;margin-left:auto;justify-content:flex-end;">
+            <button id="responsesRefreshBtn" type="button" class="secondary">
+              Refresh
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="responsesCustomRangeRow"
+          class="field-row"
+          style="flex-wrap:wrap;align-items:flex-end;gap:10px;margin-bottom:10px;display:none;"
+        >
+          <div>
+            <label for="responsesStartDate">Start date</label>
+            <input id="responsesStartDate" type="date" />
+          </div>
+          <div>
+            <label for="responsesEndDate">End date</label>
+            <input id="responsesEndDate" type="date" />
+          </div>
+        </div>
+
+        <div id="responsesTableContainer"></div>
+      </div>
+    </div>
+
+    <script type="module" src="static/responses.js"></script>
+  </body>
+</html>
+
+

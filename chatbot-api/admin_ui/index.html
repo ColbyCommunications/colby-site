@@ -12,14 +12,24 @@
       <header style="margin-bottom: 18px;">
         <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;">
           <div>
-            <h1>Chatbot Admin Dashboard</h1>
+            <h1>Chatbot Configuration</h1>
             <div class="subheading">
               Manage runtime models, agent prompts, and the standard rejection message without redeploys.
             </div>
           </div>
-          <div style="text-align:right;min-width:180px;">
+          <div style="text-align:right;min-width:220px;">
+            <div
+              class="badge-pill"
+              style="margin-bottom:6px;cursor:pointer;"
+              onclick="window.location.href='./'"
+            >
+              <span>&larr;</span>
+              <strong>Back to Admin</strong>
+            </div>
             <div class="badge-pill">
-              <span style="width:7px;height:7px;border-radius:999px;background:#22c55e;"></span>
+              <span
+                style="width:7px;height:7px;border-radius:999px;background:#22c55e;"
+              ></span>
               <span>Connected to config DB</span>
             </div>
           </div>

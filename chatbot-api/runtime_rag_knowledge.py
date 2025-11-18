@@ -750,6 +750,20 @@ def build_agent() -> Any:
     except TypeError:
         # Older versions of agno.Agent may not accept `name` or `instructions` as kwargs.
         agent = Agent(**{k: v for k, v in base_kwargs.items() if k != "name"})
+
+    # Attach lightweight metadata so the API layer can log which configuration
+    # source and model powered this runtime agent.
+    try:
+        agent._colby_agent_config = {  # type: ignore[attr-defined]
+            "agent_key": "runtime_rag",
+            "model_id": model_id,
+            "using_db_config": using_db_config,
+            "name": name,
+        }
+    except Exception:
+        # Never let logging metadata break agent construction.
+        pass
+
     return agent
 
 

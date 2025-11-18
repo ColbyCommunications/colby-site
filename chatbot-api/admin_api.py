@@ -4,8 +4,9 @@ import json
 import os
 from pathlib import Path
 from typing import Optional, List, Dict, Any
+from datetime import datetime, date, timedelta
 
-from fastapi import APIRouter, Depends, Header, HTTPException
+from fastapi import APIRouter, Depends, Header, HTTPException, Query
 from fastapi.responses import HTMLResponse, FileResponse
 from pydantic import BaseModel, Field
 
@@ -81,13 +82,62 @@ class AgentDTO(BaseModel):
         ...,
         description="Logical key used by the runtime (e.g. 'runtime_rag', 'validation_primary')",
     )
-    name: str
-    description_template: Optional[str] = None
-    model_id: str
-    is_active: bool = True
+    name: str = Field(
+        ...,
+        description="Human-friendly display name for this agent (e.g. 'Colby RAG Assistant')",
+    )
+    description_template: Optional[str] = Field(
+        default=None,
+        description="Optional description template used when constructing prompts.",
+    )
+    model_id: str = Field(
+        ...,
+        description="Provider-specific model identifier used by this agent (e.g. 'gpt-4.1-mini').",
+    )
+    is_active: bool = Field(
+        default=True,
+        description="Whether this agent is currently active.",
+    )
     instructions: List[AgentInstructionDTO] = Field(
         default_factory=list,
-        description="Ordered list of instructions for this agent",
+        description="Ordered list of instructions for this agent.",
+    )
+
+
+class QueryLogPartDTO(BaseModel):
+    """Single per-stage log entry for a user query."""
+
+    id: int
+    created_at: datetime
+    stage: str
+    model_id: Optional[str] = None
+    agent_name: Optional[str] = None
+    using_db_config: Optional[bool] = None
+    blocked: Optional[bool] = None
+    result: Dict[str, Any] = Field(default_factory=dict)
+
+
+class QueryLogDTO(BaseModel):
+    """High-level view of a user query and the assistant's response."""
+
+    id: int
+    created_at: datetime
+    user_message: str
+    final_answer: Optional[str] = None
+    status: str
+    blocked_by: Optional[str] = None
+    error_message: Optional[str] = None
+    parts: List[QueryLogPartDTO] = Field(
+        default_factory=list,
+        description="Per-stage model metadata for this query (validators, runtime, etc.).",
+    )
+    is_blacklist_example: Optional[bool] = Field(
+        default=None,
+        description="True if this query has been added as a blacklist training example.",
+    )
+    is_whitelist_example: Optional[bool] = Field(
+        default=None,
+        description="True if this query has been added as a whitelist training example.",
     )
 
 
@@ -147,6 +197,41 @@ def _fetch_agent_instructions(cursor, agent_id: int) -> List[AgentInstructionDTO
         )
         for row in rows
     ]
+
+
+def _row_to_query_log_dto(
+    row: Dict[str, Any],
+    parts: Optional[List[QueryLogPartDTO]] = None,
+) -> QueryLogDTO:
+    return QueryLogDTO(
+        id=row["id"],
+        created_at=row["created_at"],
+        user_message=row["user_message"],
+        final_answer=row.get("final_answer"),
+        status=row["status"],
+        blocked_by=row.get("blocked_by"),
+        error_message=row.get("error_message"),
+        parts=parts or [],
+        is_blacklist_example=(
+            bool(row.get("is_blacklist_example"))
+            if row.get("is_blacklist_example") is not None
+            else None
+        ),
+        is_whitelist_example=(
+            bool(row.get("is_whitelist_example"))
+            if row.get("is_whitelist_example") is not None
+            else None
+        ),
+    )
+
+
+def _parse_date_param(value: Optional[str]) -> Optional[date]:
+    if not value:
+        return None
+    try:
+        return datetime.strptime(value, "%Y-%m-%d").date()
+    except ValueError:
+        raise HTTPException(status_code=400, detail=f"Invalid date format: {value!r}. Expected YYYY-MM-DD.")
 
 
 # ----- Admin endpoints: LLM models -----
@@ -666,6 +751,555 @@ def upsert_message(message_key: str, payload: AppMessageUpdate) -> AppMessageDTO
             pass
 
 
+# ----- Admin endpoints: query logs -----
+
+
+@admin_router.get("/query-logs", response_model=List[QueryLogDTO])
+def list_query_logs(
+    start_date: Optional[str] = Query(default=None),
+    end_date: Optional[str] = Query(default=None),
+    q: Optional[str] = Query(default=None),
+    status_filter: Optional[str] = Query(
+        default=None,
+        description="Filter by status: answered, blocked, or error.",
+    ),
+    limit: int = Query(default=200, ge=1, le=1000),
+    offset: int = Query(default=0, ge=0),
+) -> List[QueryLogDTO]:
+    """
+    List query/response logs for a given date range, optionally filtered by text.
+
+    Dates are inclusive and expected in YYYY-MM-DD format.
+    """
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        clauses = []
+        params: List[Any] = []
+
+        start = _parse_date_param(start_date)
+        end = _parse_date_param(end_date)
+
+        if start:
+            clauses.append("q.created_at >= %s")
+            params.append(datetime.combine(start, datetime.min.time()))
+        if end:
+            # inclusive end-date -> next day at midnight
+            end_next = end + timedelta(days=1)
+            clauses.append("q.created_at < %s")
+            params.append(datetime.combine(end_next, datetime.min.time()))
+
+        if q:
+            like = f"%{q}%"
+            clauses.append("(q.user_message LIKE %s OR q.final_answer LIKE %s)")
+            params.extend([like, like])
+
+        if status_filter:
+            allowed_statuses = {"answered", "blocked", "error"}
+            if status_filter not in allowed_statuses:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Invalid status filter {status_filter!r}. "
+                    f"Expected one of {sorted(allowed_statuses)!r}.",
+                )
+            clauses.append("q.status = %s")
+            params.append(status_filter)
+
+        where_sql = ""
+        if clauses:
+            where_sql = "WHERE " + " AND ".join(clauses)
+
+        query = f"""
+            SELECT
+                q.id,
+                q.created_at,
+                q.user_message,
+                q.final_answer,
+                q.status,
+                q.blocked_by,
+                q.error_message,
+                EXISTS (
+                    SELECT 1
+                    FROM llm_agents a
+                    JOIN agent_instructions ai ON ai.agent_id = a.id
+                    WHERE a.agent_key = 'validation_blacklist'
+                      AND ai.content = CONCAT('BLACKLISTED_QUERY_EXAMPLE: ', q.user_message)
+                    LIMIT 1
+                ) AS is_blacklist_example,
+                EXISTS (
+                    SELECT 1
+                    FROM llm_agents a2
+                    JOIN agent_instructions ai2 ON ai2.agent_id = a2.id
+                    WHERE a2.agent_key = 'validation_blacklist'
+                      AND ai2.content = CONCAT('WHITELISTED_QUERY_EXAMPLE: ', q.user_message)
+                    LIMIT 1
+                ) AS is_whitelist_example
+            FROM query_logs AS q
+            {where_sql}
+            ORDER BY q.created_at DESC
+            LIMIT %s OFFSET %s;
+        """
+        params.extend([limit, offset])
+
+        cursor.execute(query, tuple(params))
+        rows = cursor.fetchall() or []
+
+        return [
+            _row_to_query_log_dto(row, parts=[])
+            for row in rows
+        ]
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
+@admin_router.get("/query-logs/{log_id}", response_model=QueryLogDTO)
+def get_query_log(log_id: int) -> QueryLogDTO:
+    """Fetch a single query log and all of its per-stage metadata."""
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        cursor.execute(
+            """
+            SELECT
+                q.id,
+                q.created_at,
+                q.user_message,
+                q.final_answer,
+                q.status,
+                q.blocked_by,
+                q.error_message,
+                EXISTS (
+                    SELECT 1
+                    FROM llm_agents a
+                    JOIN agent_instructions ai ON ai.agent_id = a.id
+                    WHERE a.agent_key = 'validation_blacklist'
+                      AND ai.content = CONCAT('BLACKLISTED_QUERY_EXAMPLE: ', q.user_message)
+                    LIMIT 1
+                ) AS is_blacklist_example,
+                EXISTS (
+                    SELECT 1
+                    FROM llm_agents a2
+                    JOIN agent_instructions ai2 ON ai2.agent_id = a2.id
+                    WHERE a2.agent_key = 'validation_blacklist'
+                      AND ai2.content = CONCAT('WHITELISTED_QUERY_EXAMPLE: ', q.user_message)
+                    LIMIT 1
+                ) AS is_whitelist_example
+            FROM query_logs AS q
+            WHERE q.id = %s
+            LIMIT 1;
+            """,
+            (log_id,),
+        )
+        row = cursor.fetchone()
+        if not row:
+            raise HTTPException(status_code=404, detail="Query log not found.")
+
+        cursor.execute(
+            """
+            SELECT
+                id,
+                created_at,
+                stage,
+                model_id,
+                agent_name,
+                using_db_config,
+                blocked,
+                result_json
+            FROM query_log_parts
+            WHERE query_log_id = %s
+            ORDER BY created_at ASC, id ASC;
+            """,
+            (log_id,),
+        )
+        part_rows = cursor.fetchall() or []
+
+        parts: List[QueryLogPartDTO] = []
+        for pr in part_rows:
+            try:
+                parsed_result = json.loads(pr.get("result_json") or "{}")
+            except Exception:
+                parsed_result = {"raw": pr.get("result_json")}
+
+            parts.append(
+                QueryLogPartDTO(
+                    id=pr["id"],
+                    created_at=pr["created_at"],
+                    stage=pr["stage"],
+                    model_id=pr.get("model_id"),
+                    agent_name=pr.get("agent_name"),
+                    using_db_config=bool(pr["using_db_config"]) if pr.get("using_db_config") is not None else None,
+                    blocked=bool(pr["blocked"]) if pr.get("blocked") is not None else None,
+                    result=parsed_result,
+                )
+            )
+
+        return _row_to_query_log_dto(row, parts=parts)
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
+@admin_router.post("/query-logs/{log_id}/blacklist", status_code=200)
+def add_query_to_blacklist_from_log(log_id: int) -> Dict[str, Any]:
+    """
+    Shortcut: take the user_message from a query log and append it as a new
+    blacklist example instruction for the 'validation_blacklist' agent.
+    """
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        # Load the query text.
+        cursor.execute(
+            """
+            SELECT user_message
+            FROM query_logs
+            WHERE id = %s
+            LIMIT 1;
+            """,
+            (log_id,),
+        )
+        row = cursor.fetchone()
+        if not row:
+            raise HTTPException(status_code=404, detail="Query log not found.")
+
+        user_message = (row.get("user_message") or "").strip()
+        if not user_message:
+            raise HTTPException(status_code=400, detail="Query log has no user_message to blacklist.")
+
+        # Find the validation_blacklist agent.
+        cursor.execute(
+            """
+            SELECT id
+            FROM llm_agents
+            WHERE agent_key = %s
+            LIMIT 1;
+            """,
+            ("validation_blacklist",),
+        )
+        agent_row = cursor.fetchone()
+        if not agent_row:
+            raise HTTPException(
+                status_code=404,
+                detail="validation_blacklist agent not found. Configure it in the admin dashboard first.",
+            )
+
+        agent_id = agent_row["id"]
+
+        # Avoid duplicate entries for the same query.
+        instruction_content = f"BLACKLISTED_QUERY_EXAMPLE: {user_message}"
+        cursor.execute(
+            """
+            SELECT id
+            FROM agent_instructions
+            WHERE agent_id = %s AND content = %s
+            LIMIT 1;
+            """,
+            (agent_id, instruction_content),
+        )
+        existing = cursor.fetchone()
+        if existing:
+            return {
+                "status": "ok",
+                "message": "Query is already present in validation_blacklist instructions.",
+            }
+
+        # Determine next position.
+        cursor.execute(
+            """
+            SELECT COALESCE(MAX(position), 0) AS max_pos
+            FROM agent_instructions
+            WHERE agent_id = %s;
+            """,
+            (agent_id,),
+        )
+        pos_row = cursor.fetchone() or {"max_pos": 0}
+        next_position = int(pos_row.get("max_pos") or 0) + 1
+
+        # Insert new blacklist instruction.
+        cursor.execute(
+            """
+            INSERT INTO agent_instructions (
+                agent_id,
+                position,
+                content
+            )
+            VALUES (%s, %s, %s);
+            """,
+            (agent_id, next_position, instruction_content),
+        )
+
+        return {
+            "status": "ok",
+            "message": "Query added to validation_blacklist instructions as BLACKLISTED_QUERY_EXAMPLE.",
+            "agent_id": agent_id,
+            "position": next_position,
+        }
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+# New: whitelist helper mirrors blacklist but uses WHITELISTED_QUERY_EXAMPLE prefix.
+@admin_router.post("/query-logs/{log_id}/whitelist", status_code=200)
+def add_query_to_whitelist_from_log(log_id: int) -> Dict[str, Any]:
+    """
+    Shortcut: take the user_message from a query log and append it as a new
+    whitelist example instruction for the 'validation_blacklist' agent.
+    """
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        # Load the query text.
+        cursor.execute(
+            """
+            SELECT user_message
+            FROM query_logs
+            WHERE id = %s
+            LIMIT 1;
+            """,
+            (log_id,),
+        )
+        row = cursor.fetchone()
+        if not row:
+            raise HTTPException(status_code=404, detail="Query log not found.")
+
+        user_message = (row.get("user_message") or "").strip()
+        if not user_message:
+            raise HTTPException(status_code=400, detail="Query log has no user_message to whitelist.")
+
+        # Find the validation_blacklist agent.
+        cursor.execute(
+            """
+            SELECT id
+            FROM llm_agents
+            WHERE agent_key = %s
+            LIMIT 1;
+            """,
+            ("validation_blacklist",),
+        )
+        agent_row = cursor.fetchone()
+        if not agent_row:
+            raise HTTPException(
+                status_code=404,
+                detail="validation_blacklist agent not found. Configure it in the admin dashboard first.",
+            )
+
+        agent_id = agent_row["id"]
+
+        # Avoid duplicate entries for the same query.
+        instruction_content = f"WHITELISTED_QUERY_EXAMPLE: {user_message}"
+        cursor.execute(
+            """
+            SELECT id
+            FROM agent_instructions
+            WHERE agent_id = %s AND content = %s
+            LIMIT 1;
+            """,
+            (agent_id, instruction_content),
+        )
+        existing = cursor.fetchone()
+        if existing:
+            return {
+                "status": "ok",
+                "message": "Query is already present in validation_blacklist whitelist instructions.",
+            }
+
+        # Determine next position.
+        cursor.execute(
+            """
+            SELECT COALESCE(MAX(position), 0) AS max_pos
+            FROM agent_instructions
+            WHERE agent_id = %s;
+            """,
+            (agent_id,),
+        )
+        pos_row = cursor.fetchone() or {"max_pos": 0}
+        next_position = int(pos_row.get("max_pos") or 0) + 1
+
+        # Insert new whitelist instruction.
+        cursor.execute(
+            """
+            INSERT INTO agent_instructions (
+                agent_id,
+                position,
+                content
+            )
+            VALUES (%s, %s, %s);
+            """,
+            (agent_id, next_position, instruction_content),
+        )
+
+        return {
+            "status": "ok",
+            "message": "Query added to validation_blacklist instructions as WHITELISTED_QUERY_EXAMPLE.",
+            "agent_id": agent_id,
+            "position": next_position,
+        }
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
+@admin_router.delete("/query-logs/{log_id}/blacklist", status_code=200)
+def remove_query_from_blacklist_from_log(log_id: int) -> Dict[str, Any]:
+    """
+    Remove a BLACKLISTED_QUERY_EXAMPLE instruction matching this log's user_message.
+    """
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        cursor.execute(
+            """
+            SELECT user_message
+            FROM query_logs
+            WHERE id = %s
+            LIMIT 1;
+            """,
+            (log_id,),
+        )
+        row = cursor.fetchone()
+        if not row:
+            raise HTTPException(status_code=404, detail="Query log not found.")
+
+        user_message = (row.get("user_message") or "").strip()
+        if not user_message:
+            raise HTTPException(
+                status_code=400,
+                detail="Query log has no user_message to un-blacklist.",
+            )
+
+        cursor.execute(
+            """
+            SELECT id
+            FROM llm_agents
+            WHERE agent_key = %s
+            LIMIT 1;
+            """,
+            ("validation_blacklist",),
+        )
+        agent_row = cursor.fetchone()
+        if not agent_row:
+            raise HTTPException(
+                status_code=404,
+                detail="validation_blacklist agent not found. Configure it in the admin dashboard first.",
+            )
+
+        agent_id = agent_row["id"]
+        instruction_content = f"BLACKLISTED_QUERY_EXAMPLE: {user_message}"
+
+        cursor.execute(
+            """
+            DELETE FROM agent_instructions
+            WHERE agent_id = %s AND content = %s;
+            """,
+            (agent_id, instruction_content),
+        )
+        deleted = cursor.rowcount or 0
+
+        if deleted == 0:
+            return {
+                "status": "ok",
+                "message": "Query was not present in blacklist instructions.",
+            }
+
+        return {
+            "status": "ok",
+            "message": "Query removed from BLACKLISTED_QUERY_EXAMPLE instructions.",
+        }
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
+@admin_router.delete("/query-logs/{log_id}/whitelist", status_code=200)
+def remove_query_from_whitelist_from_log(log_id: int) -> Dict[str, Any]:
+    """
+    Remove a WHITELISTED_QUERY_EXAMPLE instruction matching this log's user_message.
+    """
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        cursor.execute(
+            """
+            SELECT user_message
+            FROM query_logs
+            WHERE id = %s
+            LIMIT 1;
+            """,
+            (log_id,),
+        )
+        row = cursor.fetchone()
+        if not row:
+            raise HTTPException(status_code=404, detail="Query log not found.")
+
+        user_message = (row.get("user_message") or "").strip()
+        if not user_message:
+            raise HTTPException(
+                status_code=400,
+                detail="Query log has no user_message to un-whitelist.",
+            )
+
+        cursor.execute(
+            """
+            SELECT id
+            FROM llm_agents
+            WHERE agent_key = %s
+            LIMIT 1;
+            """,
+            ("validation_blacklist",),
+        )
+        agent_row = cursor.fetchone()
+        if not agent_row:
+            raise HTTPException(
+                status_code=404,
+                detail="validation_blacklist agent not found. Configure it in the admin dashboard first.",
+            )
+
+        agent_id = agent_row["id"]
+        instruction_content = f"WHITELISTED_QUERY_EXAMPLE: {user_message}"
+
+        cursor.execute(
+            """
+            DELETE FROM agent_instructions
+            WHERE agent_id = %s AND content = %s;
+            """,
+            (agent_id, instruction_content),
+        )
+        deleted = cursor.rowcount or 0
+
+        if deleted == 0:
+            return {
+                "status": "ok",
+                "message": "Query was not present in whitelist instructions.",
+            }
+
+        return {
+            "status": "ok",
+            "message": "Query removed from WHITELISTED_QUERY_EXAMPLE instructions.",
+        }
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
 # ----- Admin dashboard HTML -----
 
 ADMIN_UI_DIR = Path(__file__).parent / "admin_ui"
@@ -687,6 +1321,37 @@ def admin_dashboard_js() -> FileResponse:
     if not js_path.exists():
         raise HTTPException(status_code=500, detail="Admin dashboard JS not found.")
     return FileResponse(js_path, media_type="application/javascript")
+
+
+@admin_router.get("/static/responses.js")
+def admin_responses_js() -> FileResponse:
+    """Serve the responses/logs dashboard JavaScript."""
+    js_path = ADMIN_UI_DIR / "responses.js"
+    if not js_path.exists():
+        raise HTTPException(status_code=500, detail="Admin responses JS not found.")
+    return FileResponse(js_path, media_type="application/javascript")
+
+
+@admin_router.get("/", response_class=HTMLResponse)
+def admin_home() -> HTMLResponse:
+    """Serve the admin landing page with navigation cards."""
+    home_path = ADMIN_UI_DIR / "home.html"
+    try:
+        html = home_path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="Admin home HTML not found.")
+    return HTMLResponse(content=html)
+
+
+@admin_router.get("/responses", response_class=HTMLResponse)
+def admin_responses() -> HTMLResponse:
+    """Serve the responses/logs dashboard HTML page."""
+    responses_path = ADMIN_UI_DIR / "responses.html"
+    try:
+        html = responses_path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="Admin responses HTML not found.")
+    return HTMLResponse(content=html)
 
 
 @admin_router.get("/dashboard", response_class=HTMLResponse)

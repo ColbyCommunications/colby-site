@@ -186,6 +186,45 @@ def init_config_schema() -> None:
             """
         )
 
+        # Query/response logs: one row per user request.
+        cursor.execute(
+            """
+            CREATE TABLE IF NOT EXISTS query_logs (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                user_message TEXT NOT NULL,
+                final_answer MEDIUMTEXT NULL,
+                status VARCHAR(32) NOT NULL DEFAULT 'pending',
+                blocked_by VARCHAR(64) NULL,
+                error_message TEXT NULL,
+                INDEX idx_query_created_at (created_at),
+                INDEX idx_query_status (status)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            """
+        )
+
+        # Detailed per-stage metadata for each query (validators, runtime agent, etc.).
+        cursor.execute(
+            """
+            CREATE TABLE IF NOT EXISTS query_log_parts (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                query_log_id INT NOT NULL,
+                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                stage VARCHAR(64) NOT NULL,
+                model_id VARCHAR(255) NULL,
+                agent_name VARCHAR(255) NULL,
+                using_db_config TINYINT(1) NULL,
+                blocked TINYINT(1) NULL,
+                result_json MEDIUMTEXT NULL,
+                INDEX idx_query_log_parts_query (query_log_id),
+                CONSTRAINT fk_query_log_parts_query
+                    FOREIGN KEY (query_log_id)
+                    REFERENCES query_logs(id)
+                    ON DELETE CASCADE
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            """
+        )
+
     finally:
         try:
             conn.close()

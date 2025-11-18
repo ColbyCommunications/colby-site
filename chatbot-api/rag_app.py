@@ -15,8 +15,14 @@ from agno.agent import Agent
 from agno.exceptions import InputCheckError
 
 from config_db import init_config_schema
-from runtime_rag_knowledge import build_agent, build_agent_query_with_context
 from input_validation_pre_hook import get_standard_rejection_message
+from query_logging import (
+    add_log_part,
+    clear_request_log_context,
+    finalize_request_log,
+    start_request_log,
+)
+from runtime_rag_knowledge import build_agent, build_agent_query_with_context
 
 
 # Load environment variables early and ensure the config schema exists.
@@ -128,23 +134,64 @@ async def ask(req: AskRequest) -> AskResponse:
     Run the agent and return the final response.
     For streaming responses, use /ask/stream.
     """
+    start_request_log(req.message)
     local_assistant = create_assistant()
     try:
         enhanced_input = build_agent_query_with_context(req.message)
         response = await local_assistant.arun(enhanced_input)
         content = extract_content(response)
+
+        # Record the runtime agent step for this query.
+        try:
+            model_id = getattr(getattr(local_assistant, "model", None), "id", None)
+        except Exception:  # noqa: BLE001
+            model_id = None
+        agent_name = getattr(local_assistant, "name", None)
+        config_meta = getattr(local_assistant, "_colby_agent_config", {})
+        using_db_config = None
+        if isinstance(config_meta, dict):
+            using_db_config = bool(config_meta.get("using_db_config"))
+
+        add_log_part(
+            stage="runtime_rag",
+            model_id=model_id,
+            agent_name=agent_name,
+            using_db_config=using_db_config,
+            result={"content": content},
+            blocked=False,
+        )
+
+        finalize_request_log(
+            status="answered",
+            final_answer=content,
+            error_message=None,
+        )
+
         return AskResponse(
             content=content,
             agent_id=local_assistant.id,
         )
     except InputCheckError:
         # Return the standard rejection message as a normal response
+        rejection = get_standard_rejection_message()
+        finalize_request_log(
+            status="blocked",
+            final_answer=rejection,
+            error_message=None,
+        )
         return AskResponse(
-            content=get_standard_rejection_message(),
+            content=rejection,
             agent_id=local_assistant.id,
         )
     except Exception as e:  # noqa: BLE001
+        finalize_request_log(
+            status="error",
+            final_answer=None,
+            error_message=str(e),
+        )
         raise HTTPException(status_code=500, detail=f"Agent execution error: {str(e)}")
+    finally:
+        clear_request_log_context()
 
 
 async def _stream_agent_response(
@@ -153,6 +200,7 @@ async def _stream_agent_response(
     assistant: Agent,
 ) -> AsyncIterator[str]:
     """Stream agent responses via SSE using Agno's native streaming."""
+    full_chunks: list[str] = []
     try:
         enhanced_input = build_agent_query_with_context(message)
         async for chunk in assistant.arun(enhanced_input, stream=True):
@@ -170,13 +218,53 @@ async def _stream_agent_response(
             if not content or should_filter_content(content):
                 continue
 
+            full_chunks.append(content)
             yield f"data: {json.dumps({'content': content})}\n\n"
+
+        # Normal completion – record the runtime agent step and finalize the log.
+        full_text = "".join(full_chunks)
+        try:
+            model_id = getattr(getattr(assistant, "model", None), "id", None)
+        except Exception:  # noqa: BLE001
+            model_id = None
+        agent_name = getattr(assistant, "name", None)
+        config_meta = getattr(assistant, "_colby_agent_config", {})
+        using_db_config = None
+        if isinstance(config_meta, dict):
+            using_db_config = bool(config_meta.get("using_db_config"))
+
+        add_log_part(
+            stage="runtime_rag",
+            model_id=model_id,
+            agent_name=agent_name,
+            using_db_config=using_db_config,
+            result={"content": full_text},
+            blocked=False,
+        )
+        finalize_request_log(
+            status="answered",
+            final_answer=full_text,
+            error_message=None,
+        )
 
     except InputCheckError:
         # Return the standard rejection message as a normal response
-        yield f"data: {json.dumps({'content': get_standard_rejection_message()})}\n\n"
+        rejection = get_standard_rejection_message()
+        finalize_request_log(
+            status="blocked",
+            final_answer=rejection,
+            error_message=None,
+        )
+        yield f"data: {json.dumps({'content': rejection})}\n\n"
     except Exception as e:  # noqa: BLE001
+        finalize_request_log(
+            status="error",
+            final_answer=None,
+            error_message=str(e),
+        )
         yield f"data: {json.dumps({'error': f'Streaming error: {str(e)}'})}\n\n"
+    finally:
+        clear_request_log_context()
 
 
 @app.get("/ask/stream")

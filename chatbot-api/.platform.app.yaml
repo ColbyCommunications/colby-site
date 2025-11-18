@@ -32,6 +32,11 @@ mounts:
     source: local
     source_path: tmp
 
+# This app uses the existing `mysqldb` service defined in the main project.
+# In each environment (e.g. `chatbot`, `dev`, `master`), `mysqldb` is a separate DB instance.
+relationships:
+  configdb: "mysqldb:mysql"
+
 # Environment variables
 # Secrets (ALGOLIA_APP_ID, ALGOLIA_API_KEY, OPENAI_API_KEY) set via Platform.sh portal
 variables:

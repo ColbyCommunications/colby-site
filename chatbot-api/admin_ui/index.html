@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Colby Chatbot Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Use an absolute path so this works regardless of the current URL or root_path. -->
+    <link rel="stylesheet" href="/admin/static/dashboard.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header style="margin-bottom: 18px;">
+        <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;">
+          <div>
+            <h1>Chatbot Admin Dashboard</h1>
+            <div class="subheading">
+              Manage runtime models, agent prompts, and the standard rejection message without redeploys.
+            </div>
+          </div>
+          <div style="text-align:right;min-width:180px;">
+            <div class="badge-pill">
+              <span style="width:7px;height:7px;border-radius:999px;background:#22c55e;"></span>
+              <span>Connected to config DB</span>
+            </div>
+          </div>
+        </div>
+        <div id="globalStatus" class="status"></div>
+      </header>
+
+      <div class="card">
+        <h2>Agents & prompts</h2>
+        <div id="agentsRelationships" class="inline-muted" style="margin-bottom:8px;"></div>
+        <div id="agentsTableContainer"></div>
+        <h3 style="margin-top:14px;">Agent details</h3>
+        <div class="field-row">
+          <div>
+            <label for="agentKeyInput">Agent key</label>
+            <input id="agentKeyInput" type="text" placeholder="e.g. runtime_rag" />
+          </div>
+          <div>
+            <label for="agentNameInput">Display name</label>
+            <input id="agentNameInput" type="text" placeholder="Colby RAG Assistant" />
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <label for="agentModelIdInput">Model ID</label>
+          <input id="agentModelIdInput" type="text" placeholder="gpt-4.1-mini" />
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="col">
+            <label for="agentDescriptionInput">
+              Description template
+              <span class="inline-muted"
+                >(optional, supports <code>{current_date}</code> and
+                <code>{standard_rejection_message}</code>)</span
+              >
+            </label>
+            <textarea
+              id="agentDescriptionInput"
+              class="textarea-tall"
+              placeholder="Leave empty to use the built-in runtime description."
+            ></textarea>
+          </div>
+          <div class="col">
+            <label for="agentInstructionsInput">
+              Instructions
+              <span class="inline-muted"
+                >(one line per instruction; supports <code>{current_date}</code> and
+                <code>{standard_rejection_message}</code>; order matters)</span
+              >
+            </label>
+            <textarea
+              id="agentInstructionsInput"
+              class="textarea-tall"
+              placeholder="ONLY answer using information from retrieved documents.&#10;CRITICAL: NEVER display raw URLs. ALL links MUST use markdown format: [descriptive text](URL)"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="saveAgentBtn"><span>Save changes</span></button>
+          <span id="agentStatus" class="status"></span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h2>Standard rejection message</h2>
+        <p class="inline-muted" style="margin-bottom:8px;">
+          This text is used by the validators and the runtime agent whenever a query is blocked or out of scope.
+        </p>
+        <label for="rejectionMessage">standard_rejection_message</label>
+        <textarea id="rejectionMessage" placeholder="Enter the message users should see when their query is rejected."></textarea>
+        <div class="button-row">
+          <button id="saveRejectionBtn">
+            <span>Save message</span>
+          </button>
+          <span id="rejectionStatus" class="status"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Absolute path to ensure the JS is found even when served behind a prefix. -->
+    <script type="module" src="/admin/static/dashboard.js"></script>
+  </body>
+</html>
+
+

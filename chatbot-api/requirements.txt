@@ -11,3 +11,4 @@ httpx
 qdrant-client[fastembed]
 tiktoken
 fastembed
+mysql-connector-python>=8.3,<9

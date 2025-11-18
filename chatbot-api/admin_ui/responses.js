@@ -232,7 +232,8 @@
     if (startDateInput.value) params.set('start_date', startDateInput.value);
     if (endDateInput.value) params.set('end_date', endDateInput.value);
     if (searchInput.value.trim()) params.set('q', searchInput.value.trim());
-    if (statusFilter && statusFilter.value) params.set('status', statusFilter.value);
+    // Backend expects `status_filter` query param (see admin_api.list_query_logs).
+    if (statusFilter && statusFilter.value) params.set('status_filter', statusFilter.value);
     params.set('limit', '200');
 
     const url = './query-logs?' + params.toString();

@@ -270,6 +270,8 @@ async def _stream_agent_response(
 @app.get("/ask/stream")
 async def ask_stream_get(message: str, request: Request):
     """Stream assistant responses via GET query parameter."""
+    # Ensure streaming requests are logged just like synchronous /ask requests.
+    start_request_log(message)
     return StreamingResponse(
         _stream_agent_response(message, request, create_assistant()),
         media_type="text/event-stream",
@@ -279,6 +281,8 @@ async def ask_stream_get(message: str, request: Request):
 @app.post("/ask/stream")
 async def ask_stream_post(req: AskRequest, request: Request):
     """Stream assistant responses via POST JSON body."""
+    # Ensure streaming requests are logged just like synchronous /ask requests.
+    start_request_log(req.message)
     return StreamingResponse(
         _stream_agent_response(req.message, request, create_assistant()),
         media_type="text/event-stream",

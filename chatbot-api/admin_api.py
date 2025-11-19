@@ -26,7 +26,9 @@ from okta_auth import (
 )
 
 
-logger = logging.getLogger("colby.admin_auth")
+# Use uvicorn.error logger so messages show up alongside the existing server logs
+# on Platform.sh and local dev.
+logger = logging.getLogger("uvicorn.error")
 
 
 # Paths that are exempt from Okta session checks so that the login and callback
@@ -62,7 +64,7 @@ def _get_request_path(request: Request) -> str:
         # Ensure leading slash for safety.
         if not stripped.startswith("/"):
             stripped = "/" + stripped
-        logger.debug(
+        logger.info(
             "Auth path normalization: full_path=%s root_path=%s normalized=%s",
             full_path,
             root_path,
@@ -70,7 +72,7 @@ def _get_request_path(request: Request) -> str:
         )
         return stripped
 
-    logger.debug(
+    logger.info(
         "Auth path normalization (no root_path): full_path=%s root_path=%s",
         full_path,
         root_path,

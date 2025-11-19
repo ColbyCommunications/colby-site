@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import hashlib
 import json
+import logging
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 from datetime import datetime, date, timedelta
@@ -23,6 +24,9 @@ from okta_auth import (
     OKTA_SESSION_ID_TOKEN_KEY,
     get_okta_config,
 )
+
+
+logger = logging.getLogger("colby.admin_auth")
 
 
 # Paths that are exempt from Okta session checks so that the login and callback
@@ -58,8 +62,19 @@ def _get_request_path(request: Request) -> str:
         # Ensure leading slash for safety.
         if not stripped.startswith("/"):
             stripped = "/" + stripped
+        logger.debug(
+            "Auth path normalization: full_path=%s root_path=%s normalized=%s",
+            full_path,
+            root_path,
+            stripped,
+        )
         return stripped
 
+    logger.debug(
+        "Auth path normalization (no root_path): full_path=%s root_path=%s",
+        full_path,
+        root_path,
+    )
     return full_path
 
 
@@ -72,6 +87,13 @@ def require_admin(request: Request) -> None:
       in the session. If not, redirect the client to /admin/login.
     """
     path = _get_request_path(request)
+    session_user = request.session.get(OKTA_SESSION_USER_KEY)
+    logger.info(
+        "require_admin: path=%s exempt=%s has_user=%s",
+        path,
+        path in _ADMIN_AUTH_EXEMPT_PATHS,
+        bool(session_user),
+    )
     if path in _ADMIN_AUTH_EXEMPT_PATHS:
         # Allow login/callback/logout endpoints without an existing session.
         return
@@ -83,12 +105,14 @@ def require_admin(request: Request) -> None:
     except OktaConfigError as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
-    if request.session.get(OKTA_SESSION_USER_KEY):
+    if session_user:
         # Already authenticated via Okta.
+        logger.debug("require_admin: okta_user present in session, allowing request.")
         return
 
     # Not authenticated: redirect into the Okta login flow.
     login_url = request.url_for("admin_login")
+    logger.info("require_admin: redirecting unauthenticated request on %s to %s", path, login_url)
     raise HTTPException(
         status_code=status.HTTP_307_TEMPORARY_REDIRECT,
         detail="Redirecting to admin login.",
@@ -317,6 +341,7 @@ def admin_login(request: Request) -> RedirectResponse:
     try:
         config = get_okta_config()
     except OktaConfigError as exc:
+        logger.error("admin_login: Okta configuration error: %s", exc)
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
     state = secrets.token_urlsafe(32)
@@ -336,6 +361,12 @@ def admin_login(request: Request) -> RedirectResponse:
         "code_challenge": code_challenge,
     }
     auth_url = f'{config["auth_uri"]}?{urlencode(query_params)}'
+    logger.info(
+        "admin_login: redirecting to Okta auth_uri=%s redirect_uri=%s state=%s",
+        config["auth_uri"],
+        config["redirect_uri"],
+        state,
+    )
     return RedirectResponse(auth_url, status_code=status.HTTP_302_FOUND)
 
 
@@ -350,16 +381,30 @@ def admin_callback(request: Request, code: Optional[str] = None, state: Optional
     try:
         config = get_okta_config()
     except OktaConfigError as exc:
+        logger.error("admin_callback: Okta configuration error: %s", exc)
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
+    logger.info(
+        "admin_callback: received callback state=%s code_present=%s",
+        state,
+        bool(code),
+    )
+
     if not state or state != request.session.get(OKTA_SESSION_STATE_KEY):
+        logger.warning(
+            "admin_callback: state mismatch. expected=%s got=%s",
+            request.session.get(OKTA_SESSION_STATE_KEY),
+            state,
+        )
         raise HTTPException(status_code=400, detail="Invalid or missing state parameter.")
 
     if not code:
+        logger.warning("admin_callback: missing authorization code.")
         raise HTTPException(status_code=400, detail="Authorization code was not returned.")
 
     code_verifier = request.session.get(OKTA_SESSION_CODE_VERIFIER_KEY)
     if not code_verifier:
+        logger.warning("admin_callback: missing PKCE code_verifier in session.")
         raise HTTPException(status_code=400, detail="Missing PKCE code_verifier in session.")
 
     # Exchange code for tokens.
@@ -381,6 +426,7 @@ def admin_callback(request: Request, code: Optional[str] = None, state: Optional
         )
         token_resp.raise_for_status()
     except httpx.HTTPError as exc:
+        logger.error("admin_callback: token exchange failed: %s", exc)
         raise HTTPException(
             status_code=502,
             detail=f"Failed to exchange authorization code for tokens: {exc}",
@@ -389,6 +435,10 @@ def admin_callback(request: Request, code: Optional[str] = None, state: Optional
     exchange = token_resp.json()
 
     if exchange.get("token_type") != "Bearer":
+        logger.error(
+            "admin_callback: unsupported token_type from Okta: %s",
+            exchange.get("token_type"),
+        )
         raise HTTPException(
             status_code=403,
             detail="Unsupported token type from Okta. Expected 'Bearer'.",
@@ -397,6 +447,7 @@ def admin_callback(request: Request, code: Optional[str] = None, state: Optional
     access_token = exchange.get("access_token")
     id_token = exchange.get("id_token")
     if not access_token:
+        logger.error("admin_callback: Okta token response missing access_token.")
         raise HTTPException(status_code=502, detail="Okta token response missing access_token.")
 
     # Fetch userinfo using the access token.
@@ -408,6 +459,7 @@ def admin_callback(request: Request, code: Optional[str] = None, state: Optional
         )
         userinfo_resp.raise_for_status()
     except httpx.HTTPError as exc:
+        logger.error("admin_callback: userinfo request failed: %s", exc)
         raise HTTPException(
             status_code=502,
             detail=f"Failed to retrieve userinfo from Okta: {exc}",
@@ -427,6 +479,11 @@ def admin_callback(request: Request, code: Optional[str] = None, state: Optional
 
     request.session.pop(OKTA_SESSION_STATE_KEY, None)
     request.session.pop(OKTA_SESSION_CODE_VERIFIER_KEY, None)
+    logger.info(
+        "admin_callback: user authenticated sub=%s email=%s",
+        okta_user.get("sub"),
+        okta_user.get("email"),
+    )
 
     # Redirect to the admin home, respecting root_path.
     redirect_url = request.url_for("admin_home")
@@ -438,6 +495,8 @@ def admin_logout(request: Request) -> RedirectResponse:
     """
     Clear the Okta-backed admin session and optionally invoke Okta global logout.
     """
+    logger.info("admin_logout: clearing local admin session.")
+
     # Always clear local session state first.
     id_token = request.session.pop(OKTA_SESSION_ID_TOKEN_KEY, None)
     request.session.pop(OKTA_SESSION_USER_KEY, None)
@@ -446,7 +505,8 @@ def admin_logout(request: Request) -> RedirectResponse:
 
     try:
         config = get_okta_config()
-    except OktaConfigError:
+    except OktaConfigError as exc:
+        logger.warning("admin_logout: Okta configuration error, using local redirect only: %s", exc)
         # If Okta isn't fully configured, just go back to the admin home page.
         redirect_url = request.url_for("admin_home")
         return RedirectResponse(str(redirect_url), status_code=status.HTTP_302_FOUND)
@@ -461,6 +521,12 @@ def admin_logout(request: Request) -> RedirectResponse:
         params["id_token_hint"] = id_token
 
     logout_url = f"{logout_uri}?{urlencode(params)}"
+    logger.info(
+        "admin_logout: redirecting to Okta logout_uri=%s post_logout_redirect_uri=%s has_id_token=%s",
+        logout_uri,
+        post_logout_redirect_uri,
+        bool(id_token),
+    )
     return RedirectResponse(logout_url, status_code=status.HTTP_302_FOUND)
 
 

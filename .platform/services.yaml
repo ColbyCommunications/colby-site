@@ -6,3 +6,13 @@
 mysqldb:
     type: mysql:10.2
     disk: 2000
+    configuration:
+        schemas:
+            - main
+            - chatbot_dashboard
+        endpoints:
+            mysql:
+                default_schema: main
+                privileges:
+                    main: admin
+                    chatbot_dashboard: admin

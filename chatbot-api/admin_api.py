@@ -4,6 +4,7 @@ import base64
 import hashlib
 import json
 import logging
+import os
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 from datetime import datetime, date, timedelta
@@ -29,6 +30,10 @@ from okta_auth import (
 # Use uvicorn.error logger so messages show up alongside the existing server logs
 # on Platform.sh and local dev.
 logger = logging.getLogger("uvicorn.error")
+
+# Feature flag: when ADMIN_OKTA_ENABLED is not 'true', admin endpoints are left
+# open (no Okta authentication enforced).
+OKTA_ADMIN_ENABLED = os.getenv("ADMIN_OKTA_ENABLED", "false").lower() == "true"
 
 
 # Paths that are exempt from Okta session checks so that the login and callback
@@ -82,13 +87,23 @@ def _get_request_path(request: Request) -> str:
 
 def require_admin(request: Request) -> None:
     """
-    Okta-backed auth for all /admin endpoints.
+    Okta-backed auth for all /admin endpoints (when enabled).
 
+    Behaviour:
+    - If ADMIN_OKTA_ENABLED is not 'true', do nothing (admin routes are open).
     - If the request targets an exempt path (login, callback, logout), skip checks.
     - Otherwise, ensure Okta is configured and that a valid okta_user is present
       in the session. If not, redirect the client to /admin/login.
     """
     path = _get_request_path(request)
+
+    if not OKTA_ADMIN_ENABLED:
+        logger.info(
+            "require_admin: Okta admin auth disabled via ADMIN_OKTA_ENABLED; allowing path=%s",
+            path,
+        )
+        return
+
     session_user = request.session.get(OKTA_SESSION_USER_KEY)
     logger.info(
         "require_admin: path=%s exempt=%s has_user=%s",
@@ -340,6 +355,11 @@ def admin_login(request: Request) -> RedirectResponse:
 
     Redirects the browser to the Okta-hosted sign-in page.
     """
+    if not OKTA_ADMIN_ENABLED:
+        # If Okta admin auth is disabled, expose this as a 404 so callers know
+        # the login endpoint is not active.
+        raise HTTPException(status_code=404, detail="Admin Okta login is disabled.")
+
     try:
         config = get_okta_config()
     except OktaConfigError as exc:
@@ -380,6 +400,9 @@ def admin_callback(request: Request, code: Optional[str] = None, state: Optional
     Exchanges the authorization code for tokens, fetches userinfo, and stores
     a minimal Okta user profile in the session. Finally, redirects to /admin/.
     """
+    if not OKTA_ADMIN_ENABLED:
+        raise HTTPException(status_code=404, detail="Admin Okta callback is disabled.")
+
     try:
         config = get_okta_config()
     except OktaConfigError as exc:
@@ -496,6 +519,9 @@ def admin_callback(request: Request, code: Optional[str] = None, state: Optional
 def admin_logout(request: Request) -> RedirectResponse:
     """
     Clear the Okta-backed admin session and optionally invoke Okta global logout.
+
+    When ADMIN_OKTA_ENABLED is not 'true', this simply redirects back to the
+    admin home page without calling Okta.
     """
     logger.info("admin_logout: clearing local admin session.")
 
@@ -504,6 +530,11 @@ def admin_logout(request: Request) -> RedirectResponse:
     request.session.pop(OKTA_SESSION_USER_KEY, None)
     request.session.pop(OKTA_SESSION_STATE_KEY, None)
     request.session.pop(OKTA_SESSION_CODE_VERIFIER_KEY, None)
+
+    # If Okta admin auth is disabled, just go back to the admin home page.
+    if not OKTA_ADMIN_ENABLED:
+        redirect_url = request.url_for("admin_home")
+        return RedirectResponse(str(redirect_url), status_code=status.HTTP_302_FOUND)
 
     try:
         config = get_okta_config()

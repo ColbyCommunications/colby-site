@@ -23,9 +23,9 @@
 
   function initDefaultDates() {
     if (rangeSelect) {
-      rangeSelect.value = 'today';
+      rangeSelect.value = '7d';
     }
-    applyRange('today');
+    applyRange('7d');
   }
 
   function applyRange(range) {
@@ -36,6 +36,10 @@
     if (range === 'today') {
       start = new Date(today);
       end = new Date(today);
+    } else if (range === 'yesterday') {
+      end = new Date(today);
+      end.setDate(end.getDate() - 1);
+      start = new Date(end);
     } else if (range === '7d') {
       end = new Date(today);
       start = new Date(today);

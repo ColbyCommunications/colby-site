@@ -1,37 +1,81 @@
 from __future__ import annotations
 
+import base64
+import hashlib
 import json
-import os
 from pathlib import Path
-from typing import Optional, List, Dict, Any
+from typing import List, Dict, Any, Optional
 from datetime import datetime, date, timedelta
+from urllib.parse import urlencode
+import secrets
 
-from fastapi import APIRouter, Depends, Header, HTTPException, Query
-from fastapi.responses import HTMLResponse, FileResponse
+import httpx
+from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
+from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse
 from pydantic import BaseModel, Field
 
 from config_db import get_db_connection
+from okta_auth import (
+    OktaConfigError,
+    OKTA_SESSION_USER_KEY,
+    OKTA_SESSION_STATE_KEY,
+    OKTA_SESSION_CODE_VERIFIER_KEY,
+    OKTA_SESSION_ID_TOKEN_KEY,
+    get_okta_config,
+)
 
 
-ADMIN_API_KEY = os.getenv("ADMIN_API_KEY")
+# Paths that are exempt from Okta session checks so that the login and callback
+# routes can bootstrap authentication.
+_ADMIN_AUTH_EXEMPT_PATHS = {
+    "/admin/login",
+    "/admin/authorization-code/callback",
+    "/admin/logout",
+}
 
 
-def require_admin(x_admin_api_key: Optional[str] = Header(default=None)) -> None:
+def _get_request_path(request: Request) -> str:
     """
-    Simple header-based auth for admin/dashboard endpoints.
+    Return the request path relative to the application's root_path.
 
-    If ADMIN_API_KEY is set, all admin endpoints require an X-Admin-Api-Key header
-    matching that value. If ADMIN_API_KEY is not set, the admin endpoints are open
-    (intended for local development only).
+    This uses the Starlette scope path, which excludes root_path and matches the
+    router prefixes (e.g. '/admin/login').
     """
-    if not ADMIN_API_KEY:
-        # No admin key configured => do not enforce auth (development mode).
+    path = request.scope.get("path") or request.url.path
+    return path
+
+
+def require_admin(request: Request) -> None:
+    """
+    Okta-backed auth for all /admin endpoints.
+
+    - If the request targets an exempt path (login, callback, logout), skip checks.
+    - Otherwise, ensure Okta is configured and that a valid okta_user is present
+      in the session. If not, redirect the client to /admin/login.
+    """
+    path = _get_request_path(request)
+    if path in _ADMIN_AUTH_EXEMPT_PATHS:
+        # Allow login/callback/logout endpoints without an existing session.
         return
 
-    if x_admin_api_key != ADMIN_API_KEY:
-        raise HTTPException(status_code=401, detail="Unauthorized")
+    try:
+        # Ensure Okta configuration is present; this will raise if required envs
+        # are missing.
+        get_okta_config()
+    except OktaConfigError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
+    if request.session.get(OKTA_SESSION_USER_KEY):
+        # Already authenticated via Okta.
+        return
 
+    # Not authenticated: redirect into the Okta login flow.
+    login_url = request.url_for("admin_login")
+    raise HTTPException(
+        status_code=status.HTTP_307_TEMPORARY_REDIRECT,
+        detail="Redirecting to admin login.",
+        headers={"Location": str(login_url)},
+    )
 admin_router = APIRouter(
     prefix="/admin",
     tags=["admin"],
@@ -232,6 +276,174 @@ def _parse_date_param(value: Optional[str]) -> Optional[date]:
         return datetime.strptime(value, "%Y-%m-%d").date()
     except ValueError:
         raise HTTPException(status_code=400, detail=f"Invalid date format: {value!r}. Expected YYYY-MM-DD.")
+
+
+# ----- Okta-backed admin login/logout -----
+
+
+def _generate_pkce_verifier_and_challenge() -> tuple[str, str]:
+    """Generate a PKCE code_verifier and corresponding S256 code_challenge."""
+    code_verifier = secrets.token_urlsafe(64)
+    digest = hashlib.sha256(code_verifier.encode("ascii")).digest()
+    code_challenge = base64.urlsafe_b64encode(digest).rstrip(b"=").decode("ascii")
+    return code_verifier, code_challenge
+
+
+@admin_router.get("/login", name="admin_login")
+def admin_login(request: Request) -> RedirectResponse:
+    """
+    Entry point to start the Okta authorization code + PKCE flow.
+
+    Redirects the browser to the Okta-hosted sign-in page.
+    """
+    try:
+        config = get_okta_config()
+    except OktaConfigError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+    state = secrets.token_urlsafe(32)
+    code_verifier, code_challenge = _generate_pkce_verifier_and_challenge()
+
+    # Persist state and PKCE verifier in the server-side session.
+    request.session[OKTA_SESSION_STATE_KEY] = state
+    request.session[OKTA_SESSION_CODE_VERIFIER_KEY] = code_verifier
+
+    query_params = {
+        "client_id": config["client_id"],
+        "response_type": "code",
+        "scope": config["scope"],
+        "redirect_uri": config["redirect_uri"],
+        "state": state,
+        "code_challenge_method": "S256",
+        "code_challenge": code_challenge,
+    }
+    auth_url = f'{config["auth_uri"]}?{urlencode(query_params)}'
+    return RedirectResponse(auth_url, status_code=status.HTTP_302_FOUND)
+
+
+@admin_router.get("/authorization-code/callback", name="admin_callback")
+def admin_callback(request: Request, code: Optional[str] = None, state: Optional[str] = None) -> RedirectResponse:
+    """
+    Okta authorization code callback.
+
+    Exchanges the authorization code for tokens, fetches userinfo, and stores
+    a minimal Okta user profile in the session. Finally, redirects to /admin/.
+    """
+    try:
+        config = get_okta_config()
+    except OktaConfigError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+    if not state or state != request.session.get(OKTA_SESSION_STATE_KEY):
+        raise HTTPException(status_code=400, detail="Invalid or missing state parameter.")
+
+    if not code:
+        raise HTTPException(status_code=400, detail="Authorization code was not returned.")
+
+    code_verifier = request.session.get(OKTA_SESSION_CODE_VERIFIER_KEY)
+    if not code_verifier:
+        raise HTTPException(status_code=400, detail="Missing PKCE code_verifier in session.")
+
+    # Exchange code for tokens.
+    data = {
+        "grant_type": "authorization_code",
+        "code": code,
+        "redirect_uri": config["redirect_uri"],
+        "code_verifier": code_verifier,
+    }
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+
+    try:
+        token_resp = httpx.post(
+            config["token_uri"],
+            data=data,
+            headers=headers,
+            auth=(config["client_id"], config["client_secret"]),
+            timeout=10.0,
+        )
+        token_resp.raise_for_status()
+    except httpx.HTTPError as exc:
+        raise HTTPException(
+            status_code=502,
+            detail=f"Failed to exchange authorization code for tokens: {exc}",
+        ) from exc
+
+    exchange = token_resp.json()
+
+    if exchange.get("token_type") != "Bearer":
+        raise HTTPException(
+            status_code=403,
+            detail="Unsupported token type from Okta. Expected 'Bearer'.",
+        )
+
+    access_token = exchange.get("access_token")
+    id_token = exchange.get("id_token")
+    if not access_token:
+        raise HTTPException(status_code=502, detail="Okta token response missing access_token.")
+
+    # Fetch userinfo using the access token.
+    try:
+        userinfo_resp = httpx.get(
+            config["userinfo_uri"],
+            headers={"Authorization": f"Bearer {access_token}"},
+            timeout=10.0,
+        )
+        userinfo_resp.raise_for_status()
+    except httpx.HTTPError as exc:
+        raise HTTPException(
+            status_code=502,
+            detail=f"Failed to retrieve userinfo from Okta: {exc}",
+        ) from exc
+
+    userinfo = userinfo_resp.json()
+    okta_user = {
+        "sub": userinfo.get("sub"),
+        "email": userinfo.get("email"),
+        "name": userinfo.get("name") or userinfo.get("given_name") or userinfo.get("preferred_username"),
+    }
+
+    # Store user and (optionally) id_token in the session and clear transient values.
+    request.session[OKTA_SESSION_USER_KEY] = okta_user
+    if id_token:
+        request.session[OKTA_SESSION_ID_TOKEN_KEY] = id_token
+
+    request.session.pop(OKTA_SESSION_STATE_KEY, None)
+    request.session.pop(OKTA_SESSION_CODE_VERIFIER_KEY, None)
+
+    # Redirect to the admin home, respecting root_path.
+    redirect_url = request.url_for("admin_home")
+    return RedirectResponse(str(redirect_url), status_code=status.HTTP_302_FOUND)
+
+
+@admin_router.get("/logout", name="admin_logout")
+def admin_logout(request: Request) -> RedirectResponse:
+    """
+    Clear the Okta-backed admin session and optionally invoke Okta global logout.
+    """
+    # Always clear local session state first.
+    id_token = request.session.pop(OKTA_SESSION_ID_TOKEN_KEY, None)
+    request.session.pop(OKTA_SESSION_USER_KEY, None)
+    request.session.pop(OKTA_SESSION_STATE_KEY, None)
+    request.session.pop(OKTA_SESSION_CODE_VERIFIER_KEY, None)
+
+    try:
+        config = get_okta_config()
+    except OktaConfigError:
+        # If Okta isn't fully configured, just go back to the admin home page.
+        redirect_url = request.url_for("admin_home")
+        return RedirectResponse(str(redirect_url), status_code=status.HTTP_302_FOUND)
+
+    logout_uri = config["logout_uri"]
+    post_logout_redirect_uri = config.get("post_logout_redirect_uri") or str(
+        request.url_for("admin_home")
+    )
+
+    params: Dict[str, str] = {"post_logout_redirect_uri": post_logout_redirect_uri}
+    if id_token:
+        params["id_token_hint"] = id_token
+
+    logout_url = f"{logout_uri}?{urlencode(params)}"
+    return RedirectResponse(logout_url, status_code=status.HTTP_302_FOUND)
 
 
 # ----- Admin endpoints: LLM models -----

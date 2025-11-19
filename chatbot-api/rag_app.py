@@ -3,12 +3,14 @@ from __future__ import annotations
 import os
 import json
 from typing import Optional, AsyncIterator
+import secrets
 
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from fastapi import Request, HTTPException
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.sessions import SessionMiddleware
 
 from agno.os import AgentOS
 from agno.agent import Agent
@@ -81,6 +83,24 @@ def setup_cors(app, origins: list[str]):
 bootstrap_assistant: Agent = create_assistant()
 agent_os: AgentOS = create_agent_os(bootstrap_assistant)
 app = agent_os.get_app()
+
+# Add session middleware for admin authentication (Okta-backed).
+_session_secret_key = os.getenv("ADMIN_SESSION_SECRET") or os.getenv(
+    "APP_SESSION_SECRET"
+)
+if not _session_secret_key:
+    # Fallback to an in-memory secret for local development if none is provided.
+    # For production deployments, ADMIN_SESSION_SECRET or APP_SESSION_SECRET
+    # must be configured to ensure stable, secure cookies.
+    _session_secret_key = secrets.token_hex(32)
+
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=_session_secret_key,
+    session_cookie=os.getenv("ADMIN_SESSION_COOKIE_NAME", "colby_admin_session"),
+    same_site=os.getenv("ADMIN_SESSION_SAME_SITE", "lax"),
+    https_only=os.getenv("ADMIN_SESSION_HTTPS_ONLY", "false").lower() == "true",
+)
 
 # Configure root_path for Platform.sh routing
 # This tells FastAPI that all routes are prefixed with /chatbot-api

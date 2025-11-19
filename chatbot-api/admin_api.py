@@ -26,7 +26,8 @@ from okta_auth import (
 
 
 # Paths that are exempt from Okta session checks so that the login and callback
-# routes can bootstrap authentication.
+# routes can bootstrap authentication. These are defined relative to the app's
+# root (that is, they don't include any root_path such as /chatbot-api).
 _ADMIN_AUTH_EXEMPT_PATHS = {
     "/admin/login",
     "/admin/authorization-code/callback",
@@ -38,11 +39,28 @@ def _get_request_path(request: Request) -> str:
     """
     Return the request path relative to the application's root_path.
 
-    This uses the Starlette scope path, which excludes root_path and matches the
-    router prefixes (e.g. '/admin/login').
+    On Platform.sh the public URL includes a `/chatbot-api` prefix, but our
+    routers are mounted at `/admin`. We normalize by stripping any configured
+    root_path (either from the ASGI scope or from the FastAPI app) so that
+    paths look like `/admin/...` here.
     """
-    path = request.scope.get("path") or request.url.path
-    return path
+    # Full path as seen by the ASGI server (may include the public prefix).
+    full_path = request.scope.get("path") or request.url.path
+
+    # Prefer root_path from the request scope (set by the server), fall back
+    # to the application's configured root_path if present.
+    root_path = request.scope.get("root_path") or getattr(request.app, "root_path", "") or ""
+
+    if root_path and full_path.startswith(root_path):
+        # Strip the root_path prefix so we end up with router-relative paths
+        # such as `/admin/login`.
+        stripped = full_path[len(root_path) :] or "/"
+        # Ensure leading slash for safety.
+        if not stripped.startswith("/"):
+            stripped = "/" + stripped
+        return stripped
+
+    return full_path
 
 
 def require_admin(request: Request) -> None:

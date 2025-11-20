@@ -306,19 +306,49 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
     <meta charset="UTF-8" />
     <meta name="color-scheme" content="light" />
     <meta name="supported-color-schemes" content="light" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @media only screen and (max-width: 640px) {
+        .email-container {
+          width: 100% !important;
+          border-radius: 0 !important;
+        }
+        .email-body-padding {
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+        }
+        .stack-column {
+          display: block !important;
+          width: 100% !important;
+        }
+        .stack-column-inner {
+          width: 100% !important;
+        }
+        /* Center and stack header content + button on mobile */
+        .header-inner,
+        .header-cta {
+          display: block !important;
+          width: 100% !important;
+          text-align: center !important;
+        }
+        .header-cta {
+          padding-top: 16px !important;
+        }
+      }
+    </style>
     <title>Colby Chatbot – Daily Analytics</title>
   </head>
   <body style="margin:0; padding:0; background-color:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#ffffff; padding:24px 0;">
       <tr>
         <td align="center">
-          <table width="640" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(15, 23, 42, 0.08);">
+          <table width="640" cellpadding="0" cellspacing="0" role="presentation" class="email-container" style="background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(15, 23, 42, 0.08); border:1px solid #e5e7eb;">
             <!-- Header -->
             <tr>
-              <td style="background:linear-gradient(135deg, #003f7d, #0f6fcf); padding:24px 32px; color:#ffffff;">
+              <td style="background-color:#003f7d; padding:24px 32px; color:#ffffff;">
                 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
-                    <td align="left">
+                    <td align="left" class="header-inner">
                       <div style="font-size:14px; letter-spacing:0.15em; text-transform:uppercase; opacity:0.8;">
                         Colby Chatbot
                       </div>
@@ -329,9 +359,9 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                         {analytics_date}
                       </div>
                     </td>
-                    <td align="right" style="vertical-align:top;">
+                    <td align="right" class="header-cta" style="vertical-align:top;">
                       <a href="https://www.chatbot-hbxlydq-ouiqvb5juucvu.us-4.platformsh.site/chatbot-api/admin/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-                        <span style="display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(15, 23, 42, 0.18); font-size:12px; font-weight:500;">
+                        <span style="display:inline-block; padding:8px 16px; border-radius:999px; background-color:#0157b8; font-size:12px; font-weight:500; box-shadow:0 3px 8px rgba(15, 23, 42, 0.3);">
                           Go to Dashboard &rarr;
                         </span>
                       </a>
@@ -343,12 +373,12 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
 
             <!-- Key metrics (3 columns) -->
             <tr>
-              <td style="padding:4px 24px 4px 24px;">
+              <td class="email-body-padding" style="padding:4px 24px 4px 24px;">
                 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <!-- Total queries -->
-                    <td width="33.33%" style="padding:8px;">
-                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#f8fafc; border:1px solid #e2e8f0;">
+                    <td width="33.33%" class="stack-column" style="padding:8px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" class="stack-column-inner" style="border-radius:10px; background-color:#f8fafc; border:1px solid #e2e8f0;">
                         <tr>
                           <td style="padding:12px 14px;">
                             <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:#94a3b8; font-weight:600;">
@@ -366,8 +396,8 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                     </td>
 
                     <!-- Answered -->
-                    <td width="33.33%" style="padding:8px;">
-                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#ecfdf3; border:1px solid #bbf7d0;">
+                    <td width="33.33%" class="stack-column" style="padding:8px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" class="stack-column-inner" style="border-radius:10px; background-color:#ecfdf3; border:1px solid #bbf7d0;">
                         <tr>
                           <td style="padding:12px 14px;">
                             <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:#16a34a; font-weight:600;">
@@ -385,8 +415,8 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                     </td>
 
                     <!-- Blocked -->
-                    <td width="33.33%" style="padding:8px;">
-                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#fef2f2; border:1px solid #fecaca;">
+                    <td width="33.33%" class="stack-column" style="padding:8px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" class="stack-column-inner" style="border-radius:10px; background-color:#fef2f2; border:1px solid #fecaca;">
                         <tr>
                           <td style="padding:12px 14px;">
                             <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:#b91c1c; font-weight:600;">
@@ -409,11 +439,11 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
 
             <!-- Guardrail breakdown -->
             <tr>
-              <td style="padding:4px 24px 16px 24px;">
+              <td class="email-body-padding" style="padding:4px 24px 16px 24px;">
                 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
-                    <td width="50%" style="padding:8px;">
-                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#f8fafc; border:1px solid #e2e8f0;">
+                    <td width="50%" class="stack-column" style="padding:8px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" class="stack-column-inner" style="border-radius:10px; background-color:#f8fafc; border:1px solid #e2e8f0;">
                         <tr>
                           <td style="padding:12px 14px;">
                             <div style="font-size:13px; font-weight:600; color:#0f172a; margin-bottom:6px;">
@@ -450,8 +480,8 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                       </table>
                     </td>
 
-                    <td width="50%" style="padding:8px;">
-                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#fefce8; border:1px solid #facc15;">
+                    <td width="50%" class="stack-column" style="padding:8px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" class="stack-column-inner" style="border-radius:10px; background-color:#fefce8; border:1px solid #facc15;">
                         <tr>
                           <td style="padding:12px 14px;">
                             <div style="font-size:13px; font-weight:600; color:#713f12; margin-bottom:6px;">
@@ -597,11 +627,18 @@ def send_daily_email(
             or "localhost"
         )
 
-    subject = f"Colby Chatbot – Daily Analytics ({metrics.target_date.isoformat()})"
+    # Subject uses US-style MM/DD/YYYY date instead of ISO 8601.
+    subject_date = metrics.target_date.strftime("%m/%d/%Y")
+    subject = f"Colby Chatbot – Daily Analytics ({subject_date})"
     html_body = render_daily_email_html(metrics)
 
+    # Display name for the "From" header so mailbox lists show "Colby Chatbot"
+    # instead of just the bare email address.
+    from_name = os.environ.get("DAILY_REPORT_FROM_NAME", "Colby Chatbot")
+    from_header = f"{from_name} <{from_address}>"
+
     msg = EmailMessage()
-    msg["From"] = from_address
+    msg["From"] = from_header
     msg["To"] = ", ".join(to_addresses)
     msg["Subject"] = subject
     msg.set_content(

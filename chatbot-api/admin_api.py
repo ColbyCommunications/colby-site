@@ -1284,7 +1284,10 @@ def list_query_logs(
     q: Optional[str] = Query(default=None),
     status_filter: Optional[str] = Query(
         default=None,
-        description="Filter by status: answered, blocked, or error.",
+        description=(
+            "Filter by status or label. "
+            "Supported values: answered, blocked, error, blacklisted, whitelisted."
+        ),
     ),
     limit: int = Query(default=200, ge=1, le=1000),
     offset: int = Query(default=0, ge=0),
@@ -1331,15 +1334,49 @@ def list_query_logs(
             params.extend([like, like])
 
         if status_filter:
-            allowed_statuses = {"answered", "blocked", "error"}
-            if status_filter not in allowed_statuses:
+            # Traditional status-based filters
+            status_values = {"answered", "blocked", "error"}
+            # Training example label filters
+            label_values = {"blacklisted", "whitelisted"}
+
+            if status_filter in status_values:
+                clauses.append("q.status = %s")
+                params.append(status_filter)
+            elif status_filter == "blacklisted":
+                clauses.append(
+                    """
+                    EXISTS (
+                        SELECT 1
+                        FROM llm_agents a
+                        JOIN agent_instructions ai ON ai.agent_id = a.id
+                        WHERE a.agent_key = 'validation_blacklist'
+                          AND ai.content = CONCAT('BLACKLISTED_QUERY_EXAMPLE: ', q.user_message)
+                        LIMIT 1
+                    )
+                    """
+                )
+            elif status_filter == "whitelisted":
+                clauses.append(
+                    """
+                    EXISTS (
+                        SELECT 1
+                        FROM llm_agents a2
+                        JOIN agent_instructions ai2 ON ai2.agent_id = a2.id
+                        WHERE a2.agent_key = 'validation_blacklist'
+                          AND ai2.content = CONCAT('WHITELISTED_QUERY_EXAMPLE: ', q.user_message)
+                        LIMIT 1
+                    )
+                    """
+                )
+            else:
+                allowed = sorted(list(status_values | label_values))
                 raise HTTPException(
                     status_code=400,
-                    detail=f"Invalid status filter {status_filter!r}. "
-                    f"Expected one of {sorted(allowed_statuses)!r}.",
+                    detail=(
+                        f"Invalid status filter {status_filter!r}. "
+                        f"Expected one of {allowed!r}."
+                    ),
                 )
-            clauses.append("q.status = %s")
-            params.append(status_filter)
 
         where_sql = ""
         if clauses:

@@ -35,7 +35,7 @@ mounts:
 # This app uses the existing `mysqldb` service defined in the main project.
 # In each environment (e.g. `chatbot`, `dev`, `master`), `mysqldb` is a separate DB instance.
 relationships:
-  configdb: "mysqldb:mysql:chatbot_dashboard"
+  configdb: "mysqldb:chatbot"
 
 # Environment variables
 # Secrets (ALGOLIA_APP_ID, ALGOLIA_API_KEY, OPENAI_API_KEY) set via Platform.sh portal

@@ -15,4 +15,7 @@ mysqldb:
                 default_schema: main
                 privileges:
                     main: admin
+            chatbot:
+                default_schema: chatbot_dashboard
+                privileges:
                     chatbot_dashboard: admin

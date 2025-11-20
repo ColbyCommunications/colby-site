@@ -7,7 +7,7 @@ import logging
 import os
 from pathlib import Path
 from typing import List, Dict, Any, Optional
-from datetime import datetime, date, timedelta
+from datetime import datetime, date, timedelta, timezone
 from urllib.parse import urlencode
 import secrets
 
@@ -15,6 +15,7 @@ import httpx
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
 from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse
 from pydantic import BaseModel, Field
+from zoneinfo import ZoneInfo
 
 from config_db import get_db_connection
 from okta_auth import (
@@ -1098,26 +1099,38 @@ def list_query_logs(
     """
     List query/response logs for a given date range, optionally filtered by text.
 
-    Dates are inclusive and expected in YYYY-MM-DD format.
+    Dates are inclusive and expected in YYYY-MM-DD format, interpreted in
+    America/New_York (ET) and converted to UTC for comparison.
     """
+    # Treat all date filters as Eastern Time (ET) so that "Today" and
+    # "Last 7 days" in the dashboard align with what users see. We assume
+    # the underlying MySQL `created_at` timestamps are stored in UTC.
+    est_tz = ZoneInfo("America/New_York")
     conn = _get_required_db_connection()
     try:
         cursor = conn.cursor(dictionary=True)
 
-        clauses = []
+        clauses: List[str] = []
         params: List[Any] = []
 
         start = _parse_date_param(start_date)
         end = _parse_date_param(end_date)
 
         if start:
+            # Interpret the start date as midnight in ET, then convert to UTC
+            # for comparison against UTC-stored MySQL timestamps.
+            start_local = datetime.combine(start, datetime.min.time(), tzinfo=est_tz)
+            start_utc = start_local.astimezone(timezone.utc).replace(tzinfo=None)
             clauses.append("q.created_at >= %s")
-            params.append(datetime.combine(start, datetime.min.time()))
+            params.append(start_utc)
         if end:
-            # inclusive end-date -> next day at midnight
+            # Inclusive end-date: compute the *next* midnight in ET and convert
+            # to UTC, then use a strict `<` comparison.
             end_next = end + timedelta(days=1)
+            end_local = datetime.combine(end_next, datetime.min.time(), tzinfo=est_tz)
+            end_utc = end_local.astimezone(timezone.utc).replace(tzinfo=None)
             clauses.append("q.created_at < %s")
-            params.append(datetime.combine(end_next, datetime.min.time()))
+            params.append(end_utc)
 
         if q:
             like = f"%{q}%"

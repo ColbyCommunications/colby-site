@@ -271,14 +271,14 @@ def _render_query_list_html(examples: List[QueryExample], empty_text: str) -> st
     """Render an ordered list of query examples (or a muted empty-state text)."""
     if not examples:
         return (
-            '<div style="font-size:12px; color:#9ca3af;">'
+            '<div style="font-size:13px; color:#9ca3af;">'
             f"{html.escape(empty_text)}"
             "</div>"
         )
 
     parts: List[str] = []
     parts.append(
-        '<ol style="margin:0; padding-left:18px; font-size:12px; color:#0f172a;">'
+        '<ol style="margin:0; padding-left:18px; font-size:13px; color:#0f172a;">'
     )
     for ex in examples:
         text = (ex.user_message or "").strip()
@@ -304,10 +304,12 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light" />
+    <meta name="supported-color-schemes" content="light" />
     <title>Colby Chatbot – Daily Analytics</title>
   </head>
-  <body style="margin:0; padding:0; background-color:#f4f6fb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
-    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#f4f6fb; padding:24px 0;">
+  <body style="margin:0; padding:0; background-color:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#ffffff; padding:24px 0;">
       <tr>
         <td align="center">
           <table width="640" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(15, 23, 42, 0.08);">
@@ -317,19 +319,19 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <td align="left">
-                      <div style="font-size:13px; letter-spacing:0.15em; text-transform:uppercase; opacity:0.8;">
+                      <div style="font-size:14px; letter-spacing:0.15em; text-transform:uppercase; opacity:0.8;">
                         Colby Chatbot
                       </div>
-                      <div style="font-size:22px; font-weight:600; margin-top:6px;">
+                      <div style="font-size:24px; font-weight:600; margin-top:6px;">
                         Daily Analytics Summary
                       </div>
-                      <div style="font-size:13px; margin-top:6px; opacity:0.9;">
+                      <div style="font-size:14px; margin-top:6px; opacity:0.9;">
                         {analytics_date}
                       </div>
                     </td>
                     <td align="right" style="vertical-align:top;">
                       <a href="https://www.chatbot-hbxlydq-ouiqvb5juucvu.us-4.platformsh.site/chatbot-api/admin/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-                        <span style="display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(15, 23, 42, 0.18); font-size:11px; font-weight:500;">
+                        <span style="display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(15, 23, 42, 0.18); font-size:12px; font-weight:500;">
                           Go to Dashboard &rarr;
                         </span>
                       </a>
@@ -349,13 +351,13 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#f8fafc; border:1px solid #e2e8f0;">
                         <tr>
                           <td style="padding:12px 14px;">
-                            <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:#94a3b8; font-weight:600;">
+                            <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:#94a3b8; font-weight:600;">
                               Total queries
                             </div>
-                            <div style="font-size:24px; font-weight:600; color:#0f172a; margin-top:4px;">
+                            <div style="font-size:26px; font-weight:600; color:#0f172a; margin-top:4px;">
                               {total_queries}
                             </div>
-                            <div style="font-size:11px; color:#64748b; margin-top:4px;">
+                            <div style="font-size:12px; color:#64748b; margin-top:4px;">
                               Across all agents yesterday
                             </div>
                           </td>
@@ -368,13 +370,13 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#ecfdf3; border:1px solid #bbf7d0;">
                         <tr>
                           <td style="padding:12px 14px;">
-                            <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:#16a34a; font-weight:600;">
+                            <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:#16a34a; font-weight:600;">
                               Answered
                             </div>
-                            <div style="font-size:24px; font-weight:600; color:#14532d; margin-top:4px;">
+                            <div style="font-size:26px; font-weight:600; color:#14532d; margin-top:4px;">
                               {queries_answered}
                             </div>
-                            <div style="font-size:11px; color:#166534; margin-top:4px;">
+                            <div style="font-size:12px; color:#166534; margin-top:4px;">
                               {answered_rate}% of all queries
                             </div>
                           </td>
@@ -387,13 +389,13 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#fef2f2; border:1px solid #fecaca;">
                         <tr>
                           <td style="padding:12px 14px;">
-                            <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:#b91c1c; font-weight:600;">
+                            <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:#b91c1c; font-weight:600;">
                               Blocked
                             </div>
-                            <div style="font-size:24px; font-weight:600; color:#7f1d1d; margin-top:4px;">
+                            <div style="font-size:26px; font-weight:600; color:#7f1d1d; margin-top:4px;">
                               {queries_blocked}
                             </div>
-                            <div style="font-size:11px; color:#b91c1c; margin-top:4px;">
+                            <div style="font-size:12px; color:#b91c1c; margin-top:4px;">
                               {blocked_rate}% flagged as unsafe or out of scope
                             </div>
                           </td>
@@ -414,10 +416,10 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#f8fafc; border:1px solid #e2e8f0;">
                         <tr>
                           <td style="padding:12px 14px;">
-                            <div style="font-size:12px; font-weight:600; color:#0f172a; margin-bottom:6px;">
+                            <div style="font-size:13px; font-weight:600; color:#0f172a; margin-bottom:6px;">
                               Guardrail performance
                             </div>
-                            <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="font-size:12px; color:#475569;">
+                            <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="font-size:13px; color:#475569;">
                               <tr>
                                 <td style="padding:4px 0;">Blocked by Colby Query Validator</td>
                                 <td align="right" style="padding:4px 0; font-weight:600;">
@@ -452,10 +454,10 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="border-radius:10px; background-color:#fefce8; border:1px solid #facc15;">
                         <tr>
                           <td style="padding:12px 14px;">
-                            <div style="font-size:12px; font-weight:600; color:#713f12; margin-bottom:6px;">
+                            <div style="font-size:13px; font-weight:600; color:#713f12; margin-bottom:6px;">
                               No‑answer cases
                             </div>
-                            <div style="font-size:12px; color:#854d0e; line-height:1.5;">
+                            <div style="font-size:13px; color:#854d0e; line-height:1.5;">
                               {no_answer_after_pass} queries passed both guardrail agents
                               but the main answer agent had no confident response.
                             </div>
@@ -471,7 +473,7 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
             <!-- Top answered / rejected queries -->
             <tr>
               <td style="padding:8px 32px 4px 32px;">
-                <div style="font-size:13px; font-weight:600; color:#0f172a; margin-bottom:6px;">
+                <div style="font-size:14px; font-weight:600; color:#0f172a; margin-bottom:6px;">
                   Top answered queries
                 </div>
               </td>
@@ -490,7 +492,7 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
 
             <tr>
               <td style="padding:8px 32px 4px 32px;">
-                <div style="font-size:13px; font-weight:600; color:#0f172a; margin-bottom:6px;">
+                <div style="font-size:14px; font-weight:600; color:#0f172a; margin-bottom:6px;">
                   Top rejected queries
                 </div>
               </td>
@@ -512,7 +514,7 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
               <td style="padding:16px 32px 24px 32px; border-top:1px solid #e5e7eb;">
                 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
-                    <td align="left" style="font-size:11px; color:#9ca3af;">
+                    <td align="left" style="font-size:12px; color:#9ca3af;">
                       Sent from the Colby Chatbot Dashboard.
                     </td>
                   </tr>

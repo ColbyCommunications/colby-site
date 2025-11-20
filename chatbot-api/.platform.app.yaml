@@ -60,3 +60,10 @@ crons:
     commands:
       start: 'python update_vector_db.py'
 
+  daily_analytics_email:
+    # Run daily at ~8:00 AM EST (13:00 UTC)
+    # Note: During EDT this will fire at 9:00 AM EDT
+    spec: '0 13 * * *'
+    commands:
+      start: 'python daily_analytics_email.py'
+

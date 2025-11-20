@@ -128,7 +128,13 @@
         el.disabled = true;
       } else {
         el.classList.remove('skeleton-input');
-        el.disabled = false;
+        // Agent key and display name are treated as read-only identifiers in the UI.
+        if (el === agentKeyInput || el === agentNameInput) {
+          el.disabled = true;
+          el.classList.add('readonly-input');
+        } else {
+          el.disabled = false;
+        }
       }
     });
   }

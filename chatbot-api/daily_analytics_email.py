@@ -308,33 +308,33 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
     <meta name="supported-color-schemes" content="light" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      @media only screen and (max-width: 640px) {
-        .email-container {
+      @media only screen and (max-width: 640px) {{
+        .email-container {{
           width: 100% !important;
           border-radius: 0 !important;
-        }
-        .email-body-padding {
+        }}
+        .email-body-padding {{
           padding-left: 16px !important;
           padding-right: 16px !important;
-        }
-        .stack-column {
+        }}
+        .stack-column {{
           display: block !important;
           width: 100% !important;
-        }
-        .stack-column-inner {
+        }}
+        .stack-column-inner {{
           width: 100% !important;
-        }
+        }}
         /* Center and stack header content + button on mobile */
         .header-inner,
-        .header-cta {
+        .header-cta {{
           display: block !important;
           width: 100% !important;
           text-align: center !important;
-        }
-        .header-cta {
+        }}
+        .header-cta {{
           padding-top: 16px !important;
-        }
-      }
+        }}
+      }}
     </style>
     <title>Colby Chatbot – Daily Analytics</title>
   </head>

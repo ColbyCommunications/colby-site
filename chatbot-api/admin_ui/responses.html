@@ -32,9 +32,9 @@
       <div class="card">
         <div
           class="field-row"
-          style="flex-wrap:wrap;align-items:flex-end;gap:10px;margin-bottom:10px;"
+          style="flex-wrap:wrap;align-items:flex-end;gap:10px;margin-bottom:8px;"
         >
-          <div style="min-width:220px;">
+          <div style="flex:1;min-width:320px;">
             <label for="responsesSearchInput">Search</label>
             <input
               id="responsesSearchInput"
@@ -42,6 +42,11 @@
               placeholder="Search question or answer..."
             />
           </div>
+        </div>
+        <div
+          class="field-row"
+          style="flex-wrap:wrap;align-items:flex-end;gap:10px;margin-bottom:10px;"
+        >
           <div style="min-width:160px;">
             <label for="responsesStatusFilter">Status</label>
             <select id="responsesStatusFilter" class="range-select">
@@ -51,7 +56,7 @@
               <option value="error">Error</option>
             </select>
           </div>
-          <div style="min-width:200px;">
+          <div style="min-width:200px;margin-left:auto;">
             <label for="responsesRange">Date range</label>
             <select id="responsesRange" class="range-select">
               <option value="7d">Last 7 days</option>
@@ -61,11 +66,6 @@
               <option value="all">All time</option>
               <option value="custom">Custom range…</option>
             </select>
-          </div>
-          <div style="display:flex;gap:6px;margin-left:auto;justify-content:flex-end;">
-            <button id="responsesRefreshBtn" type="button" class="secondary">
-              Refresh
-            </button>
           </div>
         </div>
 

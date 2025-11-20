@@ -245,6 +245,22 @@ class QueryLogDTO(BaseModel):
     )
 
 
+class WeeklyMetricsDTO(BaseModel):
+    """Aggregated chatbot metrics for the last 7 days (ET)."""
+
+    start_date: date
+    end_date: date
+    total_queries: int
+    answered: int
+    blocked: int
+    error: int
+    blocked_by_query_validator: int
+    blocked_by_blacklist_validator: int
+    blocked_by_both: int
+    passed_guardrails: int
+    no_answer_after_pass: int
+
+
 def _get_required_db_connection():
     """Return a live config DB connection or raise 503 if unavailable."""
     conn = get_db_connection()
@@ -1084,6 +1100,183 @@ def upsert_message(message_key: str, payload: AppMessageUpdate) -> AppMessageDTO
 # ----- Admin endpoints: query logs -----
 
 
+@admin_router.get("/metrics/weekly", response_model=WeeklyMetricsDTO)
+def get_weekly_metrics(
+    start_date: Optional[str] = Query(
+        default=None,
+        description="Start date (YYYY-MM-DD, ET). Defaults to 7 days ago if omitted with end_date.",
+    ),
+    end_date: Optional[str] = Query(
+        default=None,
+        description="End date (YYYY-MM-DD, ET). Defaults to today if omitted with start_date.",
+    ),
+) -> WeeklyMetricsDTO:
+    """
+    Return aggregated chatbot metrics for the last 7 calendar days (ET).
+
+    This powers the summary cards on the admin home dashboard.
+    """
+    est_tz = ZoneInfo("America/New_York")
+    today_et = datetime.now(est_tz).date()
+
+    # Interpret incoming dates as ET calendar days; fall back to last 7 days.
+    start = _parse_date_param(start_date)
+    end = _parse_date_param(end_date)
+
+    if not start and not end:
+        # Default window: last 7 ET calendar days.
+        end = today_et
+        start = end - timedelta(days=6)
+    elif start and not end:
+        # Single-day window.
+        end = start
+    elif end and not start:
+        start = end
+
+    assert start is not None and end is not None
+
+    # Convert the ET date range into UTC timestamps for querying MySQL.
+    start_local = datetime.combine(start, datetime.min.time(), tzinfo=est_tz)
+    end_next_local = datetime.combine(
+        end + timedelta(days=1),
+        datetime.min.time(),
+        tzinfo=est_tz,
+    )
+    start_utc = start_local.astimezone(timezone.utc).replace(tzinfo=None)
+    end_utc = end_next_local.astimezone(timezone.utc).replace(tzinfo=None)
+
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        # Core counts by status.
+        cursor.execute(
+            """
+            SELECT
+                COUNT(*) AS total_queries,
+                SUM(CASE WHEN status = 'answered' THEN 1 ELSE 0 END) AS answered,
+                SUM(CASE WHEN status = 'blocked' THEN 1 ELSE 0 END) AS blocked,
+                SUM(CASE WHEN status = 'error'   THEN 1 ELSE 0 END) AS error
+            FROM query_logs
+            WHERE created_at >= %s AND created_at < %s;
+            """,
+            (start_utc, end_utc),
+        )
+        row = cursor.fetchone() or {}
+        total_queries = int(row.get("total_queries") or 0)
+        answered = int(row.get("answered") or 0)
+        blocked = int(row.get("blocked") or 0)
+        error = int(row.get("error") or 0)
+
+        # Guardrail behaviour by validator (Query Validator / Blacklist Validator).
+        cursor.execute(
+            """
+            SELECT
+                SUM(CASE WHEN has_primary_blocked = 1 THEN 1 ELSE 0 END) AS blocked_by_query_validator,
+                SUM(CASE WHEN has_blacklist_blocked = 1 THEN 1 ELSE 0 END) AS blocked_by_blacklist_validator,
+                SUM(
+                    CASE
+                        WHEN has_primary_blocked = 1 AND has_blacklist_blocked = 1
+                        THEN 1 ELSE 0
+                    END
+                ) AS blocked_by_both,
+                SUM(
+                    CASE
+                        WHEN has_primary_blocked = 0 AND has_blacklist_blocked = 0
+                        THEN 1 ELSE 0
+                    END
+                ) AS passed_guardrails
+            FROM (
+                SELECT
+                    q.id AS query_id,
+                    MAX(
+                        CASE
+                            WHEN p.stage = 'validation_primary' AND p.blocked = 1
+                            THEN 1 ELSE 0
+                        END
+                    ) AS has_primary_blocked,
+                    MAX(
+                        CASE
+                            WHEN p.stage = 'validation_blacklist' AND p.blocked = 1
+                            THEN 1 ELSE 0
+                        END
+                    ) AS has_blacklist_blocked
+                FROM query_logs AS q
+                LEFT JOIN query_log_parts AS p
+                    ON p.query_log_id = q.id
+                WHERE q.created_at >= %s AND q.created_at < %s
+                GROUP BY q.id
+            ) AS per_query;
+            """,
+            (start_utc, end_utc),
+        )
+        guard = cursor.fetchone() or {}
+        blocked_by_query_validator = int(
+            guard.get("blocked_by_query_validator") or 0
+        )
+        blocked_by_blacklist_validator = int(
+            guard.get("blocked_by_blacklist_validator") or 0
+        )
+        blocked_by_both = int(guard.get("blocked_by_both") or 0)
+        passed_guardrails = int(guard.get("passed_guardrails") or 0)
+
+        # Queries that passed both validators but had no final answer.
+        cursor.execute(
+            """
+            SELECT COUNT(*) AS no_answer_after_pass
+            FROM (
+                SELECT
+                    q.id AS query_id,
+                    MAX(
+                        CASE
+                            WHEN p.stage = 'validation_primary' AND p.blocked = 1
+                            THEN 1 ELSE 0
+                        END
+                    ) AS has_primary_blocked,
+                    MAX(
+                        CASE
+                            WHEN p.stage = 'validation_blacklist' AND p.blocked = 1
+                            THEN 1 ELSE 0
+                        END
+                    ) AS has_blacklist_blocked
+                FROM query_logs AS q
+                LEFT JOIN query_log_parts AS p
+                    ON p.query_log_id = q.id
+                WHERE q.created_at >= %s AND q.created_at < %s
+                GROUP BY q.id
+            ) AS s
+            JOIN query_logs AS q
+                ON q.id = s.query_id
+            WHERE s.has_primary_blocked = 0
+              AND s.has_blacklist_blocked = 0
+              AND (q.final_answer IS NULL OR TRIM(q.final_answer) = '')
+              AND q.status != 'blocked';
+            """,
+            (start_utc, end_utc),
+        )
+        row = cursor.fetchone() or {}
+        no_answer_after_pass = int(row.get("no_answer_after_pass") or 0)
+
+        return WeeklyMetricsDTO(
+            start_date=start,
+            end_date=end,
+            total_queries=total_queries,
+            answered=answered,
+            blocked=blocked,
+            error=error,
+            blocked_by_query_validator=blocked_by_query_validator,
+            blocked_by_blacklist_validator=blocked_by_blacklist_validator,
+            blocked_by_both=blocked_by_both,
+            passed_guardrails=passed_guardrails,
+            no_answer_after_pass=no_answer_after_pass,
+        )
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
 @admin_router.get("/query-logs", response_model=List[QueryLogDTO])
 def list_query_logs(
     start_date: Optional[str] = Query(default=None),
@@ -1671,6 +1864,15 @@ def admin_responses_js() -> FileResponse:
     js_path = ADMIN_UI_DIR / "responses.js"
     if not js_path.exists():
         raise HTTPException(status_code=500, detail="Admin responses JS not found.")
+    return FileResponse(js_path, media_type="application/javascript")
+
+
+@admin_router.get("/static/home.js")
+def admin_home_js() -> FileResponse:
+    """Serve the admin home dashboard JavaScript."""
+    js_path = ADMIN_UI_DIR / "home.js"
+    if not js_path.exists():
+        raise HTTPException(status_code=500, detail="Admin home JS not found.")
     return FileResponse(js_path, media_type="application/javascript")
 
 

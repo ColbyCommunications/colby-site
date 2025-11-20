@@ -7,7 +7,6 @@
   const customRangeRow = document.getElementById('responsesCustomRangeRow');
   const startDateInput = document.getElementById('responsesStartDate');
   const endDateInput = document.getElementById('responsesEndDate');
-  const refreshBtn = document.getElementById('responsesRefreshBtn');
 
   function setGlobalStatus(text, type) {
     globalStatusEl.textContent = text || '';
@@ -15,10 +14,36 @@
   }
 
   function formatDateISO(d) {
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
+    const year = d.getUTCFullYear();
+    const month = String(d.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(d.getUTCDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
+  }
+
+  // Return a YYYY-MM-DD string for an ET calendar day offset from "today".
+  // offsetDays = 0 => today in ET, -1 => yesterday in ET, etc.
+  function getEtDateISO(offsetDays) {
+    const now = new Date();
+    // Extract the current date in America/New_York.
+    const formatter = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/New_York',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    });
+    const parts = formatter.formatToParts(now);
+    let year = 0;
+    let month = 0;
+    let day = 0;
+    for (const p of parts) {
+      if (p.type === 'year') year = Number(p.value);
+      else if (p.type === 'month') month = Number(p.value);
+      else if (p.type === 'day') day = Number(p.value);
+    }
+    // Use a UTC date as a simple calendar container, then apply the offset.
+    const base = new Date(Date.UTC(year, month - 1, day));
+    base.setUTCDate(base.getUTCDate() + offsetDays);
+    return formatDateISO(base);
   }
 
   function initDefaultDates() {
@@ -29,35 +54,31 @@
   }
 
   function applyRange(range) {
-    const today = new Date();
-    let start = null;
-    let end = null;
+    let startISO = '';
+    let endISO = '';
 
     if (range === 'today') {
-      start = new Date(today);
-      end = new Date(today);
+      startISO = getEtDateISO(0);
+      endISO = getEtDateISO(0);
     } else if (range === 'yesterday') {
-      end = new Date(today);
-      end.setDate(end.getDate() - 1);
-      start = new Date(end);
+      startISO = getEtDateISO(-1);
+      endISO = getEtDateISO(-1);
     } else if (range === '7d') {
-      end = new Date(today);
-      start = new Date(today);
-      start.setDate(start.getDate() - 6);
+      endISO = getEtDateISO(0);
+      startISO = getEtDateISO(-6);
     } else if (range === '30d') {
-      end = new Date(today);
-      start = new Date(today);
-      start.setDate(start.getDate() - 29);
+      endISO = getEtDateISO(0);
+      startISO = getEtDateISO(-29);
     } else if (range === 'all') {
-      start = null;
-      end = null;
+      startISO = '';
+      endISO = '';
     } else if (range === 'custom') {
       if (customRangeRow) {
         customRangeRow.style.display = 'flex';
       }
       // Do not override any manually chosen dates for custom range.
       if (!startDateInput.value && !endDateInput.value) {
-        const iso = formatDateISO(today);
+        const iso = getEtDateISO(0);
         startDateInput.value = iso;
         endDateInput.value = iso;
       }
@@ -68,8 +89,8 @@
       customRangeRow.style.display = 'none';
     }
 
-    startDateInput.value = start ? formatDateISO(start) : '';
-    endDateInput.value = end ? formatDateISO(end) : '';
+    startDateInput.value = startISO;
+    endDateInput.value = endISO;
   }
 
   function getAdminHeaders() {
@@ -684,12 +705,6 @@
   let searchDebounceTimer = null;
 
   function attachEventHandlers() {
-    if (refreshBtn) {
-      refreshBtn.addEventListener('click', () => {
-        fetchLogs();
-      });
-    }
-
     if (startDateInput) {
       startDateInput.addEventListener('change', () => {
         if (rangeSelect && rangeSelect.value !== 'custom') {

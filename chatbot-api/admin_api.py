@@ -120,14 +120,15 @@ def require_admin(request: Request) -> None:
         session = {}
 
     session_user = session.get(OKTA_SESSION_USER_KEY)
+    is_exempt = path in _ADMIN_AUTH_EXEMPT_PATHS or path.startswith("/admin/static/")
     logger.info(
         "require_admin: path=%s exempt=%s has_user=%s",
         path,
-        path in _ADMIN_AUTH_EXEMPT_PATHS,
+        is_exempt,
         bool(session_user),
     )
-    if path in _ADMIN_AUTH_EXEMPT_PATHS:
-        # Allow login/callback/logout endpoints without an existing session.
+    if is_exempt:
+        # Allow login/callback/logout and static assets without an existing session.
         return
 
     try:

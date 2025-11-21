@@ -7,11 +7,10 @@ import secrets
 
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
-from fastapi import Request, HTTPException, status
-from fastapi.responses import StreamingResponse, RedirectResponse
+from fastapi import Request, HTTPException
+from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
-from starlette.middleware.base import BaseHTTPMiddleware
 
 from agno.os import AgentOS
 from agno.agent import Agent
@@ -86,57 +85,12 @@ bootstrap_assistant: Agent = create_assistant()
 agent_os: AgentOS = create_agent_os(bootstrap_assistant)
 app = agent_os.get_app()
 
-class OktaAdminMiddleware(BaseHTTPMiddleware):
-    """
-    Enforce Okta-backed admin authentication for all routes when enabled.
-
-    This reuses the existing `require_admin` logic so that:
-    - When ADMIN_OKTA_ENABLED is not 'true', all routes remain open.
-    - /admin/login, /admin/authorization-code/callback, and /admin/logout
-      stay exempt so the Okta flow can bootstrap.
-    - All other routes (including '/', '/info', '/ask', etc.) require an
-      authenticated Okta-backed admin session and redirect to /admin/login
-      when missing.
-
-    Using middleware here lets us convert the HTTPException raised by
-    `require_admin` into a proper RedirectResponse that browsers will follow,
-    instead of showing a JSON body like {"detail": "Redirecting to admin login."}.
-    """
-
-    async def dispatch(self, request: Request, call_next):
-        try:
-            # This will:
-            # - no-op if ADMIN_OKTA_ENABLED is false
-            # - allow exempt paths (login/callback/logout) through
-            # - raise HTTPException with a redirect status + Location header when
-            #   an unauthenticated request targets a protected route.
-            require_admin(request)
-        except HTTPException as exc:
-            # Convert redirect-style HTTPExceptions into real redirect responses so
-            # that browsers navigate instead of rendering the JSON error payload.
-            if exc.status_code in (
-                status.HTTP_302_FOUND,
-                status.HTTP_307_TEMPORARY_REDIRECT,
-            ):
-                location = (exc.headers or {}).get("Location")
-                if location:
-                    return RedirectResponse(url=location, status_code=exc.status_code)
-            # For non-redirect HTTPExceptions, fall back to FastAPI's normal handling.
-            raise
-
-        return await call_next(request)
-
-
 # Configure session secret for admin authentication (Okta-backed).
 _session_secret_key = os.getenv("ADMIN_SESSION_SECRET") or os.getenv(
     "APP_SESSION_SECRET"
 )
 
-# Configure root_path for Platform.sh routing
-# This tells FastAPI that all routes are prefixed with /chatbot-api
-app.root_path = "/chatbot-api"
-
-# Add Session middleware first so that request.session is populated.
+# Add Session middleware for Okta-backed admin authentication.
 app.add_middleware(
     SessionMiddleware,
     secret_key=_session_secret_key,
@@ -144,10 +98,20 @@ app.add_middleware(
     same_site=os.getenv("ADMIN_SESSION_SAME_SITE", "lax"),
     https_only=os.getenv("ADMIN_SESSION_HTTPS_ONLY", "false").lower() == "true",
 )
-app.add_middleware(OktaAdminMiddleware)
 
+# Protect all routes (including AgentOS ones) with the existing Okta
+# `require_admin` dependency. This runs inside the normal request handling
+# after SessionMiddleware so request.session is always available.
+from fastapi import Depends  # noqa: E402
 
-# Setup CORS
+app.router.dependencies.append(Depends(require_admin))
+
+# Configure root_path for Platform.sh routing
+# This tells FastAPI that all routes are prefixed with /chatbot-api
+app.root_path = "/chatbot-api"
+
+# Setup CORS after auth/session so that CORS headers apply to both normal and
+# redirected responses.
 _config = get_agent_config()
 setup_cors(app, _config["cors_origins"])
 

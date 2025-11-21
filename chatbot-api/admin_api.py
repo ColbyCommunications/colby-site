@@ -18,6 +18,7 @@ from pydantic import BaseModel, Field
 from zoneinfo import ZoneInfo
 
 from config_db import get_db_connection
+from input_validation_pre_hook import get_standard_rejection_message
 from okta_auth import (
     OktaConfigError,
     OKTA_SESSION_USER_KEY,
@@ -1238,7 +1239,9 @@ def get_weekly_metrics(
         blocked_by_both = int(guard.get("blocked_by_both") or 0)
         passed_guardrails = int(guard.get("passed_guardrails") or 0)
 
-        # Queries that passed both validators but had no final answer.
+        # Queries that passed both validators but were answered with the
+        # standard rejection message by the main runtime agent.
+        rejection_message = get_standard_rejection_message()
         cursor.execute(
             """
             SELECT COUNT(*) AS no_answer_after_pass
@@ -1267,10 +1270,10 @@ def get_weekly_metrics(
                 ON q.id = s.query_id
             WHERE s.has_primary_blocked = 0
               AND s.has_blacklist_blocked = 0
-              AND (q.final_answer IS NULL OR TRIM(q.final_answer) = '')
-              AND q.status != 'blocked';
+              AND q.status = 'answered'
+              AND q.final_answer = %s;
             """,
-            (start_utc, end_utc),
+            (start_utc, end_utc, rejection_message),
         )
         row = cursor.fetchone() or {}
         no_answer_after_pass = int(row.get("no_answer_after_pass") or 0)
@@ -1303,8 +1306,10 @@ def list_query_logs(
     status_filter: Optional[str] = Query(
         default=None,
         description=(
-            "Filter by status or label. "
-            "Supported values: answered, blocked, error, blacklisted, whitelisted."
+            "Filter by status or label. Supported values: "
+            "answered, blocked, error, blacklisted, whitelisted, "
+            "blocked_by_blacklist_validator, blocked_by_query_validator, "
+            "standard_rejection_answered."
         ),
     ),
     limit: int = Query(default=200, ge=1, le=1000),
@@ -1356,6 +1361,12 @@ def list_query_logs(
             status_values = {"answered", "blocked", "error"}
             # Training example label filters
             label_values = {"blacklisted", "whitelisted"}
+            # More granular blocked-status filters and standard rejection answers
+            blocked_detail_values = {
+                "blocked_by_blacklist_validator",
+                "blocked_by_query_validator",
+                "standard_rejection_answered",
+            }
 
             if status_filter in status_values:
                 clauses.append("q.status = %s")
@@ -1386,8 +1397,22 @@ def list_query_logs(
                     )
                     """
                 )
+            elif status_filter == "blocked_by_blacklist_validator":
+                # Queries that were explicitly blocked by the blacklist validator.
+                clauses.append("(q.status = %s AND q.blocked_by = %s)")
+                params.extend(["blocked", "validation_blacklist"])
+            elif status_filter == "blocked_by_query_validator":
+                # Queries that were explicitly blocked by the primary query validator.
+                clauses.append("(q.status = %s AND q.blocked_by = %s)")
+                params.extend(["blocked", "validation_primary"])
+            elif status_filter == "standard_rejection_answered":
+                # Queries that were technically "answered" but where the runtime
+                # agent returned the standard rejection message (e.g. insufficient context).
+                rejection_message = get_standard_rejection_message()
+                clauses.append("(q.status = %s AND q.final_answer = %s)")
+                params.extend(["answered", rejection_message])
             else:
-                allowed = sorted(list(status_values | label_values))
+                allowed = sorted(list(status_values | label_values | blocked_detail_values))
                 raise HTTPException(
                     status_code=400,
                     detail=(
@@ -1540,7 +1565,8 @@ def get_query_log(log_id: int) -> QueryLogDTO:
 def add_query_to_blacklist_from_log(log_id: int) -> Dict[str, Any]:
     """
     Shortcut: take the user_message from a query log and append it as a new
-    blacklist example instruction for the 'validation_blacklist' agent.
+    blacklist example instruction for the 'validation_blacklist' agent and,
+    when present, the general 'validation_primary' validator as well.
     """
     conn = _get_required_db_connection()
     try:
@@ -1581,10 +1607,10 @@ def add_query_to_blacklist_from_log(log_id: int) -> Dict[str, Any]:
                 detail="validation_blacklist agent not found. Configure it in the admin dashboard first.",
             )
 
+        instruction_content = f"BLACKLISTED_QUERY_EXAMPLE: {user_message}"
         agent_id = agent_row["id"]
 
         # Avoid duplicate entries for the same query.
-        instruction_content = f"BLACKLISTED_QUERY_EXAMPLE: {user_message}"
         cursor.execute(
             """
             SELECT id
@@ -1626,9 +1652,65 @@ def add_query_to_blacklist_from_log(log_id: int) -> Dict[str, Any]:
             (agent_id, next_position, instruction_content),
         )
 
+        # --- 2) Mirror blacklist example onto the validation_primary agent ---
+        # If a primary validator agent exists, add (or ensure) the same blacklist
+        # example is present there as well so it can learn from blocked queries.
+        try:
+            cursor.execute(
+                """
+                SELECT id
+                FROM llm_agents
+                WHERE agent_key = %s
+                LIMIT 1;
+                """,
+                ("validation_primary",),
+            )
+            primary_agent_row = cursor.fetchone()
+        except Exception:
+            primary_agent_row = None
+
+        if primary_agent_row:
+            primary_agent_id = primary_agent_row["id"]
+
+            # Avoid duplicates on the primary validator agent too.
+            cursor.execute(
+                """
+                SELECT id
+                FROM agent_instructions
+                WHERE agent_id = %s AND content = %s
+                LIMIT 1;
+                """,
+                (primary_agent_id, instruction_content),
+            )
+            primary_existing = cursor.fetchone()
+
+            if not primary_existing:
+                cursor.execute(
+                    """
+                    SELECT COALESCE(MAX(position), 0) AS max_pos
+                    FROM agent_instructions
+                    WHERE agent_id = %s;
+                    """,
+                    (primary_agent_id,),
+                )
+                primary_pos_row = cursor.fetchone() or {"max_pos": 0}
+                next_position_primary = int(primary_pos_row.get("max_pos") or 0) + 1
+
+                cursor.execute(
+                    """
+                    INSERT INTO agent_instructions (
+                        agent_id,
+                        position,
+                        content
+                    )
+                    VALUES (%s, %s, %s);
+                    """,
+                    (primary_agent_id, next_position_primary, instruction_content),
+                )
+
         return {
             "status": "ok",
-            "message": "Query added to validation_blacklist instructions as BLACKLISTED_QUERY_EXAMPLE.",
+            "message": "Query added to blacklist examples for validation agents.",
             "agent_id": agent_id,
             "position": next_position,
         }
@@ -1807,7 +1889,8 @@ def add_query_to_whitelist_from_log(log_id: int) -> Dict[str, Any]:
 @admin_router.delete("/query-logs/{log_id}/blacklist", status_code=200)
 def remove_query_from_blacklist_from_log(log_id: int) -> Dict[str, Any]:
     """
-    Remove a BLACKLISTED_QUERY_EXAMPLE instruction matching this log's user_message.
+    Remove BLACKLISTED_QUERY_EXAMPLE instructions matching this log's user_message
+    from both the 'validation_blacklist' and 'validation_primary' agents (if present).
     """
     conn = _get_required_db_connection()
     try:
@@ -1833,35 +1916,38 @@ def remove_query_from_blacklist_from_log(log_id: int) -> Dict[str, Any]:
                 detail="Query log has no user_message to un-blacklist.",
             )
 
-        cursor.execute(
-            """
-            SELECT id
-            FROM llm_agents
-            WHERE agent_key = %s
-            LIMIT 1;
-            """,
-            ("validation_blacklist",),
-        )
-        agent_row = cursor.fetchone()
-        if not agent_row:
-            raise HTTPException(
-                status_code=404,
-                detail="validation_blacklist agent not found. Configure it in the admin dashboard first.",
-            )
-
-        agent_id = agent_row["id"]
         instruction_content = f"BLACKLISTED_QUERY_EXAMPLE: {user_message}"
 
-        cursor.execute(
-            """
-            DELETE FROM agent_instructions
-            WHERE agent_id = %s AND content = %s;
-            """,
-            (agent_id, instruction_content),
-        )
-        deleted = cursor.rowcount or 0
+        # Helper to delete from a single agent_key, ignoring missing agents.
+        def _delete_from_agent(agent_key: str) -> int:
+            cursor.execute(
+                """
+                SELECT id
+                FROM llm_agents
+                WHERE agent_key = %s
+                LIMIT 1;
+                """,
+                (agent_key,),
+            )
+            agent_row = cursor.fetchone()
+            if not agent_row:
+                return 0
 
-        if deleted == 0:
+            agent_id = agent_row["id"]
+            cursor.execute(
+                """
+                DELETE FROM agent_instructions
+                WHERE agent_id = %s AND content = %s;
+                """,
+                (agent_id, instruction_content),
+            )
+            return cursor.rowcount or 0
+
+        deleted_blacklist = _delete_from_agent("validation_blacklist")
+        deleted_primary = _delete_from_agent("validation_primary")
+        total_deleted = (deleted_blacklist or 0) + (deleted_primary or 0)
+
+        if total_deleted == 0:
             return {
                 "status": "ok",
                 "message": "Query was not present in blacklist instructions.",
@@ -2021,14 +2107,17 @@ def admin_home(request: Request) -> HTMLResponse:
     Serve the admin landing page.
 
     Behaviour:
-    - If an Okta-backed admin session is present (okta_user in session),
-      render the full admin home dashboard.
-    - If not authenticated, show the shared login preview page.
+    - When ADMIN_OKTA_ENABLED is not 'true', always render the full admin home
+      dashboard (no Okta auth required).
+    - Otherwise, if an Okta-backed admin session is present (okta_user in
+      session), render the full admin home dashboard.
+    - If Okta is enabled and not authenticated, show the shared login preview
+      page.
     """
     session_user = _get_session_user(request)
 
-    if session_user:
-        # Authenticated: render the full admin home dashboard.
+    # When Okta admin auth is disabled, treat the admin home as open access.
+    if not OKTA_ADMIN_ENABLED or session_user:
         home_path = ADMIN_UI_DIR / "home.html"
         try:
             html = home_path.read_text(encoding="utf-8")
@@ -2036,7 +2125,8 @@ def admin_home(request: Request) -> HTMLResponse:
             raise HTTPException(status_code=500, detail="Admin home HTML not found.")
         return HTMLResponse(content=html)
 
-    # Not authenticated: render the shared login preview.
+    # Okta is enabled and there is no authenticated session: render the shared
+    # login preview.
     return _render_login_html()
 
 

@@ -12,6 +12,7 @@ from zoneinfo import ZoneInfo
 from mysql.connector.cursor import MySQLCursorDict
 
 from config_db import get_db_connection
+from input_validation_pre_hook import get_standard_rejection_message
 
 
 @dataclass
@@ -70,7 +71,8 @@ def fetch_daily_metrics(target_date: Optional[date] = None) -> DailyMetrics:
     - queries blocked by Agent 1 (validation_primary) / Agent 2 (validation_blacklist)
     - queries blocked by both validators
     - queries that passed both validators (guardrails) overall
-    - queries that passed both validators but produced no final answer
+    - queries that passed both validators but were answered with the standard
+      rejection message by the main runtime agent
     - up to 10 most frequent answered queries
     - up to 10 most frequent rejected (blocked) queries
     """
@@ -78,6 +80,7 @@ def fetch_daily_metrics(target_date: Optional[date] = None) -> DailyMetrics:
         target_date = date.today()
 
     start_utc, end_utc = _day_utc_range_for_et(target_date)
+    rejection_message = get_standard_rejection_message()
 
     conn = get_db_connection()
     if conn is None:
@@ -153,7 +156,7 @@ def fetch_daily_metrics(target_date: Optional[date] = None) -> DailyMetrics:
         blocked_by_both = int(guard.get("blocked_by_both") or 0)
         passed_guardrails = int(guard.get("passed_guardrails") or 0)
 
-        # --- Passed guardrails but main agent had no answer ---
+        # --- Passed guardrails but main agent answered with standard rejection ---
         cursor.execute(
             """
             SELECT COUNT(*) AS no_answer_after_pass
@@ -182,10 +185,10 @@ def fetch_daily_metrics(target_date: Optional[date] = None) -> DailyMetrics:
                 ON q.id = s.query_id
             WHERE s.has_primary_blocked = 0
               AND s.has_blacklist_blocked = 0
-              AND (q.final_answer IS NULL OR TRIM(q.final_answer) = '')
-              AND q.status != 'blocked';
+              AND q.status = 'answered'
+              AND q.final_answer = %s;
             """,
-            (start_utc, end_utc),
+            (start_utc, end_utc, rejection_message),
         )
         row = cursor.fetchone() or {}
         no_answer_after_pass = int(row.get("no_answer_after_pass") or 0)
@@ -487,9 +490,9 @@ _BASE_EMAIL_TEMPLATE = """<!DOCTYPE html>
                             <div style="font-size:13px; font-weight:600; color:#713f12; margin-bottom:6px;">
                               No‑answer cases
                             </div>
-                            <div style="font-size:13px; color:#854d0e; line-height:1.5;">
+                          <div style="font-size:13px; color:#854d0e; line-height:1.5;">
                               {no_answer_after_pass} queries passed both guardrail agents
-                              but the main answer agent had no confident response.
+                              but the main answer agent returned the standard rejection message.
                             </div>
                           </td>
                         </tr>

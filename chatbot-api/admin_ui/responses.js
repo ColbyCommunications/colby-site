@@ -550,8 +550,7 @@
               ? escapeHTML(
                   [isLegit, reasoning]
                     .filter(Boolean)
-                    .join(' – ')
-                    .slice(0, 280),
+                    .join(' – '),
                 )
               : '';
             return `

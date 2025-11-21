@@ -153,7 +153,7 @@ function renderWeeklyMetrics(container, data, rangeLabel, rangeValue) {
         <div style="border-radius:14px;padding:12px 14px;border:1px solid rgba(250,204,21,0.4);background:rgba(113,63,18,0.45);">
           <div style="font-size:0.85rem;font-weight:600;margin-bottom:6px;">No‑answer cases</div>
           <div style="font-size:0.8rem;color:#fef9c3;line-height:1.5;">
-            ${noAnswerAfterPass} queries passed both guardrail agents but the main answer agent had no confident response.
+            ${noAnswerAfterPass} queries passed both guardrail agents but the main answer agent returned the standard rejection message.
           </div>
         </div>
       </div>

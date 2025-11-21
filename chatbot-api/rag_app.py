@@ -107,41 +107,94 @@ _config = get_agent_config()
 setup_cors(app, _config["cors_origins"])
 
 
-@app.get("/", include_in_schema=False)
-async def root_splash() -> HTMLResponse:
+@app.middleware("http")
+async def root_splash_middleware(request: Request, call_next):
     """
-    Human-friendly landing page for the /chatbot-api/ prefix.
+    Intercept requests to the public root (/chatbot-api/) and render the
+    login splash instead of the AgentOS JSON info response.
 
-    This avoids relying on HTTP redirects (which behave differently on Upsun)
-    and instead shows a clear \"Sign in to Admin\" button that links to the
-    Okta-backed admin login endpoint.
+    We do this in middleware so it runs *before* the AgentOS routes, which
+    also register a '/' path internally.
     """
-    html = """
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <title>Colby Chatbot API</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="admin/static/dashboard.css" />
-      </head>
-      <body style="background:#020617;color:#e5e7eb;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;">
-        <div style="max-width:720px;margin:60px auto;padding:24px;">
-          <h1 style="font-size:2rem;margin-bottom:8px;">Colby Chatbot API</h1>
-          <p class="inline-muted" style="margin-bottom:18px;color:#9ca3af;">
-            This endpoint hosts the runtime chatbot API and the Okta-protected admin dashboard.
-          </p>
-          <div style="margin-top:20px;">
-            <button onclick="window.location.href='./admin/login'"
-                    style="padding:10px 18px;border-radius:999px;border:none;background:#2563eb;color:white;font-weight:600;cursor:pointer;">
-              Sign in to Admin
-            </button>
-          </div>
-        </div>
-      </body>
-    </html>
-    """
-    return HTMLResponse(content=html)
+    full_path = request.scope.get("path") or request.url.path
+    root_path = request.scope.get("root_path") or getattr(request.app, "root_path", "") or ""
+
+    # Accept both '/chatbot-api' and '/chatbot-api/' (or just '/' in local dev).
+    targets = set()
+    if root_path:
+        targets.add(root_path)
+        targets.add(root_path + "/")
+    else:
+        targets.add("/")
+
+    if full_path in targets:
+        html = """
+        <!doctype html>
+        <html lang="en">
+          <head>
+            <meta charset="utf-8" />
+            <title>Colby Chatbot Admin – Sign In</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Use the admin dashboard theme so the login matches the UI -->
+            <link rel="stylesheet" href="admin/static/dashboard.css" />
+            <style>
+              body {
+                margin: 0;
+              }
+              .login-root {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 56px 24px;
+              }
+              .login-card {
+                max-width: 520px;
+                width: 100%;
+                text-align: center;
+                padding: 32px 40px;
+              }
+              .login-title {
+                font-size: 1.8rem;
+                margin: 0 0 16px 0;
+              }
+              .login-subtitle {
+                margin: 0 0 28px 0;
+              }
+              .login-card button {
+                margin-top: 4px;
+                padding: 10px 26px;
+                font-size: 0.95rem;
+              }
+              .login-footer {
+                margin-top: 22px;
+                font-size: 0.75rem;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="page login-root">
+              <section class="card login-card">
+                <h1 class="login-title">Login to Chatbot Dashboard</h1>
+                <p class="inline-muted login-subtitle">
+                  Sign in with your Colby account to access the admin dashboard.
+                </p>
+
+                <button onclick="window.location.href='./admin/login'">
+                  <span>Sign in with Okta</span>
+                </button>
+
+                <div class="login-footer inline-muted">
+                  Colby internal tool. All admin access is authenticated via Okta.
+                </div>
+              </section>
+            </div>
+          </body>
+        </html>
+        """
+        return HTMLResponse(content=html)
+
+    return await call_next(request)
 
 
 class AskRequest(BaseModel):

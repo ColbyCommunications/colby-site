@@ -7,8 +7,8 @@ import secrets
 
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
-from fastapi import Request, HTTPException
-from fastapi.responses import StreamingResponse
+from fastapi import Request, HTTPException, status
+from fastapi.responses import StreamingResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 
@@ -25,6 +25,7 @@ from query_logging import (
     start_request_log,
 )
 from runtime_rag_knowledge import build_agent, build_agent_query_with_context
+from admin_api import require_admin
 
 
 # Load environment variables early and ensure the config schema exists.
@@ -109,6 +110,46 @@ app.root_path = "/chatbot-api"
 # Setup CORS
 _config = get_agent_config()
 setup_cors(app, _config["cors_origins"])
+
+
+@app.middleware("http")
+async def okta_admin_middleware(request: Request, call_next):
+    """
+    Enforce Okta-backed admin authentication for all routes when enabled.
+
+    This reuses the existing `require_admin` logic so that:
+    - When ADMIN_OKTA_ENABLED is not 'true', all routes remain open.
+    - /admin/login, /admin/authorization-code/callback, and /admin/logout
+      stay exempt so the Okta flow can bootstrap.
+    - All other routes (including '/', '/info', '/ask', etc.) require an
+      authenticated Okta-backed admin session and redirect to /admin/login
+      when missing.
+
+    Using middleware here lets us convert the HTTPException raised by
+    `require_admin` into a proper RedirectResponse that browsers will follow,
+    instead of showing a JSON body like {"detail": "Redirecting to admin login."}.
+    """
+    try:
+        # This will:
+        # - no-op if ADMIN_OKTA_ENABLED is false
+        # - allow exempt paths (login/callback/logout) through
+        # - raise HTTPException with a redirect status + Location header when
+        #   an unauthenticated request targets a protected route.
+        require_admin(request)
+    except HTTPException as exc:
+        # Convert redirect-style HTTPExceptions into real redirect responses so
+        # that browsers navigate instead of rendering the JSON error payload.
+        if exc.status_code in (
+            status.HTTP_302_FOUND,
+            status.HTTP_307_TEMPORARY_REDIRECT,
+        ):
+            location = (exc.headers or {}).get("Location")
+            if location:
+                return RedirectResponse(url=location, status_code=exc.status_code)
+        # For non-redirect HTTPExceptions, fall back to FastAPI's normal handling.
+        raise
+
+    return await call_next(request)
 
 
 class AskRequest(BaseModel):

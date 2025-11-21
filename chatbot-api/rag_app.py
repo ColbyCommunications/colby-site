@@ -11,6 +11,7 @@ from fastapi import Request, HTTPException, status
 from fastapi.responses import StreamingResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 
 from agno.os import AgentOS
 from agno.agent import Agent
@@ -112,8 +113,7 @@ _config = get_agent_config()
 setup_cors(app, _config["cors_origins"])
 
 
-@app.middleware("http")
-async def okta_admin_middleware(request: Request, call_next):
+class OktaAdminMiddleware(BaseHTTPMiddleware):
     """
     Enforce Okta-backed admin authentication for all routes when enabled.
 
@@ -129,27 +129,33 @@ async def okta_admin_middleware(request: Request, call_next):
     `require_admin` into a proper RedirectResponse that browsers will follow,
     instead of showing a JSON body like {"detail": "Redirecting to admin login."}.
     """
-    try:
-        # This will:
-        # - no-op if ADMIN_OKTA_ENABLED is false
-        # - allow exempt paths (login/callback/logout) through
-        # - raise HTTPException with a redirect status + Location header when
-        #   an unauthenticated request targets a protected route.
-        require_admin(request)
-    except HTTPException as exc:
-        # Convert redirect-style HTTPExceptions into real redirect responses so
-        # that browsers navigate instead of rendering the JSON error payload.
-        if exc.status_code in (
-            status.HTTP_302_FOUND,
-            status.HTTP_307_TEMPORARY_REDIRECT,
-        ):
-            location = (exc.headers or {}).get("Location")
-            if location:
-                return RedirectResponse(url=location, status_code=exc.status_code)
-        # For non-redirect HTTPExceptions, fall back to FastAPI's normal handling.
-        raise
 
-    return await call_next(request)
+    async def dispatch(self, request: Request, call_next):
+        try:
+            # This will:
+            # - no-op if ADMIN_OKTA_ENABLED is false
+            # - allow exempt paths (login/callback/logout) through
+            # - raise HTTPException with a redirect status + Location header when
+            #   an unauthenticated request targets a protected route.
+            require_admin(request)
+        except HTTPException as exc:
+            # Convert redirect-style HTTPExceptions into real redirect responses so
+            # that browsers navigate instead of rendering the JSON error payload.
+            if exc.status_code in (
+                status.HTTP_302_FOUND,
+                status.HTTP_307_TEMPORARY_REDIRECT,
+            ):
+                location = (exc.headers or {}).get("Location")
+                if location:
+                    return RedirectResponse(url=location, status_code=exc.status_code)
+            # For non-redirect HTTPExceptions, fall back to FastAPI's normal handling.
+            raise
+
+        return await call_next(request)
+
+
+# Add Okta admin middleware after SessionMiddleware so request.session is available.
+app.add_middleware(OktaAdminMiddleware)
 
 
 class AskRequest(BaseModel):

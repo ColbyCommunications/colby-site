@@ -41,6 +41,7 @@ OKTA_ADMIN_ENABLED = os.getenv("ADMIN_OKTA_ENABLED", "false").lower() == "true"
 # routes can bootstrap authentication. These are defined relative to the app's
 # root (that is, they don't include any root_path such as /chatbot-api).
 _ADMIN_AUTH_EXEMPT_PATHS = {
+    "/admin/",
     "/admin/login",
     "/admin/authorization-code/callback",
     "/admin/logout",
@@ -1993,13 +1994,60 @@ def admin_home_js() -> FileResponse:
 
 
 @admin_router.get("/", response_class=HTMLResponse)
-def admin_home() -> HTMLResponse:
-    """Serve the admin landing page with navigation cards."""
-    home_path = ADMIN_UI_DIR / "home.html"
+def admin_home(request: Request) -> HTMLResponse:
+    """
+    Serve the admin landing page.
+
+    Behaviour:
+    - If an Okta-backed admin session is present (okta_user in session),
+      render the full admin home dashboard.
+    - If not authenticated, show a simple landing page with a prominent
+      \"Sign in\" button that links to the /admin/login entry point.
+    """
     try:
-        html = home_path.read_text(encoding="utf-8")
-    except FileNotFoundError:
-        raise HTTPException(status_code=500, detail="Admin home HTML not found.")
+        session_user = request.session.get(OKTA_SESSION_USER_KEY)
+    except Exception:  # pragma: no cover - defensive fallback
+        session_user = None
+
+    if session_user:
+        # Authenticated: render the full admin home dashboard.
+        home_path = ADMIN_UI_DIR / "home.html"
+        try:
+            html = home_path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            raise HTTPException(status_code=500, detail="Admin home HTML not found.")
+        return HTMLResponse(content=html)
+
+    # Not authenticated: render a lightweight landing page with a login button.
+    html = """
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <title>Colby Chatbot Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="static/dashboard.css" />
+      </head>
+      <body>
+        <div class="page">
+          <header style="margin-bottom:18px;">
+            <h1>Colby Chatbot Admin</h1>
+            <div class="subheading">
+              Sign in with your Colby account to access the analytics and configuration dashboard.
+            </div>
+          </header>
+          <div class="card">
+            <p class="inline-muted" style="margin-bottom:12px;">
+              Use the button below to launch the secure Okta login flow.
+            </p>
+            <button onclick="window.location.href='./login'">
+              <span>Sign in with Okta</span>
+            </button>
+          </div>
+        </div>
+      </body>
+    </html>
+    """
     return HTMLResponse(content=html)
 
 

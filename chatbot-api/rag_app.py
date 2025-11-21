@@ -8,7 +8,7 @@ import secrets
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from fastapi import Request, HTTPException
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 
@@ -25,7 +25,6 @@ from query_logging import (
     start_request_log,
 )
 from runtime_rag_knowledge import build_agent, build_agent_query_with_context
-from admin_api import require_admin
 
 
 # Load environment variables early and ensure the config schema exists.
@@ -99,21 +98,50 @@ app.add_middleware(
     https_only=os.getenv("ADMIN_SESSION_HTTPS_ONLY", "false").lower() == "true",
 )
 
-# Protect all routes (including AgentOS ones) with the existing Okta
-# `require_admin` dependency. This runs inside the normal request handling
-# after SessionMiddleware so request.session is always available.
-from fastapi import Depends  # noqa: E402
-
-app.router.dependencies.append(Depends(require_admin))
-
 # Configure root_path for Platform.sh routing
 # This tells FastAPI that all routes are prefixed with /chatbot-api
 app.root_path = "/chatbot-api"
 
-# Setup CORS after auth/session so that CORS headers apply to both normal and
-# redirected responses.
+# Setup CORS
 _config = get_agent_config()
 setup_cors(app, _config["cors_origins"])
+
+
+@app.get("/", include_in_schema=False)
+async def root_splash() -> HTMLResponse:
+    """
+    Human-friendly landing page for the /chatbot-api/ prefix.
+
+    This avoids relying on HTTP redirects (which behave differently on Upsun)
+    and instead shows a clear \"Sign in to Admin\" button that links to the
+    Okta-backed admin login endpoint.
+    """
+    html = """
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <title>Colby Chatbot API</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="admin/static/dashboard.css" />
+      </head>
+      <body style="background:#020617;color:#e5e7eb;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;">
+        <div style="max-width:720px;margin:60px auto;padding:24px;">
+          <h1 style="font-size:2rem;margin-bottom:8px;">Colby Chatbot API</h1>
+          <p class="inline-muted" style="margin-bottom:18px;color:#9ca3af;">
+            This endpoint hosts the runtime chatbot API and the Okta-protected admin dashboard.
+          </p>
+          <div style="margin-top:20px;">
+            <button onclick="window.location.href='./admin/login'"
+                    style="padding:10px 18px;border-radius:999px;border:none;background:#2563eb;color:white;font-weight:600;cursor:pointer;">
+              Sign in to Admin
+            </button>
+          </div>
+        </div>
+      </body>
+    </html>
+    """
+    return HTMLResponse(content=html)
 
 
 class AskRequest(BaseModel):

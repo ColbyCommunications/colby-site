@@ -45,6 +45,9 @@ _ADMIN_AUTH_EXEMPT_PATHS = {
     "/admin/login",
     "/admin/authorization-code/callback",
     "/admin/logout",
+    # HTML landing pages that render their own login preview when unauthenticated.
+    "/admin/responses",
+    "/admin/dashboard",
 }
 
 
@@ -1994,6 +1997,24 @@ def admin_home_js() -> FileResponse:
     return FileResponse(js_path, media_type="application/javascript")
 
 
+def _get_session_user(request: Request) -> Optional[dict]:
+    """Safely retrieve the Okta-backed admin user from the session, if present."""
+    try:
+        return request.session.get(OKTA_SESSION_USER_KEY)
+    except Exception:  # pragma: no cover - defensive fallback
+        return None
+
+
+def _render_login_html() -> HTMLResponse:
+    """Render the shared admin login preview HTML."""
+    login_path = ADMIN_UI_DIR / "login.html"
+    try:
+        html = login_path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="Admin login HTML not found.")
+    return HTMLResponse(content=html)
+
+
 @admin_router.get("/", response_class=HTMLResponse)
 def admin_home(request: Request) -> HTMLResponse:
     """
@@ -2002,13 +2023,9 @@ def admin_home(request: Request) -> HTMLResponse:
     Behaviour:
     - If an Okta-backed admin session is present (okta_user in session),
       render the full admin home dashboard.
-    - If not authenticated, show a simple landing page with a prominent
-      \"Sign in\" button that links to the /admin/login entry point.
+    - If not authenticated, show the shared login preview page.
     """
-    try:
-        session_user = request.session.get(OKTA_SESSION_USER_KEY)
-    except Exception:  # pragma: no cover - defensive fallback
-        session_user = None
+    session_user = _get_session_user(request)
 
     if session_user:
         # Authenticated: render the full admin home dashboard.
@@ -2019,42 +2036,23 @@ def admin_home(request: Request) -> HTMLResponse:
             raise HTTPException(status_code=500, detail="Admin home HTML not found.")
         return HTMLResponse(content=html)
 
-    # Not authenticated: render a lightweight landing page with a login button.
-    html = """
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <title>Colby Chatbot Admin</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="static/dashboard.css" />
-      </head>
-      <body>
-        <div class="page">
-          <header style="margin-bottom:18px;">
-            <h1>Colby Chatbot Admin</h1>
-            <div class="subheading">
-              Sign in with your Colby account to access the analytics and configuration dashboard.
-            </div>
-          </header>
-          <div class="card">
-            <p class="inline-muted" style="margin-bottom:12px;">
-              Use the button below to launch the secure Okta login flow.
-            </p>
-            <button onclick="window.location.href='./login'">
-              <span>Sign in with Okta</span>
-            </button>
-          </div>
-        </div>
-      </body>
-    </html>
-    """
-    return HTMLResponse(content=html)
+    # Not authenticated: render the shared login preview.
+    return _render_login_html()
 
 
 @admin_router.get("/responses", response_class=HTMLResponse)
-def admin_responses() -> HTMLResponse:
-    """Serve the responses/logs dashboard HTML page."""
+def admin_responses(request: Request) -> HTMLResponse:
+    """
+    Serve the responses/logs dashboard HTML page.
+
+    When ADMIN_OKTA_ENABLED is true and there is no authenticated session,
+    render the same login preview as the admin home instead of returning a
+    JSON redirect that Platform.sh pretty-prints.
+    """
+    session_user = _get_session_user(request)
+    if OKTA_ADMIN_ENABLED and not session_user:
+        return _render_login_html()
+
     responses_path = ADMIN_UI_DIR / "responses.html"
     try:
         html = responses_path.read_text(encoding="utf-8")
@@ -2064,8 +2062,17 @@ def admin_responses() -> HTMLResponse:
 
 
 @admin_router.get("/dashboard", response_class=HTMLResponse)
-def admin_dashboard() -> HTMLResponse:
-    """Serve the static admin dashboard HTML page."""
+def admin_dashboard(request: Request) -> HTMLResponse:
+    """
+    Serve the static admin dashboard HTML page.
+
+    When ADMIN_OKTA_ENABLED is true and there is no authenticated session,
+    render the shared login preview instead of a JSON redirect response.
+    """
+    session_user = _get_session_user(request)
+    if OKTA_ADMIN_ENABLED and not session_user:
+        return _render_login_html()
+
     index_path = ADMIN_UI_DIR / "index.html"
     try:
         html = index_path.read_text(encoding="utf-8")

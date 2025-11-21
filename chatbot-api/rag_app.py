@@ -128,70 +128,78 @@ async def root_splash_middleware(request: Request, call_next):
         targets.add("/")
 
     if full_path in targets:
-        html = """
-        <!doctype html>
-        <html lang="en">
-          <head>
-            <meta charset="utf-8" />
-            <title>Colby Chatbot Admin – Sign In</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <!-- Use the admin dashboard theme so the login matches the UI -->
-            <link rel="stylesheet" href="admin/static/dashboard.css" />
-            <style>
-              body {
-                margin: 0;
-              }
-              .login-root {
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 56px 24px;
-              }
-              .login-card {
-                max-width: 520px;
-                width: 100%;
-                text-align: center;
-                padding: 32px 40px;
-              }
-              .login-title {
-                font-size: 1.8rem;
-                margin: 0 0 16px 0;
-              }
-              .login-subtitle {
-                margin: 0 0 28px 0;
-              }
-              .login-card button {
-                margin-top: 4px;
-                padding: 10px 26px;
-                font-size: 0.95rem;
-              }
-              .login-footer {
-                margin-top: 22px;
-                font-size: 0.75rem;
-              }
-            </style>
-          </head>
-          <body>
-            <div class="page login-root">
-              <section class="card login-card">
-                <h1 class="login-title">Login to Chatbot Dashboard</h1>
-                <p class="inline-muted login-subtitle">
-                  Sign in with your Colby account to access the admin dashboard.
-                </p>
+        # Build absolute URLs so CSS and links work whether or not the URL
+        # ends with a trailing slash.
+        base = (root_path or "").rstrip("/")
+        if base:
+            css_href = f"{base}/admin/static/dashboard.css"
+            login_href = f"{base}/admin/login"
+        else:
+            css_href = "/admin/static/dashboard.css"
+            login_href = "/admin/login"
 
-                <button onclick="window.location.href='./admin/login'">
-                  <span>Sign in with Okta</span>
-                </button>
+        html = f"""<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Colby Chatbot Admin – Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Use the admin dashboard theme so the login matches the UI -->
+    <link rel="stylesheet" href="{css_href}" />
+    <style>
+      body {{
+        margin: 0;
+      }}
+      .login-root {{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 56px 24px;
+      }}
+      .login-card {{
+        max-width: 520px;
+        width: 100%;
+        text-align: center;
+        padding: 32px 40px;
+      }}
+      .login-title {{
+        font-size: 1.8rem;
+        margin: 0 0 16px 0;
+      }}
+      .login-subtitle {{
+        margin: 0 0 28px 0;
+      }}
+      .login-card button {{
+        margin-top: 4px;
+        padding: 10px 26px;
+        font-size: 0.95rem;
+      }}
+      .login-footer {{
+        margin-top: 22px;
+        font-size: 0.75rem;
+      }}
+    </style>
+  </head>
+  <body>
+    <div class="page login-root">
+      <section class="card login-card">
+        <h1 class="login-title">Login to Chatbot Dashboard</h1>
+        <p class="inline-muted login-subtitle">
+          Sign in with your Colby account to access the admin dashboard.
+        </p>
 
-                <div class="login-footer inline-muted">
-                  Colby internal tool. All admin access is authenticated via Okta.
-                </div>
-              </section>
-            </div>
-          </body>
-        </html>
-        """
+        <button onclick="window.location.href='{login_href}'">
+          <span>Sign in with Okta</span>
+        </button>
+
+        <div class="login-footer inline-muted">
+          Colby internal tool. All admin access is authenticated via Okta.
+        </div>
+      </section>
+    </div>
+  </body>
+</html>"""
         return HTMLResponse(content=html)
 
     return await call_next(request)

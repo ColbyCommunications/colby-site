@@ -86,33 +86,6 @@ bootstrap_assistant: Agent = create_assistant()
 agent_os: AgentOS = create_agent_os(bootstrap_assistant)
 app = agent_os.get_app()
 
-# Add session middleware for admin authentication (Okta-backed).
-_session_secret_key = os.getenv("ADMIN_SESSION_SECRET") or os.getenv(
-    "APP_SESSION_SECRET"
-)
-if not _session_secret_key:
-    # Fallback to an in-memory secret for local development if none is provided.
-    # For production deployments, ADMIN_SESSION_SECRET or APP_SESSION_SECRET
-    # must be configured to ensure stable, secure cookies.
-    _session_secret_key = secrets.token_hex(32)
-
-app.add_middleware(
-    SessionMiddleware,
-    secret_key=_session_secret_key,
-    session_cookie=os.getenv("ADMIN_SESSION_COOKIE_NAME", "colby_admin_session"),
-    same_site=os.getenv("ADMIN_SESSION_SAME_SITE", "lax"),
-    https_only=os.getenv("ADMIN_SESSION_HTTPS_ONLY", "false").lower() == "true",
-)
-
-# Configure root_path for Platform.sh routing
-# This tells FastAPI that all routes are prefixed with /chatbot-api
-app.root_path = "/chatbot-api"
-
-# Setup CORS
-_config = get_agent_config()
-setup_cors(app, _config["cors_origins"])
-
-
 class OktaAdminMiddleware(BaseHTTPMiddleware):
     """
     Enforce Okta-backed admin authentication for all routes when enabled.
@@ -154,8 +127,29 @@ class OktaAdminMiddleware(BaseHTTPMiddleware):
         return await call_next(request)
 
 
-# Add Okta admin middleware after SessionMiddleware so request.session is available.
+# Configure session secret for admin authentication (Okta-backed).
+_session_secret_key = os.getenv("ADMIN_SESSION_SECRET") or os.getenv(
+    "APP_SESSION_SECRET"
+)
+
+# Configure root_path for Platform.sh routing
+# This tells FastAPI that all routes are prefixed with /chatbot-api
+app.root_path = "/chatbot-api"
+
+# Add Session middleware first so that request.session is populated.
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=_session_secret_key,
+    session_cookie=os.getenv("ADMIN_SESSION_COOKIE_NAME", "colby_admin_session"),
+    same_site=os.getenv("ADMIN_SESSION_SAME_SITE", "lax"),
+    https_only=os.getenv("ADMIN_SESSION_HTTPS_ONLY", "false").lower() == "true",
+)
 app.add_middleware(OktaAdminMiddleware)
+
+
+# Setup CORS
+_config = get_agent_config()
+setup_cors(app, _config["cors_origins"])
 
 
 class AskRequest(BaseModel):

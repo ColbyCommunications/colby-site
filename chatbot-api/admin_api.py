@@ -105,7 +105,20 @@ def require_admin(request: Request) -> None:
         )
         return
 
-    session_user = request.session.get(OKTA_SESSION_USER_KEY)
+    # Accessing request.session requires SessionMiddleware. In some hosting
+    # setups or early middleware hooks this may not yet be installed; in that
+    # case, treat the session as empty instead of raising a RuntimeError so
+    # we can still issue a redirect to the admin login page.
+    try:
+        session = request.session
+    except RuntimeError:
+        logger.warning(
+            "require_admin: SessionMiddleware not installed; treating session as empty for path=%s",
+            path,
+        )
+        session = {}
+
+    session_user = session.get(OKTA_SESSION_USER_KEY)
     logger.info(
         "require_admin: path=%s exempt=%s has_user=%s",
         path,

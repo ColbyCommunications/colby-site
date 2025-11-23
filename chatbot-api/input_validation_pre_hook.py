@@ -14,7 +14,7 @@ from agno.run.agent import RunInput
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
-from config_db import get_app_message, load_agent_config
+from config_db import get_app_message, get_query_examples, load_agent_config
 from query_logging import add_log_part, mark_blocked_by
 from validation_search_context import build_validation_payload
 
@@ -130,6 +130,29 @@ def _default_blacklist_instructions() -> List[str]:
     ]
 
 
+def _append_query_examples_to_instructions(
+    instructions: List[str],
+    header: str,
+    prefix: str,
+    queries: List[str],
+) -> None:
+    """
+    Append a small, clearly-marked section of admin-provided query examples to
+    an instructions list. Each example is rendered as a single instruction line
+    with the given prefix.
+    """
+    if not queries:
+        return
+
+    instructions.append("")
+    instructions.append(header)
+    for q in queries:
+        text = (q or "").strip()
+        if not text:
+            continue
+        instructions.append(f"{prefix}{text}")
+
+
 def colby_query_validation(run_input: RunInput) -> None:
     """
     Pre-hook: Validates that the query is legitimate for Colby College information.
@@ -202,6 +225,20 @@ def colby_query_validation(run_input: RunInput) -> None:
             "'validation_primary' agent.",
             *instructions,
         ]
+
+    # Append any admin-provided whitelist examples so the validator can treat
+    # them as always-legitimate Colby queries.
+    try:
+        whitelist_examples = get_query_examples("whitelist")
+    except Exception:
+        whitelist_examples = []
+
+    _append_query_examples_to_instructions(
+        instructions,
+        "ADMIN-PROVIDED WHITELISTED QUERY EXAMPLES (always treat these as legitimate Colby queries):",
+        "WHITELISTED_QUERY_EXAMPLE: ",
+        whitelist_examples,
+    )
 
     # Input validation agent
     validator_agent = Agent(
@@ -302,6 +339,20 @@ def colby_blacklist_validation(run_input: RunInput) -> None:
             "'validation_blacklist' agent.",
             *instructions,
         ]
+
+    # Append any admin-provided blacklist examples so this validator can learn
+    # from specific queries that must always be blocked.
+    try:
+        blacklist_examples = get_query_examples("blacklist")
+    except Exception:
+        blacklist_examples = []
+
+    _append_query_examples_to_instructions(
+        instructions,
+        "ADMIN-PROVIDED BLACKLISTED QUERY EXAMPLES (always treat these as blocked):",
+        "BLACKLISTED_QUERY_EXAMPLE: ",
+        blacklist_examples,
+    )
 
     validator_agent = Agent(
         name=name,

@@ -280,6 +280,19 @@ class WeeklyMetricsDTO(BaseModel):
     no_answer_after_pass: int
 
 
+class TrainingExamplesDTO(BaseModel):
+    """Global whitelist/blacklist training examples used by validator agents."""
+
+    blacklist_queries: List[str] = Field(
+        default_factory=list,
+        description="Queries that should always be treated as BLACKLISTED_QUERY_EXAMPLE.",
+    )
+    whitelist_queries: List[str] = Field(
+        default_factory=list,
+        description="Queries that should always be treated as WHITELISTED_QUERY_EXAMPLE.",
+    )
+
+
 def _get_required_db_connection():
     """Return a live config DB connection or raise 503 if unavailable."""
     conn = get_db_connection()
@@ -1298,6 +1311,98 @@ def get_weekly_metrics(
             pass
 
 
+@admin_router.get("/training-examples", response_model=TrainingExamplesDTO)
+def get_training_examples() -> TrainingExamplesDTO:
+    """
+    Fetch all global blacklist and whitelist training examples from query_examples.
+    """
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        cursor.execute(
+            """
+            SELECT kind, query_text
+            FROM query_examples
+            WHERE kind IN ('blacklist', 'whitelist')
+            ORDER BY kind ASC, query_text ASC;
+            """
+        )
+        rows = cursor.fetchall() or []
+
+        blacklist: List[str] = []
+        whitelist: List[str] = []
+        for row in rows:
+            text = (row.get("query_text") or "").strip()
+            if not text:
+                continue
+            if row.get("kind") == "blacklist":
+                blacklist.append(text)
+            elif row.get("kind") == "whitelist":
+                whitelist.append(text)
+
+        return TrainingExamplesDTO(
+            blacklist_queries=blacklist,
+            whitelist_queries=whitelist,
+        )
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
+@admin_router.put("/training-examples", response_model=TrainingExamplesDTO)
+def put_training_examples(payload: TrainingExamplesDTO) -> TrainingExamplesDTO:
+    """
+    Replace the current blacklist/whitelist examples with the provided lists.
+    """
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        # Normalize and de-duplicate incoming queries.
+        blacklist = sorted(
+            {q.strip() for q in payload.blacklist_queries if (q or "").strip()}
+        )
+        whitelist = sorted(
+            {q.strip() for q in payload.whitelist_queries if (q or "").strip()}
+        )
+
+        # Clear existing examples for these kinds.
+        cursor.execute("DELETE FROM query_examples WHERE kind IN ('blacklist', 'whitelist');")
+
+        # Re-insert blacklist examples.
+        for text in blacklist:
+            cursor.execute(
+                """
+                INSERT INTO query_examples (kind, query_text)
+                VALUES ('blacklist', %s);
+                """,
+                (text,),
+            )
+
+        # Re-insert whitelist examples.
+        for text in whitelist:
+            cursor.execute(
+                """
+                INSERT INTO query_examples (kind, query_text)
+                VALUES ('whitelist', %s);
+                """,
+                (text,),
+            )
+
+        return TrainingExamplesDTO(
+            blacklist_queries=blacklist,
+            whitelist_queries=whitelist,
+        )
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
 @admin_router.get("/query-logs", response_model=List[QueryLogDTO])
 def list_query_logs(
     start_date: Optional[str] = Query(default=None),
@@ -1372,28 +1477,26 @@ def list_query_logs(
                 clauses.append("q.status = %s")
                 params.append(status_filter)
             elif status_filter == "blacklisted":
+                # Queries that have been explicitly added as blacklist examples.
                 clauses.append(
                     """
                     EXISTS (
                         SELECT 1
-                        FROM llm_agents a
-                        JOIN agent_instructions ai ON ai.agent_id = a.id
-                        WHERE a.agent_key = 'validation_blacklist'
-                          AND ai.content = CONCAT('BLACKLISTED_QUERY_EXAMPLE: ', q.user_message)
-                        LIMIT 1
+                        FROM query_examples e
+                        WHERE e.kind = 'blacklist'
+                          AND e.query_text = q.user_message
                     )
                     """
                 )
             elif status_filter == "whitelisted":
+                # Queries that have been explicitly added as whitelist examples.
                 clauses.append(
                     """
                     EXISTS (
                         SELECT 1
-                        FROM llm_agents a2
-                        JOIN agent_instructions ai2 ON ai2.agent_id = a2.id
-                        WHERE a2.agent_key = 'validation_blacklist'
-                          AND ai2.content = CONCAT('WHITELISTED_QUERY_EXAMPLE: ', q.user_message)
-                        LIMIT 1
+                        FROM query_examples e
+                        WHERE e.kind = 'whitelist'
+                          AND e.query_text = q.user_message
                     )
                     """
                 )
@@ -1436,19 +1539,15 @@ def list_query_logs(
                 q.error_message,
                 EXISTS (
                     SELECT 1
-                    FROM llm_agents a
-                    JOIN agent_instructions ai ON ai.agent_id = a.id
-                    WHERE a.agent_key = 'validation_blacklist'
-                      AND ai.content = CONCAT('BLACKLISTED_QUERY_EXAMPLE: ', q.user_message)
-                    LIMIT 1
+                    FROM query_examples e
+                    WHERE e.kind = 'blacklist'
+                      AND e.query_text = q.user_message
                 ) AS is_blacklist_example,
                 EXISTS (
                     SELECT 1
-                    FROM llm_agents a2
-                    JOIN agent_instructions ai2 ON ai2.agent_id = a2.id
-                    WHERE a2.agent_key = 'validation_blacklist'
-                      AND ai2.content = CONCAT('WHITELISTED_QUERY_EXAMPLE: ', q.user_message)
-                    LIMIT 1
+                    FROM query_examples e2
+                    WHERE e2.kind = 'whitelist'
+                      AND e2.query_text = q.user_message
                 ) AS is_whitelist_example
             FROM query_logs AS q
             {where_sql}
@@ -1490,19 +1589,15 @@ def get_query_log(log_id: int) -> QueryLogDTO:
                 q.error_message,
                 EXISTS (
                     SELECT 1
-                    FROM llm_agents a
-                    JOIN agent_instructions ai ON ai.agent_id = a.id
-                    WHERE a.agent_key = 'validation_blacklist'
-                      AND ai.content = CONCAT('BLACKLISTED_QUERY_EXAMPLE: ', q.user_message)
-                    LIMIT 1
+                    FROM query_examples e
+                    WHERE e.kind = 'blacklist'
+                      AND e.query_text = q.user_message
                 ) AS is_blacklist_example,
                 EXISTS (
                     SELECT 1
-                    FROM llm_agents a2
-                    JOIN agent_instructions ai2 ON ai2.agent_id = a2.id
-                    WHERE a2.agent_key = 'validation_blacklist'
-                      AND ai2.content = CONCAT('WHITELISTED_QUERY_EXAMPLE: ', q.user_message)
-                    LIMIT 1
+                    FROM query_examples e2
+                    WHERE e2.kind = 'whitelist'
+                      AND e2.query_text = q.user_message
                 ) AS is_whitelist_example
             FROM query_logs AS q
             WHERE q.id = %s
@@ -1588,131 +1683,22 @@ def add_query_to_blacklist_from_log(log_id: int) -> Dict[str, Any]:
 
         user_message = (row.get("user_message") or "").strip()
         if not user_message:
-            raise HTTPException(status_code=400, detail="Query log has no user_message to blacklist.")
-
-        # Find the validation_blacklist agent.
-        cursor.execute(
-            """
-            SELECT id
-            FROM llm_agents
-            WHERE agent_key = %s
-            LIMIT 1;
-            """,
-            ("validation_blacklist",),
-        )
-        agent_row = cursor.fetchone()
-        if not agent_row:
             raise HTTPException(
-                status_code=404,
-                detail="validation_blacklist agent not found. Configure it in the admin dashboard first.",
+                status_code=400,
+                detail="Query log has no user_message to blacklist.",
             )
 
-        instruction_content = f"BLACKLISTED_QUERY_EXAMPLE: {user_message}"
-        agent_id = agent_row["id"]
-
-        # Avoid duplicate entries for the same query.
         cursor.execute(
             """
-            SELECT id
-            FROM agent_instructions
-            WHERE agent_id = %s AND content = %s
-            LIMIT 1;
+            INSERT IGNORE INTO query_examples (kind, query_text, source_log_id)
+            VALUES ('blacklist', %s, %s);
             """,
-            (agent_id, instruction_content),
+            (user_message, log_id),
         )
-        existing = cursor.fetchone()
-        if existing:
-            return {
-                "status": "ok",
-                "message": "Query is already present in validation_blacklist instructions.",
-            }
-
-        # Determine next position.
-        cursor.execute(
-            """
-            SELECT COALESCE(MAX(position), 0) AS max_pos
-            FROM agent_instructions
-            WHERE agent_id = %s;
-            """,
-            (agent_id,),
-        )
-        pos_row = cursor.fetchone() or {"max_pos": 0}
-        next_position = int(pos_row.get("max_pos") or 0) + 1
-
-        # Insert new blacklist instruction.
-        cursor.execute(
-            """
-            INSERT INTO agent_instructions (
-                agent_id,
-                position,
-                content
-            )
-            VALUES (%s, %s, %s);
-            """,
-            (agent_id, next_position, instruction_content),
-        )
-
-        # --- 2) Mirror blacklist example onto the validation_primary agent ---
-        # If a primary validator agent exists, add (or ensure) the same blacklist
-        # example is present there as well so it can learn from blocked queries.
-        try:
-            cursor.execute(
-                """
-                SELECT id
-                FROM llm_agents
-                WHERE agent_key = %s
-                LIMIT 1;
-                """,
-                ("validation_primary",),
-            )
-            primary_agent_row = cursor.fetchone()
-        except Exception:
-            primary_agent_row = None
-
-        if primary_agent_row:
-            primary_agent_id = primary_agent_row["id"]
-
-            # Avoid duplicates on the primary validator agent too.
-            cursor.execute(
-                """
-                SELECT id
-                FROM agent_instructions
-                WHERE agent_id = %s AND content = %s
-                LIMIT 1;
-                """,
-                (primary_agent_id, instruction_content),
-            )
-            primary_existing = cursor.fetchone()
-
-            if not primary_existing:
-                cursor.execute(
-                    """
-                    SELECT COALESCE(MAX(position), 0) AS max_pos
-                    FROM agent_instructions
-                    WHERE agent_id = %s;
-                    """,
-                    (primary_agent_id,),
-                )
-                primary_pos_row = cursor.fetchone() or {"max_pos": 0}
-                next_position_primary = int(primary_pos_row.get("max_pos") or 0) + 1
-
-                cursor.execute(
-                    """
-                    INSERT INTO agent_instructions (
-                        agent_id,
-                        position,
-                        content
-                    )
-                    VALUES (%s, %s, %s);
-                    """,
-                    (primary_agent_id, next_position_primary, instruction_content),
-                )
 
         return {
             "status": "ok",
-            "message": "Query added to blacklist examples for validation agents.",
-            "agent_id": agent_id,
-            "position": next_position,
+            "message": "Query added to blacklist examples.",
         }
     finally:
         try:
@@ -1752,132 +1738,22 @@ def add_query_to_whitelist_from_log(log_id: int) -> Dict[str, Any]:
 
         user_message = (row.get("user_message") or "").strip()
         if not user_message:
-            raise HTTPException(status_code=400, detail="Query log has no user_message to whitelist.")
-
-        # Common instruction line used for all agents that support query
-        # whitelisting via examples.
-        instruction_content = f"WHITELISTED_QUERY_EXAMPLE: {user_message}"
-
-        # --- 1) Add whitelist example to the validation_blacklist agent ---
-        cursor.execute(
-            """
-            SELECT id
-            FROM llm_agents
-            WHERE agent_key = %s
-            LIMIT 1;
-            """,
-            ("validation_blacklist",),
-        )
-        agent_row = cursor.fetchone()
-        if not agent_row:
             raise HTTPException(
-                status_code=404,
-                detail="validation_blacklist agent not found. Configure it in the admin dashboard first.",
+                status_code=400,
+                detail="Query log has no user_message to whitelist.",
             )
 
-        blacklist_agent_id = agent_row["id"]
-
-        # Avoid duplicate entries for the same query on the blacklist validator.
         cursor.execute(
             """
-            SELECT id
-            FROM agent_instructions
-            WHERE agent_id = %s AND content = %s
-            LIMIT 1;
+            INSERT IGNORE INTO query_examples (kind, query_text, source_log_id)
+            VALUES ('whitelist', %s, %s);
             """,
-            (blacklist_agent_id, instruction_content),
+            (user_message, log_id),
         )
-        existing = cursor.fetchone()
-
-        if not existing:
-            # Determine next position for validation_blacklist.
-            cursor.execute(
-                """
-                SELECT COALESCE(MAX(position), 0) AS max_pos
-                FROM agent_instructions
-                WHERE agent_id = %s;
-                """,
-                (blacklist_agent_id,),
-            )
-            pos_row = cursor.fetchone() or {"max_pos": 0}
-            next_position_blacklist = int(pos_row.get("max_pos") or 0) + 1
-
-            # Insert new whitelist instruction for the blacklist validator.
-            cursor.execute(
-                """
-                INSERT INTO agent_instructions (
-                    agent_id,
-                    position,
-                    content
-                )
-                VALUES (%s, %s, %s);
-                """,
-                (blacklist_agent_id, next_position_blacklist, instruction_content),
-            )
-        else:
-            next_position_blacklist = None
-
-        # --- 2) Mirror whitelist example onto the validation_primary agent ---
-        # If a primary validator agent exists, add (or ensure) the same whitelist
-        # example is present there as well so it does not block the query.
-        try:
-            cursor.execute(
-                """
-                SELECT id
-                FROM llm_agents
-                WHERE agent_key = %s
-                LIMIT 1;
-                """,
-                ("validation_primary",),
-            )
-            primary_agent_row = cursor.fetchone()
-        except Exception:
-            primary_agent_row = None
-
-        if primary_agent_row:
-            primary_agent_id = primary_agent_row["id"]
-
-            # Avoid duplicates on the primary validator agent too.
-            cursor.execute(
-                """
-                SELECT id
-                FROM agent_instructions
-                WHERE agent_id = %s AND content = %s
-                LIMIT 1;
-                """,
-                (primary_agent_id, instruction_content),
-            )
-            primary_existing = cursor.fetchone()
-
-            if not primary_existing:
-                cursor.execute(
-                    """
-                    SELECT COALESCE(MAX(position), 0) AS max_pos
-                    FROM agent_instructions
-                    WHERE agent_id = %s;
-                    """,
-                    (primary_agent_id,),
-                )
-                primary_pos_row = cursor.fetchone() or {"max_pos": 0}
-                next_position_primary = int(primary_pos_row.get("max_pos") or 0) + 1
-
-                cursor.execute(
-                    """
-                    INSERT INTO agent_instructions (
-                        agent_id,
-                        position,
-                        content
-                    )
-                    VALUES (%s, %s, %s);
-                    """,
-                    (primary_agent_id, next_position_primary, instruction_content),
-                )
 
         return {
             "status": "ok",
-            "message": "Query added to whitelist examples for validation agents.",
-            "agent_id": blacklist_agent_id,
-            "position": next_position_blacklist,
+            "message": "Query added to whitelist examples.",
         }
     finally:
         try:
@@ -1916,46 +1792,23 @@ def remove_query_from_blacklist_from_log(log_id: int) -> Dict[str, Any]:
                 detail="Query log has no user_message to un-blacklist.",
             )
 
-        instruction_content = f"BLACKLISTED_QUERY_EXAMPLE: {user_message}"
+        cursor.execute(
+            """
+            DELETE FROM query_examples
+            WHERE kind = 'blacklist' AND query_text = %s;
+            """,
+            (user_message,),
+        )
 
-        # Helper to delete from a single agent_key, ignoring missing agents.
-        def _delete_from_agent(agent_key: str) -> int:
-            cursor.execute(
-                """
-                SELECT id
-                FROM llm_agents
-                WHERE agent_key = %s
-                LIMIT 1;
-                """,
-                (agent_key,),
-            )
-            agent_row = cursor.fetchone()
-            if not agent_row:
-                return 0
-
-            agent_id = agent_row["id"]
-            cursor.execute(
-                """
-                DELETE FROM agent_instructions
-                WHERE agent_id = %s AND content = %s;
-                """,
-                (agent_id, instruction_content),
-            )
-            return cursor.rowcount or 0
-
-        deleted_blacklist = _delete_from_agent("validation_blacklist")
-        deleted_primary = _delete_from_agent("validation_primary")
-        total_deleted = (deleted_blacklist or 0) + (deleted_primary or 0)
-
-        if total_deleted == 0:
+        if cursor.rowcount == 0:
             return {
                 "status": "ok",
-                "message": "Query was not present in blacklist instructions.",
+                "message": "Query was not present in blacklist examples.",
             }
 
         return {
             "status": "ok",
-            "message": "Query removed from BLACKLISTED_QUERY_EXAMPLE instructions.",
+            "message": "Query removed from blacklist examples.",
         }
     finally:
         try:
@@ -1994,46 +1847,23 @@ def remove_query_from_whitelist_from_log(log_id: int) -> Dict[str, Any]:
                 detail="Query log has no user_message to un-whitelist.",
             )
 
-        instruction_content = f"WHITELISTED_QUERY_EXAMPLE: {user_message}"
+        cursor.execute(
+            """
+            DELETE FROM query_examples
+            WHERE kind = 'whitelist' AND query_text = %s;
+            """,
+            (user_message,),
+        )
 
-        # Helper to delete from a single agent_key, ignoring missing agents.
-        def _delete_from_agent(agent_key: str) -> int:
-            cursor.execute(
-                """
-                SELECT id
-                FROM llm_agents
-                WHERE agent_key = %s
-                LIMIT 1;
-                """,
-                (agent_key,),
-            )
-            agent_row_inner = cursor.fetchone()
-            if not agent_row_inner:
-                return 0
-
-            agent_id_inner = agent_row_inner["id"]
-            cursor.execute(
-                """
-                DELETE FROM agent_instructions
-                WHERE agent_id = %s AND content = %s;
-                """,
-                (agent_id_inner, instruction_content),
-            )
-            return cursor.rowcount or 0
-
-        deleted_blacklist = _delete_from_agent("validation_blacklist")
-        deleted_primary = _delete_from_agent("validation_primary")
-        total_deleted = (deleted_blacklist or 0) + (deleted_primary or 0)
-
-        if total_deleted == 0:
+        if cursor.rowcount == 0:
             return {
                 "status": "ok",
-                "message": "Query was not present in whitelist instructions.",
+                "message": "Query was not present in whitelist examples.",
             }
 
         return {
             "status": "ok",
-            "message": "Query removed from WHITELISTED_QUERY_EXAMPLE instructions.",
+            "message": "Query removed from whitelist examples.",
         }
     finally:
         try:

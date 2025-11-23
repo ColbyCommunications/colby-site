@@ -12,6 +12,15 @@
   const rejectionTextarea = document.getElementById('rejectionMessage');
   const rejectionStatus = document.getElementById('rejectionStatus');
   const saveRejectionBtn = document.getElementById('saveRejectionBtn');
+  const trainingExamplesCard = document.getElementById('trainingExamplesCard');
+  const blacklistExamplesList = document.getElementById('blacklistExamplesList');
+  const whitelistExamplesList = document.getElementById('whitelistExamplesList');
+  const blacklistExamplesSearch = document.getElementById('blacklistExamplesSearch');
+  const whitelistExamplesSearch = document.getElementById('whitelistExamplesSearch');
+  const addBlacklistExampleBtn = document.getElementById('addBlacklistExampleBtn');
+  const addWhitelistExampleBtn = document.getElementById('addWhitelistExampleBtn');
+  const saveTrainingExamplesBtn = document.getElementById('saveTrainingExamplesBtn');
+  const trainingExamplesStatus = document.getElementById('trainingExamplesStatus');
 
   function setGlobalStatus(text, type) {
     globalStatusEl.textContent = text || '';
@@ -100,6 +109,256 @@
     saveRejectionMessage();
   });
 
+  // --- Training examples (whitelist/blacklist) section ---
+
+  function createTrainingRow(kind, value) {
+    const row = document.createElement('div');
+    row.className = 'training-row';
+    row.style.display = 'block';
+    row.style.marginBottom = '6px';
+
+    const top = document.createElement('div');
+    top.style.display = 'flex';
+    top.style.alignItems = 'center';
+    top.style.gap = '6px';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.value = value || '';
+    input.className = 'training-input';
+    input.dataset.kind = kind;
+    input.readOnly = true;
+    input.style.flex = '1';
+    input.style.minWidth = '0';
+
+    const actions = document.createElement('div');
+    actions.style.display = 'flex';
+    actions.style.gap = '4px';
+
+    const editBtn = document.createElement('button');
+    editBtn.type = 'button';
+    editBtn.className = 'icon-button';
+    editBtn.setAttribute('data-action', 'edit');
+    editBtn.setAttribute('aria-label', 'Edit query');
+    editBtn.innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 13.5V16h2.5L15 7.5 12.5 5 4 13.5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M11.5 4.5 13 3l2 2-1.5 1.5"/></svg>';
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.type = 'button';
+    deleteBtn.className = 'icon-button';
+    deleteBtn.setAttribute('data-action', 'delete');
+    deleteBtn.setAttribute('aria-label', 'Delete query');
+    deleteBtn.innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h8M8 6v8m4-8v8M5 4h10l-1 12H6L5 4zM8 4h4l-.5-1h-3L8 4z"/></svg>';
+
+    actions.appendChild(editBtn);
+    actions.appendChild(deleteBtn);
+
+    top.appendChild(input);
+    top.appendChild(actions);
+    row.appendChild(top);
+
+    return row;
+  }
+
+  function renderTrainingList(container, kind, items) {
+    if (!container) return;
+    container.innerHTML = '';
+    if (!Array.isArray(items) || items.length === 0) {
+      // Start with a single empty row so it's obvious you can add entries.
+      container.appendChild(createTrainingRow(kind, ''));
+      return;
+    }
+    items.forEach((q) => {
+      container.appendChild(createTrainingRow(kind, q));
+    });
+  }
+
+  function collectTrainingValues(container) {
+    if (!container) return [];
+    const inputs = Array.from(container.querySelectorAll('input.training-input'));
+    return inputs
+      .map((input) => (input.value || '').trim())
+      .filter(Boolean);
+  }
+
+  function attachTrainingListHandlers(container) {
+    if (!container) return;
+    container.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const button = target.closest('button[data-action]');
+      if (!button) return;
+
+      const action = button.getAttribute('data-action');
+      const row = button.closest('.training-row');
+      if (!row) return;
+      const input = row.querySelector('input.training-input');
+      if (!input) return;
+
+      if (action === 'edit') {
+        const readonly = input.readOnly;
+        input.readOnly = !readonly;
+        if (!input.readOnly) {
+          // Enter edit mode.
+          row.classList.add('editing');
+          input.focus();
+          try {
+            const len = input.value.length;
+            input.setSelectionRange(len, len);
+          } catch (e) {
+            // ignore
+          }
+        } else {
+          row.classList.remove('editing');
+        }
+      } else if (action === 'delete') {
+        row.remove();
+      }
+    });
+  }
+
+  attachTrainingListHandlers(blacklistExamplesList);
+  attachTrainingListHandlers(whitelistExamplesList);
+
+  function applyTrainingFilter(container, searchInput) {
+    if (!container || !searchInput) return;
+    const term = (searchInput.value || '').toLowerCase();
+    const rows = Array.from(container.querySelectorAll('.training-row'));
+    rows.forEach((row) => {
+      const input = row.querySelector('input.training-input');
+      if (!input) return;
+      const value = (input.value || '').toLowerCase();
+      if (!term || value.includes(term)) {
+        row.style.display = 'block';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  async function loadTrainingExamples() {
+    if (!trainingExamplesCard) return;
+    trainingExamplesStatus.textContent = 'Loading examples...';
+    trainingExamplesStatus.className = 'status';
+
+    try {
+      const resp = await fetch('./training-examples', {
+        headers: getAdminHeaders(),
+      });
+      if (!resp.ok) {
+        handleFetchError(trainingExamplesStatus, resp);
+        return;
+      }
+      const data = await resp.json();
+      const blacklist = Array.isArray(data.blacklist_queries) ? data.blacklist_queries : [];
+      const whitelist = Array.isArray(data.whitelist_queries) ? data.whitelist_queries : [];
+      renderTrainingList(blacklistExamplesList, 'blacklist', blacklist);
+      renderTrainingList(whitelistExamplesList, 'whitelist', whitelist);
+      applyTrainingFilter(blacklistExamplesList, blacklistExamplesSearch);
+      applyTrainingFilter(whitelistExamplesList, whitelistExamplesSearch);
+      trainingExamplesStatus.textContent = 'Loaded.';
+      trainingExamplesStatus.className = 'status';
+    } catch (err) {
+      trainingExamplesStatus.textContent = 'Failed to load training examples.';
+      trainingExamplesStatus.className = 'status error';
+    } finally {
+      // no-op; we don't disable individual fields for loading state
+    }
+  }
+
+  async function saveTrainingExamples() {
+    if (!trainingExamplesCard) return;
+    trainingExamplesStatus.textContent = 'Saving...';
+    trainingExamplesStatus.className = 'status';
+    saveTrainingExamplesBtn.disabled = true;
+
+    try {
+      const blacklistLines = collectTrainingValues(blacklistExamplesList);
+      const whitelistLines = collectTrainingValues(whitelistExamplesList);
+
+      const payload = {
+        blacklist_queries: Array.from(new Set(blacklistLines)),
+        whitelist_queries: Array.from(new Set(whitelistLines)),
+      };
+
+      const resp = await fetch('./training-examples', {
+        method: 'PUT',
+        headers: getAdminHeaders(),
+        body: JSON.stringify(payload),
+      });
+      if (!resp.ok) {
+        handleFetchError(trainingExamplesStatus, resp);
+        return;
+      }
+
+      const saved = await resp.json();
+      const blacklistSaved = Array.isArray(saved.blacklist_queries) ? saved.blacklist_queries : [];
+      const whitelistSaved = Array.isArray(saved.whitelist_queries) ? saved.whitelist_queries : [];
+      renderTrainingList(blacklistExamplesList, 'blacklist', blacklistSaved);
+      renderTrainingList(whitelistExamplesList, 'whitelist', whitelistSaved);
+      applyTrainingFilter(blacklistExamplesList, blacklistExamplesSearch);
+      applyTrainingFilter(whitelistExamplesList, whitelistExamplesSearch);
+
+      trainingExamplesStatus.textContent = 'Saved.';
+      trainingExamplesStatus.className = 'status success';
+    } catch (err) {
+      trainingExamplesStatus.textContent = 'Failed to save training examples.';
+      trainingExamplesStatus.className = 'status error';
+    } finally {
+      saveTrainingExamplesBtn.disabled = false;
+    }
+  }
+
+  if (saveTrainingExamplesBtn) {
+    saveTrainingExamplesBtn.addEventListener('click', function () {
+      saveTrainingExamples();
+    });
+  }
+
+  function addTrainingRow(kind) {
+    if (!trainingExamplesCard) return;
+    const container =
+      kind === 'blacklist' ? blacklistExamplesList : kind === 'whitelist' ? whitelistExamplesList : null;
+    if (!container) return;
+    const row = createTrainingRow(kind, '');
+    container.appendChild(row);
+    const input = row.querySelector('input.training-input');
+    if (input) {
+      input.readOnly = false;
+      input.focus();
+    }
+    if (kind === 'blacklist') {
+      applyTrainingFilter(blacklistExamplesList, blacklistExamplesSearch);
+    } else if (kind === 'whitelist') {
+      applyTrainingFilter(whitelistExamplesList, whitelistExamplesSearch);
+    }
+  }
+
+  if (addBlacklistExampleBtn) {
+    addBlacklistExampleBtn.addEventListener('click', function () {
+      addTrainingRow('blacklist');
+    });
+  }
+
+  if (addWhitelistExampleBtn) {
+    addWhitelistExampleBtn.addEventListener('click', function () {
+      addTrainingRow('whitelist');
+    });
+  }
+
+  if (blacklistExamplesSearch) {
+    blacklistExamplesSearch.addEventListener('input', function () {
+      applyTrainingFilter(blacklistExamplesList, blacklistExamplesSearch);
+    });
+  }
+
+  if (whitelistExamplesSearch) {
+    whitelistExamplesSearch.addEventListener('input', function () {
+      applyTrainingFilter(whitelistExamplesList, whitelistExamplesSearch);
+    });
+  }
+
   // --- Agents section ---
   let selectedAgentOriginalKey = null;
 
@@ -146,6 +405,15 @@
     agentModelIdInput.value = agent.model_id || '';
     agentDescriptionInput.value = agent.description_template || '';
     agentInstructionsInput.value = instructionsToTextarea(agent.instructions);
+
+    // Show training examples only when viewing validator agents, where they are conceptually relevant.
+    if (!trainingExamplesCard) return;
+    const key = agent.agent_key || '';
+    if (key === 'validation_blacklist' || key === 'validation_primary') {
+      trainingExamplesCard.style.display = '';
+    } else {
+      trainingExamplesCard.style.display = 'none';
+    }
   }
 
   function updateAgentsRelationships(agents) {
@@ -390,7 +658,7 @@
   // --- Initial load ---
   (function bootstrap() {
     setGlobalStatus('Loading configuration from /admin API...', '');
-    Promise.all([loadRejectionMessage(), loadAgents(false)])
+    Promise.all([loadRejectionMessage(), loadAgents(false), loadTrainingExamples()])
       .then(function () {
         setGlobalStatus('Configuration loaded.', 'success');
       })

@@ -91,6 +91,65 @@
           <button id="saveAgentBtn"><span>Save changes</span></button>
           <span id="agentStatus" class="status"></span>
         </div>
+
+        <div
+          id="trainingExamplesCard"
+          class="card"
+          style="margin-top:16px;padding:12px 14px;display:none;"
+        >
+          <h3 style="margin-top:0;margin-bottom:6px;">Whitelist & blacklist training examples</h3>
+          <p class="inline-muted" style="margin-bottom:10px;">
+            These examples teach the validator agents which queries should always be
+            <strong>blocked</strong> or <strong>allowed</strong>. They apply globally to the
+            Colby validators and are not tied to a single agent's prompt.
+          </p>
+          <div class="row">
+            <div class="col">
+              <label>
+                Blacklist training queries
+                <span class="inline-muted">(each query in its own field)</span>
+              </label>
+              <input
+                id="blacklistExamplesSearch"
+                type="text"
+                placeholder="Search blacklist queries"
+                style="margin-top:4px;margin-bottom:6px;width:100%;"
+              />
+              <div
+                id="blacklistExamplesList"
+                style="max-height: 260px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(148,163,184,0.35); padding: 6px 8px; background: rgba(15,23,42,0.8);"
+              ></div>
+              <button id="addBlacklistExampleBtn" class="secondary" type="button" style="margin-top:6px;">
+                <span>Add blacklist query</span>
+              </button>
+            </div>
+            <div class="col">
+              <label>
+                Whitelist training queries
+                <span class="inline-muted">(each query in its own field)</span>
+              </label>
+              <input
+                id="whitelistExamplesSearch"
+                type="text"
+                placeholder="Search whitelist queries"
+                style="margin-top:4px;margin-bottom:6px;width:100%;"
+              />
+              <div
+                id="whitelistExamplesList"
+                style="max-height: 260px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(148,163,184,0.35); padding: 6px 8px; background: rgba(15,23,42,0.8);"
+              ></div>
+              <button id="addWhitelistExampleBtn" class="secondary" type="button" style="margin-top:6px;">
+                <span>Add whitelist query</span>
+              </button>
+            </div>
+          </div>
+          <div class="button-row">
+            <button id="saveTrainingExamplesBtn">
+              <span>Save whitelist &amp; blacklist</span>
+            </button>
+            <span id="trainingExamplesStatus" class="status"></span>
+          </div>
+        </div>
       </div>
 
       <div class="card" style="margin-top:16px;">

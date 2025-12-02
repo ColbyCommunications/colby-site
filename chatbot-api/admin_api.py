@@ -1419,7 +1419,7 @@ def list_query_logs(
             "standard_rejection_answered."
         ),
     ),
-    limit: int = Query(default=200, ge=1, le=1000),
+    limit: Optional[int] = Query(default=None, ge=1, le=50000),
     offset: int = Query(default=0, ge=0),
 ) -> List[QueryLogDTO]:
     """
@@ -1530,6 +1530,16 @@ def list_query_logs(
         if clauses:
             where_sql = "WHERE " + " AND ".join(clauses)
 
+        # Build limit/offset clause - if limit is None, return all results
+        limit_sql = ""
+        if limit is not None:
+            limit_sql = "LIMIT %s OFFSET %s"
+            params.extend([limit, offset])
+        elif offset > 0:
+            # MySQL requires a large number for LIMIT when only OFFSET is provided
+            limit_sql = "LIMIT 18446744073709551615 OFFSET %s"
+            params.append(offset)
+
         query = f"""
             SELECT
                 q.id,
@@ -1554,9 +1564,8 @@ def list_query_logs(
             FROM query_logs AS q
             {where_sql}
             ORDER BY q.created_at DESC
-            LIMIT %s OFFSET %s;
+            {limit_sql};
         """
-        params.extend([limit, offset])
 
         cursor.execute(query, tuple(params))
         rows = cursor.fetchall() or []

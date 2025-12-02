@@ -278,7 +278,6 @@
     if (searchInput.value.trim()) params.set('q', searchInput.value.trim());
     // Backend expects `status_filter` query param (see admin_api.list_query_logs).
     if (statusFilter && statusFilter.value) params.set('status_filter', statusFilter.value);
-    params.set('limit', '200');
 
     const url = './query-logs?' + params.toString();
     setGlobalStatus('Loading logs...', '');

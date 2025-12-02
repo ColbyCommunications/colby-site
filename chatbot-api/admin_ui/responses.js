@@ -7,6 +7,7 @@
   const customRangeRow = document.getElementById('responsesCustomRangeRow');
   const startDateInput = document.getElementById('responsesStartDate');
   const endDateInput = document.getElementById('responsesEndDate');
+  const exportCsvBtn = document.getElementById('exportCsvBtn');
 
   function setGlobalStatus(text, type) {
     globalStatusEl.textContent = text || '';
@@ -154,7 +155,23 @@
     }
     let html = String(raw);
 
+    // First, fix spaces before closing brackets/parentheses in markdown links
+    // Handle [text ](url) pattern - space before ]
+    html = html.replace(/\[([^\]]+)\s+\]\(/g, '[$1](');
+    // Handle [text](url ) pattern - space before closing )
+    html = html.replace(/\]\(([^)]+)\s+\)/g, ']($1)');
+    // Handle ("text" ) pattern - space before ) in parenthetical citations
+    html = html.replace(/\(\s*"([^"]+)"\s+\)/g, '("$1")');
+    // Handle (text ) pattern - space before ) in parenthetical text
+    html = html.replace(/\(([^)"]+)\s+\)/g, '($1)');
+
     html = html
+      // Convert ### headings (h3)
+      .replace(/^### (.+)$/gm, '<h3 class="text-lg font-semibold mt-4 mb-2 text-white">$1</h3>')
+      // Convert ## headings (h2)
+      .replace(/^## (.+)$/gm, '<h2 class="text-xl font-semibold mt-5 mb-2 text-white">$1</h2>')
+      // Convert # headings (h1)
+      .replace(/^# (.+)$/gm, '<h1 class="text-2xl font-bold mt-6 mb-3 text-white">$1</h1>')
       // Convert [source] links to clipboard icon with punctuation
       .replace(
         /\[source\]\(([^)]+)\)([.,!?;:])/gi,
@@ -187,6 +204,8 @@
       )
       // Convert bold text **text** to HTML bold
       .replace(/\*\*([^*]+)\*\*/g, '<strong class="font-semibold">$1</strong>')
+      // Convert bullet points (- item) to styled list items
+      .replace(/^- (.+)$/gm, '<span class="block ml-4 before:content-[\'•\'] before:mr-2 before:text-blue-400">$1</span>')
       // Add space after punctuation if followed by newline and capital letter (new sentence)
       .replace(/([.,!?;:])\n([A-Z])/g, '$1 $2')
       // Convert remaining single line breaks to <br> with spacing
@@ -701,6 +720,77 @@
     }
   }
 
+  async function exportCsv() {
+    const params = new URLSearchParams();
+    if (startDateInput.value) params.set('start_date', startDateInput.value);
+    if (endDateInput.value) params.set('end_date', endDateInput.value);
+    if (searchInput.value.trim()) params.set('q', searchInput.value.trim());
+    if (statusFilter && statusFilter.value) params.set('status_filter', statusFilter.value);
+
+    const url = './query-logs/export/csv?' + params.toString();
+
+    if (exportCsvBtn) {
+      exportCsvBtn.disabled = true;
+      exportCsvBtn.textContent = 'Exporting...';
+    }
+    setGlobalStatus('Generating CSV export...', '');
+
+    try {
+      const resp = await fetch(url, { headers: getAdminHeaders() });
+      if (!resp.ok) {
+        handleFetchError(resp, 'Failed to export CSV.');
+        if (exportCsvBtn) {
+          exportCsvBtn.disabled = false;
+          exportCsvBtn.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Export as CSV
+          `;
+        }
+        return;
+      }
+
+      // Get filename from Content-Disposition header or use default
+      const contentDisposition = resp.headers.get('Content-Disposition');
+      let filename = 'chatbot_logs.csv';
+      if (contentDisposition) {
+        const match = contentDisposition.match(/filename=([^;]+)/);
+        if (match) {
+          filename = match[1].trim().replace(/"/g, '');
+        }
+      }
+
+      const blob = await resp.blob();
+      const downloadUrl = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = downloadUrl;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(downloadUrl);
+
+      setGlobalStatus('CSV exported successfully.', 'success');
+    } catch (err) {
+      setGlobalStatus('Failed to export CSV (network error).', 'error');
+    } finally {
+      if (exportCsvBtn) {
+        exportCsvBtn.disabled = false;
+        exportCsvBtn.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Export as CSV
+        `;
+      }
+    }
+  }
+
   let searchDebounceTimer = null;
 
   function attachEventHandlers() {
@@ -742,6 +832,12 @@
     if (statusFilter) {
       statusFilter.addEventListener('change', () => {
         fetchLogs();
+      });
+    }
+
+    if (exportCsvBtn) {
+      exportCsvBtn.addEventListener('click', () => {
+        exportCsv();
       });
     }
 

@@ -198,6 +198,15 @@ button.secondary {
   color: var(--muted);
   border: 1px solid rgba(148, 163, 184, 0.4);
   box-shadow: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+button:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+button.secondary:hover:not(:disabled) {
+  background: rgba(30, 41, 59, 0.95);
+  color: var(--text);
+  border-color: rgba(148, 163, 184, 0.6);
 }
 button:disabled {
   opacity: 0.6;

@@ -33,6 +33,11 @@ from input_validation_pre_hook import (
 
 logger = logging.getLogger(__name__)
 
+
+class VectorGraphHealthError(Exception):
+    """Raised when the vector graph has insufficient points, indicating cron failure."""
+    pass
+
 def _load_stopwords() -> Set[str]:
     """Load English stopwords using NLTK with fallback."""
     # Static fallback set (previous behavior)
@@ -348,6 +353,15 @@ async def search_qdrant_vector(query: str, max_hits: int = 10) -> List[Dict[str,
         )
         
         try:
+            # Verify collection has sufficient points (graph cron health check)
+            collection_info = await qdrant_client.get_collection(collection_name)
+            points_count = collection_info.points_count or 0
+            if points_count < 100:
+                raise VectorGraphHealthError(
+                    f"Vector graph has insufficient points ({points_count} < 100). "
+                    "This likely means the graph cron job failed. Answers would be inaccurate."
+                )
+            
             # Perform vector search using query points
             # print(f"🔍 Vector Search: Querying Qdrant collection '{collection_name}' (limit={max_hits})...")
             search_result = await qdrant_client.query_points(
@@ -423,6 +437,9 @@ async def search_qdrant_vector(query: str, max_hits: int = 10) -> List[Dict[str,
                 except Exception:
                     pass  # Ignore errors during cleanup
         
+    except VectorGraphHealthError:
+        # Critical error - must propagate to return 500
+        raise
     except Exception as e:
         print(f"Error during Qdrant vector search: {str(e)}")
         return []
@@ -501,7 +518,10 @@ def retriever(
             formatted_results.append(doc)
         
         return formatted_results
-        
+    
+    except VectorGraphHealthError:
+        # Critical error - must propagate to return 500
+        raise
     except Exception as e:
         print(f"Error during vector search: {str(e)}")
         import traceback
@@ -537,6 +557,9 @@ def build_agent_query_with_context(user_message: str) -> str:
             keyword_results,
             vector_results,
         )
+    except VectorGraphHealthError:
+        # Critical error - vector graph is unhealthy, must propagate to return 500
+        raise
     except Exception as e:  # noqa: BLE001
         context = {
             "user_query": user_message,
@@ -734,7 +757,7 @@ def build_agent() -> Any:
             formatted_instructions.append(str(line))
 
     base_kwargs = dict(
-        model=OpenAIChat(id=model_id),
+        model=OpenAIChat(id=model_id, verbosity="low"),
         description=description,
         markdown=True,
         pre_hooks=[prompt_injection_guardrail, colby_blacklist_validation, colby_query_validation],

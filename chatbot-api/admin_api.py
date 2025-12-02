@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import base64
+import csv
 import hashlib
+import io
 import json
 import logging
 import os
@@ -13,7 +15,7 @@ import secrets
 
 import httpx
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
-from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse, StreamingResponse
 from pydantic import BaseModel, Field
 from zoneinfo import ZoneInfo
 
@@ -1563,6 +1565,284 @@ def list_query_logs(
             _row_to_query_log_dto(row, parts=[])
             for row in rows
         ]
+    finally:
+        try:
+            conn.close()
+        except Exception:  # noqa: BLE001
+            pass
+
+
+@admin_router.get("/query-logs/export/csv")
+def export_query_logs_csv(
+    start_date: Optional[str] = Query(default=None),
+    end_date: Optional[str] = Query(default=None),
+    q: Optional[str] = Query(default=None),
+    status_filter: Optional[str] = Query(default=None),
+) -> StreamingResponse:
+    """
+    Export query logs as CSV with the same filters as list_query_logs.
+
+    Returns a downloadable CSV file with all matching query logs including
+    detailed validator reasoning and per-stage metadata.
+    """
+    est_tz = ZoneInfo("America/New_York")
+    conn = _get_required_db_connection()
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        clauses: List[str] = []
+        params: List[Any] = []
+
+        start = _parse_date_param(start_date)
+        end = _parse_date_param(end_date)
+
+        if start:
+            start_local = datetime.combine(start, datetime.min.time(), tzinfo=est_tz)
+            start_utc = start_local.astimezone(timezone.utc).replace(tzinfo=None)
+            clauses.append("q.created_at >= %s")
+            params.append(start_utc)
+        if end:
+            end_next = end + timedelta(days=1)
+            end_local = datetime.combine(end_next, datetime.min.time(), tzinfo=est_tz)
+            end_utc = end_local.astimezone(timezone.utc).replace(tzinfo=None)
+            clauses.append("q.created_at < %s")
+            params.append(end_utc)
+
+        if q:
+            like = f"%{q}%"
+            clauses.append("(q.user_message LIKE %s OR q.final_answer LIKE %s)")
+            params.extend([like, like])
+
+        if status_filter:
+            status_values = {"answered", "blocked", "error"}
+            label_values = {"blacklisted", "whitelisted"}
+            blocked_detail_values = {
+                "blocked_by_blacklist_validator",
+                "blocked_by_query_validator",
+                "standard_rejection_answered",
+            }
+
+            if status_filter in status_values:
+                clauses.append("q.status = %s")
+                params.append(status_filter)
+            elif status_filter == "blacklisted":
+                clauses.append(
+                    """
+                    EXISTS (
+                        SELECT 1
+                        FROM query_examples e
+                        WHERE e.kind = 'blacklist'
+                          AND e.query_text = q.user_message
+                    )
+                    """
+                )
+            elif status_filter == "whitelisted":
+                clauses.append(
+                    """
+                    EXISTS (
+                        SELECT 1
+                        FROM query_examples e
+                        WHERE e.kind = 'whitelist'
+                          AND e.query_text = q.user_message
+                    )
+                    """
+                )
+            elif status_filter == "blocked_by_blacklist_validator":
+                clauses.append("(q.status = %s AND q.blocked_by = %s)")
+                params.extend(["blocked", "validation_blacklist"])
+            elif status_filter == "blocked_by_query_validator":
+                clauses.append("(q.status = %s AND q.blocked_by = %s)")
+                params.extend(["blocked", "validation_primary"])
+            elif status_filter == "standard_rejection_answered":
+                rejection_message = get_standard_rejection_message()
+                clauses.append("(q.status = %s AND q.final_answer = %s)")
+                params.extend(["answered", rejection_message])
+
+        where_sql = ""
+        if clauses:
+            where_sql = "WHERE " + " AND ".join(clauses)
+
+        query = f"""
+            SELECT
+                q.id,
+                q.created_at,
+                q.user_message,
+                q.final_answer,
+                q.status,
+                q.blocked_by,
+                q.error_message,
+                EXISTS (
+                    SELECT 1
+                    FROM query_examples e
+                    WHERE e.kind = 'blacklist'
+                      AND e.query_text = q.user_message
+                ) AS is_blacklist_example,
+                EXISTS (
+                    SELECT 1
+                    FROM query_examples e2
+                    WHERE e2.kind = 'whitelist'
+                      AND e2.query_text = q.user_message
+                ) AS is_whitelist_example
+            FROM query_logs AS q
+            {where_sql}
+            ORDER BY q.created_at DESC;
+        """
+
+        cursor.execute(query, tuple(params))
+        rows = cursor.fetchall() or []
+
+        # Fetch all query log parts for the retrieved logs
+        log_ids = [row["id"] for row in rows]
+        parts_by_log_id: Dict[int, List[Dict[str, Any]]] = {log_id: [] for log_id in log_ids}
+
+        if log_ids:
+            # Build placeholders for IN clause
+            placeholders = ",".join(["%s"] * len(log_ids))
+            cursor.execute(
+                f"""
+                SELECT
+                    query_log_id,
+                    stage,
+                    model_id,
+                    agent_name,
+                    using_db_config,
+                    blocked,
+                    result_json,
+                    created_at
+                FROM query_log_parts
+                WHERE query_log_id IN ({placeholders})
+                ORDER BY query_log_id, created_at ASC, id ASC;
+                """,
+                tuple(log_ids),
+            )
+            parts_rows = cursor.fetchall() or []
+            for part in parts_rows:
+                log_id = part["query_log_id"]
+                if log_id in parts_by_log_id:
+                    parts_by_log_id[log_id].append(part)
+
+        # Generate CSV in memory
+        output = io.StringIO()
+        writer = csv.writer(output)
+
+        # Write header with verbose columns
+        writer.writerow([
+            "ID",
+            "Created At (ET)",
+            "Status",
+            "Blocked By",
+            "Is Blacklist Example",
+            "Is Whitelist Example",
+            "Error Message",
+            "User Message",
+            "Final Answer",
+            # Validation Primary (Query Validator) columns
+            "Query Validator - Model",
+            "Query Validator - Agent",
+            "Query Validator - Blocked",
+            "Query Validator - Is Legitimate",
+            "Query Validator - Reasoning",
+            # Validation Blacklist columns
+            "Blacklist Validator - Model",
+            "Blacklist Validator - Agent",
+            "Blacklist Validator - Blocked",
+            "Blacklist Validator - Is Legitimate",
+            "Blacklist Validator - Reasoning",
+            # Runtime columns
+            "Runtime - Model",
+            "Runtime - Agent",
+            "Runtime - Using DB Config",
+        ])
+
+        # Write data rows
+        for row in rows:
+            created_at = row.get("created_at")
+            if created_at:
+                # Convert to ET for display
+                if created_at.tzinfo is None:
+                    created_at = created_at.replace(tzinfo=timezone.utc)
+                created_at_et = created_at.astimezone(est_tz)
+                created_str = created_at_et.strftime("%Y-%m-%d %H:%M:%S ET")
+            else:
+                created_str = ""
+
+            # Extract per-stage info
+            parts = parts_by_log_id.get(row["id"], [])
+
+            # Find validation_primary stage
+            primary_validator = {}
+            blacklist_validator = {}
+            runtime_info = {}
+
+            for part in parts:
+                stage = part.get("stage", "")
+                result_json = part.get("result_json") or "{}"
+                try:
+                    result = json.loads(result_json)
+                except Exception:
+                    result = {}
+
+                if stage == "validation_primary":
+                    primary_validator = {
+                        "model": part.get("model_id", ""),
+                        "agent": part.get("agent_name", ""),
+                        "blocked": "Yes" if part.get("blocked") else "No",
+                        "is_legitimate": str(result.get("is_legitimate_colby_query", "")) if "is_legitimate_colby_query" in result else "",
+                        "reasoning": result.get("reasoning") or result.get("reason") or "",
+                    }
+                elif stage == "validation_blacklist":
+                    blacklist_validator = {
+                        "model": part.get("model_id", ""),
+                        "agent": part.get("agent_name", ""),
+                        "blocked": "Yes" if part.get("blocked") else "No",
+                        "is_legitimate": str(result.get("is_legitimate_colby_query", "")) if "is_legitimate_colby_query" in result else "",
+                        "reasoning": result.get("reasoning") or result.get("reason") or "",
+                    }
+                elif stage == "runtime_rag" or stage == "runtime":
+                    runtime_info = {
+                        "model": part.get("model_id", ""),
+                        "agent": part.get("agent_name", ""),
+                        "using_db_config": "Yes" if part.get("using_db_config") else "No",
+                    }
+
+            writer.writerow([
+                row.get("id", ""),
+                created_str,
+                row.get("status", ""),
+                row.get("blocked_by", ""),
+                "Yes" if row.get("is_blacklist_example") else "No",
+                "Yes" if row.get("is_whitelist_example") else "No",
+                row.get("error_message", "") or "",
+                row.get("user_message", "") or "",
+                row.get("final_answer", "") or "",
+                # Query Validator
+                primary_validator.get("model", ""),
+                primary_validator.get("agent", ""),
+                primary_validator.get("blocked", ""),
+                primary_validator.get("is_legitimate", ""),
+                primary_validator.get("reasoning", ""),
+                # Blacklist Validator
+                blacklist_validator.get("model", ""),
+                blacklist_validator.get("agent", ""),
+                blacklist_validator.get("blocked", ""),
+                blacklist_validator.get("is_legitimate", ""),
+                blacklist_validator.get("reasoning", ""),
+                # Runtime
+                runtime_info.get("model", ""),
+                runtime_info.get("agent", ""),
+                runtime_info.get("using_db_config", ""),
+            ])
+
+        # Generate filename with current date
+        now_et = datetime.now(est_tz)
+        filename = f"chatbot_logs_{now_et.strftime('%Y%m%d_%H%M%S')}.csv"
+
+        output.seek(0)
+        return StreamingResponse(
+            iter([output.getvalue()]),
+            media_type="text/csv",
+            headers={"Content-Disposition": f"attachment; filename={filename}"},
+        )
     finally:
         try:
             conn.close()

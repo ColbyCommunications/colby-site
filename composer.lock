@@ -152,7 +152,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "a098ade28b9da1769de0aa527d3c07a9be10e7c2"
+                "reference": "3f3944b2581f9140ff515d84a6c31b48cee0d321"
             },
             "require": {
                 "php": ">=7.1"

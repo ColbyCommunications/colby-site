@@ -24,7 +24,7 @@ from query_logging import (
     finalize_request_log,
     start_request_log,
 )
-from runtime_rag_knowledge import build_agent, build_agent_query_with_context
+from runtime_rag_knowledge import build_agent, build_agent_query_with_context, VectorGraphHealthError
 
 
 # Load environment variables early and ensure the config schema exists.
@@ -386,6 +386,14 @@ async def ask_stream_get(message: str, request: Request):
     """Stream assistant responses via GET query parameter."""
     # Ensure streaming requests are logged just like synchronous /ask requests.
     start_request_log(message)
+    
+    # Pre-check: build context to catch VectorGraphHealthError before streaming starts
+    try:
+        build_agent_query_with_context(message)
+    except VectorGraphHealthError as e:
+        clear_request_log_context()
+        raise HTTPException(status_code=500, detail=str(e))
+    
     return StreamingResponse(
         _stream_agent_response(message, request, create_assistant()),
         media_type="text/event-stream",
@@ -397,6 +405,14 @@ async def ask_stream_post(req: AskRequest, request: Request):
     """Stream assistant responses via POST JSON body."""
     # Ensure streaming requests are logged just like synchronous /ask requests.
     start_request_log(req.message)
+    
+    # Pre-check: build context to catch VectorGraphHealthError before streaming starts
+    try:
+        build_agent_query_with_context(req.message)
+    except VectorGraphHealthError as e:
+        clear_request_log_context()
+        raise HTTPException(status_code=500, detail=str(e))
+    
     return StreamingResponse(
         _stream_agent_response(req.message, request, create_assistant()),
         media_type="text/event-stream",

@@ -48,6 +48,7 @@ def build_search_context_for_query(user_query: str) -> Dict[str, Any]:
         search_algolia,
         search_qdrant_vector,
         _first_present,
+        VectorGraphHealthError,
     )
 
     run_sync = _build_event_loop_runner()
@@ -104,6 +105,9 @@ def build_search_context_for_query(user_query: str) -> Dict[str, Any]:
 
         try:
             vector_hits = await search_qdrant_vector(user_query, max_hits=5)
+        except VectorGraphHealthError:
+            # Critical error - must propagate to return 500
+            raise
         except Exception as e:  # noqa: BLE001
             vector_hits = []
             vector_context["error"] = f"vector_error: {str(e)}"
@@ -129,6 +133,9 @@ def build_search_context_for_query(user_query: str) -> Dict[str, Any]:
 
     try:
         keyword_ctx, vector_ctx = run_sync(_gather())
+    except VectorGraphHealthError:
+        # Critical error - must propagate to return 500
+        raise
     except Exception as e:  # noqa: BLE001
         # On any unexpected failure, fall back to a minimal payload rather than breaking validation.
         return {

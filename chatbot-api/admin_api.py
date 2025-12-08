@@ -19,7 +19,7 @@ from fastapi.responses import HTMLResponse, FileResponse, RedirectResponse, Stre
 from pydantic import BaseModel, Field
 from zoneinfo import ZoneInfo
 
-from config_db import get_db_connection
+from config_db import get_db_connection, get_openai_metadata_or_none
 from input_validation_pre_hook import get_standard_rejection_message
 from okta_auth import (
     OktaConfigError,
@@ -1023,6 +1023,79 @@ def delete_agent(agent_key: str) -> None:
             conn.close()
         except Exception:  # noqa: BLE001
             pass
+
+
+# ----- Admin endpoint: model validation -----
+
+
+class ValidateModelRequest(BaseModel):
+    """Payload for validating a model ID."""
+
+    model_id: str = Field(..., description="The model ID to validate (e.g. 'gpt-4.1-mini')")
+
+
+class ValidateModelResponse(BaseModel):
+    """Response from model validation."""
+
+    valid: bool
+    model_id: str
+    message: str
+
+
+@admin_router.post("/validate-model", response_model=ValidateModelResponse)
+async def validate_model(payload: ValidateModelRequest) -> ValidateModelResponse:
+    """
+    Validate that a model ID exists and is accessible by making a test call
+    using an ephemeral agent with the specified model.
+    """
+    from agno.agent import Agent
+    from agno.models.openai import OpenAIChat
+
+    model_id = payload.model_id.strip()
+    if not model_id:
+        return ValidateModelResponse(
+            valid=False,
+            model_id=model_id,
+            message="Model ID cannot be empty.",
+        )
+
+    try:
+        openai_model_kwargs = {"id": model_id}
+        platform_metadata = get_openai_metadata_or_none()
+        if platform_metadata:
+            openai_model_kwargs["metadata"] = platform_metadata
+
+        test_agent = Agent(
+            model=OpenAIChat(**openai_model_kwargs),
+            description="Test agent for model validation",
+            instructions=["Respond with 'ok'."],
+        )
+        await test_agent.arun("Hi")
+        return ValidateModelResponse(
+            valid=True,
+            model_id=model_id,
+            message=f"Model '{model_id}' is valid and accessible.",
+        )
+    except Exception as e:  # noqa: BLE001
+        error_msg = str(e).lower()
+        if "model" in error_msg and ("not found" in error_msg or "does not exist" in error_msg or "invalid" in error_msg):
+            return ValidateModelResponse(
+                valid=False,
+                model_id=model_id,
+                message=f"Model '{model_id}' does not exist or is not available.",
+            )
+        if "permission" in error_msg or "access" in error_msg:
+            return ValidateModelResponse(
+                valid=False,
+                model_id=model_id,
+                message=f"Access denied for model '{model_id}'.",
+            )
+        logger.error("validate_model: error validating model %s: %s", model_id, e)
+        return ValidateModelResponse(
+            valid=False,
+            model_id=model_id,
+            message=f"Model validation failed: {str(e)}",
+        )
 
 
 # ----- Admin endpoints: app messages -----

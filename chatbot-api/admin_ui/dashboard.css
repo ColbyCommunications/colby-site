@@ -282,6 +282,38 @@ tr.selected {
 .textarea-tall {
   min-height: 280px;
 }
+
+/* Model ID validation row */
+.model-id-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.model-id-row input {
+  flex: 1;
+}
+.validate-btn {
+  white-space: nowrap;
+  min-width: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.validate-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(148, 163, 184, 0.3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spinner-spin 0.8s linear infinite;
+}
+@keyframes spinner-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 768px) {
   .row {
     flex-direction: column;

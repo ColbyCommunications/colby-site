@@ -9,6 +9,8 @@
   const agentInstructionsInput = document.getElementById('agentInstructionsInput');
   const saveAgentBtn = document.getElementById('saveAgentBtn');
   const agentStatus = document.getElementById('agentStatus');
+  const validateModelBtn = document.getElementById('validateModelBtn');
+  const modelValidationStatus = document.getElementById('modelValidationStatus');
   const rejectionTextarea = document.getElementById('rejectionMessage');
   const rejectionStatus = document.getElementById('rejectionStatus');
   const saveRejectionBtn = document.getElementById('saveRejectionBtn');
@@ -398,6 +400,21 @@
     });
   }
 
+  function setValidateButtonLoading(isLoading) {
+    if (!validateModelBtn) return;
+    const textEl = validateModelBtn.querySelector('.validate-btn-text');
+    const spinnerEl = validateModelBtn.querySelector('.validate-spinner');
+    if (isLoading) {
+      validateModelBtn.disabled = true;
+      if (textEl) textEl.style.display = 'none';
+      if (spinnerEl) spinnerEl.style.display = 'inline-block';
+    } else {
+      validateModelBtn.disabled = false;
+      if (textEl) textEl.style.display = 'inline';
+      if (spinnerEl) spinnerEl.style.display = 'none';
+    }
+  }
+
   function populateAgentForm(agent) {
     selectedAgentOriginalKey = agent.agent_key;
     agentKeyInput.value = agent.agent_key || '';
@@ -602,6 +619,57 @@
       return;
     }
 
+    agentStatus.textContent = 'Validating model...';
+    agentStatus.className = 'status';
+    saveAgentBtn.disabled = true;
+    setValidateButtonLoading(true);
+
+    let validationPassed = false;
+    try {
+      const validateResp = await fetch('./validate-model', {
+        method: 'POST',
+        headers: getAdminHeaders(),
+        body: JSON.stringify({ model_id: modelId }),
+      });
+
+      if (!validateResp.ok) {
+        const errorText = await validateResp.text().catch(() => validateResp.statusText);
+        agentStatus.textContent = 'Model validation error: ' + (errorText || 'Unknown error');
+        agentStatus.className = 'status error';
+        if (modelValidationStatus) {
+          modelValidationStatus.textContent = '✗ Validation failed';
+          modelValidationStatus.className = 'status error';
+        }
+        return;
+      }
+
+      const validateResult = await validateResp.json();
+      if (!validateResult.valid) {
+        agentStatus.textContent = 'Cannot save: ' + validateResult.message;
+        agentStatus.className = 'status error';
+        if (modelValidationStatus) {
+          modelValidationStatus.textContent = '✗ ' + validateResult.message;
+          modelValidationStatus.className = 'status error';
+        }
+        return;
+      }
+
+      if (modelValidationStatus) {
+        modelValidationStatus.textContent = '✓ ' + validateResult.message;
+        modelValidationStatus.className = 'status success';
+      }
+      validationPassed = true;
+    } catch (err) {
+      agentStatus.textContent = 'Model validation failed: Network error';
+      agentStatus.className = 'status error';
+      return;
+    } finally {
+      setValidateButtonLoading(false);
+      if (!validationPassed) {
+        saveAgentBtn.disabled = false;
+      }
+    }
+
     const lines = agentInstructionsInput.value
       .split(/\r?\n/)
       .map((l) => l.trim())
@@ -624,7 +692,6 @@
 
     agentStatus.textContent = 'Saving...';
     agentStatus.className = 'status';
-    saveAgentBtn.disabled = true;
 
     try {
       const url = './agents/' + encodeURIComponent(selectedAgentOriginalKey);
@@ -654,6 +721,65 @@
   saveAgentBtn.addEventListener('click', function () {
     saveAgent();
   });
+
+  // --- Model validation ---
+
+  async function validateModel() {
+    if (!agentModelIdInput || !modelValidationStatus) return;
+
+    const modelId = agentModelIdInput.value.trim();
+    if (!modelId) {
+      modelValidationStatus.textContent = 'Please enter a Model ID to validate.';
+      modelValidationStatus.className = 'status error';
+      return;
+    }
+
+    setValidateButtonLoading(true);
+    modelValidationStatus.textContent = 'Validating model...';
+    modelValidationStatus.className = 'status';
+
+    try {
+      const resp = await fetch('./validate-model', {
+        method: 'POST',
+        headers: getAdminHeaders(),
+        body: JSON.stringify({ model_id: modelId }),
+      });
+
+      if (!resp.ok) {
+        const errorText = await resp.text().catch(() => resp.statusText);
+        modelValidationStatus.textContent = 'Validation error: ' + (errorText || 'Unknown error');
+        modelValidationStatus.className = 'status error';
+        return;
+      }
+
+      const result = await resp.json();
+      if (result.valid) {
+        modelValidationStatus.textContent = '✓ ' + result.message;
+        modelValidationStatus.className = 'status success';
+      } else {
+        modelValidationStatus.textContent = '✗ ' + result.message;
+        modelValidationStatus.className = 'status error';
+      }
+    } catch (err) {
+      modelValidationStatus.textContent = 'Validation failed: Network error';
+      modelValidationStatus.className = 'status error';
+    } finally {
+      setValidateButtonLoading(false);
+    }
+  }
+
+  if (validateModelBtn) {
+    validateModelBtn.addEventListener('click', function () {
+      validateModel();
+    });
+  }
+
+  if (agentModelIdInput && modelValidationStatus) {
+    agentModelIdInput.addEventListener('input', function () {
+      modelValidationStatus.textContent = '';
+      modelValidationStatus.className = 'status';
+    });
+  }
 
   // --- Initial load ---
   (function bootstrap() {

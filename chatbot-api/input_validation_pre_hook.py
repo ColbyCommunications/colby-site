@@ -14,7 +14,7 @@ from agno.run.agent import RunInput
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
-from config_db import get_app_message, get_query_examples, load_agent_config
+from config_db import get_app_message, get_openai_metadata_or_none, get_query_examples, load_agent_config
 from query_logging import add_log_part, mark_blocked_by
 from validation_search_context import build_validation_payload
 
@@ -240,10 +240,14 @@ def colby_query_validation(run_input: RunInput) -> None:
         whitelist_examples,
     )
 
-    # Input validation agent
+    openai_model_kwargs = {"id": model_id}
+    platform_metadata = get_openai_metadata_or_none()
+    if platform_metadata:
+        openai_model_kwargs["metadata"] = platform_metadata
+
     validator_agent = Agent(
         name=name,
-        model=OpenAIChat(id=model_id),
+        model=OpenAIChat(**openai_model_kwargs),
         instructions=instructions,
         output_schema=InputValidationResult,
     )
@@ -354,9 +358,14 @@ def colby_blacklist_validation(run_input: RunInput) -> None:
         blacklist_examples,
     )
 
+    openai_model_kwargs = {"id": model_id}
+    platform_metadata = get_openai_metadata_or_none()
+    if platform_metadata:
+        openai_model_kwargs["metadata"] = platform_metadata
+
     validator_agent = Agent(
         name=name,
-        model=OpenAIChat(id=model_id),
+        model=OpenAIChat(**openai_model_kwargs),
         instructions=instructions,
         output_schema=InputValidationResult,
     )

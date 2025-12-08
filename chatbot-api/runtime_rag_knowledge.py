@@ -14,6 +14,7 @@ from algoliasearch.search.client import SearchClient
 
 # QDrant for vector search
 from qdrant_client import AsyncQdrantClient
+from qdrant_client.models import Filter, FieldCondition, MatchAny
 import openai
 
 # Modern Agno imports
@@ -23,7 +24,7 @@ from agno.models.openai import OpenAIChat
 
 from agno.guardrails import PromptInjectionGuardrail
 prompt_injection_guardrail = PromptInjectionGuardrail()
-from config_db import load_agent_config
+from config_db import load_agent_config, get_openai_metadata_or_none
 from input_validation_pre_hook import (
     colby_blacklist_validation,
     colby_query_validation,
@@ -227,7 +228,7 @@ async def keyword_search(query: str, num_results: int = 5) -> str:
     
     return formatted_output
 
-async def search_algolia(keywords: List[str], max_hits: int = 5) -> List[Dict[str, Any]]:
+async def search_algolia(keywords: List[str], max_hits: int = 5, sources: Optional[List[str]] = None) -> List[Dict[str, Any]]:
     """Search Algolia with individual keywords using batched search.
 
     Requirements:
@@ -256,27 +257,35 @@ async def search_algolia(keywords: List[str], max_hits: int = 5) -> List[Dict[st
     # just enough hits to guarantee at least one candidate per keyword.
     per_keyword_limit = 1
     final_results: List[Dict[str, Any]] = []
+    
+    filters = ""
+    if sources:
+        filter_parts = [f'originIndexLabel:"{s}"' for s in sources]
+        filters = " OR ".join(filter_parts)
 
     async with SearchClient(app_id, api_key) as client:
         try:
+            base_request = {
+                "indexName": index_name,
+                "hitsPerPage": per_keyword_limit,
+                "attributesToRetrieve": [
+                    "objectID",
+                    "post_title",
+                    "content",
+                    "excerpt",
+                    "permalink",
+                    "originIndexLabel",
+                    "title",
+                    "body",
+                    "url"
+                ],
+            }
+            if filters:
+                base_request["filters"] = filters
+            
             resp = await client.search({
                 "requests": [
-                    {
-                        "indexName": index_name,
-                        "query": keyword,
-                        "hitsPerPage": per_keyword_limit,
-                        "attributesToRetrieve": [
-                            "objectID",
-                            "post_title",
-                            "content",
-                            "excerpt",
-                            "permalink",
-                            "originIndexLabel",
-                            "title",
-                            "body",
-                            "url"
-                        ],
-                    }
+                    {**base_request, "query": keyword}
                     for keyword in filtered_keywords
                 ]
             })
@@ -304,7 +313,7 @@ async def search_algolia(keywords: List[str], max_hits: int = 5) -> List[Dict[st
     return final_results[:max_hits]
 
 
-async def search_qdrant_vector(query: str, max_hits: int = 10) -> List[Dict[str, Any]]:
+async def search_qdrant_vector(query: str, max_hits: int = 10, sources: Optional[List[str]] = None) -> List[Dict[str, Any]]:
     """
     This tool uses semantic/vector similarity search to find relevant information.
     
@@ -362,11 +371,18 @@ async def search_qdrant_vector(query: str, max_hits: int = 10) -> List[Dict[str,
                     "This likely means the graph cron job failed. Answers would be inaccurate."
                 )
             
+            query_filter = None
+            if sources:
+                query_filter = Filter(
+                    must=[FieldCondition(key="source", match=MatchAny(any=sources))]
+                )
+            
             # Perform vector search using query points
             # print(f"🔍 Vector Search: Querying Qdrant collection '{collection_name}' (limit={max_hits})...")
             search_result = await qdrant_client.query_points(
                 collection_name=collection_name,
                 query=query_vector,
+                query_filter=query_filter,
                 limit=max_hits,
                 with_payload=True,
             )
@@ -529,7 +545,7 @@ def retriever(
         return None
 
 
-def build_agent_query_with_context(user_message: str) -> str:
+def build_agent_query_with_context(user_message: str, sources: Optional[List[str]] = None) -> str:
     """
     Build the final input string for the runtime RAG agent by attaching the
     same search context (keyword + vector) that we compute for validation.
@@ -541,7 +557,7 @@ def build_agent_query_with_context(user_message: str) -> str:
         # Lazy import to avoid circular dependency at module import time
         from validation_search_context import build_search_context_for_query
 
-        context = build_search_context_for_query(user_message)
+        context = build_search_context_for_query(user_message, sources=sources)
 
         # Helpful log so we can see how much context is being passed into the
         # runtime agent in both local dev and production.
@@ -756,8 +772,13 @@ def build_agent() -> Any:
             # On any formatting issue, fall back to the raw line.
             formatted_instructions.append(str(line))
 
+    openai_model_kwargs = {"id": model_id, "verbosity": "low"}
+    platform_metadata = get_openai_metadata_or_none()
+    if platform_metadata:
+        openai_model_kwargs["metadata"] = platform_metadata
+
     base_kwargs = dict(
-        model=OpenAIChat(id=model_id, verbosity="low"),
+        model=OpenAIChat(**openai_model_kwargs),
         description=description,
         markdown=True,
         pre_hooks=[prompt_injection_guardrail, colby_blacklist_validation, colby_query_validation],

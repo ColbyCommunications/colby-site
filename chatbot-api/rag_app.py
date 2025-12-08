@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import os
 import json
-from typing import Optional, AsyncIterator
+from typing import Optional, AsyncIterator, List
 import secrets
 
 from dotenv import load_dotenv
@@ -212,6 +212,10 @@ class AskRequest(BaseModel):
         ...,
         description="The question or message to send to the assistant",
     )
+    sources: Optional[List[str]] = Field(
+        None,
+        description="Optional list of source names to filter results (e.g., ['Libraries', 'Admissions']). If not provided, searches all sources.",
+    )
 
 
 class AskResponse(BaseModel):
@@ -251,7 +255,7 @@ async def ask(req: AskRequest) -> AskResponse:
     start_request_log(req.message)
     local_assistant = create_assistant()
     try:
-        enhanced_input = build_agent_query_with_context(req.message)
+        enhanced_input = build_agent_query_with_context(req.message, sources=req.sources)
         response = await local_assistant.arun(enhanced_input)
         content = extract_content(response)
 
@@ -308,30 +312,44 @@ async def ask(req: AskRequest) -> AskResponse:
         clear_request_log_context()
 
 
-async def _stream_agent_response(
-    message: str,
-    request: Request,  # noqa: ARG001
+def _extract_chunk_content(chunk) -> str | None:
+    """Extract content string from a streaming chunk."""
+    if chunk is None:
+        return None
+    if isinstance(chunk, str):
+        return chunk
+    if hasattr(chunk, "content"):
+        return str(chunk.content) if chunk.content else None
+    if isinstance(chunk, dict):
+        return chunk.get("content")
+    return None
+
+
+async def _get_first_valid_chunk(stream_iter: AsyncIterator) -> str | None:
+    """Eagerly get first chunk to validate LLM connection before HTTP 200."""
+    async for chunk in stream_iter:
+        content = _extract_chunk_content(chunk)
+        if content and not should_filter_content(content):
+            return content
+    return None
+
+
+async def _stream_remaining_chunks(
+    first_content: str | None,
+    stream_iter: AsyncIterator,
     assistant: Agent,
 ) -> AsyncIterator[str]:
-    """Stream agent responses via SSE using Agno's native streaming."""
+    """Stream SSE events starting with pre-fetched first chunk."""
     full_chunks: list[str] = []
     try:
-        enhanced_input = build_agent_query_with_context(message)
-        async for chunk in assistant.arun(enhanced_input, stream=True):
-            if chunk is None:
-                continue
+        if first_content:
+            full_chunks.append(first_content)
+            yield f"data: {json.dumps({'content': first_content})}\n\n"
 
-            content = None
-            if isinstance(chunk, str):
-                content = chunk
-            elif hasattr(chunk, "content"):
-                content = str(chunk.content) if chunk.content else None
-            elif isinstance(chunk, dict):
-                content = chunk.get("content")
-
+        async for chunk in stream_iter:
+            content = _extract_chunk_content(chunk)
             if not content or should_filter_content(content):
                 continue
-
             full_chunks.append(content)
             yield f"data: {json.dumps({'content': content})}\n\n"
 
@@ -382,20 +400,32 @@ async def _stream_agent_response(
 
 
 @app.get("/ask/stream")
-async def ask_stream_get(message: str, request: Request):
+async def ask_stream_get(message: str, request: Request, sources: Optional[str] = None):
     """Stream assistant responses via GET query parameter."""
-    # Ensure streaming requests are logged just like synchronous /ask requests.
+    sources_list: Optional[List[str]] = None
+    if sources:
+        sources_list = [s.strip() for s in sources.split(",") if s.strip()]
+
     start_request_log(message)
-    
-    # Pre-check: build context to catch VectorGraphHealthError before streaming starts
     try:
-        build_agent_query_with_context(message)
-    except VectorGraphHealthError as e:
+        enhanced_input = build_agent_query_with_context(message, sources=sources_list)
+        assistant = create_assistant()
+        stream_iter = assistant.arun(enhanced_input, stream=True)
+        first_content = await _get_first_valid_chunk(stream_iter)
+    except InputCheckError:
+        rejection = get_standard_rejection_message()
+        finalize_request_log(status="blocked", final_answer=rejection, error_message=None)
         clear_request_log_context()
-        raise HTTPException(status_code=500, detail=str(e))
-    
+        async def rejection_stream():
+            yield f"data: {json.dumps({'content': rejection})}\n\n"
+        return StreamingResponse(rejection_stream(), media_type="text/event-stream")
+    except Exception as e:
+        finalize_request_log(status="error", final_answer=None, error_message=str(e))
+        clear_request_log_context()
+        raise HTTPException(status_code=500, detail=f"Streaming failed: {str(e)}")
+
     return StreamingResponse(
-        _stream_agent_response(message, request, create_assistant()),
+        _stream_remaining_chunks(first_content, stream_iter, assistant),
         media_type="text/event-stream",
     )
 
@@ -403,18 +433,26 @@ async def ask_stream_get(message: str, request: Request):
 @app.post("/ask/stream")
 async def ask_stream_post(req: AskRequest, request: Request):
     """Stream assistant responses via POST JSON body."""
-    # Ensure streaming requests are logged just like synchronous /ask requests.
     start_request_log(req.message)
-    
-    # Pre-check: build context to catch VectorGraphHealthError before streaming starts
     try:
-        build_agent_query_with_context(req.message)
-    except VectorGraphHealthError as e:
+        enhanced_input = build_agent_query_with_context(req.message, sources=req.sources)
+        assistant = create_assistant()
+        stream_iter = assistant.arun(enhanced_input, stream=True)
+        first_content = await _get_first_valid_chunk(stream_iter)
+    except InputCheckError:
+        rejection = get_standard_rejection_message()
+        finalize_request_log(status="blocked", final_answer=rejection, error_message=None)
         clear_request_log_context()
-        raise HTTPException(status_code=500, detail=str(e))
-    
+        async def rejection_stream():
+            yield f"data: {json.dumps({'content': rejection})}\n\n"
+        return StreamingResponse(rejection_stream(), media_type="text/event-stream")
+    except Exception as e:
+        finalize_request_log(status="error", final_answer=None, error_message=str(e))
+        clear_request_log_context()
+        raise HTTPException(status_code=500, detail=f"Streaming failed: {str(e)}")
+
     return StreamingResponse(
-        _stream_agent_response(req.message, request, create_assistant()),
+        _stream_remaining_chunks(first_content, stream_iter, assistant),
         media_type="text/event-stream",
     )
 

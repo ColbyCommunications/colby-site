@@ -4,7 +4,8 @@ import base64
 import json
 import os
 from dataclasses import dataclass
-from typing import Iterable, List, Optional
+from functools import lru_cache
+from typing import Any, Dict, Iterable, List, Optional
 from urllib.parse import urlparse
 
 import mysql.connector
@@ -427,4 +428,53 @@ def get_query_examples(kind: str) -> List[str]:
         except Exception:
             pass
 
+
+# --- Platform.sh metadata for OpenAI requests ---
+
+
+def _parse_platform_routes() -> Optional[Dict[str, Any]]:
+    """Parse PLATFORM_ROUTES (base64-encoded JSON) environment variable."""
+    routes_env = os.environ.get("PLATFORM_ROUTES")
+    if not routes_env:
+        return None
+    try:
+        return json.loads(base64.b64decode(routes_env).decode("utf-8"))
+    except Exception:
+        return None
+
+
+@lru_cache(maxsize=1)
+def get_openai_metadata() -> Dict[str, str]:
+    """Build metadata dict for OpenAI requests from Platform.sh environment."""
+    metadata: Dict[str, str] = {}
+
+    routes = _parse_platform_routes()
+    if routes:
+        for url, route in routes.items():
+            if isinstance(route, dict) and route.get("primary"):
+                metadata["primary_url"] = url[:512]
+                if route.get("production_url"):
+                    metadata["production_url"] = route["production_url"][:512]
+                break
+
+    env = os.environ.get("PLATFORM_ENVIRONMENT") or os.environ.get("UPSUN_ENVIRONMENT")
+    if env:
+        metadata["environment"] = env[:512]
+    project = os.environ.get("PLATFORM_PROJECT") or os.environ.get("UPSUN_PROJECT")
+    if project:
+        metadata["project"] = project[:512]
+    branch = os.environ.get("PLATFORM_BRANCH") or os.environ.get("UPSUN_BRANCH")
+    if branch:
+        metadata["branch"] = branch[:512]
+    app = os.environ.get("PLATFORM_APPLICATION_NAME") or os.environ.get("UPSUN_APPLICATION_NAME")
+    if app:
+        metadata["app_name"] = app[:512]
+
+    return metadata
+
+
+def get_openai_metadata_or_none() -> Optional[Dict[str, str]]:
+    """Get metadata dict, or None if not running on Platform.sh."""
+    metadata = get_openai_metadata()
+    return metadata if metadata else None
 

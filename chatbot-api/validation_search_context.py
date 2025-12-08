@@ -1,6 +1,6 @@
 import asyncio
 import json
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 
 def _build_event_loop_runner():
@@ -33,7 +33,7 @@ def _build_event_loop_runner():
     return run
 
 
-def build_search_context_for_query(user_query: str) -> Dict[str, Any]:
+def build_search_context_for_query(user_query: str, sources: Optional[List[str]] = None) -> Dict[str, Any]:
     """
     Build a compact, structured summary of keyword and RAG/vector search
     results for the given user query.
@@ -72,7 +72,7 @@ def build_search_context_for_query(user_query: str) -> Dict[str, Any]:
 
         try:
             if keywords:
-                algolia_hits = await search_algolia(keywords, max_hits=3)
+                algolia_hits = await search_algolia(keywords, max_hits=3, sources=sources)
             else:
                 algolia_hits = []
         except Exception as e:  # noqa: BLE001
@@ -104,7 +104,7 @@ def build_search_context_for_query(user_query: str) -> Dict[str, Any]:
         }
 
         try:
-            vector_hits = await search_qdrant_vector(user_query, max_hits=5)
+            vector_hits = await search_qdrant_vector(user_query, max_hits=5, sources=sources)
         except VectorGraphHealthError:
             # Critical error - must propagate to return 500
             raise
@@ -143,11 +143,14 @@ def build_search_context_for_query(user_query: str) -> Dict[str, Any]:
             "error": f"search_context_error: {str(e)}",
         }
 
-    return {
+    result = {
         "user_query": user_query,
         "keyword_search": keyword_ctx,
         "vector_search": vector_ctx,
     }
+    if sources:
+        result["sources_filter"] = sources
+    return result
 
 
 def build_validation_payload(user_query: str) -> str:

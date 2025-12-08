@@ -54,7 +54,14 @@
         </div>
         <div style="margin-top:6px;">
           <label for="agentModelIdInput">Model ID</label>
-          <input id="agentModelIdInput" type="text" placeholder="gpt-4.1-mini" />
+          <div class="model-id-row">
+            <input id="agentModelIdInput" type="text" placeholder="gpt-4.1-mini" />
+            <button id="validateModelBtn" class="secondary validate-btn" type="button">
+              <span class="validate-btn-text">Validate</span>
+              <span class="validate-spinner" style="display:none;"></span>
+            </button>
+          </div>
+          <div id="modelValidationStatus" class="status" style="margin-top:4px;"></div>
         </div>
         <div class="row" style="margin-top:10px;">
           <div class="col">

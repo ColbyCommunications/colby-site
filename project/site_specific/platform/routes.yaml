@@ -1339,6 +1339,10 @@
   to: '/people/offices-directory/goldfarb-center-for-public-affairs/events/lovejoy-award-for-courage-in-journalism/'
   regexp: true
   code: 301
+'^/people/offices-directory/goldfarb-center-for-public-affairs/events-in-the-news/?$':
+  to: 'people/offices-directory/goldfarb-center-for-public-affairs/in-the-news/'
+  regexp: true
+  code: 301
 
 # Grants
 '^/people/offices-directory/grants-and-sponsored-programs/?$':

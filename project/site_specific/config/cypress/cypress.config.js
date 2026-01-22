@@ -4,9 +4,9 @@ const { execSync } = require('child_process');
 let site = execSync('~/.platformsh/bin/platform environment:info edge_hostname');
 let siteFull = `https://www.${site}`;
 
-if (!process.env.PLATFORM_RELATIONSHIPS && process.env.GITHUB_ACTIONS !== 'true') {
-    siteFull = 'https://colby.lndo.site';
-}
+// if (!process.env.PLATFORM_RELATIONSHIPS && process.env.GITHUB_ACTIONS !== 'true') {
+//     siteFull = 'https://colby.lndo.site';
+// }
 
 module.exports = defineConfig({
     defaultCommandTimeout: 10000,

@@ -1,11 +1,11 @@
 {
     "require": {
-        "wpackagist-plugin/cf-images": "1.9.4",
+        "wpackagist-plugin/cf-images": "1.9.8",
         "colbycommunications/colby-its-status": "1.0.0",
         "wpackagist-plugin/tinymce-advanced": "5.9.2",
         "wpackagist-plugin/disable-everything": "0.4.1",
         "phpseclib/phpseclib": "~3.0",
-        "wpackagist-plugin/tablepress": "3.0.2"
+        "wpackagist-plugin/tablepress": "3.2.6"
     },
     "repositories": [],
     "extra": {

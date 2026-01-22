@@ -40,3 +40,9 @@ jobs:
       - run: npm install
       - name: Run Cypress Tests
         run: npm run tests;npm run test:blocks:prod -- --template=page-with-sidebar --deletePage
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots

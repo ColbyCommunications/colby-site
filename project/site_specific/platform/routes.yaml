@@ -875,6 +875,10 @@
   to: '/people/offices-directory/academic-technology-services/'
   regexp: true
   code: 301
+'^/hpc/?$':
+  to: '/people/offices-directory/academic-technology-services/high-performance-computing/'
+  regexp: true
+  code: 301
 
 # Admissions
 '^/people/offices-directory/admissions-and-financial-aid/?$':

@@ -1347,6 +1347,10 @@
   to: '/people/offices-directory/goldfarb-center-for-public-affairs/in-the-news/'
   regexp: true
   code: 301
+'^/people/offices-directory/goldfarb-center-for-public-affairs/student-funding-and-awards/franko-maisel-prize-for-public-policy/?$':
+  to: '/people/offices-directory/goldfarb-center-for-public-affairs/student-funding-and-awards/franko-maisel-prize-for-public-affairs/'
+  regexp: true
+  code: 301
 
 # Grants
 '^/people/offices-directory/grants-and-sponsored-programs/?$':

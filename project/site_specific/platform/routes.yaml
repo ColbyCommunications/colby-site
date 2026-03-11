@@ -894,7 +894,7 @@
 
 # Alumni & Families
 '^/people/offices-directory/alumni-and-families/?$':
-  to: 'https://www.colby.edu/colbyalumni/'
+  to: 'https://alumni.colby.edu/'
   regexp: true
   code: 301
 

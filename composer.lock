@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6af077d96efd00bc4af4769d8c13ffed",
+    "content-hash": "fd5a679946ecd6a7b4b2eee7c0d78b9c",
     "packages": [
         {
             "name": "colbycommunications/advanced-custom-fields-pro",
@@ -153,11 +153,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "3.9.4",
+            "version": "3.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "b9df0538f3f7d412daa0b11264a709e88c14785f"
+                "reference": "9c6fa533114da3e4232f09dd00752ff613ddfb78"
             },
             "require": {
                 "php": ">=7.1"
@@ -173,7 +173,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-03-05T17:55:29+00:00"
+            "time": "2026-03-11T14:11:10+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -201,6 +201,28 @@
                 "wordpress"
             ],
             "time": "2024-10-28T16:18:28+00:00"
+        },
+        {
+            "name": "colbycommunications/colby-rave-alert-sync",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ColbyCommunications/colby-rave-alert-sync",
+                "reference": "fd7357ac21019effe226516a263e2fa156062fc5"
+            },
+            "type": "wordpress-plugin",
+            "authors": [
+                {
+                    "name": "Brandon Waltz",
+                    "email": "brandon.waltz@colby.edu"
+                }
+            ],
+            "description": "Colby RAVE banner sync",
+            "homepage": "https://github.com/colbycommunications/colby-rave-alert-sync",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2026-03-11T14:01:57+00:00"
         },
         {
             "name": "colbycommunications/colby-ticket",
@@ -5283,16 +5305,16 @@
         },
         {
             "name": "wp-cli/mustangostang-spyc",
-            "version": "0.6.3",
+            "version": "0.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/spyc.git",
-                "reference": "6aa0b4da69ce9e9a2c8402dab8d43cf32c581cc7"
+                "reference": "752b7bf37989214bf4b3344cb8bc4c581f820a5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/spyc/zipball/6aa0b4da69ce9e9a2c8402dab8d43cf32c581cc7",
-                "reference": "6aa0b4da69ce9e9a2c8402dab8d43cf32c581cc7",
+                "url": "https://api.github.com/repos/wp-cli/spyc/zipball/752b7bf37989214bf4b3344cb8bc4c581f820a5b",
+                "reference": "752b7bf37989214bf4b3344cb8bc4c581f820a5b",
                 "shasum": ""
             },
             "require": {
@@ -5328,9 +5350,9 @@
             "description": "A simple YAML loader/dumper class for PHP (WP-CLI fork)",
             "homepage": "https://github.com/mustangostang/spyc/",
             "support": {
-                "source": "https://github.com/wp-cli/spyc/tree/autoload"
+                "source": "https://github.com/wp-cli/spyc/tree/0.6.4"
             },
-            "time": "2017-04-25T11:26:20+00:00"
+            "time": "2026-03-10T17:15:34+00:00"
         },
         {
             "name": "wp-cli/package-command",

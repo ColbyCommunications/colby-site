@@ -5,7 +5,8 @@
         "wpackagist-plugin/tinymce-advanced": "5.9.2",
         "wpackagist-plugin/disable-everything": "0.4.1",
         "phpseclib/phpseclib": "~3.0",
-        "wpackagist-plugin/tablepress": "3.2.6"
+        "wpackagist-plugin/tablepress": "3.2.6",
+        "colbycommunications/colby-rave-alert-sync": "1.0.0"
     },
     "repositories": [],
     "extra": {

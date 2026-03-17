@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f07a71cd7b8c4dff0710c890f5186bc",
+    "content-hash": "cd05107f4c48139f60cfeec386629152",
     "packages": [
         {
             "name": "colbycommunications/advanced-custom-fields-pro",
@@ -153,11 +153,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "3.10.0",
+            "version": "3.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "8f5380e41114cf4632a0e2c4bdf221565e26d4b8"
+                "reference": "0a9d554146ad83f13f72285c1a799fda5b2ac6d9"
             },
             "require": {
                 "php": ">=7.1"
@@ -173,7 +173,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-03-17T17:30:15+00:00"
+            "time": "2026-03-17T17:57:08+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -5727,16 +5727,16 @@
         },
         {
             "name": "wp-cli/search-replace-command",
-            "version": "v2.1.9",
+            "version": "v2.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/search-replace-command.git",
-                "reference": "14aea81eca68effbc651d5fca4891a89c0667b2e"
+                "reference": "7adffe34203b6d37215202a98f602ab97994c941"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/search-replace-command/zipball/14aea81eca68effbc651d5fca4891a89c0667b2e",
-                "reference": "14aea81eca68effbc651d5fca4891a89c0667b2e",
+                "url": "https://api.github.com/repos/wp-cli/search-replace-command/zipball/7adffe34203b6d37215202a98f602ab97994c941",
+                "reference": "7adffe34203b6d37215202a98f602ab97994c941",
                 "shasum": ""
             },
             "require": {
@@ -5781,9 +5781,9 @@
             "homepage": "https://github.com/wp-cli/search-replace-command",
             "support": {
                 "issues": "https://github.com/wp-cli/search-replace-command/issues",
-                "source": "https://github.com/wp-cli/search-replace-command/tree/v2.1.9"
+                "source": "https://github.com/wp-cli/search-replace-command/tree/v2.1.10"
             },
-            "time": "2025-11-11T13:31:01+00:00"
+            "time": "2026-03-16T15:19:32+00:00"
         },
         {
             "name": "wp-cli/server-command",

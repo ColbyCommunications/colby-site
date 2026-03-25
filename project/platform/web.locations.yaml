@@ -22,7 +22,7 @@
   rules:
     '^/robots\.txt$':
       allow: true
-      passthru: '/web/wp-content/robots.txt'
+      passthru: '/web/robots.txt'
     '^/sitemap\.xml$':
       allow: true
     '^/(?!wp/)([_0-9a-zA-Z-]+/)?wp-login.php$':

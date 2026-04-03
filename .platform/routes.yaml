@@ -5,7 +5,7 @@
 
 
 ########## DEFAULT ##########
-"https://www.{default}/":
+"https://{default}/":
     type: upstream
     upstream: "app:http"
     cache:
@@ -18,11 +18,11 @@
       paths: !include ../project/site_specific/platform/routes.yaml
 
 # *ALL* www.* requests should be redirected back to primary domain
-"https://{all}/":
+"https://www.{all}/":
     type: redirect
-    to: "https://www.{default}/"
+    to: "https://{default}/"
 # All vanity domain requests should be redirected to primary domain
-"https://{default}/":
+"https://{all}/":
   type: redirect
-  to: "https://www.{default}/"
+  to: "https://{default}/"
   

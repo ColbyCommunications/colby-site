@@ -1,2 +1,7 @@
+# Allow Siteimprove
+User-agent: SiteimproveBot
+Allow: /
+
+# Block everything else
 User-agent: *
 Disallow: /

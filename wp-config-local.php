@@ -4,8 +4,6 @@
  */
 if ( 'ON' === getenv( 'LANDO' ) ) {
 
-	define( 'PRIMARY_DOMAIN', 'www.colby.edu' );
-
 	$site_scheme  = 'https';
 	$objLandoInfo = json_decode( getenv( 'LANDO_INFO', true ) );
 	define( 'DB_NAME', $objLandoInfo->database->creds->database );

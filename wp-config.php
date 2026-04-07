@@ -156,12 +156,15 @@ if ( false !== $strRelationships = getenv( 'PLATFORM_RELATIONSHIPS' ) ) {
 			}
 		}
 	}
+
+	putenv("LANDO=OFF");
 } else {
 	// You can create a wp-config-local.php file with local configuration.
 	if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 		include dirname( __FILE__ ) . '/wp-config-local.php';
 	}
 }
+define( 'PRIMARY_DOMAIN', 'www.colby.edu' );
 
 // Define wp-content directory outside of WordPress core directory
 define( 'WP_HOME', $site_scheme . '://' . $site_host );

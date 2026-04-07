@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "54e10be10a59abdae58280efd7645a0cf03d1888"
+                "reference": "493d4d0bfbdae14a3c9d9e8e86eb40eb5b8af050"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -245,7 +245,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-04-06T19:37:28+00:00"
+            "time": "2026-04-07T13:17:16+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -3133,12 +3133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/db-command.git",
-                "reference": "33c4c58a17b21b2d708713d0e04df9a392b9c412"
+                "reference": "2556346c8ad092721e50f4223ce2f189d5ab3019"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/db-command/zipball/33c4c58a17b21b2d708713d0e04df9a392b9c412",
-                "reference": "33c4c58a17b21b2d708713d0e04df9a392b9c412",
+                "url": "https://api.github.com/repos/wp-cli/db-command/zipball/2556346c8ad092721e50f4223ce2f189d5ab3019",
+                "reference": "2556346c8ad092721e50f4223ce2f189d5ab3019",
                 "shasum": ""
             },
             "require": {
@@ -3200,7 +3200,7 @@
                 "issues": "https://github.com/wp-cli/db-command/issues",
                 "source": "https://github.com/wp-cli/db-command/tree/main"
             },
-            "time": "2026-03-27T11:49:25+00:00"
+            "time": "2026-04-07T09:27:14+00:00"
         },
         {
             "name": "wp-cli/embed-command",
@@ -5306,5 +5306,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

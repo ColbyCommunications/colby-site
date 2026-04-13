@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "cfd7d8766da22b1222c7fd0120d5401f64ac3533"
+                "reference": "d1d2c23f14f38ae517f92c92314711f8e8a794df"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -245,7 +245,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-04-13T12:10:40+00:00"
+            "time": "2026-04-13T13:47:01+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -2128,12 +2128,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "2adaf4106f2ef4c67271971bde6d3fe0a6936432"
+                "reference": "82e4e329f0533b3a016ff8e5de97f96804d5a1ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/2adaf4106f2ef4c67271971bde6d3fe0a6936432",
-                "reference": "2adaf4106f2ef4c67271971bde6d3fe0a6936432",
+                "url": "https://api.github.com/repos/symfony/string/zipball/82e4e329f0533b3a016ff8e5de97f96804d5a1ae",
+                "reference": "82e4e329f0533b3a016ff8e5de97f96804d5a1ae",
                 "shasum": ""
             },
             "require": {
@@ -2209,7 +2209,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-02-08T20:44:54+00:00"
+            "time": "2026-04-13T12:48:23+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -2635,12 +2635,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/ai-command.git",
-                "reference": "736bee0b962d03708841fbed8134187ce962c2f9"
+                "reference": "070bac0f247d76744df6896dc7a5a861e390ca5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/ai-command/zipball/736bee0b962d03708841fbed8134187ce962c2f9",
-                "reference": "736bee0b962d03708841fbed8134187ce962c2f9",
+                "url": "https://api.github.com/repos/wp-cli/ai-command/zipball/070bac0f247d76744df6896dc7a5a861e390ca5e",
+                "reference": "070bac0f247d76744df6896dc7a5a861e390ca5e",
                 "shasum": ""
             },
             "require": {
@@ -2687,7 +2687,7 @@
                 "issues": "https://github.com/wp-cli/ai-command/issues",
                 "source": "https://github.com/wp-cli/ai-command/tree/main"
             },
-            "time": "2026-04-02T09:40:41+00:00"
+            "time": "2026-04-13T12:56:31+00:00"
         },
         {
             "name": "wp-cli/block-command",

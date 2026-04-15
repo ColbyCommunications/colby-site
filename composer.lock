@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70678a80a7473d1954e179eba377d7ca",
+    "content-hash": "5283eb18a655aa4f6a1894f3f2a17c17",
     "packages": [
         {
             "name": "boxybird/inertia-wordpress",
@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "dfac86562b1ced7a272dc5cb4863dc60435812fb"
+                "reference": "b1a291722ed8d5e770bb316c36c76067ba128256"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -245,7 +245,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-04-14T19:42:52+00:00"
+            "time": "2026-04-15T17:16:47+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -4818,12 +4818,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli.git",
-                "reference": "13ae7ab75f4baa2f593a4a029dc3979646495430"
+                "reference": "53134e3c93c9f0a8f2276f1a3f9c688ee5f3e45d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/13ae7ab75f4baa2f593a4a029dc3979646495430",
-                "reference": "13ae7ab75f4baa2f593a4a029dc3979646495430",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/53134e3c93c9f0a8f2276f1a3f9c688ee5f3e45d",
+                "reference": "53134e3c93c9f0a8f2276f1a3f9c688ee5f3e45d",
                 "shasum": ""
             },
             "require": {
@@ -4894,7 +4894,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli/issues",
                 "source": "https://github.com/wp-cli/wp-cli"
             },
-            "time": "2026-04-14T18:25:32+00:00"
+            "time": "2026-04-15T08:17:00+00:00"
         },
         {
             "name": "wp-cli/wp-cli-bundle",
@@ -4902,12 +4902,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli-bundle.git",
-                "reference": "c4e8e4d5c741d6e3fa5482a83e8e16ec10d975d8"
+                "reference": "fa5285f9559751a4edb77cdd7a0293aa80bdbb69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/c4e8e4d5c741d6e3fa5482a83e8e16ec10d975d8",
-                "reference": "c4e8e4d5c741d6e3fa5482a83e8e16ec10d975d8",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/fa5285f9559751a4edb77cdd7a0293aa80bdbb69",
+                "reference": "fa5285f9559751a4edb77cdd7a0293aa80bdbb69",
                 "shasum": ""
             },
             "require": {
@@ -4973,7 +4973,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli-bundle/issues",
                 "source": "https://github.com/wp-cli/wp-cli-bundle"
             },
-            "time": "2026-04-14T16:24:26+00:00"
+            "time": "2026-04-14T20:39:54+00:00"
         },
         {
             "name": "wp-cli/wp-config-transformer",
@@ -5186,6 +5186,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
+        },
+        {
+            "name": "wpackagist-plugin/svg-support",
+            "version": "2.5.14",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/svg-support/",
+                "reference": "tags/2.5.14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/svg-support.2.5.14.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/svg-support/"
         },
         {
             "name": "wpackagist-plugin/tinymce-advanced",

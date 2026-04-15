@@ -31,7 +31,8 @@
         "wpackagist-plugin/cf-images": "1.9.4",
         "colbycommunications/colby-its-status": "1.0.0",
         "wpackagist-plugin/tinymce-advanced": "5.9.2",
-        "wpackagist-plugin/disable-everything": "0.4.1"
+        "wpackagist-plugin/disable-everything": "0.4.1",
+        "wpackagist-plugin/svg-support": "2.5.14"
     },
     "minimum-stability": "dev",
     "authors": [

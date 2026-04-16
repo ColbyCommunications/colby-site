@@ -90,3 +90,11 @@
 "/signature-assets":
   root: 'signature/dist/signature-assets'
   allow: true
+
+"/_healthcheck":
+  root: '_healthcheck'
+  allow: true
+  scripts: false
+  expires: -1
+  index:
+    - index.html

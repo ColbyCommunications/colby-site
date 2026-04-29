@@ -226,7 +226,11 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
+<<<<<<< HEAD
                 "reference": "8e796ce8cf067d30b834cf14ffb8266020644459"
+=======
+                "reference": "3ae4989cde32886ac6a0a37d39d37dd85ea299ad"
+>>>>>>> 48fe1374fe34bb71e34100c32f580ce14f6e7822
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -245,7 +249,11 @@
             "keywords": [
                 "wordpress"
             ],
+<<<<<<< HEAD
             "time": "2026-04-29T13:57:35+00:00"
+=======
+            "time": "2026-04-29T13:52:28+00:00"
+>>>>>>> 48fe1374fe34bb71e34100c32f580ce14f6e7822
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -5324,5 +5332,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

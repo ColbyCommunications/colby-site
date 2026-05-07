@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "23e2990ffb0b27d5f5580d9d665fd160fc0984be"
+                "reference": "5ba6e033fac950ac36163d407b81dfeb915c67d2"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -245,7 +245,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-05-06T20:50:52+00:00"
+            "time": "2026-05-07T12:04:01+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -795,12 +795,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Result-Type.git",
-                "reference": "806fe8441c34bed1318bc779e2a510e6555f2169"
+                "reference": "af45ab35db4f5eb070fe9e66b25c7b5e546391d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/806fe8441c34bed1318bc779e2a510e6555f2169",
-                "reference": "806fe8441c34bed1318bc779e2a510e6555f2169",
+                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/af45ab35db4f5eb070fe9e66b25c7b5e546391d1",
+                "reference": "af45ab35db4f5eb070fe9e66b25c7b5e546391d1",
                 "shasum": ""
             },
             "require": {
@@ -850,7 +850,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-03-19T18:33:23+00:00"
+            "time": "2026-05-06T22:12:07+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",

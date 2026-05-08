@@ -12,7 +12,7 @@
         "wpackagist-plugin/public-post-preview": "3.0.1",
         "wpackagist-plugin/wp-saml-auth": "2.3.0",
         "wp-cli/wp-cli-bundle": "^2.4",
-        "psy/psysh": "^0.10.4",
+        "psy/psysh": "^0.12.22",
         "colbycommunications/advanced-custom-fields-pro": "6.7.0.2",
         "colbycommunications/gravityforms": "2.9.25.1",
         "colbycommunications/colby-ticket": "^1.0.0",

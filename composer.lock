@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "71b60b5a002fd65d914c2d76057d067acb5a59dd"
+                "reference": "d9c066566f84dafbf7ef819f43958f22dfaea720"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -245,7 +245,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-05-11T13:34:32+00:00"
+            "time": "2026-05-12T16:13:42+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -1377,12 +1377,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "d7d2b64a45a89d607865927b176fa51c33ddbb58"
+                "reference": "54427d705b14265b4907e33411f8a0ad669f0b2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/d7d2b64a45a89d607865927b176fa51c33ddbb58",
-                "reference": "d7d2b64a45a89d607865927b176fa51c33ddbb58",
+                "url": "https://api.github.com/repos/symfony/console/zipball/54427d705b14265b4907e33411f8a0ad669f0b2d",
+                "reference": "54427d705b14265b4907e33411f8a0ad669f0b2d",
                 "shasum": ""
             },
             "require": {
@@ -1467,7 +1467,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-22T15:21:55+00:00"
+            "time": "2026-05-11T15:31:27+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

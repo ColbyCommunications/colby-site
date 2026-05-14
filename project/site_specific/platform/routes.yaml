@@ -1923,6 +1923,12 @@
   regexp: true
   code: 301
 
+# Sponsored Programs
+'^/people/offices-directory/foundation-relations-and-sponsored-programs/?$':
+  to: '/people/offices-directory/sponsored-programs-and-scholarship/'
+  regexp: true
+  code: 301
+
 # Student Fianncial Services
 '^/ach/?$':
   to: 'https://commerce.cashnet.com/cashnetg/static/epayment/colbypay/login?isGuestUser=yes'

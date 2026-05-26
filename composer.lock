@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "63886b8f0a3c431c9c8bbd917483ae79f0062ebb"
+                "reference": "dac82f5954a41379868fcfb4d97e0d020c2f2a9e"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -245,7 +245,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-05-26T16:42:49+00:00"
+            "time": "2026-05-26T16:57:01+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",

@@ -284,12 +284,13 @@ function App() {
                                 }}
                             >
                                 <input
+                                    id="fb-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={fbChecked}
                                     onChange={() => setFbChecked(!fbChecked)}
                                 />
-                                <label htmlFor="fb">Facebook:</label>
+                                <label htmlFor="fb-checkbox">Facebook:</label>
                             </span>
                             <input
                                 id="fb"
@@ -308,12 +309,13 @@ function App() {
                                 }}
                             >
                                 <input
+                                    id="insta-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={instaChecked === true}
                                     onChange={() => setInstaChecked(!instaChecked)}
                                 />
-                                <label htmlFor="insta">Instagram:</label>
+                                <label htmlFor="insta-checkbox">Instagram:</label>
                             </span>
                             <input
                                 id="insta"
@@ -332,12 +334,13 @@ function App() {
                                 }}
                             >
                                 <input
+                                    id="twit-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={twitChecked === true}
                                     onChange={() => setTwitChecked(!twitChecked)}
                                 />
-                                <label htmlFor="twit">X:</label>
+                                <label htmlFor="twit-checkbox">X:</label>
                             </span>
                             <input
                                 id="twit"
@@ -356,12 +359,13 @@ function App() {
                                 }}
                             >
                                 <input
+                                    id="li-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={liChecked === true}
                                     onChange={() => setLiChecked(!liChecked)}
                                 />
-                                <label htmlFor="li">LinkedIn:</label>
+                                <label htmlFor="li-checkbox">LinkedIn:</label>
                             </span>
                             <input
                                 id="li"
@@ -380,12 +384,13 @@ function App() {
                                 }}
                             >
                                 <input
+                                    id="yt-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={ytChecked === true}
                                     onChange={() => setYtChecked(!ytChecked)}
                                 />
-                                <label htmlFor="yt">YouTube:</label>
+                                <label htmlFor="yt-checkbox">YouTube:</label>
                             </span>
                             <input
                                 id="yt"

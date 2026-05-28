@@ -283,6 +283,7 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="fb-checkbox" className="visually-hidden">Include Facebook link</label>
                                 <input
                                     id="fb-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -290,7 +291,7 @@ function App() {
                                     checked={fbChecked}
                                     onChange={() => setFbChecked(!fbChecked)}
                                 />
-                                <label htmlFor="fb-checkbox">Facebook:</label>
+                                <label htmlFor="fb">Facebook:</label>
                             </span>
                             <input
                                 id="fb"
@@ -308,6 +309,7 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="insta-checkbox" className="visually-hidden">Include Instagram link</label>
                                 <input
                                     id="insta-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -315,7 +317,7 @@ function App() {
                                     checked={instaChecked === true}
                                     onChange={() => setInstaChecked(!instaChecked)}
                                 />
-                                <label htmlFor="insta-checkbox">Instagram:</label>
+                                <label htmlFor="insta">Instagram:</label>
                             </span>
                             <input
                                 id="insta"
@@ -333,6 +335,7 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="twit-checkbox" className="visually-hidden">Include X link</label>
                                 <input
                                     id="twit-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -340,7 +343,7 @@ function App() {
                                     checked={twitChecked === true}
                                     onChange={() => setTwitChecked(!twitChecked)}
                                 />
-                                <label htmlFor="twit-checkbox">X:</label>
+                                <label htmlFor="twit">X:</label>
                             </span>
                             <input
                                 id="twit"
@@ -358,6 +361,7 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="li-checkbox" className="visually-hidden">Include LinkedIn link</label>
                                 <input
                                     id="li-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -365,7 +369,7 @@ function App() {
                                     checked={liChecked === true}
                                     onChange={() => setLiChecked(!liChecked)}
                                 />
-                                <label htmlFor="li-checkbox">LinkedIn:</label>
+                                <label htmlFor="li">LinkedIn:</label>
                             </span>
                             <input
                                 id="li"
@@ -383,6 +387,7 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="yt-checkbox" className="visually-hidden">Include YouTube link</label>
                                 <input
                                     id="yt-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -390,7 +395,7 @@ function App() {
                                     checked={ytChecked === true}
                                     onChange={() => setYtChecked(!ytChecked)}
                                 />
-                                <label htmlFor="yt-checkbox">YouTube:</label>
+                                <label htmlFor="yt">YouTube:</label>
                             </span>
                             <input
                                 id="yt"

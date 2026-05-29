@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "dd81e4897b94d08bf901630c4dee1dd8d46e28c5"
+                "reference": "ba3c38e5b87cd7c668d5293abf2742f1db1aad18"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -245,7 +245,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-05-28T17:42:37+00:00"
+            "time": "2026-05-29T14:12:33+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -2341,12 +2341,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "86f3b3a1f2827013fcd5dafbaf9e76dc2de13c90"
+                "reference": "79884dee1cf8b7025962cf8b9cda1b085e08d758"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/86f3b3a1f2827013fcd5dafbaf9e76dc2de13c90",
-                "reference": "86f3b3a1f2827013fcd5dafbaf9e76dc2de13c90",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/79884dee1cf8b7025962cf8b9cda1b085e08d758",
+                "reference": "79884dee1cf8b7025962cf8b9cda1b085e08d758",
                 "shasum": ""
             },
             "require": {
@@ -2414,7 +2414,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-27T13:06:12+00:00"
+            "time": "2026-05-29T09:45:30+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

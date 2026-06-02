@@ -1,7 +1,11 @@
 {
     "ci": {
       "collect": {
-        "numberOfRuns": 3
+        "numberOfRuns": 3,
+        "settings": {
+            "disableDeviceEmulation": true,
+            "chromeFlags": "--user-agent=\"colby-github\""
+        }
       },
       "assert": {
         "assertions": {

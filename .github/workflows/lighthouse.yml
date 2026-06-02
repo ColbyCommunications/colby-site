@@ -1,6 +1,9 @@
 name: Lighthouse 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - 'inertia'
 jobs:
   run_lighthouse:
     runs-on: ubuntu-latest

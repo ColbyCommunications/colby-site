@@ -83,9 +83,27 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.WEBMASTER_GITHUB_ACTIONS_TOKEN }}
       - run: npm install -g sitemap_utils jsonlint sitemap commander
       
-      - name: Generate Sitemap
+       - name: Set Domain ENV
         run: |
+          echo "DOMAIN=www.$( ~/.platformsh/bin/platform domains --format=plain --no-header --columns=name )" >> $GITHUB_ENV
+          echo $DOMAIN
+
+      - name: Generate Sitemap
+        if: ${{ contains(env.DOMAIN, 'colby.edu')}}
+        run: |
+          ./scripts/sitemap_master.sh
+          flatten_sitemap --sitemap https://www.$( ~/.platformsh/bin/platform domains --format=plain --no-header --columns=name )/sitemap_index.xml --config .github/sitemap.json --limit 25 --randomize
+      
+      - name: Generate Sitemap
+        if: ${{ !contains(env.DOMAIN, 'colby.edu')}}
+        run: |
+          run: |
           ./scripts/sitemap.sh
+      
+      - name: Warm Cache
+        if: ${{ contains(env.DOMAIN, 'colby.edu')}}
+        run: |
+          node ./scripts/warm_cache.js
 
       - name: Archive sitemap
         uses: actions/upload-artifact@v4

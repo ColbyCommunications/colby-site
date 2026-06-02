@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88090b13a9050f38d1be882527184a45",
+    "content-hash": "b47ae650f429bde6ecd0413f366bb7d0",
     "packages": [
         {
             "name": "boxybird/inertia-wordpress",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e65e7b08819074821b492bfc7d70314",
+    "content-hash": "b47ae650f429bde6ecd0413f366bb7d0",
     "packages": [
         {
             "name": "boxybird/inertia-wordpress",
@@ -222,18 +222,17 @@
         },
         {
             "name": "colbycommunications/colby-college-theme-inertia",
-            "version": "dev-master",
+            "version": "dev-performance-updates",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "49ebc641c346a97387201fefef260eb2be26a1f0"
+                "reference": "991241e6a0e2da93b171fd7394ee1c02b7a303fb"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
                 "php": ">=7.1",
                 "symfony/var-dumper": "^5.4.47"
             },
-            "default-branch": true,
             "type": "wordpress-theme",
             "authors": [
                 {
@@ -245,7 +244,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-06-01T13:31:31+00:00"
+            "time": "2026-06-02T13:40:16+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -2341,12 +2340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "4e58cb22e5af2b8680854c377ec0ab6dfd901ea1"
+                "reference": "2a2f058f7050eb54710930bb6d86315e2f74de36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/4e58cb22e5af2b8680854c377ec0ab6dfd901ea1",
-                "reference": "4e58cb22e5af2b8680854c377ec0ab6dfd901ea1",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/2a2f058f7050eb54710930bb6d86315e2f74de36",
+                "reference": "2a2f058f7050eb54710930bb6d86315e2f74de36",
                 "shasum": ""
             },
             "require": {
@@ -2414,7 +2413,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-01T07:00:03+00:00"
+            "time": "2026-06-02T11:58:28+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

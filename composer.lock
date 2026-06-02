@@ -53,16 +53,16 @@
         },
         {
             "name": "colbycommunications/advanced-custom-fields-pro",
-            "version": "6.4.2",
+            "version": "6.7.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/advanced-custom-fields-pro.git",
-                "reference": "288472a52f89837d40f6db829ca168dbea05baf0"
+                "reference": "f9e9eaa3bff0d866503a1e907e8e362da10a4d77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/advanced-custom-fields-pro/colbycommunications-advanced-custom-fields-pro-288472a52f89837d40f6db829ca168dbea05baf0-zip-f3d990.zip",
-                "reference": "288472a52f89837d40f6db829ca168dbea05baf0"
+                "url": "https://satis.colby.edu/dist/colbycommunications/advanced-custom-fields-pro/colbycommunications-advanced-custom-fields-pro-f9e9eaa3bff0d866503a1e907e8e362da10a4d77-zip-323bbc.zip",
+                "reference": "f9e9eaa3bff0d866503a1e907e8e362da10a4d77"
             },
             "type": "wordpress-plugin",
             "autoload": {
@@ -81,7 +81,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2025-06-27T14:29:22+00:00"
+            "time": "2026-01-05T18:12:50+00:00"
         },
         {
             "name": "colbycommunications/capabilities-pro",
@@ -198,11 +198,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "3.4.6",
+            "version": "3.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "e76b45d0794ef53eee48d5d8f5cec290b5d93da4"
+                "reference": "84aab1cffcbefc4fa8d831a669f27a8ee5b97c33"
             },
             "require": {
                 "php": ">=7.1"
@@ -218,7 +218,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2025-10-03T20:33:30+00:00"
+            "time": "2026-05-28T18:45:11+00:00"
         },
         {
             "name": "colbycommunications/colby-college-theme-inertia",
@@ -302,16 +302,16 @@
         },
         {
             "name": "colbycommunications/gravityforms",
-            "version": "2.9.11",
+            "version": "2.9.25.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/gravityforms.git",
-                "reference": "ebd4143a04a725adb72f00350df37a79e038e984"
+                "reference": "b543c0036dcfa7982f7feba884df3a85055a4952"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-ebd4143a04a725adb72f00350df37a79e038e984-zip-0271ca.zip",
-                "reference": "ebd4143a04a725adb72f00350df37a79e038e984"
+                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-b543c0036dcfa7982f7feba884df3a85055a4952-zip-ce692f.zip",
+                "reference": "b543c0036dcfa7982f7feba884df3a85055a4952"
             },
             "type": "wordpress-plugin",
             "authors": [
@@ -325,7 +325,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2025-06-27T16:33:38+00:00"
+            "time": "2026-01-20T18:45:32+00:00"
         },
         {
             "name": "colbycommunications/presspermit-pro",

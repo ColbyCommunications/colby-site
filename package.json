@@ -15,6 +15,8 @@
         "scroll-to-bottomjs": "^1.1.0"
     },
     "scripts": {
-        "tests": "npx cypress run --config-file project/site_specific/config/cypress/cypress.config.js"
+        "tests": "npx cypress run --config-file project/site_specific/config/cypress/cypress.config.js",
+        "audit:desktop": "./scripts/lighthouse-scripts.sh desktop",
+        "audit:mobile": "./scripts/lighthouse-scripts.sh mobile"
     }
 }

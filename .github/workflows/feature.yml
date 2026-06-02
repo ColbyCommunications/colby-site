@@ -83,7 +83,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.WEBMASTER_GITHUB_ACTIONS_TOKEN }}
       - run: npm install -g sitemap_utils jsonlint sitemap commander
       
-       - name: Set Domain ENV
+      - name: Set Domain ENV
         run: |
           echo "DOMAIN=www.$( ~/.platformsh/bin/platform domains --format=plain --no-header --columns=name )" >> $GITHUB_ENV
           echo $DOMAIN

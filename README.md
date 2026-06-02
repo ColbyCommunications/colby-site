@@ -1,6 +1,6 @@
 # Colby.edu Platform Site
 
-## How to Use This Repo as a Template.
+## How to Use This Repo as a Template
 
 1. Click "Use this Template" button
 2. Create it in the Colby Communications organization under the naming convention `[sitename]-site`

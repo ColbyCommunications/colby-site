@@ -53,16 +53,16 @@
         },
         {
             "name": "colbycommunications/advanced-custom-fields-pro",
-            "version": "6.7.0.2",
+            "version": "6.8.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/advanced-custom-fields-pro.git",
-                "reference": "f9e9eaa3bff0d866503a1e907e8e362da10a4d77"
+                "reference": "f58a2f2d286e7002e8c93191a1eba590a50bb114"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/advanced-custom-fields-pro/colbycommunications-advanced-custom-fields-pro-f9e9eaa3bff0d866503a1e907e8e362da10a4d77-zip-323bbc.zip",
-                "reference": "f9e9eaa3bff0d866503a1e907e8e362da10a4d77"
+                "url": "https://satis.colby.edu/dist/colbycommunications/advanced-custom-fields-pro/colbycommunications-advanced-custom-fields-pro-f58a2f2d286e7002e8c93191a1eba590a50bb114-zip-751286.zip",
+                "reference": "f58a2f2d286e7002e8c93191a1eba590a50bb114"
             },
             "type": "wordpress-plugin",
             "autoload": {
@@ -81,7 +81,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-01-05T18:12:50+00:00"
+            "time": "2026-06-02T16:21:28+00:00"
         },
         {
             "name": "colbycommunications/capabilities-pro",
@@ -226,7 +226,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "116ccd891014f90ff0d4f58c90f6382d9057d9b8"
+                "reference": "8119a50c37e8603dbc79706b45bd528a0607a7d8"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -244,7 +244,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-06-02T21:23:55+00:00"
+            "time": "2026-06-03T13:42:37+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -302,16 +302,16 @@
         },
         {
             "name": "colbycommunications/gravityforms",
-            "version": "2.9.25.1",
+            "version": "2.10.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:ColbyCommunications/gravityforms.git",
-                "reference": "b543c0036dcfa7982f7feba884df3a85055a4952"
+                "reference": "aeec1b3b32e636b66bcc21494f35b20ffbec76fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-b543c0036dcfa7982f7feba884df3a85055a4952-zip-ce692f.zip",
-                "reference": "b543c0036dcfa7982f7feba884df3a85055a4952"
+                "url": "https://satis.colby.edu/dist/colbycommunications/gravityforms/colbycommunications-gravityforms-aeec1b3b32e636b66bcc21494f35b20ffbec76fb-zip-fdbe18.zip",
+                "reference": "aeec1b3b32e636b66bcc21494f35b20ffbec76fb"
             },
             "type": "wordpress-plugin",
             "authors": [
@@ -325,7 +325,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-01-20T18:45:32+00:00"
+            "time": "2026-06-02T16:23:47+00:00"
         },
         {
             "name": "colbycommunications/presspermit-pro",
@@ -4757,12 +4757,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli.git",
-                "reference": "17b0090b994dbb0f584d6347cb603902b6aec241"
+                "reference": "40f80275afc4a71dd188168fbc86909421627386"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/17b0090b994dbb0f584d6347cb603902b6aec241",
-                "reference": "17b0090b994dbb0f584d6347cb603902b6aec241",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/40f80275afc4a71dd188168fbc86909421627386",
+                "reference": "40f80275afc4a71dd188168fbc86909421627386",
                 "shasum": ""
             },
             "require": {
@@ -4833,7 +4833,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli/issues",
                 "source": "https://github.com/wp-cli/wp-cli"
             },
-            "time": "2026-06-02T15:41:12+00:00"
+            "time": "2026-06-03T08:50:39+00:00"
         },
         {
             "name": "wp-cli/wp-cli-bundle",
@@ -4841,12 +4841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli-bundle.git",
-                "reference": "b6c190359c523407e320509618aa34c436dfda58"
+                "reference": "3c6d511d32e20fa86e219cc63ebe7de97379c980"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/b6c190359c523407e320509618aa34c436dfda58",
-                "reference": "b6c190359c523407e320509618aa34c436dfda58",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/3c6d511d32e20fa86e219cc63ebe7de97379c980",
+                "reference": "3c6d511d32e20fa86e219cc63ebe7de97379c980",
                 "shasum": ""
             },
             "require": {
@@ -4912,7 +4912,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli-bundle/issues",
                 "source": "https://github.com/wp-cli/wp-cli-bundle"
             },
-            "time": "2026-06-02T15:41:14+00:00"
+            "time": "2026-06-03T09:05:41+00:00"
         },
         {
             "name": "wp-cli/wp-config-transformer",

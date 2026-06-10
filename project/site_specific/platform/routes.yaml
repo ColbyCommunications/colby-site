@@ -3830,3 +3830,7 @@
   to: '/people/offices-directory/events/all-forms/event-request-form/'
   regexp: true
   code: 301
+'^/portclyde/?$':
+  to: 'https://colbyrsvp.regfox.com/colby-center-for-resilience-and-economic-impact'
+  regexp: true
+  code: 301

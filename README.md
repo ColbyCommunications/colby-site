@@ -1,4 +1,4 @@
-# Colby.edu Platform Site.
+# Colby.edu Platform Site
 
 ## How to Use This Repo as a Template
 

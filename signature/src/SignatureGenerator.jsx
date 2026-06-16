@@ -283,7 +283,9 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
-                                <label htmlFor="fb-checkbox" className="visually-hidden">Include Facebook link</label>
+                                <label htmlFor="fb-checkbox" className="visually-hidden">
+                                    Include Facebook link
+                                </label>
                                 <input
                                     id="fb-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -309,7 +311,9 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
-                                <label htmlFor="insta-checkbox" className="visually-hidden">Include Instagram link</label>
+                                <label htmlFor="insta-checkbox" className="visually-hidden">
+                                    Include Instagram link
+                                </label>
                                 <input
                                     id="insta-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -335,7 +339,9 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
-                                <label htmlFor="twit-checkbox" className="visually-hidden">Include X link</label>
+                                <label htmlFor="twit-checkbox" className="visually-hidden">
+                                    Include X link
+                                </label>
                                 <input
                                     id="twit-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -361,7 +367,9 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
-                                <label htmlFor="li-checkbox" className="visually-hidden">Include LinkedIn link</label>
+                                <label htmlFor="li-checkbox" className="visually-hidden">
+                                    Include LinkedIn link
+                                </label>
                                 <input
                                     id="li-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -387,7 +395,9 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
-                                <label htmlFor="yt-checkbox" className="visually-hidden">Include YouTube link</label>
+                                <label htmlFor="yt-checkbox" className="visually-hidden">
+                                    Include YouTube link
+                                </label>
                                 <input
                                     id="yt-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
@@ -895,7 +905,7 @@ function App() {
                                     </tbody>
                                 </table>
                             </div>
-                            <div className="copy-container">
+                            <div className="copy-container" style={{ minHeight: '44px' }}>
                                 <button type="button" className="copy" onClick={copy}>
                                     Copy
                                 </button>

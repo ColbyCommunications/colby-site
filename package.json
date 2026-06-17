@@ -5,20 +5,18 @@
     "author": "",
     "license": "None",
     "dependencies": {
-        "algoliasearch": "^4.13.1",
-        "superagent": "10.2.1",
-        "@colbycommunications/colby-lighthouse-batch": "1.0.2"
+        "@colbycommunications/colby-lighthouse-batch": "1.0.2",
+        "superagent": "10.2.1"
     },
     "devDependencies": {
         "@percy/cli": "^1.28.0",
         "@percy/puppeteer": "^2.0.2",
-        "scroll-to-bottomjs": "^1.1.0",
         "cypress": "^14.4.1",
-        "xml2js": "^0.6.2"
+        "scroll-to-bottomjs": "^1.1.0"
     },
     "scripts": {
         "tests": "npx cypress run --config-file project/site_specific/config/cypress/cypress.config.js",
-        "test:blocks:local": "NODE_ENV=local node scripts/run-block-test.js",
-        "test:blocks:prod": "NODE_ENV=prod node scripts/run-block-test.js"
+        "audit:desktop": "./scripts/lighthouse-scripts.sh desktop",
+        "audit:mobile": "./scripts/lighthouse-scripts.sh mobile"
     }
 }

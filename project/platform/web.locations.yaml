@@ -19,7 +19,21 @@
   expires: 3600s
   scripts: true
   allow: true
-  rules: !include web.locations.root.rules.yaml
+  rules:
+    '^/robots\.txt$':
+      allow: true
+      passthru: '/web/robots.txt'
+    '^/sitemap\.xml$':
+      allow: true
+    '^/(?!wp/)([_0-9a-zA-Z-]+/)?wp-login.php$':
+      allow: true
+      scripts: true
+      passthru: '/wp/wp-login.php'
+    # Allows directory-based multisites to still access the wp-admin and wp-include locations
+    '^/(?!wp/)([_0-9a-zA-Z-]+/)?(?<adminrewrite>wp-(admin|includes).*)':
+      allow: true
+      scripts: true
+      passthru: '/wp/$adminrewrite'
 
 ################################
 ###        WORDPRESS        ###
@@ -76,3 +90,11 @@
 "/signature-assets":
   root: 'signature/dist/signature-assets'
   allow: true
+
+"/_healthcheck":
+  root: '_healthcheck'
+  allow: true
+  scripts: false
+  expires: -1
+  index:
+    - index.html

@@ -3,6 +3,7 @@
  * Lando-specific configuration
  */
 if ( 'ON' === getenv( 'LANDO' ) ) {
+
 	$site_scheme  = 'https';
 	$objLandoInfo = json_decode( getenv( 'LANDO_INFO', true ) );
 	define( 'DB_NAME', $objLandoInfo->database->creds->database );
@@ -12,8 +13,8 @@ if ( 'ON' === getenv( 'LANDO' ) ) {
 	define( 'DB_CHARSET', 'utf8' );
 	define( 'DB_COLLATE', '' );
 	define( 'WP_DEBUG', false );
-	define( 'WP_DEBUG_LOG', false );
-	define( 'WP_DEBUG_SCREEN', false );
+	define( 'WP_DEBUG_LOG', true );
+	define( 'WP_DEBUG_SCREEN', true );
 	define( 'ALGOLIA_INDEX_NAME_PREFIX', 'local_colbyedu_' );
 
 	//now we need to set up our salts. this is local so this shouldnt be as crucial to have truly unique keys

@@ -234,7 +234,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "61e806af6c7db5cb70226d8fbb2ec17ca83904cf"
+                "reference": "d91941b70f339b97c9fab5fd1b0aac7d12136d06"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -253,7 +253,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-06-23T17:48:04+00:00"
+            "time": "2026-06-26T12:38:53+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -1321,12 +1321,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "aee298fa5ee2a8324c1c768b86e6ca4e66147d3b"
+                "reference": "3d10b1da732e9562a271bb5af033fc93353d5ae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/aee298fa5ee2a8324c1c768b86e6ca4e66147d3b",
-                "reference": "aee298fa5ee2a8324c1c768b86e6ca4e66147d3b",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/3d10b1da732e9562a271bb5af033fc93353d5ae7",
+                "reference": "3d10b1da732e9562a271bb5af033fc93353d5ae7",
                 "shasum": ""
             },
             "require": {
@@ -1393,7 +1393,7 @@
                 "issues": "https://github.com/bobthecow/psysh/issues",
                 "source": "https://github.com/bobthecow/psysh/tree/main"
             },
-            "time": "2026-06-11T16:30:02+00:00"
+            "time": "2026-06-24T12:06:54+00:00"
         },
         {
             "name": "symfony/console",
@@ -2365,12 +2365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "ec0f5d5dadf3fb0f441dfbe8cfc1137f14e485a9"
+                "reference": "6a175a574556e0a761513bde4db69d39141d6e88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ec0f5d5dadf3fb0f441dfbe8cfc1137f14e485a9",
-                "reference": "ec0f5d5dadf3fb0f441dfbe8cfc1137f14e485a9",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/6a175a574556e0a761513bde4db69d39141d6e88",
+                "reference": "6a175a574556e0a761513bde4db69d39141d6e88",
                 "shasum": ""
             },
             "require": {
@@ -2438,7 +2438,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-19T06:06:30+00:00"
+            "time": "2026-06-25T07:13:09+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

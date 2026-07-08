@@ -1401,6 +1401,10 @@
   to: 'https://www.colby.edu/people/offices-directory/people-services/$1'
   regexp: true
   code: 301
+'^/people/offices-directory/human-resources/?$':
+  to: 'https://www.colby.edu/people/offices-directory/people-services/'
+  regexp: true
+  code: 301
 
 # ITS
 '^/its/campus-telephone-upgrade/?$':

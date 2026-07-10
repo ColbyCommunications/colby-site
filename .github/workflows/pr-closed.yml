@@ -20,9 +20,9 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.WEBMASTER_SSH_PRIVATE_KEY }}
 
-      - name: Install Psh CLI
+      - name: Install Upsun CLI
         run: |
-          curl -sS https://platform.sh/cli/installer | php
+          curl -fsSL https://raw.githubusercontent.com/upsun/cli/main/installer.sh | bash
 
       - name: Load certificate
         run: ~/.platformsh/bin/platform ssh-cert:load -y -vv

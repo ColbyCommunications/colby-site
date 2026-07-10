@@ -4,7 +4,7 @@ on:
     branches:
       - 'dev'
 env:
-  PLATFORMSH_CLI_TOKEN: ${{ secrets.upsun_CLI_TOKEN }}
+  UPSUN_CLI_TOKEN: ${{ secrets.upsun_CLI_TOKEN }}
   WEBMASTER_GITHUB_ACTIONS_TOKEN: ${{ secrets.WEBMASTER_GITHUB_ACTIONS_TOKEN }}
   PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_PROJECT_ID }}
   PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
@@ -25,7 +25,7 @@ jobs:
           curl -fsSL https://raw.githubusercontent.com/upsun/cli/main/installer.sh | bash
 
       - name: Load certificate
-        run: ~/.upsun/bin/upsun ssh-cert:load -y -vv
+        run: upsun ssh-cert:load --no-interaction
 
       - name: Add Psh to trusted keys
         continue-on-error: true
@@ -38,19 +38,19 @@ jobs:
   
       - name: Check Environment Exists
         run: |
-          ~/.upsun/bin/upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
+          upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
           node ./scripts/check_platform_feature_branch.js --branch=${GITHUB_REF#refs/heads/} --branchFrom=master --id=${{ secrets.PLATFORM_PROJECT_ID }}
         
       - name: Spin up environment
         if: "!contains(github.event.head_commit.message, '[skip platform]')"
         run: |
-          ~/.upsun/bin/upsun project:get ${{ secrets.PLATFORM_PROJECT_ID }} platform-remote --environment=${GITHUB_REF#refs/heads/}
+          upsun project:get ${{ secrets.PLATFORM_PROJECT_ID }} platform-remote --environment=${GITHUB_REF#refs/heads/}
           cd platform-remote
-          ~/.upsun/bin/upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
+          upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
           git config --global user.email "webmaster@colby.edu"
           git config --global user.name "Colby Webmaster"
           git pull -X theirs git@github.com:ColbyCommunications/${{ github.event.repository.name }}.git ${GITHUB_REF#refs/heads/}
-          ~/.upsun/bin/upsun environment:push -vv --target=${GITHUB_REF#refs/heads/} --project=${{ secrets.PLATFORM_PROJECT_ID }} --environment=${GITHUB_HEAD_REF} --force
+          upsun environment:push -vv --target=${GITHUB_REF#refs/heads/} --project=${{ secrets.PLATFORM_PROJECT_ID }} --environment=${GITHUB_HEAD_REF} --force
 
   test_prep:
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
       - name: Install Psh CLI
         run: |
           curl -fsSL https://raw.githubusercontent.com/upsun/cli/main/installer.sh | bash
-          ~/.upsun/bin/upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
+          upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
 
       - name: Setup node
         uses: actions/setup-node@v3

@@ -38,8 +38,8 @@ jobs:
 
       - name: Delete PR Platform Branch
         run: |
-          ~/.platformsh/bin/platform project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
-          ~/.platformsh/bin/platform environment:delete ${GITHUB_HEAD_REF} --project=${{ secrets.PLATFORM_PROJECT_ID }} --delete-branch
+          upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
+          upsun environment:delete ${GITHUB_HEAD_REF} --project=${{ secrets.PLATFORM_PROJECT_ID }} --delete-branch
       
       - name: Clone Pages
         run: |

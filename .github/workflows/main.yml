@@ -25,7 +25,7 @@ jobs:
           curl -fsSL https://raw.githubusercontent.com/upsun/cli/main/installer.sh | bash
 
       - name: Load certificate
-        run: ~/.upsun/bin/upsun ssh-cert:load -y -vv
+        run: upsun ssh-cert:load --no-interaction
 
       - name: Add Psh to trusted keys
         continue-on-error: true
@@ -45,13 +45,13 @@ jobs:
       - name: Spin up environment
         if: "!contains(github.event.head_commit.message, '[skip platform]')"
         run: |
-          ~/.upsun/bin/upsun project:get ${{ secrets.PLATFORM_PROJECT_ID }} platform-remote --environment=${GITHUB_REF#refs/heads/}
+          upsun project:get ${{ secrets.PLATFORM_PROJECT_ID }} platform-remote --environment=${GITHUB_REF#refs/heads/}
           cd platform-remote
-          ~/.upsun/bin/upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
+          upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
           git config --global user.email "webmaster@colby.edu"
           git config --global user.name "Colby Webmaster"
           git pull -X theirs git@github.com:ColbyCommunications/${{ github.event.repository.name }}.git ${GITHUB_REF#refs/heads/}
-          ~/.upsun/bin/upsun environment:push -vv --target=${GITHUB_REF#refs/heads/} --project=${{ secrets.PLATFORM_PROJECT_ID }} --environment=${GITHUB_HEAD_REF} --force
+          upsun environment:push -vv --target=${GITHUB_REF#refs/heads/} --project=${{ secrets.PLATFORM_PROJECT_ID }} --environment=${GITHUB_HEAD_REF} --force
 
   test_prep:
     runs-on: ubuntu-latest
@@ -61,7 +61,7 @@ jobs:
       - name: Install Psh CLI
         run: |
           curl -sS https://platform.sh/cli/installer | php
-          ~/.upsun/bin/upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
+          upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -75,14 +75,14 @@ jobs:
 
       - name: Set Domain ENV
         run: |
-          echo "DOMAIN=www.$( ~/.upsun/bin/upsun domains --format=plain --no-header --columns=name )" >> $GITHUB_ENV
+          echo "DOMAIN=www.$( upsun domains --format=plain --no-header --columns=name )" >> $GITHUB_ENV
           echo $DOMAIN
 
       - name: Generate Sitemap
         if: ${{ contains(env.DOMAIN, 'colby.edu')}}
         run: |
           ./scripts/sitemap_master.sh
-          flatten_sitemap --sitemap https://www.$( ~/.upsun/bin/upsun domains --format=plain --no-header --columns=name )/sitemap_index.xml --config .github/sitemap.json --limit 25 --randomize
+          flatten_sitemap --sitemap https://www.$( upsun domains --format=plain --no-header --columns=name )/sitemap_index.xml --config .github/sitemap.json --limit 25 --randomize
       
       - name: Generate Sitemap
         if: ${{ !contains(env.DOMAIN, 'colby.edu')}}

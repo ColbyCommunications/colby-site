@@ -27,6 +27,7 @@ jobs:
       - name: Install Upsun CLI
         run: |
           curl -fsSL https://raw.githubusercontent.com/upsun/cli/main/installer.sh | bash
+          ls -la ~
 
       - name: Load certificate
         run: ~/.upsun/bin/upsun ssh-cert:load -y -vv

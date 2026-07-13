@@ -36,7 +36,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: '22.x'
+          node-version: '24.x'
           registry-url: 'https://npm.pkg.github.com'
       - run: ~/.platformsh/bin/platform redeploy -y
       - run: npm install

@@ -1386,7 +1386,7 @@
   regexp: true
   code: 301
 '^/humanresources/(.*)$':
-  to: 'https://www.colby.edu/people/offices-directory/people-services/'
+  to: 'https://www.colby.edu/people/offices-directory/people-services/$1'
   regexp: true
   code: 301
 '^/hr/?$':

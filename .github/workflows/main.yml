@@ -37,7 +37,7 @@ jobs:
           cat ~/.ssh/known_hosts
   
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: '24.x'
           registry-url: 'https://npm.pkg.github.com'
@@ -64,7 +64,7 @@ jobs:
           upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: '24.x'
           registry-url: 'https://npm.pkg.github.com'
@@ -96,7 +96,7 @@ jobs:
           node ./scripts/warm_cache.js
           
       - name: Archive sitemap
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: sitemap
           path: .github/sitemap.json
@@ -108,7 +108,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: '24.x'
           registry-url: 'https://npm.pkg.github.com'
@@ -123,7 +123,7 @@ jobs:
       - name: Audit URLs using Lighthouse
         run: npx lighthouse-batch -s $( jq -r '.urls | join(",")' sitemap.json ) --params "--extra-headers=.github/lighthouse_headers.json" --html --print
       - name: Archive Lighthouse Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: results
           path: report/lighthouse
@@ -138,7 +138,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.WEBMASTER_SSH_PRIVATE_KEY }}
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: '24.x'
           registry-url: 'https://npm.pkg.github.com'

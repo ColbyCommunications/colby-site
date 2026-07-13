@@ -34,7 +34,7 @@ jobs:
           done 2>/dev/null >> ~/.ssh/known_hosts
           cat ~/.ssh/known_hosts
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v6
         with:
           node-version: '24.x'
           registry-url: 'https://npm.pkg.github.com'

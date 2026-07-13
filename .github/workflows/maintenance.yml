@@ -33,7 +33,7 @@ jobs:
       - name: Generate cypress.env.json from secret
         run: echo '${{ secrets.CYPRESS_ENV_JSON }}' > cypress.env.json
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v6
         with:
           node-version: '24.x'
           registry-url: 'https://npm.pkg.github.com'

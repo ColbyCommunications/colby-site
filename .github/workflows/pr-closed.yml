@@ -52,7 +52,7 @@ jobs:
           
       - name: Deploy to GitHub Pages
         if: success()
-        uses: crazy-max/ghaction-github-pages@v3
+        uses: crazy-max/ghaction-github-pages@v5
         with:
           target_branch: ghpages
           build_dir: public

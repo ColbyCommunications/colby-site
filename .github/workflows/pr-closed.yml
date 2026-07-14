@@ -5,7 +5,7 @@ on:
     branches-ignore:
       - 'master'
 env:
-  PLATFORMSH_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
+  UPSUN_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
   WEBMASTER_GITHUB_ACTIONS_TOKEN: ${{ secrets.WEBMASTER_GITHUB_ACTIONS_TOKEN }}
   PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_PROJECT_ID }}
   PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
@@ -25,7 +25,7 @@ jobs:
           curl -fsSL https://raw.githubusercontent.com/upsun/cli/main/installer.sh | bash
 
       - name: Load certificate
-        run: ~/.platformsh/bin/platform ssh-cert:load -y -vv
+        run: upsun ssh-cert:load --no-interaction
 
       - name: Add Psh to trusted keys
         continue-on-error: true

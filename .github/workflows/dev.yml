@@ -4,7 +4,7 @@ on:
     branches:
       - 'dev'
 env:
-  UPSUN_CLI_TOKEN: ${{ secrets.upsun_CLI_TOKEN }}
+  UPSUN_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
   WEBMASTER_GITHUB_ACTIONS_TOKEN: ${{ secrets.WEBMASTER_GITHUB_ACTIONS_TOKEN }}
   PLATFORM_PROJECT_ID: ${{ secrets.PLATFORM_PROJECT_ID }}
   PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
@@ -49,6 +49,7 @@ jobs:
           upsun project:set-remote ${{ secrets.PLATFORM_PROJECT_ID }}
           git config --global user.email "webmaster@colby.edu"
           git config --global user.name "Colby Webmaster"
+          git config pull.rebase false
           git pull -X theirs git@github.com:ColbyCommunications/${{ github.event.repository.name }}.git ${GITHUB_REF#refs/heads/}
           upsun environment:push -vv --target=${GITHUB_REF#refs/heads/} --project=${{ secrets.PLATFORM_PROJECT_ID }} --environment=${GITHUB_HEAD_REF} --force
 

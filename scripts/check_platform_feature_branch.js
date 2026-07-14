@@ -25,7 +25,7 @@ function getArgs() {
 const args = getArgs();
 
 exec(
-    '~/.upsun/bin/upsun environment:list --columns=ID --format=plain --no-header',
+    'upsun environment:list --columns=ID --format=plain --no-header',
     (error, stdout, stderr) => {
         if (error) {
             return;
@@ -36,7 +36,7 @@ exec(
 
         if (!stdout.includes(args.branch)) {
             execSync(
-                ` ~/.upsun/bin/upsun environment:branch ${args.branch} ${args.branchFrom}`,
+                `upsun environment:branch ${args.branch} ${args.branchFrom}`,
                 (error, stdout, stderr) => {
                     if (error) {
                         return;

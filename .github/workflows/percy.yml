@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: '24.x'
           registry-url: 'https://npm.pkg.github.com'
-      - run: ~/.platformsh/bin/platform redeploy -y
+      - run: upsun redeploy -y
       - run: npm install
       - name: Set Up Chrome
         uses: browser-actions/setup-chrome@v1

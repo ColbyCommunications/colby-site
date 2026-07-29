@@ -198,12 +198,20 @@
   code: 301
 
 # East Asian Studies
+'^/academics/departments-and-programs/east-asian-studies/?$':
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/'
+  regexp: true
+  code: 301
+'^/academics/departments-and-programs/east-asian-studies/(.*)$':
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/$1/'
+  regexp: true
+  code: 301
 '^/eastasianstudies/(.*)$':
-  to: '/academics/departments-and-programs/east-asian-studies/'
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/'
   regexp: true
   code: 301
 '^/eastasianstudies/?$':
-  to: '/academics/departments-and-programs/east-asian-studies/'
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/'
   regexp: true
   code: 301
 '^/eastasianstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
@@ -211,7 +219,7 @@
   regexp: true
   code: 301
 '^/east-asian-studies/?$':
-  to: '/academics/departments-and-programs/east-asian-studies/'
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/'
   regexp: true
   code: 301
 

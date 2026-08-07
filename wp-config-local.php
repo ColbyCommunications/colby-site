@@ -14,7 +14,7 @@ if ( 'ON' === getenv( 'LANDO' ) ) {
 	define( 'DB_COLLATE', '' );
 	define( 'WP_DEBUG', true );
 	define( 'WP_DEBUG_LOG', true );
-	define( 'WP_DEBUG_DISPLAY', true );
+	define( 'WP_DEBUG_DISPLAY', false );
 	define( 'ALGOLIA_INDEX_NAME_PREFIX', 'local_colbyedu_' );
 
 	//now we need to set up our salts. this is local so this shouldnt be as crucial to have truly unique keys

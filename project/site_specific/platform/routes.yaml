@@ -198,12 +198,20 @@
   code: 301
 
 # East Asian Studies
+'^/academics/departments-and-programs/east-asian-studies/?$':
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/'
+  regexp: true
+  code: 301
+'^/academics/departments-and-programs/east-asian-studies/(.*)$':
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/$1/'
+  regexp: true
+  code: 301
 '^/eastasianstudies/(.*)$':
-  to: '/academics/departments-and-programs/east-asian-studies/'
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/'
   regexp: true
   code: 301
 '^/eastasianstudies/?$':
-  to: '/academics/departments-and-programs/east-asian-studies/'
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/'
   regexp: true
   code: 301
 '^/eastasianstudies/\d{4}/\d{2}/\d{2}/(.+)/?$':
@@ -211,7 +219,7 @@
   regexp: true
   code: 301
 '^/east-asian-studies/?$':
-  to: '/academics/departments-and-programs/east-asian-studies/'
+  to: '/academics/departments-and-programs/east-asian-languages-and-cultures/'
   regexp: true
   code: 301
 
@@ -875,6 +883,10 @@
   to: '/people/offices-directory/academic-technology-services/'
   regexp: true
   code: 301
+'^/hpc/?$':
+  to: '/people/offices-directory/academic-technology-services/high-performance-computing/'
+  regexp: true
+  code: 301
 
 # Admissions
 '^/people/offices-directory/admissions-and-financial-aid/?$':
@@ -890,7 +902,7 @@
 
 # Alumni & Families
 '^/people/offices-directory/alumni-and-families/?$':
-  to: 'https://www.colby.edu/colbyalumni/'
+  to: 'https://alumni.colby.edu/'
   regexp: true
   code: 301
 
@@ -970,11 +982,11 @@
 
 # Dining Services
 '^/dining/?$':
-  to: 'https://colby.nutrislice.com/'
+  to: 'https://colbydining.nutrislice.com/'
   regexp: true
   code: 301
 '^/people/offices-directory/dining-services/?$':
-  to: 'https://colby.nutrislice.com/'
+  to: 'https://colbydining.nutrislice.com/'
   regexp: true
   code: 301
 
@@ -1289,10 +1301,6 @@
   code: 301
 
 # General Counsel
-'^/people/offices-directory/general-counsel/a-legal-perspective-on-generative-ai-use-at-colby/?$':
-  to: '/wp-content/uploads/2025/08/GC-AI-Guidance-Document-16.pdf'
-  regexp: true
-  code: 301
 '^/policy-library/?$':
   to: '/people/offices-directory/general-counsel/colby-policy-library/'
   regexp: true
@@ -1332,11 +1340,19 @@
   regexp: true
   code: 301
 '^/lovejoy/?$':
-  to: 'https://goldfarbcenter.colby.edu/events/flagship-events/elijah-parish-lovejoy-award-for-courage-in-journalism/'
+  to: '/people/offices-directory/goldfarb-center-for-public-affairs/events/lovejoy-award-for-courage-in-journalism/'
   regexp: true
   code: 301
 '^/lovejoyaward/?$':
-  to: 'https://goldfarbcenter.colby.edu/events/flagship-events/elijah-parish-lovejoy-award-for-courage-in-journalism/'
+  to: '/people/offices-directory/goldfarb-center-for-public-affairs/events/lovejoy-award-for-courage-in-journalism/'
+  regexp: true
+  code: 301
+'^/people/offices-directory/goldfarb-center-for-public-affairs/events-in-the-news/?$':
+  to: '/people/offices-directory/goldfarb-center-for-public-affairs/in-the-news/'
+  regexp: true
+  code: 301
+'^/people/offices-directory/goldfarb-center-for-public-affairs/student-funding-and-awards/franko-maisel-prize-for-public-policy/?$':
+  to: '/people/offices-directory/goldfarb-center-for-public-affairs/student-funding-and-awards/franko-maisel-prize-for-public-affairs/'
   regexp: true
   code: 301
 
@@ -1373,269 +1389,36 @@
   code: 301
   
 # HR
-'^/humanresources/staff/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/human-resources-staff/'
-  regexp: true
-  code: 301
-'^/humanresources/pathways/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/staff-learning-and-development/'
-  regexp: true
-  code: 301
-'^/humanresources/onboarding-at-colby/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/onboarding/'
-  regexp: true
-  code: 301
-'^/humanresources/employment/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employment/'
-  regexp: true
-  code: 301
-'^/humanresources/academic-employment/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employment/academic-positions-available/'
-  regexp: true
-  code: 301
-'^/humanresources/dual-career-resources/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employment/additional-employment-resources/'
-  regexp: true
-  code: 301
-'^/humanresources/employment_notices/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employment/employment-notices/'
-  regexp: true
-  code: 301
-'^/humanresources/studentemployment/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employment/student-employment-at-colby/'
-  regexp: true
-  code: 301
-'^/humanresources/summer-employment-2025/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employment/summer-employment/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/insurance/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/healthcare/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/insurance/medical-plans/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/healthcare/medical/'
-  regexp: true
-  code: 301
-'^/humanresources/open-access-plus-oap-plan/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/healthcare/medical/open-access-plus-1250-plan/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/insurance/medical-plans/cigna-choice-fund-high-deductible-hsa-plan/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/healthcare/medical/cigna-choice-fund-high-deductible-hsa/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/insurance/dental/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/healthcare/dental/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/insurance/vision-plan/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/healthcare/vision/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/insurance/flexible-spending-account/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/healthcare/flexible-spending-accounts/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/insurance/retiree-med-plan/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/healthcare/retiree-medical/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/insurance/longterm-disability-insurance/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/life-long-and-short-term-disability-insurance/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/retirement/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/403b-retirement-plan/'
-  regexp: true
-  code: 301
-'^/humanresources/summary-annual-reports/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/summary-annual-reports/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/paidandunpaidtimeoff/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/leave/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/tuition-assistance/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/tuition-assistance/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/employee-assistance-program-eap/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/employee-assistance-program-eap/'
-  regexp: true
-  code: 301
-'^/humanresources/retirement-information/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/retiring-from-colby/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/additional-benefits/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/additional-benefits/'
-  regexp: true
-  code: 301
-'^/humanresources/childcare/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/additional-benefits/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/employee-referral-program/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/additional-benefits/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/studentloanforgiveness/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/additional-benefits/'
-  regexp: true
-  code: 301
-'^/humanresources/wellness-2/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/additional-benefits/'
-  regexp: true
-  code: 301
-'^/humanresources/healthadvocate/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/additional-benefits/'
-  regexp: true
-  code: 301
-'^/humanresources/benefits/mid-year-family-or-life-status-changes/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/benefits/midyear-family-or-life-status-changes/'
-  regexp: true
-  code: 301
-'^/humanresources/environmental-health-and-safety/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/'
-  regexp: true
-  code: 301
-'^/humanresources/environmental-health-and-safety/occupational-safety-policies-and-procedures/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/ehs-programs-procedures-and-policies/'
-  regexp: true
-  code: 301
-'^/humanresources/environmental-health-and-safety/emergency-response-operations/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/emergency-response-operations/'
-  regexp: true
-  code: 301
-'^/humanresources/academic-safety-programs/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/academic-safety-programs/'
-  regexp: true
-  code: 301
-'^/humanresources/academic-safety-programs/field-safety-planning/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/academic-safety-programs/'
-  regexp: true
-  code: 301
-'^/humanresources/environmental-health-and-safety/driving-safety-2/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/driving-safety/'
-  regexp: true
-  code: 301
-'^/humanresources/unmanned-aerial-systems-program/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/unmanned-aerial-systems-program-drones/'
-  regexp: true
-  code: 301
-'^/humanresources/environmental-health-and-safety/injuring-reporting-forms/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/workplace-injury-reporting/'
-  regexp: true
-  code: 301
-'^/humanresources/environmental-health-and-safety/office-ergonomics/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/office-ergonomics/'
-  regexp: true
-  code: 301
-'^/humanresources/contractor-safety/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/environment-health-and-safety/contractor-safety/'
-  regexp: true
-  code: 301
-'^/humanresources/recruitment/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/'
-  regexp: true
-  code: 301
-'^/humanresources/recruitment/overview/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/our-mission/'
-  regexp: true
-  code: 301
-'^/humanresources/recruitment/beginning-the-process/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/the-recruitment-hiring-process/'
-  regexp: true
-  code: 301
-'^/humanresources/recruitment/beginning-the-process/interviewing/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/the-recruitment-hiring-process/identifying/'
-  regexp: true
-  code: 301
-'^/humanresources/recruitment/beginning-the-process/selecting-candidate/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/the-recruitment-hiring-process/selection/'
-  regexp: true
-  code: 301
-'^/humanresources/recruitment/applicable-form/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/recruitment-resources/'
-  regexp: true
-  code: 301
-'^/humanresources/recruitment/applicable-form/internal-job-candidates/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/recruitment-resources/'
-  regexp: true
-  code: 301
-'^/humanresources/recruitment/applicable-form/relocation-information/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/recruitment-resources/'
-  regexp: true
-  code: 301
-'^/humanresources/recruitment/diversity-equity-and-inclusion-resources/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/diversity-equity-and-inclusion-resources/'
-  regexp: true
-  code: 301
-'^/humanresources/diversity-equity-and-inclusion-outreach-advertising-resources/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/diversity-equity-and-inclusion-resources/'
-  regexp: true
-  code: 301
-'^/humanresources/diversity-equity-and-inclusion-resources-at-colby/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/recruitment-hiring/diversity-equity-and-inclusion-resources/'
-  regexp: true
-  code: 301
-'^/humanresources/employee/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employee-resources/'
-  regexp: true
-  code: 301
-'^/humanresources/policies-on-alcohol-and-illegal-drugs/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employee-resources/policies-on-alcohol-and-illegal-drugs/'
-  regexp: true
-  code: 301
-'^/humanresources/staff-handbook/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employee-resources/staff-handbook/'
-  regexp: true
-  code: 301
-'^/humanresources/resources/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employee-resources/supervisor-resources/'
-  regexp: true
-  code: 301
-'^/humanresources/forms-and-schedules/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employee-resources/forms/'
-  regexp: true
-  code: 301
-'^/humanresources/staff-awards/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employee-resources/staff-awards/'
-  regexp: true
-  code: 301
-'^/humanresources/tobacco-cessation/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employee-resources/tobacco-cessation/'
-  regexp: true
-  code: 301
-'^/humanresources/tobacco-free-policy/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/employee-resources/tobacco-cessation/'
-  regexp: true
-  code: 301
-
 '^/humanresources/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/'
+  to: 'https://www.colby.edu/people/offices-directory/people-services/'
   regexp: true
   code: 301
 '^/humanresources/(.*)$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/'
+  to: 'https://www.colby.edu/people/offices-directory/people-services/$1'
   regexp: true
   code: 301
 '^/hr/?$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/'
+  to: 'https://www.colby.edu/people/offices-directory/people-services/'
   regexp: true
   code: 301
 '^/hr/(.*)$':
-  to: 'https://www.colby.edu/people/offices-directory/human-resources/'
+  to: 'https://www.colby.edu/people/offices-directory/people-services/'
+  regexp: true
+  code: 301
+'^/people/offices-directory/human-resources/(.+)$':
+  to: 'https://www.colby.edu/people/offices-directory/people-services/$1'
+  regexp: true
+  code: 301
+'^/people/offices-directory/human-resources/?$':
+  to: 'https://www.colby.edu/people/offices-directory/people-services/'
   regexp: true
   code: 301
 
 # ITS
+'^/its/campus-telephone-upgrade/?$':
+  to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/KB/ArticleDet?ID=150522'
+  regexp: true
+  code: 301
 '^/its/venuelookup/?$':
   to: 'https://colby.teamdynamix.com/TDClient/1928/Portal/Requests/ServiceDet?ID=33229'
   regexp: true
@@ -1911,6 +1694,12 @@
   regexp: true
   code: 301
 
+# Sponsored Programs
+'^/people/offices-directory/foundation-relations-and-sponsored-programs/?$':
+  to: '/people/offices-directory/sponsored-programs-and-scholarship/'
+  regexp: true
+  code: 301
+
 # Student Fianncial Services
 '^/ach/?$':
   to: 'https://commerce.cashnet.com/cashnetg/static/epayment/colbypay/login?isGuestUser=yes'
@@ -2152,6 +1941,12 @@
   code: 301
 '^/phibetakappa/(.*)$':
   to: '/academics/phi-beta-kappa/'
+  regexp: true
+  code: 301
+  
+# Public Policy Lab
+'^/people/offices-directory/public-policy-lab/?$':
+  to: '/people/offices-directory/bram-public-policy-lab/'
   regexp: true
   code: 301
 
@@ -3515,11 +3310,11 @@
   regexp: true
   code: 301
 '^/diningservices/catering/?$':
-  to: 'https://colby.nutrislice.com/'
+  to: 'https://colbydining.nutrislice.com/'
   regexp: true
   code: 301
 '^/diningservices/(.*)':
-  to: 'https://colby.nutrislice.com/'
+  to: 'https://colbydining.nutrislice.com/'
   regexp: true
   code: 301
 '^/directory/?$':
@@ -3800,5 +3595,13 @@
   code: 301
 '^/employeebenefits/?$':
   to: '/people/offices-directory/human-resources/benefits/'
+  regexp: true
+  code: 301
+'^/scheduling/?$':
+  to: '/people/offices-directory/events/all-forms/event-request-form/'
+  regexp: true
+  code: 301
+'^/portclyde/?$':
+  to: 'https://colbyrsvp.regfox.com/colby-center-for-resilience-and-economic-impact-speaker-series-island-day/'
   regexp: true
   code: 301

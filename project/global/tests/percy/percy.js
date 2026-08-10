@@ -12,18 +12,32 @@ let siteFull = `https://www.${site}`;
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
 
-    const scrollOptions = {
-        frequency: 100,
-        timing: 200, // milliseconds
-    };
-
-    // Test Page
+    const scrollOptions = { frequency: 100, timing: 200 };
     const testPage = await browser.newPage();
+
+    // 2. Navigate to the test page (now logged in)
+    await testPage.setUserAgent('colby-github');
+
+    // 1. Run the Login Routine
+    // This sets the cookies in the local Puppeteer browser
+    await loginToWordPress(testPage, siteFull);
+
     await testPage.goto(`${siteFull}/test-page`);
+
+    // 3. Capture Cookies to share with Percy
+    // This ensures Percy's asset discovery browser is ALSO logged in
+    const sessionCookies = await testPage.cookies();
+
     await new Promise(function (resolve) {
         setTimeout(async function () {
             await testPage.evaluate(scrollToBottom, scrollOptions);
-            await percySnapshot(testPage, 'Snapshot of test page');
+
+            // 4. Take Snapshot with Cookie Injection
+            await percySnapshot(testPage, 'Snapshot of test page', {
+                discovery: {
+                    cookies: sessionCookies,
+                },
+            });
             resolve();
         }, 3000);
     });

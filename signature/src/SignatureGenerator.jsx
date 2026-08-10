@@ -186,7 +186,9 @@ function App() {
                             placeholder="Name"
                             onChange={(e) => setName(e.target.value)}
                         ></input>
-                        <label htmlFor="pronouns">Pronouns:</label>
+                        <label id="pronouns-label" htmlFor="pronouns">
+                            Pronouns:
+                        </label>
                         <div style={{ width: '100%' }}>
                             {/* Hidden label for checkbox */}
                             <input
@@ -194,11 +196,10 @@ function App() {
                                 type="checkbox"
                                 style={{ marginRight: '0.75rem', padding: '0', width: 'auto' }}
                                 onChange={() => setShowPn(!showPn)}
-                                aria-label="Enable pronouns"
+                                aria-labelledby="pronouns-label"
                                 aria-controls="pronouns pronouns2"
-                                aria-checked={showPn}
+                                checked={showPn}
                             />
-
                             <input
                                 style={{ marginRight: '0.25rem', width: '50px' }}
                                 type="text"
@@ -292,17 +293,22 @@ function App() {
                                     type="checkbox"
                                     checked={fbChecked}
                                     onChange={() => setFbChecked(!fbChecked)}
+                                    aria-labelledby="fb-label"
                                 />
-                                <label htmlFor="fb">Facebook:</label>
+
+                                <label id="fb-label" htmlFor="fb">
+                                    Facebook:
+                                </label>
                             </span>
+
                             <input
                                 id="fb"
                                 className="social-input gen-input"
                                 type="text"
-                                disabled={fbChecked === false}
+                                disabled={!fbChecked}
                                 defaultValue={fbUrl}
                                 onChange={(e) => setFbUrl(e.target.value)}
-                            ></input>
+                            />
 
                             <span
                                 style={{
@@ -320,8 +326,11 @@ function App() {
                                     type="checkbox"
                                     checked={instaChecked === true}
                                     onChange={() => setInstaChecked(!instaChecked)}
+                                    aria-labelledby="insta-label"
                                 />
-                                <label htmlFor="insta">Instagram:</label>
+                                <label id="insta-label" htmlFor="insta">
+                                    Instagram:
+                                </label>
                             </span>
                             <input
                                 id="insta"
@@ -348,8 +357,11 @@ function App() {
                                     type="checkbox"
                                     checked={twitChecked === true}
                                     onChange={() => setTwitChecked(!twitChecked)}
+                                    aria-labelledby="x-label"
                                 />
-                                <label htmlFor="twit">X:</label>
+                                <label id="x-label" htmlFor="twit">
+                                    X:
+                                </label>
                             </span>
                             <input
                                 id="twit"
@@ -376,8 +388,11 @@ function App() {
                                     type="checkbox"
                                     checked={liChecked === true}
                                     onChange={() => setLiChecked(!liChecked)}
+                                    aria-labelledby="li-label"
                                 />
-                                <label htmlFor="li">LinkedIn:</label>
+                                <label id="li-label" htmlFor="li">
+                                    LinkedIn:
+                                </label>
                             </span>
                             <input
                                 id="li"
@@ -404,8 +419,11 @@ function App() {
                                     type="checkbox"
                                     checked={ytChecked === true}
                                     onChange={() => setYtChecked(!ytChecked)}
+                                    aria-labelledby="yt-label"
                                 />
-                                <label htmlFor="yt">YouTube:</label>
+                                <label id="yt-label" htmlFor="yt">
+                                    YouTube:
+                                </label>
                             </span>
                             <input
                                 id="yt"
@@ -429,8 +447,11 @@ function App() {
                                     type="checkbox"
                                     checked={cnChecked === true}
                                     onChange={() => setCnChecked(!cnChecked)}
+                                    aria-labelledby="cn-label"
                                 />
-                                <label htmlFor="cn">Colby News</label>
+                                <label id="cn-label" htmlFor="cn">
+                                    Colby News
+                                </label>
                             </span>
                             <span
                                 style={{
@@ -445,8 +466,11 @@ function App() {
                                     type="checkbox"
                                     checked={BPTWChecked === true}
                                     onChange={() => setBPTWChecked(!BPTWChecked)}
+                                    aria-labelledby="bptw-label"
                                 />
-                                <label htmlFor="bptw">Best Places to Work in Maine</label>
+                                <label id="bptw-label" htmlFor="bptw">
+                                    Best Places to Work in Maine
+                                </label>
                             </span>
                         </form>
                     </form>

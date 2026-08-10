@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b36a337332e02d7aa5f0755bd39c4e8e",
+    "content-hash": "914e742b4db3561a32987c39167bf29f",
     "packages": [
         {
             "name": "boxybird/inertia-wordpress",
@@ -230,18 +230,17 @@
         },
         {
             "name": "colbycommunications/colby-college-theme-inertia",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "1791fe602b205609a3c55ef5c8d1124fc8149342"
+                "reference": "54fa583ba5f3d1386e4dc7dd9f952d33c766a522"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
                 "php": ">=7.1",
                 "symfony/var-dumper": "^5.4.47"
             },
-            "default-branch": true,
             "type": "wordpress-theme",
             "authors": [
                 {
@@ -253,7 +252,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-08-10T11:28:07+00:00"
+            "time": "2026-08-10T14:58:02+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -5556,9 +5555,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "colbycommunications/colby-college-theme-inertia": 20
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {},

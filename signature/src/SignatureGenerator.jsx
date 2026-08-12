@@ -160,6 +160,7 @@ function App() {
                             <option value="jewishLife">Center for Small Town Jewish Life</option>
                             <option value="ctl">Center for Teaching and Learning</option>
                             <option value="cah">Center for Arts and Humanities</option>
+                            <option value="crei">Center for Resilience and Economic Impact</option>
                             <option value="colbyArts">Colby Arts</option>
                             <option value="colbyAthletics">Colby Athletics</option>
                             <option value="museum">Colby Museum</option>
@@ -175,6 +176,7 @@ function App() {
                                 Lunder Institute/Colby Museum Combo
                             </option>
                             <option value="lyons">Lyons Arts Lab</option>
+                            <option value="mcvey">McVey Center</option>
                             <option value="oak">Oak Institute</option>
                             <option value="publicPolicy">Public Policy Lab</option>
                         </select>

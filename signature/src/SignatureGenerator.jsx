@@ -175,7 +175,7 @@ function App() {
                                 Lunder Institute/Colby Museum Combo
                             </option>
                             <option value="lyons">Lyons Arts Lab</option>
-                            <option value="oak">Oak Instituite</option>
+                            <option value="oak">Oak Institute</option>
                             <option value="publicPolicy">Public Policy Lab</option>
                         </select>
                         <label htmlFor="name">Name:</label>

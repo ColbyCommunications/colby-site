@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "393ad3320e56d6b6ed92a745848f5d9a",
+    "content-hash": "6b1f028a28f889815d1dcca2cd2c78c0",
     "packages": [
         {
             "name": "boxybird/inertia-wordpress",
@@ -230,11 +230,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme-inertia",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "44503185faec9cd37c010b9fbe96af678ccbcf74"
+                "reference": "c671cb0ba35ee40dfeb720f2f2d0afd781e6b71e"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -252,7 +252,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-08-14T15:28:43+00:00"
+            "time": "2026-08-14T19:58:19+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -5122,12 +5122,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli-bundle.git",
-                "reference": "475b71cfc79cebd6f380c9dc49e271a3de5ba414"
+                "reference": "a6c450737c4ddccd28a915536cfafe68339825f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/475b71cfc79cebd6f380c9dc49e271a3de5ba414",
-                "reference": "475b71cfc79cebd6f380c9dc49e271a3de5ba414",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/a6c450737c4ddccd28a915536cfafe68339825f2",
+                "reference": "a6c450737c4ddccd28a915536cfafe68339825f2",
                 "shasum": ""
             },
             "require": {
@@ -5193,7 +5193,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli-bundle/issues",
                 "source": "https://github.com/wp-cli/wp-cli-bundle"
             },
-            "time": "2026-08-14T06:18:47+00:00"
+            "time": "2026-08-14T18:46:38+00:00"
         },
         {
             "name": "wp-cli/wp-config-transformer",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "545fd134134859c9a0e4f30637ac94aa",
+    "content-hash": "fe1589e52a921de8f60b911ffbb295db",
     "packages": [
         {
             "name": "boxybird/inertia-wordpress",
@@ -230,11 +230,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme-inertia",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "cc098c9dfe1c2ecb7349ef1ec51a1b3d00b56fa3"
+                "reference": "7ecc92bb3ac8292e1aaa5d6b2a14b2596bc66f36"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -252,7 +252,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-08-13T23:46:09+00:00"
+            "time": "2026-08-14T00:29:28+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",

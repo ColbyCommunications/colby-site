@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74f9f92ffa02379e36df6b7881f211c3",
+    "content-hash": "11fcee25584f3c2a2842297ae68fda53",
     "packages": [
         {
             "name": "boxybird/inertia-wordpress",
@@ -206,11 +206,11 @@
         },
         {
             "name": "colbycommunications/colby-college-theme",
-            "version": "3.10.4",
+            "version": "3.10.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme",
-                "reference": "84aab1cffcbefc4fa8d831a669f27a8ee5b97c33"
+                "reference": "bc989fb3eac178fb5f1e03aa32dc6daf6102b0ef"
             },
             "require": {
                 "php": ">=7.1"
@@ -226,15 +226,15 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-05-28T18:45:11+00:00"
+            "time": "2026-09-09T14:31:32+00:00"
         },
         {
             "name": "colbycommunications/colby-college-theme-inertia",
-            "version": "1.0.18",
+            "version": "1.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColbyCommunications/colby-college-theme-inertia",
-                "reference": "66c7f1a3993c3ab12ebb6442181d496e0c900174"
+                "reference": "efbdb1e98aef0714f389d334f10022d963095e35"
             },
             "require": {
                 "boxybird/inertia-wordpress": "^0.5.6",
@@ -252,7 +252,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2026-09-08T17:27:31+00:00"
+            "time": "2026-09-09T15:50:16+00:00"
         },
         {
             "name": "colbycommunications/colby-its-status",
@@ -1570,12 +1570,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "cdec258b5436fe998ef1db4b542366e27aebacd4"
+                "reference": "48190c087efec57231d8d17da402a02aa93e27c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/cdec258b5436fe998ef1db4b542366e27aebacd4",
-                "reference": "cdec258b5436fe998ef1db4b542366e27aebacd4",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/48190c087efec57231d8d17da402a02aa93e27c3",
+                "reference": "48190c087efec57231d8d17da402a02aa93e27c3",
                 "shasum": ""
             },
             "require": {
@@ -1642,7 +1642,7 @@
                 "issues": "https://github.com/bobthecow/psysh/issues",
                 "source": "https://github.com/bobthecow/psysh/tree/main"
             },
-            "time": "2026-09-08T13:37:20+00:00"
+            "time": "2026-09-09T04:24:33+00:00"
         },
         {
             "name": "symfony/console",
@@ -5134,12 +5134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli-bundle.git",
-                "reference": "789ab57db20822e1c306085584e058f2b5c3afeb"
+                "reference": "d3fac3a78133af989c89c02459b7d95a6745be4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/789ab57db20822e1c306085584e058f2b5c3afeb",
-                "reference": "789ab57db20822e1c306085584e058f2b5c3afeb",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/d3fac3a78133af989c89c02459b7d95a6745be4f",
+                "reference": "d3fac3a78133af989c89c02459b7d95a6745be4f",
                 "shasum": ""
             },
             "require": {
@@ -5205,7 +5205,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli-bundle/issues",
                 "source": "https://github.com/wp-cli/wp-cli-bundle"
             },
-            "time": "2026-09-08T16:19:56+00:00"
+            "time": "2026-09-09T06:27:27+00:00"
         },
         {
             "name": "wp-cli/wp-config-transformer",

@@ -102,7 +102,7 @@ function App() {
                             <header>
                                 <h1>
                                     Colby Email Signature Generator{' '}
-                                    <span className="version">v5</span>
+                                    <span className="version">v6</span>
                                 </h1>
                             </header>
                             <div>
@@ -915,8 +915,8 @@ function App() {
                                                                     }}
                                                                 >
                                                                     <img
-                                                                        src="https://www.colby.edu/signature/images/BPTW_ME_2025.png"
-                                                                        alt="Best Places to Work in Maine 2025"
+                                                                        src="https://www.colby.edu/signature/images/BPTW_ME_2026-signature.png"
+                                                                        alt="Best Places to Work in Maine 2026"
                                                                         height="25"
                                                                     />
                                                                 </td>

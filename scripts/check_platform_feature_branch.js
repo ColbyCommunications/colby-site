@@ -36,7 +36,7 @@ exec(
 
         if (!stdout.includes(args.branch)) {
             execSync(
-                ` upsun environment:branch ${args.branch} ${args.branchFrom}`,
+                `upsun environment:branch ${args.branch} ${args.branchFrom}`,
                 (error, stdout, stderr) => {
                     if (error) {
                         return;

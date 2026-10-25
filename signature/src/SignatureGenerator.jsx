@@ -102,7 +102,7 @@ function App() {
                             <header>
                                 <h1>
                                     Colby Email Signature Generator{' '}
-                                    <span className="version">v5</span>
+                                    <span className="version">v6</span>
                                 </h1>
                             </header>
                             <div>
@@ -160,6 +160,7 @@ function App() {
                             <option value="jewishLife">Center for Small Town Jewish Life</option>
                             <option value="ctl">Center for Teaching and Learning</option>
                             <option value="cah">Center for Arts and Humanities</option>
+                            <option value="crei">Center for Resilience and Economic Impact</option>
                             <option value="colbyArts">Colby Arts</option>
                             <option value="colbyAthletics">Colby Athletics</option>
                             <option value="museum">Colby Museum</option>
@@ -175,7 +176,8 @@ function App() {
                                 Lunder Institute/Colby Museum Combo
                             </option>
                             <option value="lyons">Lyons Arts Lab</option>
-                            <option value="oak">Oak Instituite</option>
+                            <option value="mcvey">McVey Center</option>
+                            <option value="oak">Oak Institute</option>
                             <option value="publicPolicy">Public Policy Lab</option>
                         </select>
                         <label htmlFor="name">Name:</label>
@@ -186,7 +188,9 @@ function App() {
                             placeholder="Name"
                             onChange={(e) => setName(e.target.value)}
                         ></input>
-                        <label htmlFor="pronouns">Pronouns:</label>
+                        <label id="pronouns-label" htmlFor="pronouns">
+                            Pronouns:
+                        </label>
                         <div style={{ width: '100%' }}>
                             {/* Hidden label for checkbox */}
                             <input
@@ -194,11 +198,10 @@ function App() {
                                 type="checkbox"
                                 style={{ marginRight: '0.75rem', padding: '0', width: 'auto' }}
                                 onChange={() => setShowPn(!showPn)}
-                                aria-label="Enable pronouns"
+                                aria-labelledby="pronouns-label"
                                 aria-controls="pronouns pronouns2"
-                                aria-checked={showPn}
+                                checked={showPn}
                             />
-
                             <input
                                 style={{ marginRight: '0.25rem', width: '50px' }}
                                 type="text"
@@ -283,22 +286,31 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="fb-checkbox" className="visually-hidden">
+                                    Include Facebook link
+                                </label>
                                 <input
+                                    id="fb-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={fbChecked}
                                     onChange={() => setFbChecked(!fbChecked)}
+                                    aria-labelledby="fb-label"
                                 />
-                                <label htmlFor="fb">Facebook:</label>
+
+                                <label id="fb-label" htmlFor="fb">
+                                    Facebook:
+                                </label>
                             </span>
+
                             <input
                                 id="fb"
                                 className="social-input gen-input"
                                 type="text"
-                                disabled={fbChecked === false}
+                                disabled={!fbChecked}
                                 defaultValue={fbUrl}
                                 onChange={(e) => setFbUrl(e.target.value)}
-                            ></input>
+                            />
 
                             <span
                                 style={{
@@ -307,13 +319,20 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="insta-checkbox" className="visually-hidden">
+                                    Include Instagram link
+                                </label>
                                 <input
+                                    id="insta-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={instaChecked === true}
                                     onChange={() => setInstaChecked(!instaChecked)}
+                                    aria-labelledby="insta-label"
                                 />
-                                <label htmlFor="insta">Instagram:</label>
+                                <label id="insta-label" htmlFor="insta">
+                                    Instagram:
+                                </label>
                             </span>
                             <input
                                 id="insta"
@@ -331,13 +350,20 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="twit-checkbox" className="visually-hidden">
+                                    Include X link
+                                </label>
                                 <input
+                                    id="twit-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={twitChecked === true}
                                     onChange={() => setTwitChecked(!twitChecked)}
+                                    aria-labelledby="x-label"
                                 />
-                                <label htmlFor="twit">X:</label>
+                                <label id="x-label" htmlFor="twit">
+                                    X:
+                                </label>
                             </span>
                             <input
                                 id="twit"
@@ -355,13 +381,20 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="li-checkbox" className="visually-hidden">
+                                    Include LinkedIn link
+                                </label>
                                 <input
+                                    id="li-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={liChecked === true}
                                     onChange={() => setLiChecked(!liChecked)}
+                                    aria-labelledby="li-label"
                                 />
-                                <label htmlFor="li">LinkedIn:</label>
+                                <label id="li-label" htmlFor="li">
+                                    LinkedIn:
+                                </label>
                             </span>
                             <input
                                 id="li"
@@ -379,13 +412,20 @@ function App() {
                                     alignItems: 'center',
                                 }}
                             >
+                                <label htmlFor="yt-checkbox" className="visually-hidden">
+                                    Include YouTube link
+                                </label>
                                 <input
+                                    id="yt-checkbox"
                                     style={{ width: 'auto', marginRight: '0.75rem' }}
                                     type="checkbox"
                                     checked={ytChecked === true}
                                     onChange={() => setYtChecked(!ytChecked)}
+                                    aria-labelledby="yt-label"
                                 />
-                                <label htmlFor="yt">YouTube:</label>
+                                <label id="yt-label" htmlFor="yt">
+                                    YouTube:
+                                </label>
                             </span>
                             <input
                                 id="yt"
@@ -409,8 +449,11 @@ function App() {
                                     type="checkbox"
                                     checked={cnChecked === true}
                                     onChange={() => setCnChecked(!cnChecked)}
+                                    aria-labelledby="cn-label"
                                 />
-                                <label htmlFor="cn">Colby News</label>
+                                <label id="cn-label" htmlFor="cn">
+                                    Colby News
+                                </label>
                             </span>
                             <span
                                 style={{
@@ -425,8 +468,11 @@ function App() {
                                     type="checkbox"
                                     checked={BPTWChecked === true}
                                     onChange={() => setBPTWChecked(!BPTWChecked)}
+                                    aria-labelledby="bptw-label"
                                 />
-                                <label htmlFor="bptw">Best Places to Work in Maine</label>
+                                <label id="bptw-label" htmlFor="bptw">
+                                    Best Places to Work in Maine
+                                </label>
                             </span>
                         </form>
                     </form>
@@ -869,8 +915,8 @@ function App() {
                                                                     }}
                                                                 >
                                                                     <img
-                                                                        src="https://www.colby.edu/signature/images/BPTW_ME_2025.png"
-                                                                        alt="Best Places to Work in Maine 2025"
+                                                                        src="https://www.colby.edu/signature/images/BPTW_ME_2026-signature.png"
+                                                                        alt="Best Places to Work in Maine 2026"
                                                                         height="25"
                                                                     />
                                                                 </td>
@@ -885,7 +931,7 @@ function App() {
                                     </tbody>
                                 </table>
                             </div>
-                            <div className="copy-container">
+                            <div className="copy-container" style={{ minHeight: '44px' }}>
                                 <button type="button" className="copy" onClick={copy}>
                                     Copy
                                 </button>

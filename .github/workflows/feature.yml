@@ -82,11 +82,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.WEBMASTER_GITHUB_ACTIONS_TOKEN }}
       - run: npm install -g sitemap_utils jsonlint sitemap commander
-      
+
       - name: Generate Sitemap
         run: |
           ./scripts/sitemap.sh
-
+      
       - name: Archive sitemap
         uses: actions/upload-artifact@v7
         with:

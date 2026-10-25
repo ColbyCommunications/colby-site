@@ -159,4 +159,20 @@ export const logos = [
         width: '120',
         offset: '-6px',
     },
+    {
+        name: 'mcvey',
+        image: 'https://www.colby.edu/signature/images/mcvey.png',
+        url: 'https://www.colby.edu/',
+        height: 'auto',
+        width: '120',
+        offset: '-6px',
+    },
+    {
+        name: 'crei',
+        image: 'https://www.colby.edu/signature/images/CREI.png',
+        url: 'https://www.colby.edu/',
+        height: 'auto',
+        width: '120',
+        offset: '-6px',
+    },
 ];

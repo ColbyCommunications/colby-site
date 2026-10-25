@@ -23,6 +23,8 @@
 /web/components/*
 /web/wp-content/directory_data/*
 
+/web/wp-content/debug.log
+
 #Ignore mac stuff
 *.DS_Store
 

@@ -187,7 +187,6 @@ if ( MULTISITE ) {
 }
 
 define( 'WP_CONTENT_URL', $strContentURL );
-define( 'FS_METHOD', 'direct' );
 
 // Since you can have multiple installations in one database, you need a unique
 // prefix.

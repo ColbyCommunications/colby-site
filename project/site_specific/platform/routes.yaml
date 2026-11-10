@@ -3605,3 +3605,7 @@
   to: 'https://colbyrsvp.regfox.com/colby-center-for-resilience-and-economic-impact-speaker-series-island-day/'
   regexp: true
   code: 301
+'^/summer/?$':
+  to: 'https://www.colby.edu/people/offices-directory/special-programs/'
+  regexp: true
+  code: 301

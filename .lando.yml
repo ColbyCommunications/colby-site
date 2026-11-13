@@ -21,7 +21,7 @@ services:
       VITE_FORCE_POLLING: "1"
     command: "npm ci && npm run dev -- --host 0.0.0.0 --port 5173"
   appserver:
-    type: php:8.3
+    type: php:8.5
     build:
         # Intall the platform.sh CLI and make sure it is up to date.
         - "./scripts/lando-platform-install.sh"
